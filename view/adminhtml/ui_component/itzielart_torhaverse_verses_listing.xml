@@ -1,0 +1,120 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">
+                itzielart_torahverse_verses_listing.itzielart_torahverse_verses_listing_data_source
+            </item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>itzielart_torahverse_verses_columns</spinner>
+		<deps>
+			<dep>itzielart_torahverse_verses_listing.itzielart_torahverse_verses_listing_data_source</dep>
+		</deps>
+		<buttons />
+	</settings>
+	<dataSource component="Magento_Ui/js/grid/provider" name="itzielart_torahverse_verses_listing_data_source">
+		<settings>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<aclResource>ITZielArt_TorahVerse::verses</aclResource>
+		<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+            name="itzielart_torahverse_verses_listing_data_source">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>verse_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="data" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">itzielart_torahverse_verses_listing.itzielart_torahverse_verses_listing.itzielart_torahverse_verses_columns.ids</item>
+                    <item name="displayArea" xsi:type="string">bottom</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+                    <item name="indexField" xsi:type="string">verse_id</item>
+                </item>
+            </argument>
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="itzielart_torahverse/verses/delete" />
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete verses</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to delete selected verses?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="itzielart_torahverse_verses_columns">
+		<settings>
+			<editorConfig>
+				<param name="selectProvider" xsi:type="string">
+                    itzielart_torahverse_verses_listing.itzielart_torahverse_verses_listing.itzielart_torahverse_verses_columns.ids
+                </param>
+				<param name="enabled" xsi:type="boolean">false</param>
+				<param name="indexField" xsi:type="string">log_id</param>
+				<param name="clientConfig" xsi:type="array">
+					<item name="saveUrl" path="itzielart_torahverse/verses/inlineEdit" xsi:type="url"/>
+					<item name="validateBeforeSave" xsi:type="boolean">false</item>
+				</param>
+			</editorConfig>
+			<childDefaults>
+				<param name="fieldAction" xsi:type="array">
+					<item name="provider" xsi:type="string">
+                        itzielart_torahverse_verses_listing.itzielart_torahverse_verses_listing.itzielart_torahverse_verses_columns_editor
+                    </item>
+					<item name="target" xsi:type="string">startEdit</item>
+					<item name="params" xsi:type="array">
+						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+						<item name="1" xsi:type="boolean">true</item>
+					</item>
+				</param>
+			</childDefaults>
+		</settings>
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>verses_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="verses_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+                    <item name="label" xsi:type="string" translate="true">ID</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+		</column>
+		<column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+                    <item name="dataType" xsi:type="string">date</item>
+                    <item name="label" xsi:type="string" translate="true">Date</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">70</item>
+                </item>
+            </argument>
+		</column>
+	</columns>
+</listing>

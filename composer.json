@@ -1,0 +1,24 @@
+{
+    "name": "jaroslawzielinski/torahverse-m2",
+    "description": "This module is for Torah verse for the shop",
+    "type": "magento2-module",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "jaroslawzielinski/torah": "dev-master"
+    },
+    "repositories": {
+        "Torah": {
+            "type": "vcs",
+            "url": "https://github.com/JaroslawZielinski/Torah.git"
+        }
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "ITZielArt\\TorahVerse\\": ""
+        }
+    }
+}

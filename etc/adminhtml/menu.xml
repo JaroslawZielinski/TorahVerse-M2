@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="ITZielArt_TorahVerse::menu" resource="ITZielArt_TorahVerse::menu" title="Torah Verse"
+            module="ITZielArt_TorahVerse" sortOrder="10"/>
+
+        <add id="ITZielArt_TorahVerse::torahverse" resource="ITZielArt_TorahVerse::torahverse"
+             title="Main Feature" translate="title" module="ITZielArt_TorahVerse"
+             parent="ITZielArt_TorahVerse::menu" sortOrder="10"/>
+
+        <add id="ITZielArt_TorahVerse::sliders" resource="ITZielArt_TorahVerse::sliders"
+             title="Sliders" action="itzielart_torahverse/sliders/index"
+             module="ITZielArt_TorahVerse" sortOrder="20" parent="ITZielArt_TorahVerse::torahverse"
+             dependsOnModule="ITZielArt_TorahVerse"/>
+
+        <add id="ITZielArt_TorahVerse::verses" resource="ITZielArt_TorahVerse::verses"
+             title="Verses" action="torahverses/verses/index"
+             module="ITZielArt_TorahVerse" sortOrder="30" parent="ITZielArt_TorahVerse::torahverse"
+             dependsOnModule="ITZielArt_TorahVerse"/>
+
+        <add id="ITZielArt_TorahVerse::config"  resource="ITZielArt_TorahVerse::config"
+             title="Configuration" translate="title" module="ITZielArt_TorahVerse"
+             parent="ITZielArt_TorahVerse::menu" sortOrder="20"/>
+
+        <add id="ITZielArt_TorahVerse::configuration" resource="ITZielArt_TorahVerse::configuration"
+             title="Configuration" action="adminhtml/system_config/edit/section/itzielart_torahverse"
+             module="ITZielArt_TorahVerse" sortOrder="40" parent="ITZielArt_TorahVerse::config"
+             dependsOnModule="ITZielArt_TorahVerse"/>
+    </menu>
+</config>

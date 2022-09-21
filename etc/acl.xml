@@ -1,0 +1,25 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="ITZielArt_TorahVerse::menu" title="TorahVerse Menu">
+                    <resource id="ITZielArt_TorahVerse::torahverse" title="ITZielArt TorahVerse">
+                        <resource id="ITZielArt_TorahVerse::sliders" title="ITZielArt TorahVerse Sliders"/>
+                        <resource id="ITZielArt_TorahVerse::verses" title="ITZielArt TorahVerse Verses"/>
+                        <resource id="ITZielArt_TorahVerse::config"
+                            title="ITZielArt TorahVerse Configuration Menu" translate="title" />
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="ITZielArt_TorahVerse::configuration"
+                                title="ITZielArt TorahVerse Configuration" translate="title" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,43 @@
+{
+    "torahverse_sliders": {
+        "column": {
+            "slider_id": true,
+            "name": true,
+            "configuration": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "torahverse_verses": {
+        "column": {
+            "verse_id": true,
+            "name": true,
+            "siglum": true,
+            "translation": true,
+            "content": true,
+            "unordered": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "torahverse_sliders_verses": {
+        "column": {
+            "link_id": true,
+            "slider_id": true,
+            "verse_id": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "TORAHVERSE_SLIDERS_VERSES_SLIDER_ID_TORAHVERSE_SLIDERS_SLIDER_ID": true,
+            "TORAHVERSE_SLIDERS_VERSES_VERSE_ID_TORAHVERSE_VERSES_VERSE_ID": true
+        }
+    }
+}

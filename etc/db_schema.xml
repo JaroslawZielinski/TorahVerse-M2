@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="torahverse_sliders" engine="innodb" resource="default" comment="ITZielArt Torah Verse Sliders">
+        <column name="slider_id" identity="true" nullable="false" padding="6" unsigned="true" xsi:type="int"
+            comment="Slider ID"/>
+        <column name="name" nullable="true" xsi:type="text" comment="Name"/>
+        <column name="configuration" nullable="true" xsi:type="text" comment="Configuration"/>
+        <column name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Created At"/>
+        <column name="updated_at" nullable="false" on_update="true" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Updated At"/>
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="slider_id"/>
+        </constraint>
+    </table>
+
+    <table name="torahverse_verses" engine="innodb" resource="default" comment="ITZielArt Torah Verse Verses">
+        <column name="verse_id" identity="true" nullable="false" padding="6" unsigned="true" xsi:type="int"
+            comment="Verse ID"/>
+        <column name="name" nullable="true" xsi:type="text" comment="Name"/>
+        <column name="siglum" nullable="true" xsi:type="text" comment="Siglum"/>
+        <column name="translation" nullable="true" xsi:type="text" comment="Translation"/>
+        <column name="content" nullable="true" xsi:type="text" comment="Content"/>
+        <column name="unordered" nullable="true" xsi:type="text" comment="Unordered content"/>
+        <column name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Created At"/>
+        <column name="updated_at" nullable="false" on_update="true" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Updated At"/>
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="verse_id"/>
+        </constraint>
+    </table>
+
+    <table name="torahverse_sliders_verses" engine="innodb" resource="default"
+        comment="ITZielArt Torah Verse Link Table">
+        <column name="link_id" identity="true" nullable="false" padding="6" unsigned="true" xsi:type="int"
+            comment="Link ID"/>
+        <column name="slider_id" nullable="true" padding="6" unsigned="true" xsi:type="int" comment="Slider ID"/>
+        <column name="verse_id" nullable="true" padding="6" unsigned="true" xsi:type="int" comment="Verse ID"/>
+        <column name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Created At"/>
+        <column name="updated_at" nullable="false" on_update="true" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Updated At"/>
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="link_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="TORAHVERSE_SLIDERS_VERSES_SLIDER_ID_TORAHVERSE_SLIDERS_SLIDER_ID"
+            table="torahverse_sliders_verses" column="slider_id" referenceTable="torahverse_sliders"
+            referenceColumn="slider_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="TORAHVERSE_SLIDERS_VERSES_VERSE_ID_TORAHVERSE_VERSES_VERSE_ID"
+            table="torahverse_sliders_verses" column="verse_id" referenceTable="torahverse_verses"
+            referenceColumn="verse_id" onDelete="CASCADE"/>
+    </table>
+</schema>

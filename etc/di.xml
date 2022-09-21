@@ -1,0 +1,48 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- CRUD preferences -->
+    <preference for="ITZielArt\TorahVerse\Api\Data\LinkInterface" type="ITZielArt\TorahVerse\Model\Data\Link"/>
+
+    <preference for="ITZielArt\TorahVerse\Api\Data\SliderInterface" type="ITZielArt\TorahVerse\Model\Data\Slider"/>
+
+    <preference for="ITZielArt\TorahVerse\Api\Data\VerseInterface" type="ITZielArt\TorahVerse\Model\Data\Verse"/>
+
+    <preference for="ITZielArt\TorahVerse\Api\LinkRepositoryInterface"
+        type="ITZielArt\TorahVerse\Model\LinkRepository"/>
+
+    <preference for="ITZielArt\TorahVerse\Api\SliderRepositoryInterface"
+        type="ITZielArt\TorahVerse\Model\SliderRepository"/>
+
+    <preference for="ITZielArt\TorahVerse\Api\VerseRepositoryInterface"
+        type="ITZielArt\TorahVerse\Model\VerseRepository"/>
+
+    <!-- Search preferences -->
+    <preference for="ITZielArt\TorahVerse\Api\Data\LinkSearchResultsInterface"
+        type="Magento\Framework\Api\SearchResults"/>
+
+    <preference for="ITZielArt\TorahVerse\Api\Data\SliderSearchResultsInterface"
+        type="Magento\Framework\Api\SearchResults"/>
+
+    <preference for="ITZielArt\TorahVerse\Api\Data\VerseSearchResultsInterface"
+        type="Magento\Framework\Api\SearchResults"/>
+
+    <!-- Verses Grid -->
+    <virtualType name="ITZielArt\TorahVerse\Model\ResourceModel\Verse\Grid\Collection"
+        type="ITZielArt\TorahVerse\Ui\DataProvider\Verse\Listing\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">torahverse_verses</argument>
+            <argument name="resourceModel" xsi:type="string">ITZielArt\TorahVerse\Model\ResourceModel\Verse</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- All grids DataProviders -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="itzielart_torahverse_verses_listing_data_source" xsi:type="string">
+                    ITZielArt\TorahVerse\Model\ResourceModel\Verse\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
