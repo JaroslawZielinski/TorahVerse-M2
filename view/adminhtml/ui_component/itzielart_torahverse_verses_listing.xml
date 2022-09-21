@@ -48,7 +48,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">delete</item>
                         <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="itzielart_torahverse/verses/delete" />
+                        <item name="url" xsi:type="url" path="torahverses/verses/delete" />
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete verses</item>
                             <item name="message" xsi:type="string" translate="true">Are you sure you want to delete selected verses?</item>
@@ -69,7 +69,7 @@
 				<param name="enabled" xsi:type="boolean">false</param>
 				<param name="indexField" xsi:type="string">log_id</param>
 				<param name="clientConfig" xsi:type="array">
-					<item name="saveUrl" path="itzielart_torahverse/verses/inlineEdit" xsi:type="url"/>
+					<item name="saveUrl" path="torahverses/verses/inlineEdit" xsi:type="url"/>
 					<item name="validateBeforeSave" xsi:type="boolean">false</item>
 				</param>
 			</editorConfig>
@@ -88,10 +88,10 @@
 		</settings>
 		<selectionsColumn name="ids">
 			<settings>
-				<indexField>verses_id</indexField>
+				<indexField>verse_id</indexField>
 			</settings>
 		</selectionsColumn>
-		<column name="verses_id">
+		<column name="verse_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>

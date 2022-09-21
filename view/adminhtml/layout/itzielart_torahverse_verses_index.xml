@@ -3,7 +3,7 @@
     xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <uiComponent name="itzielart_torhaverse_verses_listing"/>
+            <uiComponent name="itzielart_torahverse_verses_listing"/>
         </referenceContainer>
     </body>
 </page>

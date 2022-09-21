@@ -10,12 +10,12 @@
              parent="ITZielArt_TorahVerse::menu" sortOrder="10"/>
 
         <add id="ITZielArt_TorahVerse::sliders" resource="ITZielArt_TorahVerse::sliders"
-             title="Sliders" action="itzielart_torahverse/sliders/index"
+             title="Sliders" action="torahverse/sliders/index"
              module="ITZielArt_TorahVerse" sortOrder="20" parent="ITZielArt_TorahVerse::torahverse"
              dependsOnModule="ITZielArt_TorahVerse"/>
 
         <add id="ITZielArt_TorahVerse::verses" resource="ITZielArt_TorahVerse::verses"
-             title="Verses" action="torahverses/verses/index"
+             title="Verses" action="torahverse/verses/index"
              module="ITZielArt_TorahVerse" sortOrder="30" parent="ITZielArt_TorahVerse::torahverse"
              dependsOnModule="ITZielArt_TorahVerse"/>
 

@@ -22,8 +22,8 @@ class Index extends Grid
         Config $config,
         Context $context
     ) {
-        parent::__construct($context);
         $this->config = $config;
+        parent::__construct($context);
     }
 
     /**
