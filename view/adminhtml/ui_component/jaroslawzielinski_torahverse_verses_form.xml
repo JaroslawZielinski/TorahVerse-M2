@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">jaroslawzielinski_torahverse_verses_form.jaroslawzielinski_torahverse_verses_form_data_source</item>
+        </item>
+
+        <item name="label" xsi:type="string" translate="true">General Information</item>
+
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">jaroslawzielinski_torahverse_verses_form</item>
+        </item>
+
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="array">
+                <item name="name" xsi:type="string">Back</item>
+                <item name="label" xsi:type="string" translate="true">Back</item>
+                <item name="class" xsi:type="string">back</item>
+                <item name="url" xsi:type="string">*/*/index</item>
+            </item>
+        </item>
+
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+
+    <settings>
+        <buttons>
+            <button name="save" class="JaroslawZielinski\TorahVerse\Block\Adminhtml\Block\Edit\Verse\SaveButton"/>
+
+            <button name="save_and_continue"
+                class="JaroslawZielinski\TorahVerse\Block\Adminhtml\Block\Edit\Verse\SaveAndContinueButton"/>
+
+            <button name="delete" class="JaroslawZielinski\TorahVerse\Block\Adminhtml\Block\Edit\Verse\DeleteButton"/>
+        </buttons>
+
+        <namespace>jaroslawzielinski_torahverse_verses_form</namespace>
+
+        <dataScope>data</dataScope>
+
+        <deps>
+            <dep>jaroslawzielinski_torahverse_verses_form.jaroslawzielinski_torahverse_verses_form_data_source</dep>
+        </deps>
+    </settings>
+
+    <dataSource name="driver_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+
+        <settings>
+            <submitUrl path="jaroslawzielinski_torahverse/verses/save"/>
+        </settings>
+
+        <aclResource>JaroslawZielinski_TorahVerse::addedit</aclResource>
+
+        <dataProvider class="JaroslawZielinski\TorahVerse\Model\Verse\DataProvider"
+            name="jaroslawzielinski_torahverse_verses_form_data_source">
+            <settings>
+                <requestFieldName>verse_id</requestFieldName>
+                <primaryFieldName>verse_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="general">
+        <settings>
+            <label/>
+        </settings>
+
+        <field name="verse_id" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">verses</item>
+                </item>
+            </argument>
+
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>verse_id</dataScope>
+            </settings>
+        </field>
+
+        <field name="name" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">verses</item>
+                </item>
+            </argument>
+
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Verse Name</label>
+                <dataScope>name</dataScope>
+            </settings>
+        </field>
+
+        <field name="translation" formElement="select" sortOrder="30"
+            component="JaroslawZielinski_TorahVerse/js/form/element/translation">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">verses</item>
+                    <item name="default" xsi:type="number">0</item>
+                    <item name="previewUrl" xsi:type="string">torahverse/siglum/preview</item>
+                </item>
+            </argument>
+
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <label translate="true">Translation</label>
+                <dataScope>translation</dataScope>
+                <visible>true</visible>
+            </settings>
+
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="JaroslawZielinski\TorahVerse\Model\Config\Source\Verses\Translation"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="siglum" sortOrder="40" formElement="input"
+            component="JaroslawZielinski_TorahVerse/js/form/element/siglum">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">verses</item>
+                    <item name="additionalInfo" xsi:type="string" translate="true"><![CDATA[
+                        księga / rozdział / werset(y) np. <i><strong>mt</strong>/1/1-2</i>
+                        </br>
+                        <textarea id="preview-result" disabled></textarea>
+                    ]]></item>
+                    <item name="previewUrl" xsi:type="string">torahverse/siglum/preview</item>
+                </item>
+            </argument>
+
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Siglum</label>
+                <dataScope>siglum</dataScope>
+            </settings>
+        </field>
+
+        <field name="group_id" formElement="select" sortOrder="50">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">verses</item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <label translate="true">Group</label>
+                <dataScope>group_id</dataScope>
+                <visible>true</visible>
+            </settings>
+
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="JaroslawZielinski\TorahVerse\Model\Config\Source\Verses\Groups"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <!-- @see https://webkul.com/blog/add-html-content-using-uicomponent-form/ -->
+        <container name="info_container" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">60</item>
+                </item>
+            </argument>
+
+            <htmlContent name="html_content">
+                <argument name="block" xsi:type="object">JaroslawZielinski\TorahVerse\Block\Adminhtml\Siglum\Info</argument>
+            </htmlContent>
+        </container>
+    </fieldset>
+</form>

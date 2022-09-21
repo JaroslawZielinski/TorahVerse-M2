@@ -1,0 +1,16 @@
+<?php
+    /** @var \JaroslawZielinski\TorahVerse\Block\Widget\Slider $block */
+    $config = $block->getConfig();
+    $customStyles = trim($block->getModuleCustomStyles() ?? '');
+?>
+<?php if ($block->isVisible()): ?>
+    <?php if (!empty($customStyles)): ?>
+        <style type="text/css">
+            /* <![CDATA[ */
+            <?= $customStyles; ?>
+            /* ]]> */
+        </style>
+    <?php endif; ?>
+    <div class="verse-slider" data-mage-init='{"verseSlider":
+        <?=  /* @noEscape */ $block->arrayToJson($config); ?>}'></div>
+<?php endif; ?>

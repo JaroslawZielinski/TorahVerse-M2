@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="torahverse_groups" engine="innodb" resource="default" comment="JaroslawZielinski Torah Verse Groups">
+        <column name="group_id" identity="true" nullable="false" padding="6" unsigned="true" xsi:type="int"
+            comment="Group ID"/>
+
+        <column name="code" nullable="false" xsi:type="varchar" length="15" default="default" comment="Code"/>
+
+        <column name="name" nullable="true" xsi:type="text" comment="Name of a group"/>
+
+        <column name="colour_value" nullable="false" xsi:type="varchar" length="15" default="#FFFFFF" comment="Colour"/>
+
+        <column name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Created At"/>
+
+        <column name="updated_at" nullable="false" on_update="true" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Updated At"/>
+
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="group_id"/>
+
+        </constraint>
+
+        <constraint xsi:type="unique" referenceId="TORAHVERSE_GROUPS_CODE">
+            <column name="code"/>
+        </constraint>
+    </table>
+
+    <table name="torahverse_verses" engine="innodb" resource="default" comment="JaroslawZielinski Torah Verse Verses">
+        <column name="verse_id" identity="true" nullable="false" padding="6" unsigned="true" xsi:type="int"
+            comment="Verse ID"/>
+
+        <column name="group_id" nullable="false" padding="6" unsigned="true" xsi:type="int"
+            comment="Group ID"/>
+
+        <column name="name" nullable="false" xsi:type="text" comment="Name of a verse"/>
+
+        <column name="siglum" nullable="false" xsi:type="text" comment="Siglum"/>
+
+        <column name="translation" nullable="false" xsi:type="text" comment="Translation"/>
+
+        <column name="content" nullable="false" xsi:type="text" comment="Content"/>
+
+        <column name="unordered" nullable="false" xsi:type="text" comment="Unordered content"/>
+
+        <column name="description" nullable="false" xsi:type="text" comment="Description"/>
+
+        <column name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Created At"/>
+
+        <column name="updated_at" nullable="false" on_update="true" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Updated At"/>
+
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="verse_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="TORAHVERSE_VERSES_GROUP_ID_TORAHVERSE_GROUPS_GROUP_ID"
+            table="torahverse_verses" column="group_id" referenceTable="torahverse_groups" referenceColumn="group_id"
+            onDelete="CASCADE"/>
+    </table>
+
+    <table name="torahverse_quotes" engine="innodb" resource="default" comment="JaroslawZielinski Torah Verse Quotes">
+        <column name="quote_id" identity="true" nullable="false" padding="6" unsigned="true" xsi:type="int"
+            comment="Quote ID"/>
+
+        <column name="group_id" nullable="false" padding="6" unsigned="true" xsi:type="int"
+            comment="Group ID"/>
+
+        <column name="name" nullable="false" xsi:type="text" comment="Name of a quote"/>
+
+        <column name="content" nullable="false" xsi:type="text" comment="Content"/>
+
+        <column name="author" nullable="false" xsi:type="text" comment="Author"/>
+
+        <column name="description" nullable="true" xsi:type="text" comment="Description"/>
+
+        <column name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Created At"/>
+
+        <column name="updated_at" nullable="false" on_update="true" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Updated At"/>
+
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="quote_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="TORAHVERSE_QUOTES_GROUP_ID_TORAHVERSE_GROUPS_GROUP_ID"
+            table="torahverse_quotes" column="group_id" referenceTable="torahverse_groups" referenceColumn="group_id"
+            onDelete="CASCADE"/>
+    </table>
+</schema>

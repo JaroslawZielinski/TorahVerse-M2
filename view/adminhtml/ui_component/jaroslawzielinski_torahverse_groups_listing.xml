@@ -1,0 +1,228 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                jaroslawzielinski_torahverse_groups_listing.jaroslawzielinski_torahverse_groups_listing_data_source
+            </item>
+        </item>
+    </argument>
+
+    <settings>
+        <spinner>jaroslawzielinski_torahverse_groups_columns</spinner>
+
+        <deps>
+            <dep>jaroslawzielinski_torahverse_groups_listing.jaroslawzielinski_torahverse_groups_listing_data_source</dep>
+        </deps>
+
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add New Group</label>
+            </button>
+        </buttons>
+    </settings>
+
+    <dataSource component="Magento_Ui/js/grid/provider" name="jaroslawzielinski_torahverse_groups_listing_data_source">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+            <!-- @see https://magento.stackexchange.com/questions/281778/same-row-content-repeat-in-the-whole-page-grid-while-navigate-pagination#answer-349891 -->
+            <storageConfig>
+                <param name="indexField" xsi:type="string">group_id</param>
+            </storageConfig>
+        </settings>
+
+        <aclResource>JaroslawZielinski_TorahVerse::groups</aclResource>
+
+        <dataProvider class="JaroslawZielinski\TorahVerse\Ui\DataProvider\Group\ListingDataProvider"
+            name="jaroslawzielinski_torahverse_groups_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>group_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+
+        <bookmark name="bookmarks"/>
+
+        <columnsControls name="columns_controls"/>
+
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">jaroslawzielinski_torahverse_groups_listing.jaroslawzielinski_torahverse_groups_listing.jaroslawzielinski_torahverse_groups_columns.ids</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+                    <item name="indexField" xsi:type="string">group_id</item>
+                </item>
+            </argument>
+
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="jaroslawzielinski_torahverse/groups/massdelete" />
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete groups</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to delete selected groups?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+
+        <filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="templates" xsi:type="array">
+                        <item name="filters" xsi:type="array">
+                            <item name="select" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                                <item name="template" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </filters>
+
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+    <columns name="jaroslawzielinski_torahverse_groups_columns">
+        <settings>
+            <editorConfig>
+                <param name="selectProvider" xsi:type="string">
+                    jaroslawzielinski_torahverse_groups_listing.jaroslawzielinski_torahverse_groups_listing.jaroslawzielinski_torahverse_groups_columns.ids
+                </param>
+
+                <param name="enabled" xsi:type="boolean">false</param>
+
+                <param name="indexField" xsi:type="string">group_id</param>
+
+                <param name="clientConfig" xsi:type="array">
+                    <item name="saveUrl" path="jaroslawzielinski_torahverse/groups/inlineEdit" xsi:type="url"/>
+                    <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                </param>
+            </editorConfig>
+
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">
+                        jaroslawzielinski_torahverse_groups_listing.jaroslawzielinski_torahverse_groups_listing.jaroslawzielinski_torahverse_groups_columns_editor
+                    </item>
+
+                    <item name="target" xsi:type="string">startEdit</item>
+
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+
+                        <item name="1" xsi:type="boolean">true</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
+
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>group_id</indexField>
+            </settings>
+        </selectionsColumn>
+
+        <column name="group_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+                    <item name="label" xsi:type="string" translate="true">ID</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="code">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+                    <item name="label" xsi:type="string" translate="true">Code</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+                    <item name="label" xsi:type="string" translate="true">Name</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="colour_value" class="JaroslawZielinski\TorahVerse\Ui\Component\Listing\Column\Groups\ColourValue">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="label" xsi:type="string" translate="true">Colour Value</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="verses" class="JaroslawZielinski\TorahVerse\Ui\Component\Listing\Column\Groups\Verses">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="label" xsi:type="string" translate="true">Verses</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="quotes" class="JaroslawZielinski\TorahVerse\Ui\Component\Listing\Column\Groups\Quotes">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="label" xsi:type="string" translate="true">Quotes</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
+                </item>
+            </argument>
+        </column>
+
+        <actionsColumn name="actions" class="JaroslawZielinski\TorahVerse\Ui\Component\Listing\Column\Groups\Actions">
+            <settings>
+                <indexField>group_id</indexField>
+                <resizeEnabled>false</resizeEnabled>
+                <resizeDefaultWidth>70</resizeDefaultWidth>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

@@ -1,0 +1,98 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <jaroslawzielinski_torahverse>
+            <general>
+                <enable>1</enable>
+                <menu_enabled>0</menu_enabled>
+                <sweep_time>12000</sweep_time>
+                <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
+                <vertical_sweep_time>6000</vertical_sweep_time>
+                <is_group_colours_enable>0</is_group_colours_enable>
+                <verse_template><![CDATA[
+<a href="{url}" target="_blank" style="color: {textColour}">
+    <div class="item" title="{groupName}">
+        <div class="content" title="{groupName}">{content}</div>
+        <div class="description" title="{groupName}">{description}</div>
+    </div>
+</a>
+]]></verse_template>
+                <group_colours_verse_template><![CDATA[
+<a href={url} target="_blank" style="color: {textColour}">
+    <div class="item" style="border: 1px solid {colour};" title="{groupName}">
+        <div class="group" style="background: {colour}; color: {antiColour};" title="{groupName}">{groupName}</div>
+        <div class="content" title="{groupName}">{content}</div>
+        <div class="description" title="{groupName}">{description}</div>
+    </div>
+</a>
+]]></group_colours_verse_template>
+                <quote_template><![CDATA[
+<a href="#" style="color: {textColour}">
+    <div class="item" title="{groupName}">
+        <div class="content" title="{groupName}">{content}</div>
+        <div class="author" title="{groupName}">{author}</div>
+        <div class="description" title="{groupName}">{description}</div>
+    </div>
+</a>
+]]></quote_template>
+                <group_colours_quote_template><![CDATA[
+<a href="#" style="color: {textColour}">
+    <div class="item" style="border: 1px solid {colour};" title="{groupName}">
+        <div class="group" style="background: {colour}; color: {antiColour};" title="{groupName}">{groupName}</div>
+        <div class="content" title="{groupName}">{content}</div>
+        <div class="author" title="{groupName}">{author}</div>
+        <div class="description" title="{groupName}">{description}</div>
+    </div>
+</a>
+]]></group_colours_quote_template>
+                <verses_ordered>1</verses_ordered>
+                <text_colour>#000000</text_colour>
+                <mode>randomautoplayinf</mode>
+                <content_shown_rows>2</content_shown_rows>
+                <custom_styles><![CDATA[.verse-slider .slider, .verse-slider .item { height: 98px; }
+.verse-slider .content { max-height: 47px; }
+.verse-slider .content .transformed { height: 47px; }]]></custom_styles>
+            </general>
+
+            <backend_slider>
+                <enable>1</enable>
+                <override>0</override>
+                <sweep_time>12000</sweep_time>
+                <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
+                <vertical_sweep_time>6000</vertical_sweep_time>
+                <is_group_colours_enable>0</is_group_colours_enable>
+                <verses_ordered>1</verses_ordered>
+                <text_colour>#000000</text_colour>
+                <mode>randomautoplayinf</mode>
+                <slider><![CDATA[CH_SP_01,CGAV_033]]></slider>
+            </backend_slider>
+
+            <frontend_slider>
+                <enable>0</enable>
+                <override>0</override>
+                <sweep_time>12000</sweep_time>
+                <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
+                <vertical_sweep_time>6000</vertical_sweep_time>
+                <is_group_colours_enable>0</is_group_colours_enable>
+                <verses_ordered>1</verses_ordered>
+                <text_colour>#000000</text_colour>
+                <mode>randomautoplayinf</mode>
+                <placement>top.container,footer-container</placement>
+                <slider><![CDATA[CH_SP_01,CGAV_033]]></slider>
+            </frontend_slider>
+
+            <custom_sliders>
+                <enable>0</enable>
+                <override>0</override>
+                <sweep_time>12000</sweep_time>
+                <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
+                <vertical_sweep_time>6000</vertical_sweep_time>
+                <is_group_colours_enable>0</is_group_colours_enable>
+                <verses_ordered>1</verses_ordered>
+                <text_colour>#000000</text_colour>
+                <mode>randomautoplayinf</mode>
+                <sliders><![CDATA[{"_1678942274965_965":{"code":"tv_slider_01","slider":["CH_SP_01","CGAV_033"]}}]]></sliders>
+            </custom_sliders>
+        </jaroslawzielinski_torahverse>
+    </default>
+</config>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="JaroslawZielinski_TorahVerse::menu" resource="JaroslawZielinski_TorahVerse::menu" title="Torah Verse"
+            module="JaroslawZielinski_TorahVerse" sortOrder="10"/>
+
+        <add id="JaroslawZielinski_TorahVerse::torahverse" resource="JaroslawZielinski_TorahVerse::torahverse"
+             title="Grids" translate="title" module="JaroslawZielinski_TorahVerse"
+             parent="JaroslawZielinski_TorahVerse::menu" sortOrder="10"/>
+
+        <add id="JaroslawZielinski_TorahVerse::groups" resource="JaroslawZielinski_TorahVerse::groups"
+             title="Groups" action="torahverse/groups/index"
+             module="JaroslawZielinski_TorahVerse" sortOrder="30" parent="JaroslawZielinski_TorahVerse::torahverse"
+             dependsOnModule="JaroslawZielinski_TorahVerse"/>
+
+        <add id="JaroslawZielinski_TorahVerse::verses" resource="JaroslawZielinski_TorahVerse::verses"
+             title="Groups/Verses" action="torahverse/verses/index"
+             module="JaroslawZielinski_TorahVerse" sortOrder="40" parent="JaroslawZielinski_TorahVerse::torahverse"
+             dependsOnModule="JaroslawZielinski_TorahVerse"/>
+
+        <add id="JaroslawZielinski_TorahVerse::quotes" resource="JaroslawZielinski_TorahVerse::quotes"
+             title="Groups/Quotes" action="torahverse/quotes/index"
+             module="JaroslawZielinski_TorahVerse" sortOrder="50" parent="JaroslawZielinski_TorahVerse::torahverse"
+             dependsOnModule="JaroslawZielinski_TorahVerse"/>
+
+        <add id="JaroslawZielinski_TorahVerse::config"  resource="JaroslawZielinski_TorahVerse::config"
+             title="Settings" translate="title" module="JaroslawZielinski_TorahVerse"
+             parent="JaroslawZielinski_TorahVerse::menu" sortOrder="20"/>
+
+        <add id="JaroslawZielinski_TorahVerse::configuration" resource="JaroslawZielinski_TorahVerse::configuration"
+             title="Configuration" action="adminhtml/system_config/edit/section/jaroslawzielinski_torahverse"
+             module="JaroslawZielinski_TorahVerse" sortOrder="50" parent="JaroslawZielinski_TorahVerse::config"
+             dependsOnModule="JaroslawZielinski_TorahVerse"/>
+    </menu>
+</config>

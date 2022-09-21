@@ -1,0 +1,33 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="JaroslawZielinski_TorahVerse::menu" title="TorahVerse Menu">
+                    <resource id="JaroslawZielinski_TorahVerse::torahverse" title="JaroslawZielinski TorahVerse">
+                        <resource id="JaroslawZielinski_TorahVerse::groups" title="JaroslawZielinski TorahVerse Groups"/>
+                        <resource id="JaroslawZielinski_TorahVerse::verses" title="JaroslawZielinski TorahVerse Verses"/>
+                        <resource id="JaroslawZielinski_TorahVerse::quotes" title="JaroslawZielinski TorahVerse Quotes"/>
+                        <resource id="JaroslawZielinski_TorahVerse::config"
+                            title="JaroslawZielinski TorahVerse Configuration Menu" translate="title" />
+                    </resource>
+                </resource>
+
+                <resource id="Magento_Backend::system">
+                    <resource id="JaroslawZielinski_TorahVerse::elements" title="JaroslawZielinski TorahVerse" sortOrder="60">
+                        <resource id="JaroslawZielinski_TorahVerse::addedit" title="Add/Edit" sortOrder="10" />
+                    </resource>
+                </resource>
+
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="JaroslawZielinski_TorahVerse::configuration"
+                                title="JaroslawZielinski TorahVerse Configuration" translate="title" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

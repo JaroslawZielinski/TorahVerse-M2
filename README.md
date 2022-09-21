@@ -1,2 +1,11 @@
-# TorahVerse
-TorahVerse Widget Extension that allows to present bible verses slides on FE, BE
+# TorahVerse-M2
+Magento2 module that provides sliders both backend and frontend
+that shows Torah(Bible - Old and New Testament) verses or a quotes
+
+## How to install the Torah Verse Module via shell (1 Step out of 3)
+```shell
+cd YourProject
+composer config repositories.torahverse vcs https://github.com/JaroslawZielinski/TorahVerse-M2.git
+composer require --dev jaroslawzielinski/torahverse-m2 dev-master
+```
+

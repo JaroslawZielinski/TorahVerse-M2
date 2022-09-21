@@ -1,0 +1,27 @@
+.show-torahverse-logo(@opacity) {
+    background: url(../images/torahverse-logo.png) no-repeat center;
+    height: calc(3rem);
+    content: " ";
+    opacity: @opacity;
+}
+
+.admin__menu {
+    #menu-jaroslawzielinski-torahverse-menu > a {
+        &:before {
+            .show-torahverse-logo(0.5);
+        }
+        &:hover:before {
+            .show-torahverse-logo(1.0);
+        }
+    }
+
+    #menu-jaroslawzielinski-torahverse-menu._active._show > a {
+        &:before {
+            .show-torahverse-logo(1.0);
+        }
+    }
+}
+
+.group-grid {
+    border-radius: 3px;
+}

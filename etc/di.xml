@@ -1,0 +1,171 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Console Command -->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="torahverse_homepage_widget_init" xsi:type="object">
+                    JaroslawZielinski\TorahVerse\Console\Command\HomepageWidgetInit
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Logger DI -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Logger\Handler" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">var/log/jaroslawzielinski_torahverse.log</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="JaroslawZielinski\TorahVerse\Logger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">JaroslawZielinski\TorahVerse\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="JaroslawZielinski\TorahVerse\Controller\Siglum\Preview">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Controller\Adminhtml\Verses\Save">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Controller\Adminhtml\Groups\Save">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Controller\Adminhtml\Quotes\Save">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Controller\Adminhtml\Verses\GroupAssign">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Controller\Adminhtml\Quotes\GroupAssign">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Console\Command\HomepageWidgetInit">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
+    <!-- CRUD preferences -->
+    <preference for="JaroslawZielinski\TorahVerse\Api\Data\QuoteInterface"
+        type="JaroslawZielinski\TorahVerse\Model\Data\Quote"/>
+
+    <preference for="JaroslawZielinski\TorahVerse\Api\Data\GroupInterface"
+        type="JaroslawZielinski\TorahVerse\Model\Data\Group"/>
+
+    <preference for="JaroslawZielinski\TorahVerse\Api\Data\VerseInterface"
+        type="JaroslawZielinski\TorahVerse\Model\Data\Verse"/>
+
+    <preference for="JaroslawZielinski\TorahVerse\Api\QuoteRepositoryInterface"
+        type="JaroslawZielinski\TorahVerse\Model\QuoteRepository"/>
+
+    <preference for="JaroslawZielinski\TorahVerse\Api\GroupRepositoryInterface"
+        type="JaroslawZielinski\TorahVerse\Model\GroupRepository"/>
+
+    <preference for="JaroslawZielinski\TorahVerse\Api\VerseRepositoryInterface"
+        type="JaroslawZielinski\TorahVerse\Model\VerseRepository"/>
+
+    <!-- Search preferences -->
+    <preference for="JaroslawZielinski\TorahVerse\Api\Data\QuoteSearchResultsInterface"
+        type="Magento\Framework\Api\SearchResults"/>
+
+    <preference for="JaroslawZielinski\TorahVerse\Api\Data\GroupSearchResultsInterface"
+        type="Magento\Framework\Api\SearchResults"/>
+
+    <preference for="JaroslawZielinski\TorahVerse\Api\Data\VerseSearchResultsInterface"
+        type="Magento\Framework\Api\SearchResults"/>
+
+    <!-- Quotes Grid -->
+    <type name="JaroslawZielinski\TorahVerse\Model\ResourceModel\Quote\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">torahverse_quotes</argument>
+            <argument name="eventPrefix" xsi:type="string">torahverse_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">torahverse_collection</argument>
+            <argument name="resourceModel" xsi:type="string">JaroslawZielinski\TorahVerse\Model\ResourceModel\Quote</argument>
+        </arguments>
+    </type>
+
+    <!-- Groups Grid -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Model\ResourceModel\Group\Grid\Collection"
+        type="JaroslawZielinski\TorahVerse\Ui\DataProvider\Group\Listing\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">torahverse_groups</argument>
+            <argument name="resourceModel" xsi:type="string">JaroslawZielinski\TorahVerse\Model\ResourceModel\Group</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Verses Grid -->
+    <type name="JaroslawZielinski\TorahVerse\Model\ResourceModel\Verse\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">torahverse_verses</argument>
+            <argument name="eventPrefix" xsi:type="string">torahverse_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">torahverse_collection</argument>
+            <argument name="resourceModel" xsi:type="string">JaroslawZielinski\TorahVerse\Model\ResourceModel\Verse</argument>
+        </arguments>
+    </type>
+
+    <!-- All grids DataProviders -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="jaroslawzielinski_torahverse_verses_listing_data_source" xsi:type="string">
+                    JaroslawZielinski\TorahVerse\Model\ResourceModel\Verse\Grid\Collection
+                </item>
+                <item name="jaroslawzielinski_torahverse_groups_listing_data_source" xsi:type="string">
+                    JaroslawZielinski\TorahVerse\Model\ResourceModel\Group\Grid\Collection
+                </item>
+                <item name="jaroslawzielinski_torahverse_quotes_listing_data_source" xsi:type="string">
+                    JaroslawZielinski\TorahVerse\Model\ResourceModel\Quote\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Ui\Component\MassAction\Verse\GroupAssign">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="urlPath" xsi:type="string">jaroslawzielinski_torahverse/verses/groupAssign</item>
+                <item name="paramName" xsi:type="string">group</item>
+                <item name="confirm" xsi:type="array">
+                    <item name="message" xsi:type="string" translatable="true">Are you sure?</item>
+                    <item name="title" xsi:type="string" translatable="true">Assign to '%s' group</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Ui\Component\MassAction\Quote\GroupAssign">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="urlPath" xsi:type="string">jaroslawzielinski_torahverse/quotes/groupAssign</item>
+                <item name="paramName" xsi:type="string">group</item>
+                <item name="confirm" xsi:type="array">
+                    <item name="message" xsi:type="string" translatable="true">Are you sure?</item>
+                    <item name="title" xsi:type="string" translatable="true">Assign to '%s' group</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

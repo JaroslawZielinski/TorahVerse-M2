@@ -1,0 +1,467 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="torahVerse" sortOrder="20" translate="label" class="torahVerse-main">
+            <label>TorahVerse</label>
+        </tab>
+
+        <section id="jaroslawzielinski_torahverse" translate="label" sortOrder="10" showInDefault="1" showInStore="1"
+            showInWebsite="1">
+            <class>separator-top</class>
+            <label>Torah Verse</label>
+            <tab>torahVerse</tab>
+            <resource>JaroslawZielinski_TorahVerse::configuration</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1"
+                showInStore="1" showInWebsite="1">
+                <label>General Settings</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="menu_enabled" translate="label" type="select" sortOrder="20" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Menu enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Sweep time</label>
+                    <comment><![CDATA[time in miliseconds between frames.]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Is vertical sweep possible</label>
+                    <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Vertical Sweep time</label>
+                    <comment><![CDATA[time of sweeping one line vertically.]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_vertical_sweep_possible">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Is group colours enable</label>
+                    <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="verse_template" translate="label" type="textarea" sortOrder="70" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Html Template for Verse Slider Frame</label>
+                    <comment><![CDATA[Key words: <strong>url</strong>, <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>description</strong> written in {}]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_group_colours_enable" negative="1">1</field>
+                    </depends>
+                </field>
+
+                <field id="group_colours_verse_template" translate="label" type="textarea" sortOrder="80"
+                    showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Html Template for Verse Slider Frame</label>
+                    <comment><![CDATA[Key words: <strong>url</strong>, <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>description</strong> written in {}]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_group_colours_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="quote_template" translate="label" type="textarea" sortOrder="90" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Html Template for Quote Slider Frame</label>
+                    <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_group_colours_enable" negative="1">1</field>
+                    </depends>
+                </field>
+
+                <field id="group_colours_quote_template" translate="label" type="textarea" sortOrder="100"
+                    showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Html Template for Quote Slider Frame</label>
+                    <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_group_colours_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="verses_ordered" translate="label" type="select" sortOrder="110" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Verses ordered</label>
+                    <comment><![CDATA[Verses Order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <!-- @see https://webkul.com/blog/add-color-picker-magento2-system-config/ -->
+                <field id="text_colour" translate="label" type="text" sortOrder="120" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Text Colour</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Colour</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="mode" translate="label" type="select" sortOrder="130" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Mode of slider</label>
+                    <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="content_shown_rows" translate="label" type="text" sortOrder="140" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Number of shown rows</label>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="custom_styles" translate="label" type="textarea" sortOrder="150" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Custom Styles</label>
+                    <comment><![CDATA[custom css (ex. for <strong>content_shown_rows</strong> = 2: <br/>
+                    <br/>.verse-slider .slider, .verse-slider .item { height: 98px; }
+                    <br/>.verse-slider .content { max-height: 47px; }
+                    <br/>.verse-slider .content .transformed { height: 47px; }
+]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <attribute type="expanded">1</attribute>
+            </group>
+
+            <group id="backend_slider" translate="label" type="text" sortOrder="20" showInDefault="1" showInStore="1"
+                showInWebsite="1">
+                <label>Admin Panel Slider</label>
+
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="override" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Override configuration</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+
+                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Sweep time</label>
+                    <comment><![CDATA[time in miliseconds between frames.]]></comment>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Is vertical sweep possible</label>
+                    <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Vertical Sweep time</label>
+                    <comment><![CDATA[time of sweeping one line vertically.]]></comment>
+                    <depends>
+                        <field id="override">1</field>
+                        <field id="is_vertical_sweep_possible">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Is group colours enable</label>
+                    <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="verses_ordered" translate="label" type="select" sortOrder="70" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Verses ordered</label>
+                    <comment><![CDATA[Verses Order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="text_colour" translate="label" type="text" sortOrder="80" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Text Colour</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Colour</frontend_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="mode" translate="label" type="select" sortOrder="90" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Mode of slider</label>
+                    <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="slider" type="multiselect" sortOrder="100" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Slider Configuration</label>
+                    <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\MultiUiSelect</frontend_model>
+                    <can_be_empty>1</can_be_empty>
+                    <comment><![CDATA[Select groups of verses.]]></comment>
+                </field>
+
+                <depends>
+                    <field id="jaroslawzielinski_torahverse/general/enable">1</field>
+                </depends>
+
+                <attribute type="expanded">0</attribute>
+            </group>
+
+            <group id="frontend_slider" translate="label" type="text" sortOrder="30" showInDefault="1" showInStore="1"
+                showInWebsite="1">
+                <label>Homepage Slider</label>
+
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="override" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Override configuration</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+
+                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Sweep time</label>
+                    <comment><![CDATA[time in miliseconds between frames.]]></comment>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Is vertical sweep possible</label>
+                    <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Vertical Sweep time</label>
+                    <comment><![CDATA[time of sweeping one line vertically.]]></comment>
+                    <depends>
+                        <field id="override">1</field>
+                        <field id="is_vertical_sweep_possible">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Is group colours enable</label>
+                    <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="verses_ordered" translate="label" type="select" sortOrder="70" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Verses ordered</label>
+                    <comment><![CDATA[Verses Order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="text_colour" translate="label" type="text" sortOrder="80" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Text Colour</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Colour</frontend_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="mode" translate="label" type="select" sortOrder="90" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Mode of slider</label>
+                    <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="placement" translate="label" type="multiselect" sortOrder="100" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Placement of a slider</label>
+                    <validate>required-entry</validate>
+                    <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Placement</source_model>
+                </field>
+
+                <field id="slider" type="multiselect" sortOrder="110" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Slider Configuration</label>
+                    <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\MultiUiSelect</frontend_model>
+                    <can_be_empty>1</can_be_empty>
+                    <comment><![CDATA[Select groups of verses.]]></comment>
+                </field>
+
+                <depends>
+                    <field id="jaroslawzielinski_torahverse/general/enable">1</field>
+                </depends>
+
+                <attribute type="expanded">0</attribute>
+            </group>
+
+            <group id="custom_sliders" translate="label" type="text" sortOrder="40" showInDefault="1" showInStore="1"
+                showInWebsite="1">
+                <label>Custom Sliders</label>
+
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="override" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Override configuration</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+
+                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Sweep time</label>
+                    <comment><![CDATA[time in miliseconds between frames.]]></comment>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Is vertical sweep possible</label>
+                    <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Vertical Sweep time</label>
+                    <comment><![CDATA[time of sweeping one line vertically.]]></comment>
+                    <depends>
+                        <field id="override">1</field>
+                        <field id="is_vertical_sweep_possible">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Is group colours enable</label>
+                    <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="verses_ordered" translate="label" type="select" sortOrder="70" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Verses ordered</label>
+                    <comment><![CDATA[Verses Order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="text_colour" translate="label" type="text" sortOrder="80" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Text Colour</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Colour</frontend_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="mode" translate="label" type="select" sortOrder="90" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Mode of slider</label>
+                    <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="sliders" translate="label comment" type="text" sortOrder="100" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Slider Configurations</label>
+                    <comment><![CDATA[Slider configurations.]]></comment>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\System\Config\Form\Field\Sliders</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+
+                <depends>
+                    <field id="jaroslawzielinski_torahverse/general/enable">1</field>
+                </depends>
+
+                <attribute type="expanded">0</attribute>
+            </group>
+        </section>
+    </system>
+</config>
