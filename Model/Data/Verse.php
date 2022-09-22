@@ -108,6 +108,22 @@ class Verse extends AbstractExtensibleObject implements VerseInterface
     /**
      * @inheritDoc
      */
+    public function getDescription(): ?string
+    {
+        return $this->_get(VerseInterface::DESCRIPTION);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setDescription(?string $description): VerseInterface
+    {
+        return $this->setData(VerseInterface::DESCRIPTION, $description);
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getCreatedAt(): ?string
     {
         return $this->_get(VerseInterface::CREATED_AT);

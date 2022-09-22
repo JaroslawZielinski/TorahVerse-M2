@@ -23,6 +23,7 @@
         <column name="translation" nullable="true" xsi:type="text" comment="Translation"/>
         <column name="content" nullable="true" xsi:type="text" comment="Content"/>
         <column name="unordered" nullable="true" xsi:type="text" comment="Unordered content"/>
+        <column name="description" nullable="true" xsi:type="text" comment="Description"/>
         <column name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
             comment="Created At"/>
         <column name="updated_at" nullable="false" on_update="true" default="CURRENT_TIMESTAMP" xsi:type="timestamp"

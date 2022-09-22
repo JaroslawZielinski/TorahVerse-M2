@@ -14,6 +14,7 @@ interface VerseInterface extends ExtensibleDataInterface
     public const TRANSLATION = 'translation';
     public const CONTENT = 'content';
     public const UNORDERED = 'unordered';
+    public const DESCRIPTION = 'description';
     public const CREATED_AT = 'created_at';
     public const UPDATED_AT = 'updated_at';
 
@@ -82,6 +83,17 @@ interface VerseInterface extends ExtensibleDataInterface
      * @return VerseInterface
      */
     public function setUnordered(?string $unordered): self;
+
+    /**
+     * @return ?string
+     */
+    public function getDescription(): ?string;
+
+    /**
+     * @param ?string $description
+     * @return VerseInterface
+     */
+    public function setDescription(?string $description): self;
 
     /**
      * @return ?string
