@@ -8,16 +8,16 @@ use Magento\Framework\Api\DataObjectHelper;
 use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\Model\Context;
 use Magento\Framework\Registry;
-use ITZielArt\TorahVerse\Api\Data\LinkInterface;
-use ITZielArt\TorahVerse\Api\Data\LinkInterfaceFactory;
-use ITZielArt\TorahVerse\Model\ResourceModel\Link\Collection;
+use ITZielArt\TorahVerse\Api\Data\ColourInterface;
+use ITZielArt\TorahVerse\Api\Data\ColourInterfaceFactory;
+use ITZielArt\TorahVerse\Model\ResourceModel\Colour\Collection;
 
-class Link extends AbstractModel
+class Colour extends AbstractModel
 {
     /**
-     * @var LinkInterfaceFactory
+     * @var ColourInterfaceFactory
      */
-    protected $linkDataFactory;
+    protected $colourDataFactory;
 
     /**
      * @var DataObjectHelper
@@ -27,36 +27,36 @@ class Link extends AbstractModel
     /**
      * @var string
      */
-    protected $_eventPrefix = 'torahverse_sliders_verses';
+    protected $_eventPrefix = 'torahverse_colours';
 
     /**
      * @inheritDoc
      */
     public function __construct(
-        LinkInterfaceFactory $linkDataFactory,
+        ColourInterfaceFactory $colourDataFactory,
         DataObjectHelper $dataObjectHelper,
         Context $context,
         Registry $registry,
-        ResourceModel\Link $resource,
+        ResourceModel\Colour $resource,
         Collection $resourceCollection,
         array $data = []
     ) {
-        $this->linkDataFactory = $linkDataFactory;
+        $this->colourDataFactory = $colourDataFactory;
         $this->dataObjectHelper = $dataObjectHelper;
         parent::__construct($context, $registry, $resource, $resourceCollection, $data);
     }
 
-    public function getDataModel(): LinkInterface
+    public function getDataModel(): ColourInterface
     {
-        $linkData = $this->getData();
+        $colourData = $this->getData();
 
-        $linkDataObject = $this->linkDataFactory->create();
+        $colourDataObject = $this->colourDataFactory->create();
         $this->dataObjectHelper->populateWithArray(
-            $linkDataObject,
-            $linkData,
-            Link::class
+            $colourDataObject,
+            $colourData,
+            Colour::class
         );
 
-        return $linkDataObject;
+        return $colourDataObject;
     }
 }

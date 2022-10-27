@@ -2,8 +2,21 @@
     "torahverse_sliders": {
         "column": {
             "slider_id": true,
+            "code": true,
             "name": true,
             "configuration": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "TORAHVERSE_SLIDERS_CODE": true
+        }
+    },
+    "torahverse_colours": {
+        "column": {
+            "colour_id": true,
+            "colour_value": true,
             "created_at": true,
             "updated_at": true
         },
@@ -11,9 +24,25 @@
             "PRIMARY": true
         }
     },
+    "torahverse_groups": {
+        "column": {
+            "group_id": true,
+            "code": true,
+            "name": true,
+            "colour_id": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "TORAHVERSE_GROUPS_COLOUR_ID_TORAHVERSE_COLOURS_COLOUR_ID": true,
+            "TORAHVERSE_GROUPS_CODE": true
+        }
+    },
     "torahverse_verses": {
         "column": {
             "verse_id": true,
+            "group_id": true,
             "name": true,
             "siglum": true,
             "translation": true,
@@ -24,21 +53,8 @@
             "updated_at": true
         },
         "constraint": {
-            "PRIMARY": true
-        }
-    },
-    "torahverse_sliders_verses": {
-        "column": {
-            "link_id": true,
-            "slider_id": true,
-            "verse_id": true,
-            "created_at": true,
-            "updated_at": true
-        },
-        "constraint": {
             "PRIMARY": true,
-            "TORAHVERSE_SLIDERS_VERSES_SLIDER_ID_TORAHVERSE_SLIDERS_SLIDER_ID": true,
-            "TORAHVERSE_SLIDERS_VERSES_VERSE_ID_TORAHVERSE_VERSES_VERSE_ID": true
+            "TORAHVERSE_VERSES_GROUP_ID_TORAHVERSE_GROUPS_GROUP_ID": true
         }
     }
 }

@@ -6,14 +6,14 @@ namespace ITZielArt\TorahVerse\Api\Data;
 
 use Magento\Framework\Api\SearchResultsInterface;
 
-interface LinkSearchResultsInterface extends SearchResultsInterface
+interface GroupSearchResultsInterface extends SearchResultsInterface
 {
     /**
-     * @return LinkInterface[]
+     * @return GroupInterface[]
      */
     public function getItems();
     /**
-     * @param LinkInterface[] $items
+     * @param GroupInterface[] $items
      * @return $this
      */
     public function setItems(array $items);

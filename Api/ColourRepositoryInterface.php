@@ -7,46 +7,50 @@ namespace ITZielArt\TorahVerse\Api;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
-use ITZielArt\TorahVerse\Api\Data\LinkInterface;
-use ITZielArt\TorahVerse\Api\Data\LinkSearchResultsInterface;
+use ITZielArt\TorahVerse\Api\Data\ColourInterface;
+use ITZielArt\TorahVerse\Api\Data\ColourSearchResultsInterface;
 
-interface LinkRepositoryInterface
+interface ColourRepositoryInterface
 {
     /**
-     * @param LinkInterface $link
-     * @return LinkInterface
+     * @param ColourInterface $colour
+     * @return ColourInterface
      * @throws LocalizedException
      */
     public function save(
-        LinkInterface $link
+        ColourInterface $colour
     );
+
     /**
-     * @param string $linkId
-     * @return LinkInterface
+     * @param string $colourId
+     * @return ColourInterface
      * @throws LocalizedException
      */
-    public function get($linkId);
+    public function get($colourId);
+
     /**
      * @param SearchCriteriaInterface $searchCriteria
-     * @return LinkSearchResultsInterface
+     * @return ColourSearchResultsInterface
      * @throws LocalizedException
      */
     public function getList(
         SearchCriteriaInterface $searchCriteria
     );
+
     /**
-     * @param LinkInterface $link
+     * @param ColourInterface $colour
      * @return bool true on success
      * @throws LocalizedException
      */
     public function delete(
-        LinkInterface $link
+        ColourInterface $colour
     );
+
     /**
-     * @param string $linkId
+     * @param string $colourId
      * @return bool true on success
      * @throws NoSuchEntityException
      * @throws LocalizedException
      */
-    public function deleteById($linkId);
+    public function deleteById($colourId);
 }

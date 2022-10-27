@@ -44,6 +44,22 @@ class Slider extends AbstractExtensibleObject implements SliderInterface
     /**
      * @inheritDoc
      */
+    public function getCode(): ?string
+    {
+        return $this->_get(SliderInterface::CODE);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setCode(?string $code): SliderInterface
+    {
+        return $this->setData(SliderInterface::CODE, $code);
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getConfiguration(): ?string
     {
         return $this->_get(SliderInterface::CONFIGURATION);

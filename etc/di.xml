@@ -1,26 +1,34 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <!-- CRUD preferences -->
-    <preference for="ITZielArt\TorahVerse\Api\Data\LinkInterface" type="ITZielArt\TorahVerse\Model\Data\Link"/>
+    <preference for="ITZielArt\TorahVerse\Api\Data\ColourInterface" type="ITZielArt\TorahVerse\Model\Data\Colour"/>
 
     <preference for="ITZielArt\TorahVerse\Api\Data\SliderInterface" type="ITZielArt\TorahVerse\Model\Data\Slider"/>
 
+    <preference for="ITZielArt\TorahVerse\Api\Data\GroupInterface" type="ITZielArt\TorahVerse\Model\Data\Group"/>
+
     <preference for="ITZielArt\TorahVerse\Api\Data\VerseInterface" type="ITZielArt\TorahVerse\Model\Data\Verse"/>
 
-    <preference for="ITZielArt\TorahVerse\Api\LinkRepositoryInterface"
-        type="ITZielArt\TorahVerse\Model\LinkRepository"/>
+    <preference for="ITZielArt\TorahVerse\Api\ColourRepositoryInterface"
+        type="ITZielArt\TorahVerse\Model\ColourRepository"/>
 
     <preference for="ITZielArt\TorahVerse\Api\SliderRepositoryInterface"
         type="ITZielArt\TorahVerse\Model\SliderRepository"/>
+
+    <preference for="ITZielArt\TorahVerse\Api\GroupRepositoryInterface"
+        type="ITZielArt\TorahVerse\Model\GroupRepository"/>
 
     <preference for="ITZielArt\TorahVerse\Api\VerseRepositoryInterface"
         type="ITZielArt\TorahVerse\Model\VerseRepository"/>
 
     <!-- Search preferences -->
-    <preference for="ITZielArt\TorahVerse\Api\Data\LinkSearchResultsInterface"
+    <preference for="ITZielArt\TorahVerse\Api\Data\ColourSearchResultsInterface"
         type="Magento\Framework\Api\SearchResults"/>
 
     <preference for="ITZielArt\TorahVerse\Api\Data\SliderSearchResultsInterface"
+        type="Magento\Framework\Api\SearchResults"/>
+
+    <preference for="ITZielArt\TorahVerse\Api\Data\GroupSearchResultsInterface"
         type="Magento\Framework\Api\SearchResults"/>
 
     <preference for="ITZielArt\TorahVerse\Api\Data\VerseSearchResultsInterface"

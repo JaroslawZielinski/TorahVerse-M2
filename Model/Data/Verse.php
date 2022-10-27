@@ -28,6 +28,22 @@ class Verse extends AbstractExtensibleObject implements VerseInterface
     /**
      * @inheritDoc
      */
+    public function getGroupId()
+    {
+        return $this->_get(VerseInterface::GROUP_ID);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setGroupId($groupId): VerseInterface
+    {
+        return $this->setData(VerseInterface::GROUP_ID, $groupId);
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getName(): ?string
     {
         return $this->_get(VerseInterface::NAME);

@@ -9,6 +9,7 @@ use Magento\Framework\Api\ExtensibleDataInterface;
 interface SliderInterface extends ExtensibleDataInterface
 {
     public const SLIDER_ID = 'slider_id';
+    public const CODE = 'code';
     public const NAME = 'name';
     public const CONFIGURATION = 'configuration';
     public const CREATED_AT = 'created_at';
@@ -35,6 +36,17 @@ interface SliderInterface extends ExtensibleDataInterface
      * @return SliderInterface
      */
     public function setName(?string $name): self;
+
+    /**
+     * @return ?string
+     */
+    public function getCode(): ?string;
+
+    /**
+     * @param ?string $code
+     * @return SliderInterface
+     */
+    public function setCode(?string $code): self;
 
     /**
      * @return ?string
@@ -68,10 +80,12 @@ interface SliderInterface extends ExtensibleDataInterface
      * @return SliderInterface
      */
     public function setUpdatedAt(?string $updatedAt): self;
+
     /**
      * @return \ITZielArt\TorahVerse\Api\Data\SliderExtensionInterface|null
      */
     public function getExtensionAttributes();
+
     /**
      * @param \ITZielArt\TorahVerse\Api\Data\SliderExtensionInterface $extensionAttributes
      * @return $this

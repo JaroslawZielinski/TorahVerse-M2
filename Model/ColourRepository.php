@@ -14,15 +14,15 @@ use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Reflection\DataObjectProcessor;
 use Magento\Store\Model\StoreManagerInterface;
-use ITZielArt\TorahVerse\Api\Data\LinkInterface;
-use ITZielArt\TorahVerse\Api\Data\LinkInterfaceFactory;
-use ITZielArt\TorahVerse\Api\Data\LinkSearchResultsInterface;
-use ITZielArt\TorahVerse\Api\Data\LinkSearchResultsInterfaceFactory;
-use ITZielArt\TorahVerse\Api\LinkRepositoryInterface;
-use ITZielArt\TorahVerse\Model\ResourceModel\Link as ResourceLink;
-use ITZielArt\TorahVerse\Model\ResourceModel\Link\CollectionFactory as LinkCollectionFactory;
+use ITZielArt\TorahVerse\Api\Data\ColourInterface;
+use ITZielArt\TorahVerse\Api\Data\ColourInterfaceFactory;
+use ITZielArt\TorahVerse\Api\Data\ColourSearchResultsInterface;
+use ITZielArt\TorahVerse\Api\Data\ColourSearchResultsInterfaceFactory;
+use ITZielArt\TorahVerse\Api\ColourRepositoryInterface;
+use ITZielArt\TorahVerse\Model\ResourceModel\Colour as ResourceColour;
+use ITZielArt\TorahVerse\Model\ResourceModel\Colour\CollectionFactory as ColourCollectionFactory;
 
-class LinkRepository implements LinkRepositoryInterface
+class ColourRepository implements ColourRepositoryInterface
 {
     /**
      * @var CollectionProcessorInterface
@@ -30,14 +30,14 @@ class LinkRepository implements LinkRepositoryInterface
     private $collectionProcessor;
 
     /**
-     * @var ResourceLink
+     * @var ResourceColour
      */
     private $resource;
 
     /**
-     * @var LinkInterfaceFactory
+     * @var ColourInterfaceFactory
      */
-    private $dataLinkFactory;
+    private $dataColourFactory;
 
     /**
      * @var ExtensibleDataObjectConverter
@@ -45,7 +45,7 @@ class LinkRepository implements LinkRepositoryInterface
     private $extensibleDataObjectConverter;
 
     /**
-     * @var LinkSearchResultsInterfaceFactory
+     * @var ColourSearchResultsInterfaceFactory
      */
     private $searchResultsFactory;
 
@@ -60,14 +60,14 @@ class LinkRepository implements LinkRepositoryInterface
     private $storeManager;
 
     /**
-     * @var LinkFactory
+     * @var ColourFactory
      */
-    private $linkFactory;
+    private $colourFactory;
 
     /**
-     * @var LinkCollectionFactory
+     * @var ColourCollectionFactory
      */
-    private $linkCollectionFactory;
+    private $colourCollectionFactory;
 
     /**
      * @var JoinProcessorInterface
@@ -80,11 +80,11 @@ class LinkRepository implements LinkRepositoryInterface
     private $dataObjectHelper;
 
     public function __construct(
-        ResourceLink $resource,
-        LinkFactory $linkFactory,
-        LinkInterfaceFactory $dataLinkFactory,
-        LinkCollectionFactory $linkCollectionFactory,
-        LinkSearchResultsInterfaceFactory $searchResultsFactory,
+        ResourceColour $resource,
+        ColourFactory $colourFactory,
+        ColourInterfaceFactory $dataColourFactory,
+        ColourCollectionFactory $colourCollectionFactory,
+        ColourSearchResultsInterfaceFactory $searchResultsFactory,
         DataObjectHelper $dataObjectHelper,
         DataObjectProcessor $dataObjectProcessor,
         StoreManagerInterface $storeManager,
@@ -93,9 +93,9 @@ class LinkRepository implements LinkRepositoryInterface
         ExtensibleDataObjectConverter $extensibleDataObjectConverter
     ) {
         $this->resource = $resource;
-        $this->linkFactory = $linkFactory;
-        $this->dataLinkFactory = $dataLinkFactory;
-        $this->linkCollectionFactory = $linkCollectionFactory;
+        $this->colourFactory = $colourFactory;
+        $this->dataColourFactory = $dataColourFactory;
+        $this->colourCollectionFactory = $colourCollectionFactory;
         $this->searchResultsFactory = $searchResultsFactory;
         $this->dataObjectHelper = $dataObjectHelper;
         $this->dataObjectProcessor = $dataObjectProcessor;
@@ -109,38 +109,38 @@ class LinkRepository implements LinkRepositoryInterface
      * {@inheritdoc}
      */
     public function save(
-        LinkInterface $link
+        ColourInterface $colour
     ) {
-        $linkData = $this->extensibleDataObjectConverter->toNestedArray(
-            $link,
+        $colourData = $this->extensibleDataObjectConverter->toNestedArray(
+            $colour,
             [],
-            LinkInterface::class
+            ColourInterface::class
         );
 
-        $linkModel = $this->linkFactory->create()->setData($linkData);
+        $colourModel = $this->colourFactory->create()->setData($colourData);
 
         try {
-            $this->resource->save($linkModel);
+            $this->resource->save($colourModel);
         } catch (\Exception $exception) {
             throw new CouldNotSaveException(__(
-                'Could not save the Link: %1',
+                'Could not save the Colour: %1',
                 $exception->getMessage()
             ));
         }
-        return $linkModel->getDataModel();
+        return $colourModel->getDataModel();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function get($linkId)
+    public function get($colourId)
     {
-        $link = $this->linkFactory->create();
-        $this->resource->load($link, $linkId);
-        if (!$link->getId()) {
-            throw new NoSuchEntityException(__('Link with id "%1" does not exist.', $linkId));
+        $colour = $this->colourFactory->create();
+        $this->resource->load($colour, $colourId);
+        if (!$colour->getId()) {
+            throw new NoSuchEntityException(__('Colour with id "%1" does not exist.', $colourId));
         }
-        return $link->getDataModel();
+        return $colour->getDataModel();
     }
 
     /**
@@ -149,16 +149,16 @@ class LinkRepository implements LinkRepositoryInterface
     public function getList(
         SearchCriteriaInterface $criteria
     ) {
-        $collection = $this->linkCollectionFactory->create();
+        $collection = $this->colourCollectionFactory->create();
 
         $this->extensionAttributesJoinProcessor->process(
             $collection,
-            LinkInterface::class
+            ColourInterface::class
         );
 
         $this->collectionProcessor->process($criteria, $collection);
 
-        /** @var LinkSearchResultsInterface $searchResults */
+        /** @var ColourSearchResultsInterface $searchResults */
         $searchResults = $this->searchResultsFactory->create();
         $searchResults->setSearchCriteria($criteria);
 
@@ -176,15 +176,15 @@ class LinkRepository implements LinkRepositoryInterface
      * {@inheritdoc}
      */
     public function delete(
-        LinkInterface $link
+        ColourInterface $colour
     ) {
         try {
-            $linkModel = $this->linkFactory->create();
-            $this->resource->load($linkModel, $link->getLinkId());
-            $this->resource->delete($linkModel);
+            $colourModel = $this->colourFactory->create();
+            $this->resource->load($colourModel, $colour->getColourId());
+            $this->resource->delete($colourModel);
         } catch (\Exception $exception) {
             throw new CouldNotDeleteException(__(
-                'Could not delete the Link: %1',
+                'Could not delete the Colour: %1',
                 $exception->getMessage()
             ));
         }
@@ -194,8 +194,8 @@ class LinkRepository implements LinkRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function deleteById($linkId)
+    public function deleteById($colourId)
     {
-        return $this->delete($this->get($linkId));
+        return $this->delete($this->get($colourId));
     }
 }

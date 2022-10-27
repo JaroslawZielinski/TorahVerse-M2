@@ -9,6 +9,7 @@ use Magento\Framework\Api\ExtensibleDataInterface;
 interface VerseInterface extends ExtensibleDataInterface
 {
     public const VERSE_ID = 'verse_id';
+    public const GROUP_ID = 'group_id';
     public const NAME = 'name';
     public const SIGLUM = 'siglum';
     public const TRANSLATION = 'translation';
@@ -28,6 +29,17 @@ interface VerseInterface extends ExtensibleDataInterface
      * @return VerseInterface
      */
     public function setVerseId($verseId): self;
+
+    /**
+     * @return ?int
+     */
+    public function getGroupId();
+
+    /**
+     * @param ?int $groupId
+     * @return VerseInterface
+     */
+    public function setGroupId($groupId): self;
 
     /**
      * @return ?string
@@ -121,6 +133,7 @@ interface VerseInterface extends ExtensibleDataInterface
      * @return \ITZielArt\TorahVerse\Api\Data\VerseExtensionInterface|null
      */
     public function getExtensionAttributes();
+
     /**
      * @param \ITZielArt\TorahVerse\Api\Data\VerseExtensionInterface $extensionAttributes
      * @return $this

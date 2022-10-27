@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ITZielArt\TorahVerse\Model\ResourceModel\Link;
+namespace ITZielArt\TorahVerse\Model\ResourceModel\Colour;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
-use ITZielArt\TorahVerse\Model\Link;
+use ITZielArt\TorahVerse\Model\Colour;
 use ITZielArt\TorahVerse\Model\ResourceModel;
 
 class Collection extends AbstractCollection
@@ -13,7 +13,7 @@ class Collection extends AbstractCollection
     /**
      * @var string
      */
-    protected $_idFieldName = 'link_id';
+    protected $_idFieldName = 'colour_id';
 
     /**
      * @inheritDoc
@@ -21,8 +21,8 @@ class Collection extends AbstractCollection
     protected function _construct()
     {
         $this->_init(
-            Link::class,
-            ResourceModel\Link::class
+            Colour::class,
+            ResourceModel\Colour::class
         );
     }
 }
