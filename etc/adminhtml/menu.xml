@@ -14,9 +14,14 @@
              module="ITZielArt_TorahVerse" sortOrder="20" parent="ITZielArt_TorahVerse::torahverse"
              dependsOnModule="ITZielArt_TorahVerse"/>
 
+        <add id="ITZielArt_TorahVerse::groups" resource="ITZielArt_TorahVerse::groups"
+             title="Groups" action="torahverse/groups/index"
+             module="ITZielArt_TorahVerse" sortOrder="30" parent="ITZielArt_TorahVerse::torahverse"
+             dependsOnModule="ITZielArt_TorahVerse"/>
+
         <add id="ITZielArt_TorahVerse::verses" resource="ITZielArt_TorahVerse::verses"
              title="Verses" action="torahverse/verses/index"
-             module="ITZielArt_TorahVerse" sortOrder="30" parent="ITZielArt_TorahVerse::torahverse"
+             module="ITZielArt_TorahVerse" sortOrder="40" parent="ITZielArt_TorahVerse::torahverse"
              dependsOnModule="ITZielArt_TorahVerse"/>
 
         <add id="ITZielArt_TorahVerse::config"  resource="ITZielArt_TorahVerse::config"
@@ -25,7 +30,7 @@
 
         <add id="ITZielArt_TorahVerse::configuration" resource="ITZielArt_TorahVerse::configuration"
              title="Configuration" action="adminhtml/system_config/edit/section/itzielart_torahverse"
-             module="ITZielArt_TorahVerse" sortOrder="40" parent="ITZielArt_TorahVerse::config"
+             module="ITZielArt_TorahVerse" sortOrder="50" parent="ITZielArt_TorahVerse::config"
              dependsOnModule="ITZielArt_TorahVerse"/>
     </menu>
 </config>

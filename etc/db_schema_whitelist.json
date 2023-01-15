@@ -13,29 +13,17 @@
             "TORAHVERSE_SLIDERS_CODE": true
         }
     },
-    "torahverse_colours": {
-        "column": {
-            "colour_id": true,
-            "colour_value": true,
-            "created_at": true,
-            "updated_at": true
-        },
-        "constraint": {
-            "PRIMARY": true
-        }
-    },
     "torahverse_groups": {
         "column": {
             "group_id": true,
             "code": true,
             "name": true,
-            "colour_id": true,
+            "colour_value": true,
             "created_at": true,
             "updated_at": true
         },
         "constraint": {
             "PRIMARY": true,
-            "TORAHVERSE_GROUPS_COLOUR_ID_TORAHVERSE_COLOURS_COLOUR_ID": true,
             "TORAHVERSE_GROUPS_CODE": true
         }
     },

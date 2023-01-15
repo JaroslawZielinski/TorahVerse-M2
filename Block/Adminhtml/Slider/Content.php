@@ -49,8 +49,8 @@ class Content extends Template
      */
     protected function _construct()
     {
-        parent::_construct();
         $this->setTemplate('ITZielArt_TorahVerse::slider/content.phtml');
+        parent::_construct();
     }
 
     public function canShow(): bool

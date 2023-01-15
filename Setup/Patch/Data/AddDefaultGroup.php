@@ -6,6 +6,7 @@ namespace ITZielArt\TorahVerse\Setup\Patch\Data;
 
 use ITZielArt\TorahVerse\Api\ColourRepositoryInterface;
 use ITZielArt\TorahVerse\Api\Data\ColourInterface;
+use ITZielArt\TorahVerse\Api\Data\GroupInterface;
 use ITZielArt\TorahVerse\Model\Data\Colour;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
@@ -24,25 +25,13 @@ class AddDefaultGroup implements DataPatchInterface
      * @var GroupRepositoryInterface
      */
     private $groupRepository;
-    /**
-     * @var SearchCriteriaBuilder
-     */
-    private $searchCriteriaBuilder;
-    /**
-     * @var ColourRepositoryInterface
-     */
-    private $colourRepository;
 
     public function __construct(
         GroupFactory $groupFactory,
-        GroupRepositoryInterface $groupRepository,
-        SearchCriteriaBuilder $searchCriteriaBuilder,
-        ColourRepositoryInterface $colourRepository
+        GroupRepositoryInterface $groupRepository
     ) {
         $this->groupFactory = $groupFactory;
         $this->groupRepository = $groupRepository;
-        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
-        $this->colourRepository = $colourRepository;
     }
 
     /**
@@ -62,33 +51,15 @@ class AddDefaultGroup implements DataPatchInterface
     }
 
     /**
-     * @throws LocalizedException
-     */
-    private function getNoColorId(): ?int
-    {
-        $this->searchCriteriaBuilder->addFilter(ColourInterface::COLOUR_VALUE, ColourInterface::NOCOLOR);
-        $searchCriteria = $this->searchCriteriaBuilder->create();
-        $colours = $this->colourRepository->getList($searchCriteria)->getItems();
-        /** @var Colour $noColour */
-        $noColour = reset($colours);
-        if (empty($noColour)) {
-            return null;
-        }
-        return (int)$noColour->getColourId();
-    }
-
-    /**
      * @inheritDoc
      * @throws LocalizedException
      */
     public function apply()
     {
-        /** @var Group $group */
         $group = $this->groupFactory->create();
         $groupData = $group->getDataModel();
         $groupData->setName('Default');
-        $noColorId = $this->getNoColorId();
-        $groupData->setColourId($noColorId);
+        $groupData->setColourValue(GroupInterface::NO_COLOR);
         $this->groupRepository->save($groupData);
     }
 }

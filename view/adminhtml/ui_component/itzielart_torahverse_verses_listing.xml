@@ -20,7 +20,7 @@
 			<updateUrl path="mui/index/render"/>
 		</settings>
 		<aclResource>ITZielArt_TorahVerse::verses</aclResource>
-		<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+		<dataProvider class="ITZielArt\TorahVerse\Ui\DataProvider\Verse\ListingDataProvider"
             name="itzielart_torahverse_verses_listing_data_source">
 			<settings>
 				<requestFieldName>id</requestFieldName>
@@ -67,7 +67,7 @@
                     itzielart_torahverse_verses_listing.itzielart_torahverse_verses_listing.itzielart_torahverse_verses_columns.ids
                 </param>
 				<param name="enabled" xsi:type="boolean">false</param>
-				<param name="indexField" xsi:type="string">log_id</param>
+				<param name="indexField" xsi:type="string">verse_id</param>
 				<param name="clientConfig" xsi:type="array">
 					<item name="saveUrl" path="torahverses/verses/inlineEdit" xsi:type="url"/>
 					<item name="validateBeforeSave" xsi:type="boolean">false</item>
@@ -103,6 +103,18 @@
                 </item>
             </argument>
 		</column>
+        <column name="group" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Verses\Group">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="label" xsi:type="string" translate="true">Group</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+        </column>
         <column name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -111,7 +123,7 @@
                     <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
-                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
                 </item>
             </argument>
         </column>
@@ -123,7 +135,7 @@
                     <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
-                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
                 </item>
             </argument>
         </column>
@@ -135,7 +147,7 @@
                     <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
-                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
                 </item>
             </argument>
         </column>
@@ -148,7 +160,7 @@
                     <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">false</item>
                     <item name="visible" xsi:type="boolean">true</item>
-                    <item name="sortOrder" xsi:type="number">50</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
                 </item>
             </argument>
 		</column>

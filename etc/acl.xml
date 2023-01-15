@@ -6,6 +6,7 @@
                 <resource id="ITZielArt_TorahVerse::menu" title="TorahVerse Menu">
                     <resource id="ITZielArt_TorahVerse::torahverse" title="ITZielArt TorahVerse">
                         <resource id="ITZielArt_TorahVerse::sliders" title="ITZielArt TorahVerse Sliders"/>
+                        <resource id="ITZielArt_TorahVerse::groups" title="ITZielArt TorahVerse Groups"/>
                         <resource id="ITZielArt_TorahVerse::verses" title="ITZielArt TorahVerse Verses"/>
                         <resource id="ITZielArt_TorahVerse::config"
                             title="ITZielArt TorahVerse Configuration Menu" translate="title" />

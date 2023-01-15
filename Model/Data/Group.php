@@ -60,17 +60,17 @@ class Group extends AbstractExtensibleObject implements GroupInterface
     /**
      * @inheritDoc
      */
-    public function getColourId()
+    public function getColourValue(): ?string
     {
-        return $this->_get(self::COLOUR_ID);
+        return $this->_get(self::COLOUR_VALUE);
     }
 
     /**
      * @inheritDoc
      */
-    public function setColourId($colourId): GroupInterface
+    public function setColourValue(?string $colourValue): GroupInterface
     {
-        return $this->setData(self::COLOUR_ID, $colourId);
+        return $this->setData(self::COLOUR_VALUE, $colourValue);
     }
 
     /**

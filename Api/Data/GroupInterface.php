@@ -8,10 +8,11 @@ use Magento\Framework\Api\ExtensibleDataInterface;
 
 interface GroupInterface extends ExtensibleDataInterface
 {
+    public const NO_COLOR = 'no_color';
     public const GROUP_ID = 'group_id';
     public const CODE = 'code';
     public const NAME = 'name';
-    public const COLOUR_ID = 'colour_id';
+    public const COLOUR_VALUE = 'colour_value';
     public const CREATED_AT = 'created_at';
     public const UPDATED_AT = 'updated_at';
 
@@ -49,15 +50,15 @@ interface GroupInterface extends ExtensibleDataInterface
     public function setName(?string $name): self;
 
     /**
-     * @return ?int
+     * @return ?string
      */
-    public function getColourId();
+    public function getColourValue(): ?string;
 
     /**
-     * @param ?int $colourId
+     * @param ?string $colourValue
      * @return GroupInterface
      */
-    public function setColourId($colourId): self;
+    public function setColourValue(?string $colourValue): self;
 
     /**
      * @return ?string

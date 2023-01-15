@@ -1,16 +1,26 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <!-- CRUD preferences -->
-    <preference for="ITZielArt\TorahVerse\Api\Data\ColourInterface" type="ITZielArt\TorahVerse\Model\Data\Colour"/>
+    <!-- Logger DI -->
+    <virtualType name="ITZielArt\TorahVerse\Logger\Handler" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">var/log/itzielart_torahverse.log</argument>
+        </arguments>
+    </virtualType>
 
+    <virtualType name="ITZielArt\TorahVerse\Logger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">ITZielArt\TorahVerse\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- CRUD preferences -->
     <preference for="ITZielArt\TorahVerse\Api\Data\SliderInterface" type="ITZielArt\TorahVerse\Model\Data\Slider"/>
 
     <preference for="ITZielArt\TorahVerse\Api\Data\GroupInterface" type="ITZielArt\TorahVerse\Model\Data\Group"/>
 
     <preference for="ITZielArt\TorahVerse\Api\Data\VerseInterface" type="ITZielArt\TorahVerse\Model\Data\Verse"/>
-
-    <preference for="ITZielArt\TorahVerse\Api\ColourRepositoryInterface"
-        type="ITZielArt\TorahVerse\Model\ColourRepository"/>
 
     <preference for="ITZielArt\TorahVerse\Api\SliderRepositoryInterface"
         type="ITZielArt\TorahVerse\Model\SliderRepository"/>
@@ -22,9 +32,6 @@
         type="ITZielArt\TorahVerse\Model\VerseRepository"/>
 
     <!-- Search preferences -->
-    <preference for="ITZielArt\TorahVerse\Api\Data\ColourSearchResultsInterface"
-        type="Magento\Framework\Api\SearchResults"/>
-
     <preference for="ITZielArt\TorahVerse\Api\Data\SliderSearchResultsInterface"
         type="Magento\Framework\Api\SearchResults"/>
 
@@ -43,12 +50,24 @@
         </arguments>
     </virtualType>
 
+    <!-- Groups Grid -->
+    <virtualType name="ITZielArt\TorahVerse\Model\ResourceModel\Group\Grid\Collection"
+        type="ITZielArt\TorahVerse\Ui\DataProvider\Group\Listing\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">torahverse_groups</argument>
+            <argument name="resourceModel" xsi:type="string">ITZielArt\TorahVerse\Model\ResourceModel\Group</argument>
+        </arguments>
+    </virtualType>
+
     <!-- All grids DataProviders -->
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="itzielart_torahverse_verses_listing_data_source" xsi:type="string">
                     ITZielArt\TorahVerse\Model\ResourceModel\Verse\Grid\Collection
+                </item>
+                <item name="itzielart_torahverse_groups_listing_data_source" xsi:type="string">
+                    ITZielArt\TorahVerse\Model\ResourceModel\Group\Grid\Collection
                 </item>
             </argument>
         </arguments>
