@@ -69,7 +69,7 @@ class Group extends Column
         }
         $contrastColorValue = Data::getContrastColor($colorValue);
         return sprintf(
-            '<div style="color: %s; background-color: %s;text-align: center;">%s</div>',
+            '<div class="group-grid" style="color: %s; background-color: %s;text-align: center;">%s</div>',
             $contrastColorValue,
             $colorValue,
             $group->getName()

@@ -68,7 +68,7 @@
 * [1J 1, 4-9](https://biblia.info.pl/biblia/bw/1j/1/4-9)
 
 ## W modlitwie
-* ✓[Lk 11, 1-13](https://biblia.info.pl/biblia/bw/lk/11/1-13)
+* [Lk 11, 1-13](https://biblia.info.pl/biblia/bw/lk/11/1-13)
 * [J 17, 1-26](https://biblia.info.pl/biblia/bw/j/17/1-26)
 * [1J 5, 14-15](https://biblia.info.pl/biblia/bw/1j/5/14-15)
 
@@ -98,7 +98,7 @@
 * [Flp 4, 8](https://biblia.info.pl/biblia/bw/flp/4/8)
 * [Jk 4, 7](https://biblia.info.pl/biblia/bw/jk/4/7)
 * [2P 2, 9](https://biblia.info.pl/biblia/bw/2p/2/9)
-* [2P 3, 17](https://biblia.info.pl/biblia/bw/2p/3/17)
+* [2P 3, 15-17](https://biblia.info.pl/biblia/bw/2p/3/15-17)
 
 ## Jestem wdzięczny
 * [1Tes 5, 18](https://biblia.info.pl/biblia/bw/1tes/5/18)
@@ -117,7 +117,7 @@
 * [Rz 5, 8](https://biblia.info.pl/biblia/bw/rz/5/8)
 
 ## Wszyscy są grzesznikami
-* [Rz 3, 23](https://biblia.info.pl/biblia/bw/rz/3/23)
+* [Rz 3, 19-26](https://biblia.info.pl/biblia/bw/rz/3/19-26)
 * [Rz 3, 10](https://biblia.info.pl/biblia/bw/rz/3/10)
 
 ## Boża rada dla grzeszników
