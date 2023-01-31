@@ -51,7 +51,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Bójcie się raczej tego, który może i duszę i ciało zniszczyć w piekle',
-                        'siglum' => 'jk/4/12',
+                        'siglum' => 'jas/4/12',
                         'translation' => 'bw',
                         'content' => '(12) Jeden jest zakonodawca i sędzia, Ten, który może zbawić i zatracić. Ty zaś kim jesteś, że osądzasz bliźniego?',
                         'unordered' => 'Jeden jest zakonodawca i sędzia, Ten, który może zbawić i zatracić. Ty zaś kim jesteś, że osądzasz bliźniego?',
@@ -129,7 +129,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Wyznawajmy grzechy swoje',
-                        'siglum' => '1j/1/4-9',
+                        'siglum' => '1jn/1/4-9',
                         'translation' => 'bw',
                         'content' => '(4) A to piszemy, aby radość nasza była pełna. (5) A zwiastowanie to, które słyszeliśmy od niego i które wam ogłaszamy, jest takie, że Bóg jest światłością, a nie ma w nim żadnej ciemności. (6) Jeśli mówimy, że z nim społeczność mamy, a chodzimy w ciemności, kłamiemy i nie trzymamy się prawdy. (7) Jeśli zaś chodzimy w światłości, jak On sam jest w światłości, społeczność mamy z sobą, i krew Jezusa Chrystusa, Syna jego, oczyszcza nas od wszelkiego grzechu. (8) Jeśli mówimy, że grzechu nie mamy, sami siebie zwodzimy, i prawdy w nas nie ma. (9) Jeśli wyznajemy grzechy swoje, wierny jest Bóg i sprawiedliwy i odpuści nam grzechy, i oczyści nas od wszelkiej nieprawości.',
                         'unordered' => 'A to piszemy, aby radość nasza była pełna. A zwiastowanie to, które słyszeliśmy od niego i które wam ogłaszamy, jest takie, że Bóg jest światłością, a nie ma w nim żadnej ciemności. Jeśli mówimy, że z nim społeczność mamy, a chodzimy w ciemności, kłamiemy i nie trzymamy się prawdy. Jeśli zaś chodzimy w światłości, jak On sam jest w światłości, społeczność mamy z sobą, i krew Jezusa Chrystusa, Syna jego, oczyszcza nas od wszelkiego grzechu. Jeśli mówimy, że grzechu nie mamy, sami siebie zwodzimy, i prawdy w nas nie ma. Jeśli wyznajemy grzechy swoje, wierny jest Bóg i sprawiedliwy i odpuści nam grzechy, i oczyści nas od wszelkiej nieprawości.',
@@ -759,7 +759,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Poddajcie się Bogu i przeciwstawcie diabłu',
-                        'siglum' => 'jk/4/7',
+                        'siglum' => 'jas/4/7',
                         'translation' => 'bw',
                         'content' => '(7) Przeto poddajcie się Bogu, przeciwstawcie się diabłu, a ucieknie od was.',
                         'unordered' => 'Przeto poddajcie się Bogu, przeciwstawcie się diabłu, a ucieknie od was.',
@@ -1060,8 +1060,8 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Run with patience the race that is set before us',
-                        'siglum' => 'hbr/12/1',
-                        'translation' => 'bw',
+                        'siglum' => 'hebr/12/1',
+                        'translation' => 'kjv',
                         'content' => '(1) Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset [us], and let us run with patience the race that is set before us,',
                         'unordered' => 'Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset [us], and let us run with patience the race that is set before us,',
                         'description' => 'List do Hebrajczyków 12:1, King James Version'

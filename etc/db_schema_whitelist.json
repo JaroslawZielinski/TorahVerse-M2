@@ -1,18 +1,4 @@
 {
-    "torahverse_sliders": {
-        "column": {
-            "slider_id": true,
-            "code": true,
-            "name": true,
-            "configuration": true,
-            "created_at": true,
-            "updated_at": true
-        },
-        "constraint": {
-            "PRIMARY": true,
-            "TORAHVERSE_SLIDERS_CODE": true
-        }
-    },
     "torahverse_groups": {
         "column": {
             "group_id": true,

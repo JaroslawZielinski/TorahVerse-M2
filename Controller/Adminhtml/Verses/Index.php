@@ -7,6 +7,7 @@ namespace ITZielArt\TorahVerse\Controller\Adminhtml\Verses;
 use Magento\Backend\App\Action\Context;
 use ITZielArt\TorahVerse\Controller\Adminhtml\Grid;
 use ITZielArt\TorahVerse\Model\Config;
+use Magento\Framework\App\Request\DataPersistorInterface;
 
 class Index extends Grid
 {
@@ -20,10 +21,11 @@ class Index extends Grid
      */
     public function __construct(
         Config $config,
+        DataPersistorInterface $dataPersistor,
         Context $context
     ) {
         $this->config = $config;
-        parent::__construct($context);
+        parent::__construct($dataPersistor, $context);
     }
 
     /**

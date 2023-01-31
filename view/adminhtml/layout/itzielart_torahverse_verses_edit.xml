@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="ITZielArt_TorahVerse/css/torahverse.css"/>
+        <css src="ITZielArt_TorahVerse/css/info.css"/>
+        <link src="ITZielArt_TorahVerse/js/siglum/data.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="itzielart_torahverse_verses_form"/>
+        </referenceContainer>
+    </body>
+</page>

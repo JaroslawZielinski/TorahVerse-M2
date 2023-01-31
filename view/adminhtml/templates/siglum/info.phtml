@@ -1,0 +1,46 @@
+<?php
+    // @info https://www.tablesgenerator.com/html_tables#
+    /** @var \ITZielArt\TorahVerse\Block\Adminhtml\Siglum\Info $block */
+    $rows = $block->getBooksRows();
+    $torahParts = $block->getTorahParts();
+?>
+
+<table class="tg">
+    <thead>
+        <tr>
+            <th class="tg-aw21" colspan="2"><?= __($torahParts[0]); ?></th>
+            <th class="tg-aw21" colspan="2"><?= __($torahParts[1]); ?></th>
+            <th class="tg-aw21" colspan="2"><?= __($torahParts[2]); ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($rows as $row): ?>
+        <?php
+            $key0 = isset($row[0]) ? array_keys($row[0])[0] : '&nbsp;';
+            $key1 = isset($row[1]) ? array_keys($row[1])[0] : '&nbsp;';
+            $key2 = isset($row[2]) ? array_keys($row[2])[0] : '&nbsp;';
+
+            $value0 = isset($row[0]) ? array_values($row[0])[0] : '&nbsp;';
+            $value1 = isset($row[1]) ? array_values($row[1])[0] : '&nbsp;';
+            $value2 = isset($row[2]) ? array_values($row[2])[0] : '&nbsp;';
+        ?>
+            <tr>
+                <td class="tg-8jgo">
+                    <span style="font-weight:bold"><?= $key0; ?></span>
+                </td>
+                <td class="tg-8jgo"><?= $value0; ?></td>
+
+                <td class="tg-8jgo">
+                    <span style="font-weight:bold"><?= $key1; ?></span>
+                </td>
+                <td class="tg-8jgo"><?= $value1; ?></td>
+
+                <td class="tg-8jgo">
+                    <span style="font-weight:bold"><?= $key2; ?></span>
+                </td>
+                <td class="tg-8jgo"><?= $value2; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br/>

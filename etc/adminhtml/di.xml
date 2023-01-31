@@ -1,0 +1,19 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Ui\Component\Form\Field">
+        <plugin name="siglum-and-translation-url-formatter"
+            type="ITZielArt\TorahVerse\Plugin\Ui\Component\Form\FieldPlugin" sortOrder="10" disabled="false" />
+    </type>
+
+    <type name="ITZielArt\TorahVerse\Plugin\Ui\Component\Form\FieldPlugin">
+        <arguments>
+            <!-- force Frontend Url -->
+            <argument name="urlBuilder" xsi:type="object" shared="false">Magento\Framework\Url</argument>
+            <argument name="key" xsi:type="string">previewUrl</argument>
+            <argument name="fields" xsi:type="array">
+                <item name="0" xsi:type="string">siglum</item>
+                <item name="1" xsi:type="string">translation</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

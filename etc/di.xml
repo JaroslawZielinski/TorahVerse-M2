@@ -15,15 +15,22 @@
         </arguments>
     </virtualType>
 
-    <!-- CRUD preferences -->
-    <preference for="ITZielArt\TorahVerse\Api\Data\SliderInterface" type="ITZielArt\TorahVerse\Model\Data\Slider"/>
+    <type name="ITZielArt\TorahVerse\Controller\Siglum\Preview">
+        <arguments>
+            <argument name="logger" xsi:type="object">ITZielArt\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
 
+    <type name="ITZielArt\TorahVerse\Controller\Adminhtml\Verses\Save">
+        <arguments>
+            <argument name="logger" xsi:type="object">ITZielArt\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
+    <!-- CRUD preferences -->
     <preference for="ITZielArt\TorahVerse\Api\Data\GroupInterface" type="ITZielArt\TorahVerse\Model\Data\Group"/>
 
     <preference for="ITZielArt\TorahVerse\Api\Data\VerseInterface" type="ITZielArt\TorahVerse\Model\Data\Verse"/>
-
-    <preference for="ITZielArt\TorahVerse\Api\SliderRepositoryInterface"
-        type="ITZielArt\TorahVerse\Model\SliderRepository"/>
 
     <preference for="ITZielArt\TorahVerse\Api\GroupRepositoryInterface"
         type="ITZielArt\TorahVerse\Model\GroupRepository"/>
@@ -32,9 +39,6 @@
         type="ITZielArt\TorahVerse\Model\VerseRepository"/>
 
     <!-- Search preferences -->
-    <preference for="ITZielArt\TorahVerse\Api\Data\SliderSearchResultsInterface"
-        type="Magento\Framework\Api\SearchResults"/>
-
     <preference for="ITZielArt\TorahVerse\Api\Data\GroupSearchResultsInterface"
         type="Magento\Framework\Api\SearchResults"/>
 
