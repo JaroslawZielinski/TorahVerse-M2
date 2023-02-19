@@ -126,7 +126,7 @@ EOT, $torah->getErrors());
             $this->messageManager->addSuccessMessage(__('You saved the verse [ID: %1].', $modelData->getVerseId()));
         } catch (\Exception $e) {
             $this->messageManager->addErrorMessage(nl2br($e->getMessage()));
-            return $resultRedirect->setPath('*/*/edit');
+            return $resultRedirect->setPath('*/*/index');
         }
         if (!empty($this->getRequest()->getParam('back'))) {
             $verseId = (int)$this->getRequest()->getParam('verse_id');
