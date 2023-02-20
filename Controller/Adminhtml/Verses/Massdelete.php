@@ -6,7 +6,7 @@ namespace ITZielArt\TorahVerse\Controller\Adminhtml\Verses;
 
 use ITZielArt\TorahVerse\Model\ResourceModel\Verse\CollectionFactory;
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\App\Action\Action;
+use Magento\Backend\App\Action;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Ui\Component\MassAction\Filter;
@@ -53,5 +53,13 @@ class Massdelete extends Action
 
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/*/');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function _isAllowed(): bool
+    {
+        return $this->_authorization->isAllowed('ITZielArt_TorahVerse::verses');
     }
 }

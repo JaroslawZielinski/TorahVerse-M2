@@ -8,11 +8,14 @@
             </item>
 		</item>
 	</argument>
+
 	<settings>
 		<spinner>itzielart_torahverse_verses_columns</spinner>
+
 		<deps>
 			<dep>itzielart_torahverse_verses_listing.itzielart_torahverse_verses_listing_data_source</dep>
 		</deps>
+
         <buttons>
             <button name="add">
                 <url path="*/*/new"/>
@@ -21,11 +24,14 @@
             </button>
         </buttons>
 	</settings>
+
 	<dataSource component="Magento_Ui/js/grid/provider" name="itzielart_torahverse_verses_listing_data_source">
 		<settings>
 			<updateUrl path="mui/index/render"/>
 		</settings>
+
 		<aclResource>ITZielArt_TorahVerse::verses</aclResource>
+
 		<dataProvider class="ITZielArt\TorahVerse\Ui\DataProvider\Verse\ListingDataProvider"
             name="itzielart_torahverse_verses_listing_data_source">
 			<settings>
@@ -34,21 +40,25 @@
 			</settings>
 		</dataProvider>
 	</dataSource>
+
 	<listingToolbar name="listing_top">
 		<settings>
 			<sticky>true</sticky>
 		</settings>
+
 		<bookmark name="bookmarks"/>
+
 		<columnsControls name="columns_controls"/>
+
         <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
-                <item name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
                     <item name="selectProvider" xsi:type="string">itzielart_torahverse_verses_listing.itzielart_torahverse_verses_listing.itzielart_torahverse_verses_columns.ids</item>
-                    <item name="displayArea" xsi:type="string">bottom</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
                     <item name="indexField" xsi:type="string">verse_id</item>
                 </item>
             </argument>
+
             <action name="delete">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
@@ -62,8 +72,19 @@
                     </item>
                 </argument>
             </action>
+
+            <action name="groupAssign">
+                <settings>
+                    <actionDisable>false</actionDisable>
+                    <type>group_assign</type>
+                    <label translate="true">Group Assign</label>
+                    <actions class="ITZielArt\TorahVerse\Ui\Component\MassAction\Verse\GroupAssign"/>
+                </settings>
+            </action>
         </massaction>
+
 		<filters name="listing_filters"/>
+
 		<paging name="listing_paging"/>
 	</listingToolbar>
 	<columns name="itzielart_torahverse_verses_columns">
@@ -72,19 +93,25 @@
 				<param name="selectProvider" xsi:type="string">
                     itzielart_torahverse_verses_listing.itzielart_torahverse_verses_listing.itzielart_torahverse_verses_columns.ids
                 </param>
+
 				<param name="enabled" xsi:type="boolean">false</param>
-				<param name="indexField" xsi:type="string">verse_id</param>
+
+                <param name="indexField" xsi:type="string">verse_id</param>
+
 				<param name="clientConfig" xsi:type="array">
 					<item name="saveUrl" path="itzielart_torahverse/verses/inlineEdit" xsi:type="url"/>
 					<item name="validateBeforeSave" xsi:type="boolean">false</item>
 				</param>
 			</editorConfig>
+
 			<childDefaults>
 				<param name="fieldAction" xsi:type="array">
 					<item name="provider" xsi:type="string">
                         itzielart_torahverse_verses_listing.itzielart_torahverse_verses_listing.itzielart_torahverse_verses_columns_editor
                     </item>
+
 					<item name="target" xsi:type="string">startEdit</item>
+
 					<item name="params" xsi:type="array">
 						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
 						<item name="1" xsi:type="boolean">true</item>
@@ -92,11 +119,13 @@
 				</param>
 			</childDefaults>
 		</settings>
+
 		<selectionsColumn name="ids">
 			<settings>
 				<indexField>verse_id</indexField>
 			</settings>
 		</selectionsColumn>
+
 		<column name="verse_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -109,6 +138,7 @@
                 </item>
             </argument>
 		</column>
+
         <column name="group" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Verses\Group">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -121,6 +151,7 @@
                 </item>
             </argument>
         </column>
+
         <column name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -133,6 +164,7 @@
                 </item>
             </argument>
         </column>
+
         <column name="siglum" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Verses\Siglum">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -145,6 +177,7 @@
                 </item>
             </argument>
         </column>
+
         <column name="translation" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Verses\Translation">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -164,7 +197,7 @@
                     <item name="dataType" xsi:type="string">date</item>
                     <item name="label" xsi:type="string" translate="true">Create</item>
                     <item name="sorting" xsi:type="string">desc</item>
-                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="sortOrder" xsi:type="number">60</item>
                 </item>

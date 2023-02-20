@@ -25,10 +25,6 @@ class Edit extends Grid implements HttpGetActionInterface
      * @var VerseRepositoryInterface
      */
     private $verseRepository;
-    /**
-     * @var PageFactory
-     */
-    private $resultPageFactory;
 
     /**
      * @inheritDoc
@@ -36,13 +32,11 @@ class Edit extends Grid implements HttpGetActionInterface
     public function __construct(
         VerseFactory $verseFactory,
         VerseRepositoryInterface $verseRepository,
-        PageFactory $resultPageFactory,
         DataPersistorInterface $dataPersistor,
         Context $context
     ) {
         $this->verseFactory = $verseFactory;
         $this->verseRepository = $verseRepository;
-        $this->resultPageFactory = $resultPageFactory;
         parent::__construct($dataPersistor, $context);
     }
 
@@ -75,5 +69,13 @@ class Edit extends Grid implements HttpGetActionInterface
     protected function getTitle(): string
     {
         return (string)__('Edit Verse');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function _isAllowed(): bool
+    {
+        return $this->_authorization->isAllowed('ITZielArt_TorahVerse::verses');
     }
 }

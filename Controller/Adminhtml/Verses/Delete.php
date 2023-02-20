@@ -7,7 +7,7 @@ namespace ITZielArt\TorahVerse\Controller\Adminhtml\Verses;
 use ITZielArt\TorahVerse\Api\VerseRepositoryInterface;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Redirect;
-use Magento\Framework\App\Action\Action;
+use Magento\Backend\App\Action;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 
@@ -49,5 +49,13 @@ class Delete extends Action
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         return $resultRedirect->setPath('*/*/');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function _isAllowed(): bool
+    {
+        return $this->_authorization->isAllowed('ITZielArt_TorahVerse::verses');
     }
 }

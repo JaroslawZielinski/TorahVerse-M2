@@ -12,7 +12,7 @@ use ITZielArt\TorahVerse\Model\Verse;
 use ITZielArt\TorahVerse\Model\VerseFactory;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Redirect;
-use Magento\Framework\App\Action\Action;
+use Magento\Backend\App\Action;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Exception\LocalizedException;
 use Psr\Log\LoggerInterface;
@@ -133,5 +133,13 @@ EOT, $torah->getErrors());
             return $resultRedirect->setPath('*/*/edit', ['verse_id' => $verseId, '_current' => true]);
         }
         return $resultRedirect->setPath('*/*/index');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function _isAllowed(): bool
+    {
+        return $this->_authorization->isAllowed('ITZielArt_TorahVerse::verses');
     }
 }

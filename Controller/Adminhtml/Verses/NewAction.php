@@ -46,4 +46,12 @@ class NewAction extends Grid implements HttpGetActionInterface
     {
         return (string)__('New Verse');
     }
+
+    /**
+     * @inheritDoc
+     */
+    protected function _isAllowed(): bool
+    {
+        return $this->_authorization->isAllowed('ITZielArt_TorahVerse::verses');
+    }
 }

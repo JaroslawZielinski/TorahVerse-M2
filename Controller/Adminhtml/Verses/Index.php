@@ -31,7 +31,7 @@ class Index extends Grid
     /**
      * @inheritDoc
      */
-    protected function _isAllowed()
+    protected function _isAllowed(): bool
     {
         return $this->_authorization->isAllowed('ITZielArt_TorahVerse::verses');
     }

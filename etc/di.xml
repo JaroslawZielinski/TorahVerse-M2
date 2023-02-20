@@ -27,6 +27,12 @@
         </arguments>
     </type>
 
+    <type name="ITZielArt\TorahVerse\Controller\Adminhtml\Verses\GroupAssign">
+        <arguments>
+            <argument name="logger" xsi:type="object">ITZielArt\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
     <!-- CRUD preferences -->
     <preference for="ITZielArt\TorahVerse\Api\Data\GroupInterface" type="ITZielArt\TorahVerse\Model\Data\Group"/>
 
@@ -72,6 +78,19 @@
                 </item>
                 <item name="itzielart_torahverse_groups_listing_data_source" xsi:type="string">
                     ITZielArt\TorahVerse\Model\ResourceModel\Group\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="ITZielArt\TorahVerse\Ui\Component\MassAction\Verse\GroupAssign">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="urlPath" xsi:type="string">itzielart_torahverse/verses/groupAssign</item>
+                <item name="paramName" xsi:type="string">group</item>
+                <item name="confirm" xsi:type="array">
+                    <item name="message" xsi:type="string" translatable="true">Are you sure?</item>
+                    <item name="title" xsi:type="string" translatable="true">Assign to '%s' group</item>
                 </item>
             </argument>
         </arguments>
