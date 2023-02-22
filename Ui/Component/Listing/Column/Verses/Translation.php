@@ -21,7 +21,11 @@ class Translation extends Column
             foreach ($dataSource['data']['items'] as &$item) {
                 if (isset($item[self::COLUMN_NAME])) {
                     /** @var AttributeInterface $groupCustomerAttribute */
-                    $item[self::COLUMN_NAME] = $this->getTranslationByCode($item[self::COLUMN_NAME]);
+                    $item[self::COLUMN_NAME] = sprintf(
+                        '<strong>%s</strong> (%s)',
+                        $item[self::COLUMN_NAME],
+                        $this->getTranslationByCode($item[self::COLUMN_NAME])
+                    );
                 }
             }
         }

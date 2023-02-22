@@ -5,49 +5,28 @@ declare(strict_types=1);
 namespace ITZielArt\TorahVerse\Ui\Component\Listing\Column\Verses;
 
 use ITZielArt\TorahVerse\Api\Data\GroupInterface;
-use ITZielArt\TorahVerse\Api\GroupRepositoryInterface;
 use ITZielArt\TorahVerse\Helper\Data;
 use Magento\Framework\Api\AttributeInterface;
-use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\View\Element\UiComponent\ContextInterface;
-use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 
 class Group extends Column
 {
-    public const COLUMN_GROUP = 'group';
-    public const COLUMN_GROUP_ID = 'group_id';
+    public const COLUMN_GROUP_NAME = 'groupName';
+    public const COLUMN_GROUP_COLOUR_VALUE = 'colour_value';
 
     /**
-     * @var GroupRepositoryInterface
+     * @inheritdoc
      */
-    private $groupRepository;
-
-    /**
-     * @inheritDoc
-     */
-    public function __construct(
-        GroupRepositoryInterface $groupRepository,
-        ContextInterface $context,
-        UiComponentFactory $uiComponentFactory,
-        array $components = [],
-        array $data = []
-    ) {
-        $this->groupRepository = $groupRepository;
-        parent::__construct($context, $uiComponentFactory, $components, $data);
-    }
-
-    /**
-     * {@inheritdoc}
-     * @throws LocalizedException
-     */
-    public function prepareDataSource(array $dataSource)
+    public function prepareDataSource(array $dataSource): array
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$item) {
-                if (isset($item[self::COLUMN_GROUP])) {
+                if (isset($item[self::COLUMN_GROUP_NAME])) {
                     /** @var AttributeInterface $groupCustomerAttribute */
-                    $item[self::COLUMN_GROUP] = $this->getGroupHtml((int)$item[self::COLUMN_GROUP_ID]);
+                    $item[self::COLUMN_GROUP_NAME] = $this->getGroupHtml(
+                        $item[self::COLUMN_GROUP_COLOUR_VALUE],
+                        $item[self::COLUMN_GROUP_NAME]
+                    );
                 }
             }
         }
@@ -55,24 +34,17 @@ class Group extends Column
         return $dataSource;
     }
 
-
-
-    /**
-     * @throws LocalizedException
-     */
-    private function getGroupHtml(int $groupId): string
+    private function getGroupHtml(string $colourValue, string $groupName): string
     {
-        $group = $this->groupRepository->get($groupId);
-        $colorValue = $group->getColourValue();
-        if (GroupInterface::NO_COLOR === $colorValue) {
-            $colorValue = '#FFFFFF';
+        if (GroupInterface::NO_COLOUR === $colourValue) {
+            $colourValue = '#FFFFFF';
         }
-        $contrastColorValue = Data::getContrastColor($colorValue);
+        $contrastColourValue = Data::getContrastColor($colourValue);
         return sprintf(
             '<div class="group-grid" style="color: %s; background-color: %s;text-align: center;">%s</div>',
-            $contrastColorValue,
-            $colorValue,
-            $group->getName()
+            $contrastColourValue,
+            $colourValue,
+            $groupName
         );
     }
 }

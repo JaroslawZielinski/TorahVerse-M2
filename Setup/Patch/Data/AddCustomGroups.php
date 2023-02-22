@@ -196,7 +196,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Nic ani nikt nie zdoła nas odłączyć od miłości Bożej',
-                        'siglum' => 'rz/8/31-39',
+                        'siglum' => 'ro/8/31-39',
                         'translation' => 'bw',
                         'content' => '(31) Cóż tedy na to powiemy? Jeśli Bóg za nami, któż przeciwko nam? (32) On, który nawet własnego Syna nie oszczędził, ale go za nas wszystkich wydał, jakżeby nie miał z nim darować nam wszystkiego? (33) Któż będzie oskarżał wybranych Bożych? Przecież Bóg usprawiedliwia. (34) Któż będzie potępiał? Jezus Chrystus, który umarł, więcej, zmartwychwstał, który jest po prawicy Boga, Ten przecież wstawia się za nami. (35) Któż nas odłączy od miłości Chrystusowej? Czy utrapienie, czy ucisk, czy prześladowanie, czy głód, czy nagość, czy niebezpieczeństwo, czy miecz? (36) Jak napisano: Z powodu ciebie co dzień nas zabijają, uważają nas za owce ofiarne. (37) Ale w tym wszystkim zwyciężamy przez tego, który nas umiłował. (38) Albowiem jestem tego pewien, że ani śmierć, ani życie, ani aniołowie, ani potęgi niebieskie, ani teraźniejszość, ani przyszłość, ani moce, (39) ani wysokość, ani głębokość, ani żadne inne stworzenie nie zdoła nas odłączyć od miłości Bożej, która jest w Chrystusie Jezusie, Panu naszym.',
                         'unordered' => 'Cóż tedy na to powiemy? Jeśli Bóg za nami, któż przeciwko nam? On, który nawet własnego Syna nie oszczędził, ale go za nas wszystkich wydał, jakżeby nie miał z nim darować nam wszystkiego? Któż będzie oskarżał wybranych Bożych? Przecież Bóg usprawiedliwia. Któż będzie potępiał? Jezus Chrystus, który umarł, więcej, zmartwychwstał, który jest po prawicy Boga, Ten przecież wstawia się za nami. Któż nas odłączy od miłości Chrystusowej? Czy utrapienie, czy ucisk, czy prześladowanie, czy głód, czy nagość, czy niebezpieczeństwo, czy miecz? Jak napisano: Z powodu ciebie co dzień nas zabijają, uważają nas za owce ofiarne. Ale w tym wszystkim zwyciężamy przez tego, który nas umiłował. Albowiem jestem tego pewien, że ani śmierć, ani życie, ani aniołowie, ani potęgi niebieskie, ani teraźniejszość, ani przyszłość, ani moce, ani wysokość, ani głębokość, ani żadne inne stworzenie nie zdoła nas odłączyć od miłości Bożej, która jest w Chrystusie Jezusie, Panu naszym.',
@@ -360,7 +360,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Błogosławcie tych, którzy was prześladują',
-                        'siglum' => 'rz/12/14-17',
+                        'siglum' => 'ro/12/14-17',
                         'translation' => 'bw',
                         'content' => '(14) Błogosławcie tych, którzy was prześladują, błogosławcie, a nie przeklinajcie. (15) Weselcie się z weselącymi się, płaczcie z płaczącymi. (16) Bądźcie wobec siebie jednakowo usposobieni; nie bądźcie wyniośli, lecz się do niskich skłaniajcie; nie uważajcie sami siebie za mądrych. (17) Nikomu złem za złe nie oddawajcie, starajcie się o to, co jest dobre w oczach wszystkich ludzi.',
                         'unordered' => 'Błogosławcie tych, którzy was prześladują, błogosławcie, a nie przeklinajcie. Weselcie się z weselącymi się, płaczcie z płaczącymi. Bądźcie wobec siebie jednakowo usposobieni; nie bądźcie wyniośli, lecz się do niskich skłaniajcie; nie uważajcie sami siebie za mądrych. Nikomu złem za złe nie oddawajcie, starajcie się o to, co jest dobre w oczach wszystkich ludzi.',
@@ -370,7 +370,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Nie mścijcie się sami, ale pozostawcie to gniewowi Bożemu',
-                        'siglum' => 'rz/12/19-21',
+                        'siglum' => 'ro/12/19-21',
                         'translation' => 'bw',
                         'content' => '(19) Najmilsi! Nie mścijcie się sami, ale pozostawcie to gniewowi Bożemu, albowiem napisano: Pomsta do mnie należy, Ja odpłacę, mówi Pan. (20) Jeśli tedy łaknie nieprzyjaciel twój, nakarm go; jeśli pragnie, napój go; bo czyniąc to, węgle rozżarzone zgarniesz na jego głowę. (21) Nie daj się zwyciężyć złu, ale zło dobrem zwyciężaj.',
                         'unordered' => 'Najmilsi! Nie mścijcie się sami, ale pozostawcie to gniewowi Bożemu, albowiem napisano: Pomsta do mnie należy, Ja odpłacę, mówi Pan. Jeśli tedy łaknie nieprzyjaciel twój, nakarm go; jeśli pragnie, napój go; bo czyniąc to, węgle rozżarzone zgarniesz na jego głowę. Nie daj się zwyciężyć złu, ale zło dobrem zwyciężaj.',
@@ -437,7 +437,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Niechaj się nie trwoży serce wasze',
-                        'siglum' => 'j/14/1-4',
+                        'siglum' => 'jn/14/1-4',
                         'translation' => 'bw',
                         'content' => '(1) Niechaj się nie trwoży serce wasze; wierzcie w Boga i we mnie wierzcie! (2) W domu Ojca mego wiele jest mieszkań; gdyby było inaczej, byłbym wam powiedział. Idę przygotować wam miejsce. (3) A jeśli pójdę i przygotuję wam miejsce, przyjdę znowu i wezmę was do siebie, abyście, gdzie Ja jestem, i wy byli. (4) I dokąd Ja idę, wiecie, i drogę znacie.',
                         'unordered' => 'Niechaj się nie trwoży serce wasze; wierzcie w Boga i we mnie wierzcie! W domu Ojca mego wiele jest mieszkań; gdyby było inaczej, byłbym wam powiedział. Idę przygotować wam miejsce. A jeśli pójdę i przygotuję wam miejsce, przyjdę znowu i wezmę was do siebie, abyście, gdzie Ja jestem, i wy byli. I dokąd Ja idę, wiecie, i drogę znacie.',
@@ -447,7 +447,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'To powiedziałem wam, abyście we mnie pokój mieli',
-                        'siglum' => 'j/16/33',
+                        'siglum' => 'jn/16/33',
                         'translation' => 'bw',
                         'content' => '(33) To powiedziałem wam, abyście we mnie pokój mieli. Na świecie ucisk mieć będziecie, ale ufajcie, Ja zwyciężyłem świat.',
                         'unordered' => 'To powiedziałem wam, abyście we mnie pokój mieli. Na świecie ucisk mieć będziecie, ale ufajcie, Ja zwyciężyłem świat.',
@@ -457,7 +457,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Usprawiedliwieni tedy z wiary, pokój mamy z Bogiem',
-                        'siglum' => 'rz/5/1-5',
+                        'siglum' => 'ro/5/1-5',
                         'translation' => 'bw',
                         'content' => '(1) Usprawiedliwieni tedy z wiary, pokój mamy z Bogiem przez Pana naszego, Jezusa Chrystusa, (2) dzięki któremu też mamy dostęp przez wiarę do tej łaski, w której stoimy, i chlubimy się nadzieją chwały Bożej. (3) A nie tylko to, chlubimy się też z ucisków, wiedząc, że ucisk wywołuje cierpliwość, (4) a cierpliwość doświadczenie, doświadczenie zaś nadzieję; (5) a nadzieja nie zawodzi, bo miłość Boża rozlana jest w sercach naszych przez Ducha Świętego, który nam jest dany.',
                         'unordered' => 'Usprawiedliwieni tedy z wiary, pokój mamy z Bogiem przez Pana naszego, Jezusa Chrystusa, dzięki któremu też mamy dostęp przez wiarę do tej łaski, w której stoimy, i chlubimy się nadzieją chwały Bożej. A nie tylko to, chlubimy się też z ucisków, wiedząc, że ucisk wywołuje cierpliwość, a cierpliwość doświadczenie, doświadczenie zaś nadzieję; a nadzieja nie zawodzi, bo miłość Boża rozlana jest w sercach naszych przez Ducha Świętego, który nam jest dany.',
@@ -486,7 +486,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Nie upodabniajcie się do tego świata',
-                        'siglum' => 'rz/12/1-21',
+                        'siglum' => 'ro/12/1-21',
                         'translation' => 'bw',
                         'content' => '(1) Wzywam was tedy, bracia, przez miłosierdzie Boże, abyście składali ciała swoje jako ofiarę żywą, świętą, miłą Bogu, bo taka winna być duchowa służba wasza. (2) A nie upodabniajcie się do tego świata, ale się przemieńcie przez odnowienie umysłu swego, abyście umieli rozróżnić, co jest wolą Bożą, co jest dobre, miłe i doskonałe. (3) Powiadam bowiem każdemu spośród was, mocą danej mi łaski, by nie rozumiał o sobie więcej, niż należy rozumieć, lecz by rozumiał z umiarem stosownie do wiary, jakiej Bóg każdemu udzielił. (4) Jak bowiem w jednym ciele wiele mamy członków, a nie wszystkie członki tę samą czynność wykonują, (5) tak my wszyscy jesteśmy jednym ciałem w Chrystusie, a z osobna jesteśmy członkami jedni drugich. (6) A mamy różne dary według udzielonej nam łaski; jeśli dar prorokowania, to niech będzie używany stosownie do wiary; (7) jeśli posługiwanie, to w usługiwaniu; jeśli kto naucza, to w nauczaniu; (8) jeśli kto napomina, to w napominaniu; jeśli kto obdarowuje, to w szczerości; kto jest przełożony, niech okaże gorliwość; kto okazuje miłosierdzie, niech to czyni z radością. (9) Miłość niech będzie nieobłudna. Brzydźcie się złem, trzymajcie się dobrego. (10) Miłością braterską jedni drugich miłujcie, wyprzedzajcie się wzajemnie w okazywaniu szacunku, (11) w gorliwości nie ustawając, płomienni duchem, Panu służcie, (12) w nadziei radośni, w ucisku cierpliwi, w modlitwie wytrwali; (13) wspierajcie świętych w potrzebach, okazujcie gościnność. (14) Błogosławcie tych, którzy was prześladują, błogosławcie, a nie przeklinajcie. (15) Weselcie się z weselącymi się, płaczcie z płaczącymi. (16) Bądźcie wobec siebie jednakowo usposobieni; nie bądźcie wyniośli, lecz się do niskich skłaniajcie; nie uważajcie sami siebie za mądrych. (17) Nikomu złem za złe nie oddawajcie, starajcie się o to, co jest dobre w oczach wszystkich ludzi. (18) Jeśli można, o ile to od was zależy, ze wszystkimi ludźmi pokój miejcie. (19) Najmilsi! Nie mścijcie się sami, ale pozostawcie to gniewowi Bożemu, albowiem napisano: Pomsta do mnie należy, Ja odpłacę, mówi Pan. (20) Jeśli tedy łaknie nieprzyjaciel twój, nakarm go; jeśli pragnie, napój go; bo czyniąc to, węgle rozżarzone zgarniesz na jego głowę. (21) Nie daj się zwyciężyć złu, ale zło dobrem zwyciężaj.',
                         'unordered' => 'Wzywam was tedy, bracia, przez miłosierdzie Boże, abyście składali ciała swoje jako ofiarę żywą, świętą, miłą Bogu, bo taka winna być duchowa służba wasza. A nie upodabniajcie się do tego świata, ale się przemieńcie przez odnowienie umysłu swego, abyście umieli rozróżnić, co jest wolą Bożą, co jest dobre, miłe i doskonałe. Powiadam bowiem każdemu spośród was, mocą danej mi łaski, by nie rozumiał o sobie więcej, niż należy rozumieć, lecz by rozumiał z umiarem stosownie do wiary, jakiej Bóg każdemu udzielił. Jak bowiem w jednym ciele wiele mamy członków, a nie wszystkie członki tę samą czynność wykonują, tak my wszyscy jesteśmy jednym ciałem w Chrystusie, a z osobna jesteśmy członkami jedni drugich. A mamy różne dary według udzielonej nam łaski; jeśli dar prorokowania, to niech będzie używany stosownie do wiary; jeśli posługiwanie, to w usługiwaniu; jeśli kto naucza, to w nauczaniu; jeśli kto napomina, to w napominaniu; jeśli kto obdarowuje, to w szczerości; kto jest przełożony, niech okaże gorliwość; kto okazuje miłosierdzie, niech to czyni z radością. Miłość niech będzie nieobłudna. Brzydźcie się złem, trzymajcie się dobrego. Miłością braterską jedni drugich miłujcie, wyprzedzajcie się wzajemnie w okazywaniu szacunku, w gorliwości nie ustawając, płomienni duchem, Panu służcie, w nadziei radośni, w ucisku cierpliwi, w modlitwie wytrwali; wspierajcie świętych w potrzebach, okazujcie gościnność. Błogosławcie tych, którzy was prześladują, błogosławcie, a nie przeklinajcie. Weselcie się z weselącymi się, płaczcie z płaczącymi. Bądźcie wobec siebie jednakowo usposobieni; nie bądźcie wyniośli, lecz się do niskich skłaniajcie; nie uważajcie sami siebie za mądrych. Nikomu złem za złe nie oddawajcie, starajcie się o to, co jest dobre w oczach wszystkich ludzi. Jeśli można, o ile to od was zależy, ze wszystkimi ludźmi pokój miejcie. Najmilsi! Nie mścijcie się sami, ale pozostawcie to gniewowi Bożemu, albowiem napisano: Pomsta do mnie należy, Ja odpłacę, mówi Pan. Jeśli tedy łaknie nieprzyjaciel twój, nakarm go; jeśli pragnie, napój go; bo czyniąc to, węgle rozżarzone zgarniesz na jego głowę. Nie daj się zwyciężyć złu, ale zło dobrem zwyciężaj.',
@@ -505,7 +505,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Któż nas odłączy od miłości Chrystusowej?',
-                        'siglum' => 'rz/8/31-39',
+                        'siglum' => 'ro/8/31-39',
                         'translation' => 'bw',
                         'content' => '(31) Cóż tedy na to powiemy? Jeśli Bóg za nami, któż przeciwko nam? (32) On, który nawet własnego Syna nie oszczędził, ale go za nas wszystkich wydał, jakżeby nie miał z nim darować nam wszystkiego? (33) Któż będzie oskarżał wybranych Bożych? Przecież Bóg usprawiedliwia. (34) Któż będzie potępiał? Jezus Chrystus, który umarł, więcej, zmartwychwstał, który jest po prawicy Boga, Ten przecież wstawia się za nami. (35) Któż nas odłączy od miłości Chrystusowej? Czy utrapienie, czy ucisk, czy prześladowanie, czy głód, czy nagość, czy niebezpieczeństwo, czy miecz? (36) Jak napisano: Z powodu ciebie co dzień nas zabijają, uważają nas za owce ofiarne. (37) Ale w tym wszystkim zwyciężamy przez tego, który nas umiłował. (38) Albowiem jestem tego pewien, że ani śmierć, ani życie, ani aniołowie, ani potęgi niebieskie, ani teraźniejszość, ani przyszłość, ani moce, (39) ani wysokość, ani głębokość, ani żadne inne stworzenie nie zdoła nas odłączyć od miłości Bożej, która jest w Chrystusie Jezusie, Panu naszym.',
                         'unordered' => 'Cóż tedy na to powiemy? Jeśli Bóg za nami, któż przeciwko nam? On, który nawet własnego Syna nie oszczędził, ale go za nas wszystkich wydał, jakżeby nie miał z nim darować nam wszystkiego? Któż będzie oskarżał wybranych Bożych? Przecież Bóg usprawiedliwia. Któż będzie potępiał? Jezus Chrystus, który umarł, więcej, zmartwychwstał, który jest po prawicy Boga, Ten przecież wstawia się za nami. Któż nas odłączy od miłości Chrystusowej? Czy utrapienie, czy ucisk, czy prześladowanie, czy głód, czy nagość, czy niebezpieczeństwo, czy miecz? Jak napisano: Z powodu ciebie co dzień nas zabijają, uważają nas za owce ofiarne. Ale w tym wszystkim zwyciężamy przez tego, który nas umiłował. Albowiem jestem tego pewien, że ani śmierć, ani życie, ani aniołowie, ani potęgi niebieskie, ani teraźniejszość, ani przyszłość, ani moce, ani wysokość, ani głębokość, ani żadne inne stworzenie nie zdoła nas odłączyć od miłości Bożej, która jest w Chrystusie Jezusie, Panu naszym.',
@@ -515,7 +515,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'A to piszemy, aby radość nasza była pełna',
-                        'siglum' => '1j/1/4-9',
+                        'siglum' => '1jn/1/4-9',
                         'translation' => 'bw',
                         'content' => '(4) A to piszemy, aby radość nasza była pełna. (5) A zwiastowanie to, które słyszeliśmy od niego i które wam ogłaszamy, jest takie, że Bóg jest światłością, a nie ma w nim żadnej ciemności. (6) Jeśli mówimy, że z nim społeczność mamy, a chodzimy w ciemności, kłamiemy i nie trzymamy się prawdy. (7) Jeśli zaś chodzimy w światłości, jak On sam jest w światłości, społeczność mamy z sobą, i krew Jezusa Chrystusa, Syna jego, oczyszcza nas od wszelkiego grzechu. (8) Jeśli mówimy, że grzechu nie mamy, sami siebie zwodzimy, i prawdy w nas nie ma. (9) Jeśli wyznajemy grzechy swoje, wierny jest Bóg i sprawiedliwy i odpuści nam grzechy, i oczyści nas od wszelkiej nieprawości.',
                         'unordered' => 'A to piszemy, aby radość nasza była pełna. A zwiastowanie to, które słyszeliśmy od niego i które wam ogłaszamy, jest takie, że Bóg jest światłością, a nie ma w nim żadnej ciemności. Jeśli mówimy, że z nim społeczność mamy, a chodzimy w ciemności, kłamiemy i nie trzymamy się prawdy. Jeśli zaś chodzimy w światłości, jak On sam jest w światłości, społeczność mamy z sobą, i krew Jezusa Chrystusa, Syna jego, oczyszcza nas od wszelkiego grzechu. Jeśli mówimy, że grzechu nie mamy, sami siebie zwodzimy, i prawdy w nas nie ma. Jeśli wyznajemy grzechy swoje, wierny jest Bóg i sprawiedliwy i odpuści nam grzechy, i oczyści nas od wszelkiej nieprawości.',
@@ -544,7 +544,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Modlitwa arcykapłańska Jezusa Chrystusa',
-                        'siglum' => 'j/17/1-26',
+                        'siglum' => 'jn/17/1-26',
                         'translation' => 'bw',
                         'content' => '(1) To powiedział Jezus, a podniósłszy oczy swoje ku niebu, rzekł: Ojcze! Nadeszła godzina; uwielbij Syna swego, aby Syn uwielbił ciebie; (2) jak mu dałeś władzę nad wszelkim ciałem, aby dał żywot wieczny tym wszystkim, których mu dałeś. (3) A to jest żywot wieczny, aby poznali ciebie, jedynego prawdziwego Boga i Jezusa Chrystusa, którego posłałeś. (4) Ja cię uwielbiłem na ziemi; dokonałem dzieła, które mi zleciłeś, abym je wykonał; (5) a teraz Ty mnie uwielbij, Ojcze, u siebie samego tą chwałą, którą miałem u ciebie, zanim świat powstał. (6) Objawiłem imię twoje ludziom, których mi dałeś ze świata; twoimi byli i mnie ich dałeś, i strzegli słowa twojego. (7) Teraz poznali, że wszystko, co mi dałeś, od ciebie pochodzi; (8) albowiem dałem im słowa, które mi dałeś, i oni je przyjęli i prawdziwie poznali, że od ciebie wyszedłem, i uwierzyli, że mnie posłałeś. (9) Ja za nimi proszę, nie za światem proszę, lecz za tymi, których mi dałeś, ponieważ oni są twoi; (10) i wszystko moje jest twoje, a twoje jest moje i uwielbiony jestem w nich. (11) I już nie jestem na świecie, lecz oni są na świecie, a Ja do ciebie idę. Ojcze święty, zachowaj w imieniu twoim tych, których mi dałeś, aby byli jedno, jak my. (12) Dopóki byłem z nimi na świecie, zachowywałem w imieniu twoim tych, których mi dałeś, i strzegłem, i żaden z nich nie zginął, prócz syna zatracenia, by się wypełniło Pismo. (13) Ale teraz do ciebie idę i mówię to na świecie, aby mieli w sobie moją radość w pełni. (14) Ja dałem im słowo twoje, a świat ich znienawidził, ponieważ nie są ze świata, jak Ja nie jestem ze świata. (15) Nie proszę, abyś ich wziął ze świata, lecz abyś ich zachował od złego. (16) Nie są ze świata, jak i Ja nie jestem ze świata. (17) Poświęć ich w prawdzie twojej; słowo twoje jest prawdą. (18) Jak mnie posłałeś na świat, tak i ja posłałem ich na świat; (19) i za nich poświęcam siebie samego, aby i oni byli poświęceni w prawdzie. (20) A nie tylko za nimi proszę, ale i za tymi, którzy przez ich słowo uwierzą we mnie. (21) Aby wszyscy byli jedno, jak Ty, Ojcze, we mnie, a Ja w tobie, aby i oni w nas jedno byli, aby świat uwierzył, że Ty mnie posłałeś. (22) A Ja dałem im chwałę, którą mi dałeś, aby byli jedno, jak my jedno jesteśmy. (23) Ja w nich, a Ty we mnie, aby byli doskonali w jedności, żeby świat poznał, że Ty mnie posłałeś i że ich umiłowałeś, jak i mnie umiłowałeś. (24) Ojcze! Chcę, aby ci, których mi dałeś, byli ze mną, gdzie Ja jestem, aby oglądali chwałę moją, którą mi dałeś, gdyż umiłowałeś mnie przed założeniem świata. (25) Ojcze sprawiedliwy! I świat cię nie poznał, lecz Ja cię poznałem i ci poznali, że Ty mnie posłałeś; (26) i objawiłem im imię twoje, i objawię, aby miłość, którą mnie umiłowałeś, w nich była, i Ja w nich.',
                         'unordered' => 'To powiedział Jezus, a podniósłszy oczy swoje ku niebu, rzekł: Ojcze! Nadeszła godzina; uwielbij Syna swego, aby Syn uwielbił ciebie; jak mu dałeś władzę nad wszelkim ciałem, aby dał żywot wieczny tym wszystkim, których mu dałeś. A to jest żywot wieczny, aby poznali ciebie, jedynego prawdziwego Boga i Jezusa Chrystusa, którego posłałeś. Ja cię uwielbiłem na ziemi; dokonałem dzieła, które mi zleciłeś, abym je wykonał; a teraz Ty mnie uwielbij, Ojcze, u siebie samego tą chwałą, którą miałem u ciebie, zanim świat powstał. Objawiłem imię twoje ludziom, których mi dałeś ze świata; twoimi byli i mnie ich dałeś, i strzegli słowa twojego. Teraz poznali, że wszystko, co mi dałeś, od ciebie pochodzi; albowiem dałem im słowa, które mi dałeś, i oni je przyjęli i prawdziwie poznali, że od ciebie wyszedłem, i uwierzyli, że mnie posłałeś. Ja za nimi proszę, nie za światem proszę, lecz za tymi, których mi dałeś, ponieważ oni są twoi; i wszystko moje jest twoje, a twoje jest moje i uwielbiony jestem w nich. I już nie jestem na świecie, lecz oni są na świecie, a Ja do ciebie idę. Ojcze święty, zachowaj w imieniu twoim tych, których mi dałeś, aby byli jedno, jak my. Dopóki byłem z nimi na świecie, zachowywałem w imieniu twoim tych, których mi dałeś, i strzegłem, i żaden z nich nie zginął, prócz syna zatracenia, by się wypełniło Pismo. Ale teraz do ciebie idę i mówię to na świecie, aby mieli w sobie moją radość w pełni. Ja dałem im słowo twoje, a świat ich znienawidził, ponieważ nie są ze świata, jak Ja nie jestem ze świata. Nie proszę, abyś ich wziął ze świata, lecz abyś ich zachował od złego. Nie są ze świata, jak i Ja nie jestem ze świata. Poświęć ich w prawdzie twojej; słowo twoje jest prawdą. Jak mnie posłałeś na świat, tak i ja posłałem ich na świat; i za nich poświęcam siebie samego, aby i oni byli poświęceni w prawdzie. A nie tylko za nimi proszę, ale i za tymi, którzy przez ich słowo uwierzą we mnie. Aby wszyscy byli jedno, jak Ty, Ojcze, we mnie, a Ja w tobie, aby i oni w nas jedno byli, aby świat uwierzył, że Ty mnie posłałeś. A Ja dałem im chwałę, którą mi dałeś, aby byli jedno, jak my jedno jesteśmy. Ja w nich, a Ty we mnie, aby byli doskonali w jedności, żeby świat poznał, że Ty mnie posłałeś i że ich umiłowałeś, jak i mnie umiłowałeś. Ojcze! Chcę, aby ci, których mi dałeś, byli ze mną, gdzie Ja jestem, aby oglądali chwałę moją, którą mi dałeś, gdyż umiłowałeś mnie przed założeniem świata. Ojcze sprawiedliwy! I świat cię nie poznał, lecz Ja cię poznałem i ci poznali, że Ty mnie posłałeś; i objawiłem im imię twoje, i objawię, aby miłość, którą mnie umiłowałeś, w nich była, i Ja w nich.',
@@ -554,7 +554,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Pan Bóg wysłuchuje nas',
-                        'siglum' => '1j/5/14-15',
+                        'siglum' => '1jn/5/14-15',
                         'translation' => 'bw',
                         'content' => '(14) Taka zaś jest ufność, jaką mamy do niego, iż jeżeli prosimy o coś według jego woli, wysłuchuje nas. (15) A jeżeli wiemy, że nas wysłuchuje, o co prosimy, wiemy też, że otrzymaliśmy już od niego to, o co prosiliśmy.',
                         'unordered' => 'Taka zaś jest ufność, jaką mamy do niego, iż jeżeli prosimy o coś według jego woli, wysłuchuje nas. A jeżeli wiemy, że nas wysłuchuje, o co prosimy, wiemy też, że otrzymaliśmy już od niego to, o co prosiliśmy.',
@@ -583,7 +583,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Chlubimy się z ucisków',
-                        'siglum' => 'rz/5/3-5',
+                        'siglum' => 'ro/5/3-5',
                         'translation' => 'bw',
                         'content' => '(3) A nie tylko to, chlubimy się też z ucisków, wiedząc, że ucisk wywołuje cierpliwość, (4) a cierpliwość doświadczenie, doświadczenie zaś nadzieję; (5) a nadzieja nie zawodzi, bo miłość Boża rozlana jest w sercach naszych przez Ducha Świętego, który nam jest dany.',
                         'unordered' => 'A nie tylko to, chlubimy się też z ucisków, wiedząc, że ucisk wywołuje cierpliwość, a cierpliwość doświadczenie, doświadczenie zaś nadzieję; a nadzieja nie zawodzi, bo miłość Boża rozlana jest w sercach naszych przez Ducha Świętego, który nam jest dany.',
@@ -690,7 +690,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Niechaj się nie trwoży serce wasze; wierzcie w Boga i we mnie wierzcie!',
-                        'siglum' => 'j/14/1-31',
+                        'siglum' => 'jn/14/1-31',
                         'translation' => 'bw',
                         'content' => '(1) Niechaj się nie trwoży serce wasze; wierzcie w Boga i we mnie wierzcie! (2) W domu Ojca mego wiele jest mieszkań; gdyby było inaczej, byłbym wam powiedział. Idę przygotować wam miejsce. (3) A jeśli pójdę i przygotuję wam miejsce, przyjdę znowu i wezmę was do siebie, abyście, gdzie Ja jestem, i wy byli. (4) I dokąd Ja idę, wiecie, i drogę znacie. (5) Rzekł do niego Tomasz: Panie, nie wiemy, dokąd idziesz, jakże możemy znać drogę? (6) Odpowiedział mu Jezus: Ja jestem droga i prawda, i żywot, nikt nie przychodzi do Ojca, tylko przeze mnie. (7) Gdybyście byli mnie poznali i Ojca mego byście znali; odtąd go znacie i widzieliście go. (8) Rzekł mu Filip: Panie, pokaż nam Ojca, a wystarczy nam. (9) Odpowiedział mu Jezus: Tak długo jestem z wami i nie poznałeś mnie, Filipie? Kto mnie widział, widział Ojca; jak możesz mówić: Pokaż nam Ojca? (10) Czy nie wierzysz, że jestem w Ojcu, a Ojciec we mnie? Słowa, które do was mówię, nie od siebie mówię, ale Ojciec, który jest we mnie, wykonuje dzieła swoje. (11) Wierzcie mi, że Ja jestem w Ojcu, a Ojciec we mnie; a jeśliby tak nie było, to dla samych uczynków wierzcie. (12) Zaprawdę, zaprawdę, powiadam wam: Kto wierzy we mnie, ten także dokonywać będzie uczynków, które Ja czynię, i większe nad te czynić będzie; bo Ja idę do Ojca. (13) I o cokolwiek prosić będziecie w imieniu moim, to uczynię, aby Ojciec był uwielbiony w Synu. (14) Jeśli o co prosić będziecie w imieniu moim, spełnię to. (15) Jeśli mnie miłujecie, przykazań moich przestrzegać będziecie. (16) Ja prosić będę Ojca i da wam innego Pocieszyciela, aby był z wami na wieki - (17) Ducha prawdy, którego świat przyjąć nie może, bo go nie widzi i nie zna; wy go znacie, bo przebywa wśród was i w was będzie. (18) Nie zostawię was sierotami, przyjdę do was. (19) Jeszcze tylko krótki czas i świat mnie oglądać nie będzie; lecz wy oglądać mnie będziecie, bo Ja żyję i wy żyć będziecie. (20) Owego dnia poznacie, że jestem w Ojcu moim i wy we mnie, a Ja w was. (21) Kto ma przykazania moje i przestrzega ich, ten mnie miłuje; a kto mnie miłuje, tego też będzie miłował Ojciec i Ja miłować go będę, i objawię mu samego siebie. (22) Rzekł mu Judasz, nie Iskariota: Panie, cóż się stało, że masz się nam objawić, a nie światu? (23) Odpowiedział Jezus i rzekł mu: Jeśli kto mnie miłuje, słowa mojego przestrzegać będzie, i Ojciec mój umiłuje go, i do niego przyjdziemy, i u niego zamieszkamy. (24) Kto mnie nie miłuje, ten słów moich nie przestrzega, a przecież słowo, które słyszycie, nie jest moim słowem, lecz Ojca, który mnie posłał. (25) To wam powiedziałem z wami przebywając. (26) Lecz Pocieszyciel, Duch Święty, którego Ojciec pośle w imieniu moim, nauczy was wszystkiego i przypomni wam wszystko, co wam powiedziałem. (27) Pokój zostawiam wam, mój pokój daję wam; nie jak świat daje, Ja wam daję. Niech się nie trwoży serce wasze i niech się nie lęka. (28) Słyszeliście, że powiedziałem wam: Odchodzę i przychodzę do was. Gdybyście mnie miłowali, tobyście się radowali, że idę do Ojca, bo Ojciec większy jest niż Ja. (29) Teraz powiedziałem wam, zanim się to stanie, abyście uwierzyli, gdy się to stanie. (30) Już wiele nie będę mówił z wami, nadchodzi bowiem władca świata, ale nie ma on nic do mnie; (31) lecz świat musi poznać, że miłuję Ojca i że tak czynię, jak mi polecił Ojciec. Wstańcie, pójdźmy stąd.',
                         'unordered' => 'Niechaj się nie trwoży serce wasze; wierzcie w Boga i we mnie wierzcie! W domu Ojca mego wiele jest mieszkań; gdyby było inaczej, byłbym wam powiedział. Idę przygotować wam miejsce. A jeśli pójdę i przygotuję wam miejsce, przyjdę znowu i wezmę was do siebie, abyście, gdzie Ja jestem, i wy byli. I dokąd Ja idę, wiecie, i drogę znacie. Rzekł do niego Tomasz: Panie, nie wiemy, dokąd idziesz, jakże możemy znać drogę? Odpowiedział mu Jezus: Ja jestem droga i prawda, i żywot, nikt nie przychodzi do Ojca, tylko przeze mnie. Gdybyście byli mnie poznali i Ojca mego byście znali; odtąd go znacie i widzieliście go. Rzekł mu Filip: Panie, pokaż nam Ojca, a wystarczy nam. Odpowiedział mu Jezus: Tak długo jestem z wami i nie poznałeś mnie, Filipie? Kto mnie widział, widział Ojca; jak możesz mówić: Pokaż nam Ojca? Czy nie wierzysz, że jestem w Ojcu, a Ojciec we mnie? Słowa, które do was mówię, nie od siebie mówię, ale Ojciec, który jest we mnie, wykonuje dzieła swoje. Wierzcie mi, że Ja jestem w Ojcu, a Ojciec we mnie; a jeśliby tak nie było, to dla samych uczynków wierzcie. Zaprawdę, zaprawdę, powiadam wam: Kto wierzy we mnie, ten także dokonywać będzie uczynków, które Ja czynię, i większe nad te czynić będzie; bo Ja idę do Ojca. I o cokolwiek prosić będziecie w imieniu moim, to uczynię, aby Ojciec był uwielbiony w Synu. Jeśli o co prosić będziecie w imieniu moim, spełnię to. Jeśli mnie miłujecie, przykazań moich przestrzegać będziecie. Ja prosić będę Ojca i da wam innego Pocieszyciela, aby był z wami na wieki - Ducha prawdy, którego świat przyjąć nie może, bo go nie widzi i nie zna; wy go znacie, bo przebywa wśród was i w was będzie. Nie zostawię was sierotami, przyjdę do was. Jeszcze tylko krótki czas i świat mnie oglądać nie będzie; lecz wy oglądać mnie będziecie, bo Ja żyję i wy żyć będziecie. Owego dnia poznacie, że jestem w Ojcu moim i wy we mnie, a Ja w was. Kto ma przykazania moje i przestrzega ich, ten mnie miłuje; a kto mnie miłuje, tego też będzie miłował Ojciec i Ja miłować go będę, i objawię mu samego siebie. Rzekł mu Judasz, nie Iskariota: Panie, cóż się stało, że masz się nam objawić, a nie światu? Odpowiedział Jezus i rzekł mu: Jeśli kto mnie miłuje, słowa mojego przestrzegać będzie, i Ojciec mój umiłuje go, i do niego przyjdziemy, i u niego zamieszkamy. Kto mnie nie miłuje, ten słów moich nie przestrzega, a przecież słowo, które słyszycie, nie jest moim słowem, lecz Ojca, który mnie posłał. To wam powiedziałem z wami przebywając. Lecz Pocieszyciel, Duch Święty, którego Ojciec pośle w imieniu moim, nauczy was wszystkiego i przypomni wam wszystko, co wam powiedziałem. Pokój zostawiam wam, mój pokój daję wam; nie jak świat daje, Ja wam daję. Niech się nie trwoży serce wasze i niech się nie lęka. Słyszeliście, że powiedziałem wam: Odchodzę i przychodzę do was. Gdybyście mnie miłowali, tobyście się radowali, że idę do Ojca, bo Ojciec większy jest niż Ja. Teraz powiedziałem wam, zanim się to stanie, abyście uwierzyli, gdy się to stanie. Już wiele nie będę mówił z wami, nadchodzi bowiem władca świata, ale nie ma on nic do mnie; lecz świat musi poznać, że miłuję Ojca i że tak czynię, jak mi polecił Ojciec. Wstańcie, pójdźmy stąd.',
@@ -827,7 +827,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Niechaj się nie trwoży serce wasze',
-                        'siglum' => 'j/14/1-4',
+                        'siglum' => 'jn/14/1-4',
                         'translation' => 'bw',
                         'content' => '(1) Niechaj się nie trwoży serce wasze; wierzcie w Boga i we mnie wierzcie! (2) W domu Ojca mego wiele jest mieszkań; gdyby było inaczej, byłbym wam powiedział. Idę przygotować wam miejsce. (3) A jeśli pójdę i przygotuję wam miejsce, przyjdę znowu i wezmę was do siebie, abyście, gdzie Ja jestem, i wy byli. (4) I dokąd Ja idę, wiecie, i drogę znacie.',
                         'unordered' => 'Niechaj się nie trwoży serce wasze; wierzcie w Boga i we mnie wierzcie! W domu Ojca mego wiele jest mieszkań; gdyby było inaczej, byłbym wam powiedział. Idę przygotować wam miejsce. A jeśli pójdę i przygotuję wam miejsce, przyjdę znowu i wezmę was do siebie, abyście, gdzie Ja jestem, i wy byli. I dokąd Ja idę, wiecie, i drogę znacie.',
@@ -885,7 +885,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Albowiem tak Bóg umiłował świat',
-                        'siglum' => 'j/3/16',
+                        'siglum' => 'jn/3/16',
                         'translation' => 'bw',
                         'content' => '(16) Albowiem tak Bóg umiłował świat, że Syna swego jednorodzonego dał, aby każdy, kto weń wierzy, nie zginął, ale miał żywot wieczny.',
                         'unordered' => 'Albowiem tak Bóg umiłował świat, że Syna swego jednorodzonego dał, aby każdy, kto weń wierzy, nie zginął, ale miał żywot wieczny.',
@@ -895,7 +895,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Bóg zaś daje dowód swojej miłości ku nam',
-                        'siglum' => 'rz/5/8',
+                        'siglum' => 'ro/5/8',
                         'translation' => 'bw',
                         'content' => '(8) Bóg zaś daje dowód swojej miłości ku nam przez to, że kiedy byliśmy jeszcze grzesznikami, Chrystus za nas umarł.',
                         'unordered' => 'Bóg zaś daje dowód swojej miłości ku nam przez to, że kiedy byliśmy jeszcze grzesznikami, Chrystus za nas umarł.',
@@ -914,7 +914,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Wszyscy zgrzeszyli i brak im chwały Bożej',
-                        'siglum' => 'rz/3/19-26',
+                        'siglum' => 'ro/3/19-26',
                         'translation' => 'bw',
                         'content' => '(19) A wiemy, że cokolwiek zakon mówi, mówi do tych, którzy są pod wpływem zakonu, aby wszelkie usta były zamknięte i aby świat cały podlegał sądowi Bożemu. (20) Dlatego z uczynków zakonu nie będzie usprawiedliwiony przed nim żaden człowiek, gdyż przez zakon jest poznanie grzechu. (21) Ale teraz niezależnie od zakonu objawiona została sprawiedliwość Boża, o której świadczą zakon i prorocy, (22) i to sprawiedliwość Boża przez wiarę w Jezusa Chrystusa dla wszystkich wierzących. Nie ma bowiem różnicy, (23) gdyż wszyscy zgrzeszyli i brak im chwały Bożej, (24) i są usprawiedliwieni darmo, z łaski jego, przez odkupienie w Chrystusie Jezusie, (25) którego Bóg ustanowił jako ofiarę przebłagalną przez krew jego, skuteczną przez wiarę, dla okazania sprawiedliwości swojej przez to, że w cierpliwości Bożej pobłażliwie odniósł się do przedtem popełnionych grzechów, (26) dla okazania sprawiedliwości swojej w teraźniejszym czasie, aby On sam był sprawiedliwym i usprawiedliwiającym tego, który wierzy w Jezusa.',
                         'unordered' => 'A wiemy, że cokolwiek zakon mówi, mówi do tych, którzy są pod wpływem zakonu, aby wszelkie usta były zamknięte i aby świat cały podlegał sądowi Bożemu. Dlatego z uczynków zakonu nie będzie usprawiedliwiony przed nim żaden człowiek, gdyż przez zakon jest poznanie grzechu. Ale teraz niezależnie od zakonu objawiona została sprawiedliwość Boża, o której świadczą zakon i prorocy, i to sprawiedliwość Boża przez wiarę w Jezusa Chrystusa dla wszystkich wierzących. Nie ma bowiem różnicy, gdyż wszyscy zgrzeszyli i brak im chwały Bożej, i są usprawiedliwieni darmo, z łaski jego, przez odkupienie w Chrystusie Jezusie, którego Bóg ustanowił jako ofiarę przebłagalną przez krew jego, skuteczną przez wiarę, dla okazania sprawiedliwości swojej przez to, że w cierpliwości Bożej pobłażliwie odniósł się do przedtem popełnionych grzechów, dla okazania sprawiedliwości swojej w teraźniejszym czasie, aby On sam był sprawiedliwym i usprawiedliwiającym tego, który wierzy w Jezusa.',
@@ -924,7 +924,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Nie ma ani jednego sprawiedliwego',
-                        'siglum' => 'rz/3/10',
+                        'siglum' => 'ro/3/10',
                         'translation' => 'bw',
                         'content' => '(10) jak napisano: Nie ma ani jednego sprawiedliwego,',
                         'unordered' => 'jak napisano: Nie ma ani jednego sprawiedliwego,',
@@ -943,7 +943,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Albowiem zapłatą za grzech jest śmierć.',
-                        'siglum' => 'rz/6/23',
+                        'siglum' => 'ro/6/23',
                         'translation' => 'bw',
                         'content' => '(23) Albowiem zapłatą za grzech jest śmierć, lecz darem łaski Bożej jest żywot wieczny w Chrystusie Jezusie, Panu naszym.',
                         'unordered' => 'Albowiem zapłatą za grzech jest śmierć, lecz darem łaski Bożej jest żywot wieczny w Chrystusie Jezusie, Panu naszym.',
@@ -953,7 +953,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Tym zaś, którzy go przyjęli, dał prawo stać się dziećmi Bożymi',
-                        'siglum' => 'j/1/12',
+                        'siglum' => 'jn/1/12',
                         'translation' => 'bw',
                         'content' => '(12) Tym zaś, którzy go przyjęli, dał prawo stać się dziećmi Bożymi, tym, którzy wierzą w imię jego,',
                         'unordered' => 'Tym zaś, którzy go przyjęli, dał prawo stać się dziećmi Bożymi, tym, którzy wierzą w imię jego,',
@@ -992,7 +992,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Każdy bowiem, kto wzywa imienia Pańskiego, zbawiony będzie',
-                        'siglum' => 'rz/10/13',
+                        'siglum' => 'ro/10/13',
                         'translation' => 'bw',
                         'content' => '(13) Każdy bowiem, kto wzywa imienia Pańskiego, zbawiony będzie.',
                         'unordered' => 'Każdy bowiem, kto wzywa imienia Pańskiego, zbawiony będzie.',
@@ -1011,7 +1011,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Bo jeśli ustami swoimi wyznasz, że Jezus jest Panem',
-                        'siglum' => 'rz/10/9',
+                        'siglum' => 'ro/10/9',
                         'translation' => 'bw',
                         'content' => '(9) Bo jeśli ustami swoimi wyznasz, że Jezus jest Panem, i uwierzysz w sercu swoim, że Bóg wzbudził go z martwych, zbawiony będziesz.',
                         'unordered' => 'Bo jeśli ustami swoimi wyznasz, że Jezus jest Panem, i uwierzysz w sercu swoim, że Bóg wzbudził go z martwych, zbawiony będziesz.',
@@ -1021,7 +1021,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Kto słucha słowa mego',
-                        'siglum' => 'j/5/24',
+                        'siglum' => 'jn/5/24',
                         'translation' => 'bw',
                         'content' => '(24) Zaprawdę, zaprawdę, powiadam wam, kto słucha słowa mego i wierzy temu, który mnie posłał, ma żywot wieczny i nie stanie przed sądem, lecz przeszedł ze śmierci do żywota.',
                         'unordered' => 'Zaprawdę, zaprawdę, powiadam wam, kto słucha słowa mego i wierzy temu, który mnie posłał, ma żywot wieczny i nie stanie przed sądem, lecz przeszedł ze śmierci do żywota.',
@@ -1031,7 +1031,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'To napisałem wam, którzy wierzycie w imię Syna Bożego, że macie żywot wieczny',
-                        'siglum' => '1j/5/13',
+                        'siglum' => '1jn/5/13',
                         'translation' => 'bw',
                         'content' => '(13) To napisałem wam, którzy wierzycie w imię Syna Bożego, abyście wiedzieli, że macie żywot wieczny.',
                         'unordered' => 'To napisałem wam, którzy wierzycie w imię Syna Bożego, abyście wiedzieli, że macie żywot wieczny.',
@@ -1041,7 +1041,7 @@ class AddCustomGroups implements DataPatchInterface
                 [
                     'data' => [
                         'name' => 'Jezus jest Chrystusem, Synem Boga',
-                        'siglum' => 'j/20/31',
+                        'siglum' => 'jn/20/31',
                         'translation' => 'bw',
                         'content' => '(31) te zaś są spisane, abyście wierzyli, że Jezus jest Chrystusem, Synem Boga, i abyście wierząc mieli żywot w imieniu jego.',
                         'unordered' => 'te zaś są spisane, abyście wierzyli, że Jezus jest Chrystusem, Synem Boga, i abyście wierząc mieli żywot w imieniu jego.',

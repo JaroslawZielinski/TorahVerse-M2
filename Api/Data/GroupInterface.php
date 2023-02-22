@@ -8,7 +8,7 @@ use Magento\Framework\Api\ExtensibleDataInterface;
 
 interface GroupInterface extends ExtensibleDataInterface
 {
-    public const NO_COLOR = 'no_color';
+    public const NO_COLOUR = 'no_colour';
     public const GROUP_ID = 'group_id';
     public const CODE = 'code';
     public const NAME = 'name';

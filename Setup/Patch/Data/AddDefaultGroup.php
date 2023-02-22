@@ -59,7 +59,7 @@ class AddDefaultGroup implements DataPatchInterface
         $group = $this->groupFactory->create();
         $groupData = $group->getDataModel();
         $groupData->setName('Default');
-        $groupData->setColourValue(GroupInterface::NO_COLOR);
+        $groupData->setColourValue(GroupInterface::NO_COLOUR);
         $this->groupRepository->save($groupData);
     }
 }

@@ -83,7 +83,20 @@
             </action>
         </massaction>
 
-		<filters name="listing_filters"/>
+        <filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="templates" xsi:type="array">
+                        <item name="filters" xsi:type="array">
+                            <item name="select" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                                <item name="template" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </filters>
 
 		<paging name="listing_paging"/>
 	</listingToolbar>
@@ -139,9 +152,10 @@
             </argument>
 		</column>
 
-        <column name="group" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Verses\Group">
+        <column name="groupName" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Verses\Group">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
                     <item name="label" xsi:type="string" translate="true">Group</item>
                     <item name="sorting" xsi:type="string">desc</item>
@@ -155,6 +169,7 @@
         <column name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
                     <item name="label" xsi:type="string" translate="true">Name</item>
                     <item name="sorting" xsi:type="string">desc</item>
@@ -181,6 +196,7 @@
         <column name="translation" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Verses\Translation">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
                     <item name="label" xsi:type="string" translate="true">Translation</item>
                     <item name="sorting" xsi:type="string">desc</item>
@@ -190,6 +206,7 @@
                 </item>
             </argument>
         </column>
+
 		<column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

@@ -36,14 +36,6 @@ class Save extends Action
      * @var VerseRepositoryInterface
      */
     private $verseRepository;
-    /**
-     * @var GroupRepositoryInterface
-     */
-    private $groupRepository;
-    /**
-     * @var SearchCriteriaBuilder
-     */
-    private $searchCriteriaBuilder;
 
     /**
      * @inheritDoc
@@ -52,15 +44,11 @@ class Save extends Action
         LoggerInterface $logger,
         VerseFactory  $verseFactory,
         VerseRepositoryInterface $verseRepository,
-        GroupRepositoryInterface $groupRepository,
-        SearchCriteriaBuilder $searchCriteriaBuilder,
         Context $context
     ) {
         $this->logger = $logger;
         $this->verseFactory = $verseFactory;
         $this->verseRepository = $verseRepository;
-        $this->groupRepository = $groupRepository;
-        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
         parent::__construct($context);
     }
 
@@ -70,15 +58,6 @@ class Save extends Action
      */
     private function postProcess(VerseInterface $verse): VerseInterface
     {
-        //GroupID Part
-        $groupCode = $verse->getGroupId();
-        $searchCriteria = $this->searchCriteriaBuilder
-            ->addFilter(GroupInterface::CODE, $groupCode)
-            ->create();
-        $groupsList = $this->groupRepository->getList($searchCriteria);
-        $groupsItems = $groupsList->getItems();
-        $groupItem = reset($groupsItems);
-        $verse->setGroupId($groupItem->getGroupId());
         //Verse Content Part
         $client = new Service\Client($this->logger, new Client());
         $torah = new Torah(new TorahValidator(), new Service($client));

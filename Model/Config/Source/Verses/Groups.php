@@ -36,7 +36,7 @@ class Groups implements ArrayInterface
                 /** @var DataGroup $groupData */
                 $groupData = $group->getDataModel();
                 $options[] = [
-                    'value' => $groupData->getCode(),
+                    'value' => $groupData->getGroupId(),
                     'label' => __($groupData->getName())
                 ];
             }
