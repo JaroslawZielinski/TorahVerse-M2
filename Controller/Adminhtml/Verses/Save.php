@@ -4,23 +4,20 @@ declare(strict_types=1);
 
 namespace ITZielArt\TorahVerse\Controller\Adminhtml\Verses;
 
-use ITZielArt\TorahVerse\Api\Data\GroupInterface;
+use GuzzleHttp\Client;
 use ITZielArt\TorahVerse\Api\Data\VerseInterface;
-use ITZielArt\TorahVerse\Api\GroupRepositoryInterface;
 use ITZielArt\TorahVerse\Api\VerseRepositoryInterface;
 use ITZielArt\TorahVerse\Model\Verse;
 use ITZielArt\TorahVerse\Model\VerseFactory;
-use Magento\Backend\App\Action\Context;
-use Magento\Backend\Model\View\Result\Redirect;
-use Magento\Backend\App\Action;
-use Magento\Framework\Api\SearchCriteriaBuilder;
-use Magento\Framework\Exception\LocalizedException;
-use Psr\Log\LoggerInterface;
-use GuzzleHttp\Client;
 use JaroslawZielinski\Torah\Bible\Service;
 use JaroslawZielinski\Torah\Bible\Torah;
 use JaroslawZielinski\Torah\Bible\Torah\SiglumFactory;
 use JaroslawZielinski\Torah\Bible\TorahValidator;
+use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
+use Magento\Backend\Model\View\Result\Redirect;
+use Magento\Framework\Exception\LocalizedException;
+use Psr\Log\LoggerInterface;
 
 class Save extends Action
 {
@@ -29,7 +26,7 @@ class Save extends Action
      */
     private $logger;
     /**
-     * @var VerseFactory|Context
+     * @var VerseFactory
      */
     private $verseFactory;
     /**
@@ -42,7 +39,7 @@ class Save extends Action
      */
     public function __construct(
         LoggerInterface $logger,
-        VerseFactory  $verseFactory,
+        VerseFactory $verseFactory,
         VerseRepositoryInterface $verseRepository,
         Context $context
     ) {

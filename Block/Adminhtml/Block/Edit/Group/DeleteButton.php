@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ITZielArt\TorahVerse\Block\Adminhtml\Block\Edit;
+namespace ITZielArt\TorahVerse\Block\Adminhtml\Block\Edit\Group;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
@@ -14,9 +14,9 @@ class DeleteButton extends GenericButton implements ButtonProviderInterface
     public function getButtonData(): array
     {
         $data = [];
-        if ($this->getVerseId()) {
+        if ($this->getGroupId()) {
             $data = [
-                'label' => __('Delete Block'),
+                'label' => __('Delete Group'),
                 'class' => 'delete',
                 'on_click' => 'deleteConfirm(\'' . __(
                     'Are you sure you want to do this?'
@@ -29,6 +29,6 @@ class DeleteButton extends GenericButton implements ButtonProviderInterface
 
     public function getDeleteUrl(): string
     {
-        return $this->getUrl('*/*/delete', ['verse_id' => $this->getVerseId()]);
+        return $this->getUrl('*/*/delete', ['group_id' => $this->getGroupId()]);
     }
 }

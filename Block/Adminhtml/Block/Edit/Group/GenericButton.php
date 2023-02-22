@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ITZielArt\TorahVerse\Block\Adminhtml\Block\Edit;
+namespace ITZielArt\TorahVerse\Block\Adminhtml\Block\Edit\Group;
 
-use ITZielArt\TorahVerse\Api\VerseRepositoryInterface;
+use ITZielArt\TorahVerse\Api\GroupRepositoryInterface;
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
@@ -17,26 +17,26 @@ class GenericButton
     protected $context;
 
     /**
-     * @var VerseRepositoryInterface
+     * @var GroupRepositoryInterface
      */
-    protected $verseRepository;
+    protected $groupRepository;
 
     /**
      */
     public function __construct(
         Context $context,
-        VerseRepositoryInterface $verseRepository
+        GroupRepositoryInterface $groupRepository
     ) {
         $this->context = $context;
-        $this->verseRepository = $verseRepository;
+        $this->groupRepository = $groupRepository;
     }
 
-    public function getVerseId(): ?int
+    public function getGroupId(): ?int
     {
         try {
-            return (int)$this->verseRepository->get(
-                (int)$this->context->getRequest()->getParam('verse_id')
-            )->getVerseId();
+            return (int)$this->groupRepository->get(
+                (int)$this->context->getRequest()->getParam('group_id')
+            )->getGroupId();
         } catch (NoSuchEntityException|LocalizedException $e) {
         }
         return null;

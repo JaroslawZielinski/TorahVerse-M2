@@ -13,7 +13,6 @@ use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\View\Result\PageFactory;
 
 class Edit extends Grid implements HttpGetActionInterface
 {

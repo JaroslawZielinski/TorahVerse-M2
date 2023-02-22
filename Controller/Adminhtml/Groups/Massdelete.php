@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ITZielArt\TorahVerse\Controller\Adminhtml\Verses;
+namespace ITZielArt\TorahVerse\Controller\Adminhtml\Groups;
 
-use ITZielArt\TorahVerse\Model\ResourceModel\Verse\CollectionFactory;
+use ITZielArt\TorahVerse\Model\ResourceModel\Group\CollectionFactory;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\App\Action;
 use Magento\Framework\Controller\ResultFactory;
@@ -47,6 +47,9 @@ class Massdelete extends Action
         $count = 0;
         /** @var  $item */
         foreach ($collection as $item) {
+            if ('default' === $item['code']) {
+                continue;
+            }
             $item->delete();
             $count++;
         }
@@ -62,6 +65,6 @@ class Massdelete extends Action
      */
     protected function _isAllowed(): bool
     {
-        return $this->_authorization->isAllowed('ITZielArt_TorahVerse::verses');
+        return $this->_authorization->isAllowed('ITZielArt_TorahVerse::groups');
     }
 }

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">itzielart_torahverse_groups_form.itzielart_torahverse_groups_form_data_source</item>
+        </item>
+
+        <item name="label" xsi:type="string" translate="true">General Information</item>
+
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">itzielart_torahverse_groups_form</item>
+        </item>
+
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="array">
+                <item name="name" xsi:type="string">Back</item>
+                <item name="label" xsi:type="string" translate="true">Back</item>
+                <item name="class" xsi:type="string">back</item>
+                <item name="url" xsi:type="string">*/*/index</item>
+            </item>
+        </item>
+
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+
+    <settings>
+        <buttons>
+            <button name="save" class="ITZielArt\TorahVerse\Block\Adminhtml\Block\Edit\Group\SaveButton"/>
+
+            <button name="save_and_continue"
+                class="ITZielArt\TorahVerse\Block\Adminhtml\Block\Edit\Group\SaveAndContinueButton"/>
+
+            <button name="delete" class="ITZielArt\TorahVerse\Block\Adminhtml\Block\Edit\Group\DeleteButton"/>
+        </buttons>
+
+        <namespace>itzielart_torahverse_groups_form</namespace>
+
+        <dataScope>data</dataScope>
+
+        <deps>
+            <dep>itzielart_torahverse_groups_form.itzielart_torahverse_groups_form_data_source</dep>
+        </deps>
+    </settings>
+
+    <dataSource name="driver_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+
+        <settings>
+            <submitUrl path="itzielart_torahverse/groups/save"/>
+        </settings>
+
+        <aclResource>ITZielArt_TorahVerse::addedit</aclResource>
+
+        <dataProvider class="ITZielArt\TorahVerse\Model\Group\DataProvider" name="itzielart_torahverse_groups_form_data_source">
+            <settings>
+                <requestFieldName>group_id</requestFieldName>
+                <primaryFieldName>group_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="general">
+        <settings>
+            <label/>
+        </settings>
+
+        <field name="group_id" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">groups</item>
+                </item>
+            </argument>
+
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>group_id</dataScope>
+            </settings>
+        </field>
+
+        <field name="code" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">groups</item>
+                </item>
+            </argument>
+
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Code</label>
+                <dataScope>code</dataScope>
+            </settings>
+        </field>
+
+        <field name="name" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">groups</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Group Name</label>
+                <dataScope>name</dataScope>
+            </settings>
+        </field>
+
+        <!-- @see https://www.rakeshjesadiya.com/color-picker-field-ui-component-form-magento-2/ -->
+        <field name="colour_value" sortOrder="40" formElement="colorPicker">
+            <settings>
+                <label translate="true">Colour Value</label>
+                <componentType>colorPicker</componentType>
+                <placeholder translate="true">No Color</placeholder>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="validate-color" xsi:type="boolean">true</rule>
+                </validation>
+                <dataScope>colour_value</dataScope>
+                <additionalClasses>
+                    <class name="admin__field-medium">true</class>
+                </additionalClasses>
+            </settings>
+
+            <formElements>
+                <colorPicker>
+                    <settings>
+                        <colorPickerMode>full</colorPickerMode>
+                        <colorFormat>name</colorFormat>
+                    </settings>
+                </colorPicker>
+            </formElements>
+        </field>
+
+        <!-- @see https://www.magedelight.com/resources/steps-to-add-multi-select-ui-dropdown-in-ui-form-in-magento-2/ -->
+        <field name="verses_ids">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">ITZielArt\TorahVerse\Model\Config\Source\Groups\Verses</item>
+                <item name="config" xsi:type="array">
+                    <item name="additionalClasses" xsi:type="string">required</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Assign Verses</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                    <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                    <item name="dataScope" xsi:type="string">verses_ids</item>
+                    <item name="filterOptions" xsi:type="boolean">true</item>
+                    <item name="showCheckbox" xsi:type="boolean">true</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">true</item>
+                    <item name="levelsVisibility" xsi:type="number">1</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
+                    <item name="required" xsi:type="boolean">true</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="listens" xsi:type="array">
+                        <item name="${ $.namespace }.${ $.namespace }:responseData" xsi:type="string">setParsed</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ITZielArt\TorahVerse\Ui\Component\Listing\Column\Verses;
+namespace ITZielArt\TorahVerse\Ui\Component\Listing\Column\Groups;
 
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
@@ -14,9 +14,9 @@ class Actions extends Column
     /**
      * Url path
      */
-    public const VERSES_URL_PATH_EDIT = 'itzielart_torahverse/verses/edit';
+    public const GROUPS_URL_PATH_EDIT = 'itzielart_torahverse/groups/edit';
 
-    public const VERSE_ID = 'verse_id';
+    public const GROUP_ID = 'group_id';
 
     /**
      * @var UrlInterface
@@ -37,7 +37,7 @@ class Actions extends Column
         UrlInterface $urlBuilder,
         array $components = [],
         array $data = [],
-        string $editUrl = self::VERSES_URL_PATH_EDIT
+        string $editUrl = self::GROUPS_URL_PATH_EDIT
     ) {
         $this->urlBuilder = $urlBuilder;
         $this->editUrl = $editUrl;
@@ -51,10 +51,13 @@ class Actions extends Column
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
+                if ('default' === $item['code']) {
+                    continue;
+                }
                 $name = $this->getData('name');
-                if (isset($item[self::VERSE_ID])) {
+                if (isset($item[self::GROUP_ID])) {
                     $item[$name]['edit'] = [
-                        'href' => $this->urlBuilder->getUrl($this->editUrl, [self::VERSE_ID => $item[self::VERSE_ID]]),
+                        'href' => $this->urlBuilder->getUrl($this->editUrl, [self::GROUP_ID => $item[self::GROUP_ID]]),
                         'label' => __('Edit')
                     ];
                 }

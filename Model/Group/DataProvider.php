@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ITZielArt\TorahVerse\Model\Verse;
+namespace ITZielArt\TorahVerse\Model\Group;
 
-use ITZielArt\TorahVerse\Model\ResourceModel\Verse\CollectionFactory;
-use ITZielArt\TorahVerse\Model\Verse;
+use ITZielArt\TorahVerse\Model\ResourceModel\Group\CollectionFactory;
+use ITZielArt\TorahVerse\Model\Group;
 use Magento\Ui\DataProvider\AbstractDataProvider;
 use Magento\Framework\App\Request\DataPersistorInterface;
 
@@ -27,7 +27,7 @@ class DataProvider extends AbstractDataProvider
      * @inheritDoc
      */
     public function __construct(
-        CollectionFactory $verseCollectionFactory,
+        CollectionFactory $groupCollectionFactory,
         DataPersistorInterface $dataPersistor,
         string $name,
         string $primaryFieldName,
@@ -35,7 +35,7 @@ class DataProvider extends AbstractDataProvider
         array $meta = [],
         array $data = []
     ) {
-        $this->collection = $verseCollectionFactory->create();
+        $this->collection = $groupCollectionFactory->create();
         $this->dataPersistor = $dataPersistor;
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
@@ -48,16 +48,16 @@ class DataProvider extends AbstractDataProvider
         if (isset($this->loadedData)) {
             return $this->loadedData;
         }
-        $verses = $this->collection->getItems();
-        /** @var $verses Verse */
-        foreach ($verses as $verse) {
-            $this->loadedData[$verse->getId()] = $verse->getData();
+        $groups = $this->collection->getItems();
+        /** @var $groups Group */
+        foreach ($groups as $group) {
+            $this->loadedData[$group->getId()] = array_merge($group->getData(), ['verses_ids' => []]);
         }
-        /** @var Verse $verse */
-        $verse = $this->dataPersistor->get('itzielart_verses');
-        if (!empty($verse)) {
-            $this->loadedData[$verse->getVerseId()] = $verse->getData();
-            $this->dataPersistor->clear('itzielart_verses');
+        /** @var Group $group */
+        $group = $this->dataPersistor->get('itzielart_groups');
+        if (!empty($group)) {
+            $this->loadedData[$group->getGroupId()] = array_merge($group->getData(), ['verses_ids' => []]);
+            $this->dataPersistor->clear('itzielart_groups');
         }
         return $this->loadedData;
     }

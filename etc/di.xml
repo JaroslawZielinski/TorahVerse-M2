@@ -27,6 +27,12 @@
         </arguments>
     </type>
 
+    <type name="ITZielArt\TorahVerse\Controller\Adminhtml\Groups\Save">
+        <arguments>
+            <argument name="logger" xsi:type="object">ITZielArt\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
     <type name="ITZielArt\TorahVerse\Controller\Adminhtml\Verses\GroupAssign">
         <arguments>
             <argument name="logger" xsi:type="object">ITZielArt\TorahVerse\Logger</argument>

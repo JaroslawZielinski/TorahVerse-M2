@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ITZielArt\TorahVerse\Block\Adminhtml\Block\Edit;
+namespace ITZielArt\TorahVerse\Block\Adminhtml\Block\Edit\Verse;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
