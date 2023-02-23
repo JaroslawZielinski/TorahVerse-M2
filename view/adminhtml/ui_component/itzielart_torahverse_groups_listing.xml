@@ -187,6 +187,19 @@
             </argument>
         </column>
 
+        <column name="verses" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Groups\Verses">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="label" xsi:type="string" translate="true">Verses</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
+                </item>
+            </argument>
+        </column>
+
 		<column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -196,7 +209,7 @@
                     <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
-                    <item name="sortOrder" xsi:type="number">50</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
                 </item>
             </argument>
 		</column>
@@ -205,7 +218,7 @@
             <settings>
                 <indexField>group_id</indexField>
                 <resizeEnabled>false</resizeEnabled>
-                <resizeDefaultWidth>60</resizeDefaultWidth>
+                <resizeDefaultWidth>70</resizeDefaultWidth>
             </settings>
         </actionsColumn>
 	</columns>

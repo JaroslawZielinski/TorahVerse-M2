@@ -32,15 +32,17 @@ class ColourValue extends Column
 
     private function getColourValueHtml(string $colourValue): string
     {
+        $label = $colourValue;
+        $value = $colourValue;
         if (GroupInterface::NO_COLOUR === $colourValue) {
-            $colourValue = '#FFFFFF';
+            $value = '#FFFFFF';
         }
-        $contrastColourValue = Data::getContrastColor($colourValue);
+        $contrastColourValue = Data::getContrastColor($value);
         return sprintf(
             '<div class="group-grid" style="color: %s; background-color: %s;text-align: center;">%s</div>',
             $contrastColourValue,
-            $colourValue,
-            $colourValue
+            $value,
+            $label
         );
     }
 }
