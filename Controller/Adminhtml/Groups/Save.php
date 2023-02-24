@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ITZielArt\TorahVerse\Controller\Adminhtml\Groups;
 
-use ITZielArt\TorahVerse\Api\GroupRepositoryInterface;
 use ITZielArt\TorahVerse\Api\VerseRepositoryInterface;
 use ITZielArt\TorahVerse\Model\GroupFactory;
+use ITZielArt\TorahVerse\Model\GroupManagement;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Redirect;
@@ -23,9 +23,9 @@ class Save extends Action
      */
     private $groupFactory;
     /**
-     * @var GroupRepositoryInterface
+     * @var GroupManagement
      */
-    private $groupRepository;
+    private $groupManagement;
     /**
      * @var VerseRepositoryInterface
      */
@@ -37,13 +37,13 @@ class Save extends Action
     public function __construct(
         LoggerInterface $logger,
         GroupFactory $groupFactory,
-        GroupRepositoryInterface $groupRepository,
+        GroupManagement $groupManagement,
         VerseRepositoryInterface $verseRepository,
         Context $context
     ) {
         $this->logger = $logger;
         $this->groupFactory = $groupFactory;
-        $this->groupRepository = $groupRepository;
+        $this->groupManagement = $groupManagement;
         $this->verseRepository = $verseRepository;
         parent::__construct($context);
     }
@@ -56,7 +56,7 @@ class Save extends Action
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
-        $assignVerseIds = $data['verses_ids'];
+        $assignVerseIds = $data['verses_ids'] ?? [];
         if (empty($data['group_id'])) {
             unset($data['group_id']);
         }
@@ -64,7 +64,7 @@ class Save extends Action
             $model = $this->groupFactory->create();
             $model->setData($data);
             $modelData = $model->getDataModel();
-            $modelData = $this->groupRepository->save($modelData);
+            $modelData = $this->groupManagement->save($modelData);
             $this->messageManager->addSuccessMessage(__('You saved the group [ID: %1].', $modelData->getGroupId()));
             if (!empty($assignVerseIds)) {
                 $count = 0;

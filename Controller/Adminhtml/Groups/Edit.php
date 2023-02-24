@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ITZielArt\TorahVerse\Controller\Adminhtml\Groups;
 
-use ITZielArt\TorahVerse\Api\GroupRepositoryInterface;
 use ITZielArt\TorahVerse\Controller\Adminhtml\Grid;
 use ITZielArt\TorahVerse\Model\Data\Group as GroupData;
 use ITZielArt\TorahVerse\Model\GroupFactory;
+use ITZielArt\TorahVerse\Model\GroupManagement;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\App\Action\HttpGetActionInterface;
@@ -21,21 +21,21 @@ class Edit extends Grid implements HttpGetActionInterface
      */
     private $groupFactory;
     /**
-     * @var GroupRepositoryInterface
+     * @var GroupManagement
      */
-    private $groupRepository;
+    private $groupManagement;
 
     /**
      * @inheritDoc
      */
     public function __construct(
         GroupFactory $groupFactory,
-        GroupRepositoryInterface $groupRepository,
+        GroupManagement $groupManagement,
         DataPersistorInterface $dataPersistor,
         Context $context
     ) {
         $this->groupFactory = $groupFactory;
-        $this->groupRepository = $groupRepository;
+        $this->groupManagement = $groupManagement;
         parent::__construct($dataPersistor, $context);
     }
 
@@ -49,16 +49,10 @@ class Edit extends Grid implements HttpGetActionInterface
         $model = $this->groupFactory->create();
         if (!empty($groupId)) {
             /** @var GroupData $modelData */
-            $modelData = $this->groupRepository->get($groupId);
+            $modelData = $this->groupManagement->get($groupId);
             $model->setData($modelData->__toArray());
             if (empty($modelData->getGroupId())) {
                 $this->messageManager->addErrorMessage(__('This group no longer exists.'));
-                /** @var Redirect $resultRedirect */
-                $resultRedirect = $this->resultRedirectFactory->create();
-                return $resultRedirect->setPath('*/*/');
-            }
-            if ('default' === $modelData->getCode()) {
-                $this->messageManager->addErrorMessage(__('You are not supposed to edit this group!'));
                 /** @var Redirect $resultRedirect */
                 $resultRedirect = $this->resultRedirectFactory->create();
                 return $resultRedirect->setPath('*/*/');

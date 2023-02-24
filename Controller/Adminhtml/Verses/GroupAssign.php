@@ -4,17 +4,15 @@ declare(strict_types=1);
 
 namespace ITZielArt\TorahVerse\Controller\Adminhtml\Verses;
 
-use ITZielArt\TorahVerse\Api\Data\GroupInterface;
-use ITZielArt\TorahVerse\Api\GroupRepositoryInterface;
 use ITZielArt\TorahVerse\Api\VerseRepositoryInterface;
+use ITZielArt\TorahVerse\Model\GroupManagement;
+use ITZielArt\TorahVerse\Model\ResourceModel\Verse\CollectionFactory;
+use ITZielArt\TorahVerse\Model\Verse;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Ui\Component\MassAction\Filter;
 use Psr\Log\LoggerInterface;
-use ITZielArt\TorahVerse\Model\Verse;
-use ITZielArt\TorahVerse\Model\ResourceModel\Verse\CollectionFactory;
-use Magento\Framework\Api\SearchCriteriaBuilder;
 
 class GroupAssign extends Action
 {
@@ -24,23 +22,20 @@ class GroupAssign extends Action
     protected $filter;
 
     /**
-     * @var SearchCriteriaBuilder
+     * @var GroupManagement
      */
-    private $searchCriteriaBuilder;
-
-    /**
-     * @var GroupRepositoryInterface
-     */
-    private $groupRepository;
+    private $groupManagement;
 
     /**
      * @var VerseRepositoryInterface
      */
     private $verseRepository;
+
     /**
      * @var CollectionFactory
      */
     protected $collectionFactory;
+
     /**
      * @var LoggerInterface
      */
@@ -51,16 +46,14 @@ class GroupAssign extends Action
      */
     public function __construct(
         Filter $filter,
-        SearchCriteriaBuilder $searchCriteriaBuilder,
-        GroupRepositoryInterface $groupRepository,
+        GroupManagement $groupManagement,
         VerseRepositoryInterface $verseRepository,
         CollectionFactory $collectionFactory,
         LoggerInterface $logger,
         Context $context
     ) {
         $this->filter = $filter;
-        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
-        $this->groupRepository = $groupRepository;
+        $this->groupManagement = $groupManagement;
         $this->verseRepository = $verseRepository;
         $this->collectionFactory = $collectionFactory;
         $this->logger = $logger;
@@ -74,18 +67,12 @@ class GroupAssign extends Action
     {
         try {
             $collection = $this->filter->getCollection($this->collectionFactory->create());
-            $groupCode = $this->getRequest()->getParam('group', 'default');
-            $searchCriteria = $this->searchCriteriaBuilder
-                ->addFilter(GroupInterface::CODE, $groupCode)
-                ->create();
-            $groupsList = $this->groupRepository->getList($searchCriteria);
-            $groupsItems = $groupsList->getItems();
-            $groupItem = reset($groupsItems);
-            $groupId = $groupItem->getGroupId();
+            $defaultGroup = $this->groupManagement->getDefaultGroup();
+            $groupId = (int)$defaultGroup->getGroupId();
             $updated = 0;
             /** @var Verse $item */
             foreach ($collection as $item) {
-                $verseId = $item['verse_id'];
+                $verseId = (int)$item['verse_id'];
                 $model = $this->verseRepository->get($verseId);
                 $model->setGroupId($groupId);
                 $this->verseRepository->save($model);

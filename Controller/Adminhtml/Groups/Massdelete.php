@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace ITZielArt\TorahVerse\Controller\Adminhtml\Groups;
 
+use ITZielArt\TorahVerse\Model\Group;
+use ITZielArt\TorahVerse\Model\GroupManagement;
 use ITZielArt\TorahVerse\Model\ResourceModel\Group\CollectionFactory;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\App\Action;
@@ -24,15 +26,22 @@ class Massdelete extends Action
     private $collectionFactory;
 
     /**
+     * @var GroupManagement
+     */
+    private $groupManagement;
+
+    /**
      * @inheritDoc
      */
     public function __construct(
         Filter $filter,
         CollectionFactory $collectionFactory,
+        GroupManagement $groupManagement,
         Context $context
     ) {
         $this->filter = $filter;
         $this->collectionFactory = $collectionFactory;
+        $this->groupManagement = $groupManagement;
         parent::__construct($context);
     }
 
@@ -43,19 +52,19 @@ class Massdelete extends Action
     public function execute()
     {
         $collection = $this->filter->getCollection($this->collectionFactory->create());
-
         $count = 0;
-        /** @var  $item */
+        /** @var Group $item */
         foreach ($collection as $item) {
-            if ('default' === $item['code']) {
+            try {
+                $itemData = $item->getDataModel();
+                $this->groupManagement->delete($itemData);
+            } catch (LocalizedException $e) {
+                $this->messageManager->addError($e->getMessage());
                 continue;
             }
-            $item->delete();
             $count++;
         }
-
         $this->messageManager->addSuccess(__('A total of %1 record(s) have been deleted.', $count));
-
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/*/');
     }
