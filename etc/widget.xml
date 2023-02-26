@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="ITZielArt\TorahVerse\Block\Widget\Slider\Homepage" id="slider_homepage">
+        <label>Slider Homepage</label>
+        <description>Bible Verse Slider Homepage</description>
+        <parameters>
+            <parameter name="placement" xsi:type="select"
+                source_model="ITZielArt\TorahVerse\Model\Config\Source\Sliders\Placement" visible="true"
+                sort_order="10">
+                <label translate="true">Placement</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

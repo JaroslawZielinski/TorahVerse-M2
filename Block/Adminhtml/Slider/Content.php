@@ -55,7 +55,7 @@ class Content extends Template
 
     public function canShow(): bool
     {
-        if (!$this->config->isEnable()) {
+        if (!$this->config->isModuleEnable()) {
             return false;
         }
         /** @var Collection $collection */
