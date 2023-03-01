@@ -18,6 +18,14 @@
                 <slider><![CDATA[default,CGAV_001,CGAV_002,CGAV_003,CGAV_006,CGAV_009,CGAV_028,CGAV_029]]></slider>
             </frontend_slider>
 
+            <custom_sliders>
+                <enable>1</enable>
+                <override>0</override>
+                <sweep_time>500</sweep_time>
+                <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
+                <is_group_colours_enable>1</is_group_colours_enable>
+            </custom_sliders>
+
             <backend_slider>
                 <enable>1</enable>
                 <override>0</override>
@@ -26,14 +34,6 @@
                 <is_group_colours_enable>1</is_group_colours_enable>
                 <slider><![CDATA[CGAV_001,CGAV_006]]></slider>
             </backend_slider>
-
-            <custom_sliders>
-                <enable>1</enable>
-                <override>0</override>
-                <sweep_time>500</sweep_time>
-                <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
-                <is_group_colours_enable>1</is_group_colours_enable>
-            </custom_sliders>
         </itzielart_torahverse>
     </default>
 </config>

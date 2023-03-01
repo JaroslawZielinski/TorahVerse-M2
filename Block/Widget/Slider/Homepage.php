@@ -39,7 +39,7 @@ class Homepage extends Template implements BlockInterface
         parent::_construct();
     }
 
-    public function getConfigPlacement(): string
+    public function getConfigPlacement(): array
     {
         return $this->config->getFrontendPlacement();
     }

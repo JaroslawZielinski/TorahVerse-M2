@@ -91,14 +91,17 @@ class Config
         return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_FRONTEND_IS_GROUP_COLOUR, ScopeInterface::SCOPE_STORE);
     }
 
-    public function getFrontendPlacement(): string
+    public function getFrontendPlacement(): array
     {
-        return (string)$this->scopeConfig->getValue(self::CONFIG_PATH_FRONTEND_PLACEMENT, ScopeInterface::SCOPE_STORE);
+        $placementString = (string)$this->scopeConfig
+            ->getValue(self::CONFIG_PATH_FRONTEND_PLACEMENT, ScopeInterface::SCOPE_STORE);
+        return explode(',', $placementString);
     }
 
     public function getFrontendSlider(): array
     {
-        $sliderString = $this->scopeConfig->getValue(self::CONFIG_PATH_FRONTEND_SLIDER, ScopeInterface::SCOPE_STORE);
+        $sliderString = (string)$this->scopeConfig
+            ->getValue(self::CONFIG_PATH_FRONTEND_SLIDER, ScopeInterface::SCOPE_STORE);
         return explode(',', $sliderString);
     }
 

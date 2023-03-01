@@ -51,7 +51,7 @@
                     </depends>
                 </field>
 
-                <attribute type="expanded">0</attribute>
+                <attribute type="expanded">1</attribute>
             </group>
 
             <group id="frontend_slider" translate="label" type="text" sortOrder="20" showInDefault="1" showInStore="1"
@@ -59,7 +59,7 @@
                 <label>Homepage bible verse slider</label>
 
                 <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
+                    showInStore="1">
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
@@ -71,7 +71,7 @@
                 </field>
 
                 <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
+                    showInStore="1">
                     <label>Sweep time</label>
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
                     <depends>
@@ -99,7 +99,7 @@
                     </depends>
                 </field>
 
-                <field id="placement" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1"
+                <field id="placement" translate="label" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Placement of a slider</label>
                     <validate>required-entry</validate>
@@ -122,12 +122,12 @@
                 <attribute type="expanded">0</attribute>
             </group>
 
-            <group id="backend_slider" translate="label" type="text" sortOrder="30" showInDefault="1" showInStore="1"
+            <group id="custom_sliders" translate="label" type="text" sortOrder="30" showInDefault="1" showInStore="1"
                 showInWebsite="1">
-                <label>Admin panel bible verse slider</label>
+                <label>Custom bible verse sliders</label>
 
                 <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
+                    showInStore="1">
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
@@ -165,15 +165,6 @@
                     <depends>
                         <field id="override">1</field>
                     </depends>
-                </field>
-
-                <field id="slider" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1"
-                    showInStore="1">
-                    <label>Slider Configuration</label>
-                    <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>
-                    <frontend_model>ITZielArt\TorahVerse\Block\Adminhtml\MultiUiSelect</frontend_model>
-                    <can_be_empty>1</can_be_empty>
-                    <comment><![CDATA[Select groups of verses.]]></comment>
                 </field>
 
                 <depends>
@@ -183,22 +174,19 @@
                 <attribute type="expanded">0</attribute>
             </group>
 
-            <group id="custom_sliders" translate="label" type="text" sortOrder="40" showInDefault="1" showInStore="1"
+            <group id="backend_slider" translate="label" type="text" sortOrder="40" showInDefault="1" showInStore="1"
                 showInWebsite="1">
-                <label>Custom bible verse sliders</label>
-
+                <label>Admin panel bible verse slider</label>
                 <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
+                    showInStore="1">
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
-
                 <field id="override" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Override configuration</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-
                 <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
@@ -207,7 +195,6 @@
                         <field id="override">1</field>
                     </depends>
                 </field>
-
                 <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
@@ -217,7 +204,6 @@
                         <field id="override">1</field>
                     </depends>
                 </field>
-
                 <field id="is_group_colours_enable" translate="label" type="select" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
@@ -227,11 +213,17 @@
                         <field id="override">1</field>
                     </depends>
                 </field>
-
+                <field id="slider" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Slider Configuration</label>
+                    <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>
+                    <frontend_model>ITZielArt\TorahVerse\Block\Adminhtml\MultiUiSelect</frontend_model>
+                    <can_be_empty>1</can_be_empty>
+                    <comment><![CDATA[Select groups of verses.]]></comment>
+                </field>
                 <depends>
                     <field id="itzielart_torahverse/general/enable">1</field>
                 </depends>
-
                 <attribute type="expanded">0</attribute>
             </group>
         </section>

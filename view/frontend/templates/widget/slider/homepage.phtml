@@ -2,6 +2,6 @@
     /** @var \ITZielArt\TorahVerse\Block\Widget\Slider\Homepage $block */
     $placement = $block->getPlacement();
 ?>
-<?php if ($placement === $block->getConfigPlacement()): ?>
+<?php if (in_array($placement, $block->getConfigPlacement())): ?>
 <div><?= __('This is test \'%1\'.', $block->getPlacement()); ?></div>
 <?php endif; ?>
