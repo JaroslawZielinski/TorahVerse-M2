@@ -15,6 +15,7 @@
                 <sweep_time>500</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <is_group_colours_enable>1</is_group_colours_enable>
+                <placement>top.container,footer-container</placement>
                 <slider><![CDATA[default,CGAV_001,CGAV_002,CGAV_003,CGAV_006,CGAV_009,CGAV_028,CGAV_029]]></slider>
             </frontend_slider>
 

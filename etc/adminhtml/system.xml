@@ -99,7 +99,8 @@
                     </depends>
                 </field>
 
-                <field id="placement" translate="label" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1"
+                <field id="placement" translate="label" type="multiselect" sortOrder="60" showInDefault="1"
+                    showInWebsite="1"
                     showInStore="1">
                     <label>Placement of a slider</label>
                     <validate>required-entry</validate>

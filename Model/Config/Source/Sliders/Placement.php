@@ -6,15 +6,15 @@ namespace ITZielArt\TorahVerse\Model\Config\Source\Sliders;
 
 use Magento\Eav\Model\Entity\Attribute\Source\AbstractSource;
 use Magento\Framework\Data\OptionSourceInterface;
-
 class Placement extends AbstractSource implements OptionSourceInterface
 {
-    private const PLACEMENTS = [
-        'page_header_top' => 'After page header top',
-        'main_content_top' => 'Main content top',
-        'main_content_bottom' => 'Main content bottom',
-        'before_page_footer' => 'Before page footer',
-        'page_footer' => 'Page footer'
+    public const PLACEMENTS = [
+        'top.container' => 'After page header top',
+        'content.top' => 'Main content top',
+        'content.bottom' => 'Main content bottom',
+        'page.bottom' => 'Before page footer',
+        'footer' => 'Page footer',
+        'footer-container' => 'Page Footer Container'
     ];
 
     public function getOptions(): array

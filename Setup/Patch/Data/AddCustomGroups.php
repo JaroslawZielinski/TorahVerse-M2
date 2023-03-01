@@ -1087,7 +1087,7 @@ class AddCustomGroups implements DataPatchInterface
     /**
      * @inheritDoc
      */
-    public static function getDependencies()
+    public static function getDependencies(): array
     {
         return [
             AddDefaultGroup::class
@@ -1097,7 +1097,7 @@ class AddCustomGroups implements DataPatchInterface
     /**
      * @inheritDoc
      */
-    public function getAliases()
+    public function getAliases(): array
     {
         return [];
     }

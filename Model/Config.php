@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ITZielArt\TorahVerse\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\View\DesignInterface;
 use Magento\Store\Model\ScopeInterface;
 
 class Config
@@ -163,5 +164,11 @@ class Config
     public function isCustomGroupColour(): bool
     {
         return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_CUSTOM_IS_GROUP_COLOUR, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getThemeId(): int
+    {
+        return (int)($this->scopeConfig
+            ->getValue(DesignInterface::XML_PATH_THEME_ID, ScopeInterface::SCOPE_STORE) ?? '');
     }
 }

@@ -37,7 +37,7 @@ class AddDefaultGroup implements DataPatchInterface
     /**
      * @inheritDoc
      */
-    public static function getDependencies()
+    public static function getDependencies(): array
     {
         return [];
     }
@@ -45,7 +45,7 @@ class AddDefaultGroup implements DataPatchInterface
     /**
      * @inheritDoc
      */
-    public function getAliases()
+    public function getAliases(): array
     {
         return [];
     }
