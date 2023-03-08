@@ -48,4 +48,15 @@ class Data extends AbstractHelper
             return '#FFFFFF';
         }
     }
+
+    public static function assocArrayKeySearch(string $search = '', array $array): ?string
+    {
+        $found = null;
+        array_walk($array, function ($k, $v) use ($search, &$found) {
+            if (in_array($search, $k)) {
+                $found = $v;
+            }
+        });
+        return $found;
+    }
 }

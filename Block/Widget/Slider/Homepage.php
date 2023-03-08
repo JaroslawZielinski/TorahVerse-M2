@@ -4,43 +4,53 @@ declare(strict_types=1);
 
 namespace ITZielArt\TorahVerse\Block\Widget\Slider;
 
-use ITZielArt\TorahVerse\Model\Config;
-use Magento\Framework\View\Element\Template;
-use Magento\Widget\Block\BlockInterface;
+use ITZielArt\TorahVerse\Block\Widget\Slider;
 
 /**
  * @method string getPlacement()
  */
-class Homepage extends Template implements BlockInterface
+class Homepage extends Slider
 {
     /**
-     * @var Config
-     */
-    private $config;
-
-    /**
      * @inheritDoc
      */
-    public function __construct(
-        Config $config,
-        Template\Context $context,
-        array $data = []
-    ) {
-        parent::__construct($context, $data);
-        $this->config = $config;
+    public function isVisible(): bool
+    {
+        $homePageSliderEnable = $this->config->isFrontendEnable();
+        return parent::isVisible() && $homePageSliderEnable &&
+            in_array($this->getPlacement(), $this->config->getFrontendPlacement());
     }
 
     /**
      * @inheritDoc
      */
-    protected function _construct()
+    public function getConfig(): array
     {
-        $this->setTemplate('ITZielArt_TorahVerse::widget/slider/homepage.phtml');
-        parent::_construct();
+        $config = parent::getConfig();
+        $config['enabled'] = !!$config['enabled'] && $this->config->isFrontendEnable();
+        if ($this->config->isFrontendOverride()) {
+            $config['sweep_time'] = $this->config->getFrontendSweepTime();
+            $config['is_vertical_sweep_possible'] = $this->config->isFrontendVertical();
+            $config['is_group_colours_enable'] = $this->config->isFrontendGroupColour();
+        }
+        return $config;
     }
 
-    public function getConfigPlacement(): array
+    /**
+     * @inheritDoc
+     */
+    public function getItems(): array
     {
-        return $this->config->getFrontendPlacement();
+        //Prepare Items
+        return [
+            'Jaro',
+            'Daro',
+            'Czaro',
+            'Maro',
+            'Karo',
+            'Laro',
+            'Naro',
+            'Zaro'
+        ];
     }
 }

@@ -166,6 +166,23 @@ class Config
         return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_CUSTOM_IS_GROUP_COLOUR, ScopeInterface::SCOPE_STORE);
     }
 
+    /**
+     * @TODO: it is dummy... (sliders config array must be built)
+     */
+    public function getCustomSliders(): array
+    {
+        return [
+            '1234567890_' => [
+                'code' => 'test123',
+                'slider' => 'CGAV_001,CGAV_006'
+            ],
+            '2345678901_' => [
+                'code' => 'test234',
+                'slider' => 'default,CGAV_001,CGAV_002,CGAV_003,CGAV_006,CGAV_009,CGAV_028,CGAV_029'
+            ]
+        ];
+    }
+
     public function getThemeId(): int
     {
         return (int)($this->scopeConfig
