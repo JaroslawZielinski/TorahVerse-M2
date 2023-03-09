@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace ITZielArt\TorahVerse\Block\Widget\Slider;
 
+use ITZielArt\TorahVerse\Api\Data\GroupInterface;
 use ITZielArt\TorahVerse\Block\Widget\Slider;
+use ITZielArt\TorahVerse\Model\Verse;
 
 /**
  * @method string getPlacement()
@@ -39,18 +41,21 @@ class Homepage extends Slider
     /**
      * @inheritDoc
      */
-    public function getItems(): array
+    public function getVerseConfig(): array
     {
-        //Prepare Items
-        return [
-            'Jaro',
-            'Daro',
-            'Czaro',
-            'Maro',
-            'Karo',
-            'Laro',
-            'Naro',
-            'Zaro'
-        ];
+        $verseConfig = parent::getVerseConfig();
+        if ($this->config->isFrontendOverride()) {
+            $verseConfig['verses_ordered'] = $this->config->isFrontendVersesOrdered();
+        }
+        return $verseConfig;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getItems(array $groupsArray = []): array
+    {
+        $groupsArray = $this->config->getFrontendSlider();
+        return parent::getItems($groupsArray);
     }
 }

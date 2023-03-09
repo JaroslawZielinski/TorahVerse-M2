@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <tab id="torahVerse" sortOrder="20" translate="label" class="torahVerse-main">
             <label>TorahVerse</label>
@@ -22,7 +22,17 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
-                <field id="sweep_time" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                <field id="verses_ordered" translate="label" type="select" sortOrder="20" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Verses ordered</label>
+                    <comment><![CDATA[Verses Order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
@@ -31,7 +41,7 @@
                     </depends>
                 </field>
 
-                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="30" showInDefault="1"
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
                     <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
@@ -41,7 +51,7 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="40" showInDefault="1"
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -70,7 +80,14 @@
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
 
-                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                <field id="verses_ordered" translate="label" type="select" sortOrder="30" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Verses ordered</label>
+                    <comment><![CDATA[Verses Order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="sweep_time" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
@@ -79,7 +96,7 @@
                     </depends>
                 </field>
 
-                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
                     <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
@@ -89,7 +106,7 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="50" showInDefault="1"
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -99,15 +116,14 @@
                     </depends>
                 </field>
 
-                <field id="placement" translate="label" type="multiselect" sortOrder="60" showInDefault="1"
-                    showInWebsite="1"
-                    showInStore="1">
+                <field id="placement" translate="label" type="multiselect" sortOrder="70" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
                     <label>Placement of a slider</label>
                     <validate>required-entry</validate>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Placement</source_model>
                 </field>
 
-                <field id="slider" type="multiselect" sortOrder="70" showInDefault="1" showInWebsite="1"
+                <field id="slider" type="multiselect" sortOrder="80" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Slider Configuration</label>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>
@@ -139,7 +155,14 @@
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
 
-                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                <field id="verses_ordered" translate="label" type="select" sortOrder="30" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Verses ordered</label>
+                    <comment><![CDATA[Verses Order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="sweep_time" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
@@ -148,7 +171,7 @@
                     </depends>
                 </field>
 
-                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
                     <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
@@ -158,7 +181,7 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="50" showInDefault="1"
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -191,7 +214,14 @@
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
 
-                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                <field id="verses_ordered" translate="label" type="select" sortOrder="30" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Verses ordered</label>
+                    <comment><![CDATA[Verses Order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="sweep_time" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
@@ -200,7 +230,7 @@
                     </depends>
                 </field>
 
-                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
                     <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
@@ -210,7 +240,7 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="50" showInDefault="1"
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -220,7 +250,7 @@
                     </depends>
                 </field>
 
-                <field id="slider" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1"
+                <field id="slider" type="multiselect" sortOrder="70" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Slider Configuration</label>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>

@@ -18,7 +18,7 @@ class Custom extends Slider
     public function isVisible(): bool
     {
         $sliders = $this->config->getCustomSliders();
-        $code = $this->getCode() ?? 'test234';
+        $code = $this->getCode();
         $result = Data::assocArrayKeySearch($code, $sliders);
         return parent::isVisible() && $this->config->isCustomEnable() &&
             !empty($result);
@@ -42,18 +42,21 @@ class Custom extends Slider
     /**
      * @inheritDoc
      */
-    public function getItems(): array
+    public function getVerseConfig(): array
     {
-        //TODO: prepareItems
-        return [
-            'Jaro2',
-            'Daro2',
-            'Czaro2',
-            'Maro2',
-            'Karo2',
-            'Laro2',
-            'Naro2',
-            'Zaro2'
-        ];
+        $verseConfig = parent::getVerseConfig();
+        if ($this->config->isCustomOverride()) {
+            $verseConfig['verses_ordered'] = $this->config->isCustomVersesOrdered();
+        }
+        return $verseConfig;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getItems(array $groupsArray = []): array
+    {
+        $groupsArray = $this->config->getCustomSlider($this->getCode());
+        return parent::getItems($groupsArray);
     }
 }
