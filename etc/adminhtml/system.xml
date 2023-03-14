@@ -191,6 +191,14 @@
                     </depends>
                 </field>
 
+                <field id="sliders" translate="label comment" type="text" sortOrder="70" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Slider Configurations</label>
+                    <comment><![CDATA[Slider configurations.]]></comment>
+                    <frontend_model>ITZielArt\TorahVerse\Block\Adminhtml\System\Config\Form\Field\Sliders</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+
                 <depends>
                     <field id="itzielart_torahverse/general/enable">1</field>
                 </depends>

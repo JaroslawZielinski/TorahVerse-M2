@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace ITZielArt\TorahVerse\Model;
 
+use ITZielArt\TorahVerse\Block\Adminhtml\System\Config\Form\Field\Sliders;
 use ITZielArt\TorahVerse\Helper\Data;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\View\DesignInterface;
 use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 
 class Config
 {
@@ -37,15 +39,24 @@ class Config
     public const CONFIG_PATH_CUSTOM_SWEEP_TIME = 'itzielart_torahverse/custom_sliders/sweep_time';
     public const CONFIG_PATH_CUSTOM_IS_VERTICAL = 'itzielart_torahverse/custom_sliders/is_vertical_sweep_possible';
     public const CONFIG_PATH_CUSTOM_IS_GROUP_COLOUR = 'itzielart_torahverse/custom_sliders/is_group_colours_enable';
+    public const CONFIG_PATH_CUSTOM_SLIDERS = 'itzielart_torahverse/custom_sliders/sliders';
 
     /**
      * @var ScopeConfigInterface
      */
     private $scopeConfig;
 
-    public function __construct(ScopeConfigInterface $scopeConfig)
-    {
+    /**
+     * @var JsonSerializer
+     */
+    private $jsonSerializer;
+
+    public function __construct(
+        ScopeConfigInterface $scopeConfig,
+        JsonSerializer $jsonSerializer
+    ) {
         $this->scopeConfig = $scopeConfig;
+        $this->jsonSerializer = $jsonSerializer;
     }
 
     public function isModuleEnable(): bool
@@ -191,21 +202,11 @@ class Config
         return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_CUSTOM_IS_GROUP_COLOUR, ScopeInterface::SCOPE_STORE);
     }
 
-    /**
-     * @TODO: it is dummy... (sliders config array must be built)
-     */
     public function getCustomSliders(): array
     {
-        return [
-            '1234567890_' => [
-                'code' => 'test123',
-                'slider' => 'CGAV_001,CGAV_006'
-            ],
-            '2345678901_' => [
-                'code' => 'test234',
-                'slider' => 'default,CGAV_001,CGAV_002,CGAV_003,CGAV_006,CGAV_009,CGAV_028,CGAV_029'
-            ]
-        ];
+        $serializedCustomSliders =
+            $this->scopeConfig->getValue(self::CONFIG_PATH_CUSTOM_SLIDERS) ?? '{}';
+        return $this->jsonSerializer->unserialize($serializedCustomSliders);
     }
 
     public function getCustomSlider(string $code): array
@@ -215,7 +216,7 @@ class Config
         if (empty($result)) {
             return [];
         }
-        return explode(',', $sliders[$result]['slider']);
+        return $sliders[$result][Sliders::SLIDER];
     }
 
     public function getThemeId(): int
