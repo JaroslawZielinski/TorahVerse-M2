@@ -29,7 +29,7 @@ class Sliders extends AbstractFieldArray
     {
         $this->addColumn(self::CODE, [
             'label' => 'Code',
-            'class' => 'required-entry',
+            'class' => 'required-entry validate-data',
             'style' => 'width: 188px'
         ]);
 
