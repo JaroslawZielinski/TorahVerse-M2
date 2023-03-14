@@ -6,8 +6,8 @@
     </head>
     <body>
         <referenceContainer name="notifications">
-            <block class="ITZielArt\TorahVerse\Block\Adminhtml\Slider\Content" name="torah-verse-admin-panel-slider"
-                as="torah-verse-admin-panel-slider"/>
+            <block class="ITZielArt\TorahVerse\Block\Adminhtml\Widget\Slider\Backend"
+                name="torah-verse-admin-panel-slider" as="torah-verse-admin-panel-slider"/>
         </referenceContainer>
     </body>
 </page>

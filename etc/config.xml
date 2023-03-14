@@ -10,7 +10,7 @@
             </general>
 
             <frontend_slider>
-                <enable>1</enable>
+                <enable>0</enable>
                 <override>0</override>
                 <sweep_time>500</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
@@ -20,7 +20,7 @@
             </frontend_slider>
 
             <custom_sliders>
-                <enable>1</enable>
+                <enable>0</enable>
                 <override>0</override>
                 <sweep_time>500</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
