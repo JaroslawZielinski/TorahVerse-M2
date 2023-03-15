@@ -51,7 +51,17 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="50" showInDefault="1"
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Vertical Sweep time</label>
+                    <comment><![CDATA[time of sweeping one line vertically.]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_vertical_sweep_possible">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -66,7 +76,7 @@
 
             <group id="frontend_slider" translate="label" type="text" sortOrder="20" showInDefault="1" showInStore="1"
                 showInWebsite="1">
-                <label>Homepage bible verse slider</label>
+                <label>Homepage Slider</label>
 
                 <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
                     showInStore="1">
@@ -85,6 +95,9 @@
                     <label>Verses ordered</label>
                     <comment><![CDATA[Verses Order.]]></comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
                 </field>
 
                 <field id="sweep_time" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
@@ -106,7 +119,17 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="60" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Vertical Sweep time</label>
+                    <comment><![CDATA[time of sweeping one line vertically.]]></comment>
+                    <depends>
+                        <field id="override">1</field>
+                        <field id="is_vertical_sweep_possible">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="70" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -116,14 +139,14 @@
                     </depends>
                 </field>
 
-                <field id="placement" translate="label" type="multiselect" sortOrder="70" showInDefault="1"
+                <field id="placement" translate="label" type="multiselect" sortOrder="80" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Placement of a slider</label>
                     <validate>required-entry</validate>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Placement</source_model>
                 </field>
 
-                <field id="slider" type="multiselect" sortOrder="80" showInDefault="1" showInWebsite="1"
+                <field id="slider" type="multiselect" sortOrder="90" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Slider Configuration</label>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>
@@ -141,7 +164,7 @@
 
             <group id="custom_sliders" translate="label" type="text" sortOrder="30" showInDefault="1" showInStore="1"
                 showInWebsite="1">
-                <label>Custom bible verse sliders</label>
+                <label>Custom Sliders</label>
 
                 <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
                     showInStore="1">
@@ -160,6 +183,9 @@
                     <label>Verses ordered</label>
                     <comment><![CDATA[Verses Order.]]></comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
                 </field>
 
                 <field id="sweep_time" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
@@ -181,7 +207,17 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="60" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Vertical Sweep time</label>
+                    <comment><![CDATA[time of sweeping one line vertically.]]></comment>
+                    <depends>
+                        <field id="override">1</field>
+                        <field id="is_vertical_sweep_possible">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="70" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -191,7 +227,7 @@
                     </depends>
                 </field>
 
-                <field id="sliders" translate="label comment" type="text" sortOrder="70" showInDefault="1"
+                <field id="sliders" translate="label comment" type="text" sortOrder="80" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Slider Configurations</label>
                     <comment><![CDATA[Slider configurations.]]></comment>
@@ -208,7 +244,7 @@
 
             <group id="backend_slider" translate="label" type="text" sortOrder="40" showInDefault="1" showInStore="1"
                 showInWebsite="1">
-                <label>Admin panel bible verse slider</label>
+                <label>Admin Panel Slider</label>
 
                 <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
                     showInStore="1">
@@ -227,6 +263,9 @@
                     <label>Verses ordered</label>
                     <comment><![CDATA[Verses Order.]]></comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
                 </field>
 
                 <field id="sweep_time" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
@@ -248,7 +287,17 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="60" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Vertical Sweep time</label>
+                    <comment><![CDATA[time of sweeping one line vertically.]]></comment>
+                    <depends>
+                        <field id="override">1</field>
+                        <field id="is_vertical_sweep_possible">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="70" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -258,7 +307,7 @@
                     </depends>
                 </field>
 
-                <field id="slider" type="multiselect" sortOrder="70" showInDefault="1" showInWebsite="1"
+                <field id="slider" type="multiselect" sortOrder="80" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Slider Configuration</label>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>

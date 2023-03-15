@@ -17,12 +17,14 @@ class Config
     public const CONFIG_PATH_MODULE_VERSES_ORDERED = 'itzielart_torahverse/general/verses_ordered';
     public const CONFIG_PATH_MODULE_SWEEP_TIME = 'itzielart_torahverse/general/sweep_time';
     public const CONFIG_PATH_MODULE_IS_VERTICAL = 'itzielart_torahverse/general/is_vertical_sweep_possible';
+    public const CONFIG_PATH_MODULE_VERTICAL_SWEEP_TIME = 'itzielart_torahverse/general/vertical_sweep_time';
     public const CONFIG_PATH_MODULE_IS_GROUP_COLOUR = 'itzielart_torahverse/general/is_group_colours_enable';
     public const CONFIG_PATH_FRONTEND_ENABLE = 'itzielart_torahverse/frontend_slider/enable';
     public const CONFIG_PATH_FRONTEND_OVERRIDE = 'itzielart_torahverse/frontend_slider/override';
     public const CONFIG_PATH_FRONTEND_VERSES_ORDERED = 'itzielart_torahverse/frontend_slider/verses_ordered';
     public const CONFIG_PATH_FRONTEND_SWEEP_TIME = 'itzielart_torahverse/frontend_slider/sweep_time';
     public const CONFIG_PATH_FRONTEND_IS_VERTICAL = 'itzielart_torahverse/frontend_slider/is_vertical_sweep_possible';
+    public const CONFIG_PATH_FRONTEND_VERTICAL_SWEEP_TIME = 'itzielart_torahverse/frontend_slider/vertical_sweep_time';
     public const CONFIG_PATH_FRONTEND_IS_GROUP_COLOUR = 'itzielart_torahverse/frontend_slider/is_group_colours_enable';
     public const CONFIG_PATH_FRONTEND_PLACEMENT = 'itzielart_torahverse/frontend_slider/placement';
     public const CONFIG_PATH_FRONTEND_SLIDER = 'itzielart_torahverse/frontend_slider/slider';
@@ -31,6 +33,7 @@ class Config
     public const CONFIG_PATH_BACKEND_VERSES_ORDERED = 'itzielart_torahverse/backend_slider/verses_ordered';
     public const CONFIG_PATH_BACKEND_SWEEP_TIME = 'itzielart_torahverse/backend_slider/sweep_time';
     public const CONFIG_PATH_BACKEND_IS_VERTICAL = 'itzielart_torahverse/backend_slider/is_vertical_sweep_possible';
+    public const CONFIG_PATH_BACKEND_VERTICAL_SWEEP_TIME = 'itzielart_torahverse/backend_slider/vertical_sweep_time';
     public const CONFIG_PATH_BACKEND_IS_GROUP_COLOUR = 'itzielart_torahverse/backend_slider/is_group_colours_enable';
     public const CONFIG_PATH_BACKEND_SLIDER = 'itzielart_torahverse/backend_slider/slider';
     public const CONFIG_PATH_CUSTOM_ENABLE = 'itzielart_torahverse/custom_sliders/enable';
@@ -38,6 +41,7 @@ class Config
     public const CONFIG_PATH_CUSTOM_VERSES_ORDERED = 'itzielart_torahverse/custom_sliders/verses_ordered';
     public const CONFIG_PATH_CUSTOM_SWEEP_TIME = 'itzielart_torahverse/custom_sliders/sweep_time';
     public const CONFIG_PATH_CUSTOM_IS_VERTICAL = 'itzielart_torahverse/custom_sliders/is_vertical_sweep_possible';
+    public const CONFIG_PATH_CUSTOM_VERTICAL_SWEEP_TIME = 'itzielart_torahverse/custom_sliders/vertical_sweep_time';
     public const CONFIG_PATH_CUSTOM_IS_GROUP_COLOUR = 'itzielart_torahverse/custom_sliders/is_group_colours_enable';
     public const CONFIG_PATH_CUSTOM_SLIDERS = 'itzielart_torahverse/custom_sliders/sliders';
 
@@ -81,6 +85,14 @@ class Config
         return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_MODULE_IS_VERTICAL, ScopeInterface::SCOPE_STORE);
     }
 
+    public function getModuleVerticalSweepTime(): int
+    {
+        return (int)(
+            $this->scopeConfig
+                ->getValue(self::CONFIG_PATH_MODULE_VERTICAL_SWEEP_TIME, ScopeInterface::SCOPE_STORE) ?? '0'
+        );
+    }
+
     public function isModuleGroupColour(): bool
     {
         return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_MODULE_IS_GROUP_COLOUR, ScopeInterface::SCOPE_STORE);
@@ -111,6 +123,14 @@ class Config
     public function isFrontendVertical(): bool
     {
         return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_FRONTEND_IS_VERTICAL, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getFrontendVerticalSweepTime(): int
+    {
+        return (int)(
+            $this->scopeConfig
+                ->getValue(self::CONFIG_PATH_FRONTEND_VERTICAL_SWEEP_TIME, ScopeInterface::SCOPE_STORE) ?? '0'
+        );
     }
 
     public function isFrontendGroupColour(): bool
@@ -159,6 +179,14 @@ class Config
         return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_BACKEND_IS_VERTICAL, ScopeInterface::SCOPE_STORE);
     }
 
+    public function getBackendVerticalSweepTime(): int
+    {
+        return (int)(
+            $this->scopeConfig
+                ->getValue(self::CONFIG_PATH_BACKEND_VERTICAL_SWEEP_TIME, ScopeInterface::SCOPE_STORE) ?? '0'
+        );
+    }
+
     public function isBackendGroupColour(): bool
     {
         return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_BACKEND_IS_GROUP_COLOUR, ScopeInterface::SCOPE_STORE);
@@ -195,6 +223,14 @@ class Config
     public function isCustomVertical(): bool
     {
         return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_CUSTOM_IS_VERTICAL, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getCustomVerticalSweepTime(): int
+    {
+        return (int)(
+            $this->scopeConfig
+                ->getValue(self::CONFIG_PATH_CUSTOM_VERTICAL_SWEEP_TIME, ScopeInterface::SCOPE_STORE) ?? '0'
+        );
     }
 
     public function isCustomGroupColour(): bool

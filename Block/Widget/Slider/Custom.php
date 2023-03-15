@@ -34,6 +34,7 @@ class Custom extends Slider
         if ($this->config->isCustomOverride()) {
             $config['sweep_time'] = $this->config->getCustomSweepTime();
             $config['is_vertical_sweep_possible'] = $this->config->isCustomVertical();
+            $config['vertical_sweep_time'] = $this->config->getCustomVerticalSweepTime();
             $config['is_group_colours_enable'] = $this->config->isCustomGroupColour();
         }
         return $config;

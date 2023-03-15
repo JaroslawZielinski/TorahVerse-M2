@@ -27,6 +27,7 @@ class Backend extends Slider
         if ($this->config->isBackendOverride()) {
             $config['sweep_time'] = $this->config->getBackendSweepTime();
             $config['is_vertical_sweep_possible'] = $this->config->isBackendVertical();
+            $config['vertical_sweep_time'] = $this->config->getBackendVerticalSweepTime();
             $config['is_group_colours_enable'] = $this->config->isBackendGroupColour();
         }
         return $config;
