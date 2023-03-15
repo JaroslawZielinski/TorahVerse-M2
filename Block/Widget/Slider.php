@@ -9,6 +9,7 @@ use ITZielArt\TorahVerse\Model\Config;
 use ITZielArt\TorahVerse\Model\ResourceModel\Verse\CollectionFactory as VerseCollectionFactory;
 use ITZielArt\TorahVerse\Model\Verse;
 use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Page\Config as PageConfig;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 
@@ -27,17 +28,23 @@ abstract class Slider extends Template implements BlockInterface
      * @var JsonSerializer
      */
     private $jsonSerializer;
+    /**
+     * @var PageConfig
+     */
+    private $pagConfig;
 
     /**
      * @inheritDoc
      */
     public function __construct(
+        PageConfig $pagConfig,
         VerseCollectionFactory $verseCollectionFactory,
         Config $config,
         JsonSerializer $jsonSerializer,
         Template\Context $context,
         array $data = []
     ) {
+        $this->pagConfig = $pagConfig;
         $this->verseCollectionFactory = $verseCollectionFactory;
         $this->config = $config;
         $this->jsonSerializer = $jsonSerializer;
@@ -50,6 +57,7 @@ abstract class Slider extends Template implements BlockInterface
     protected function _construct()
     {
         $this->setTemplate('ITZielArt_TorahVerse::widget/slider.phtml');
+        $this->pageConfig->addPageAsset('ITZielArt_TorahVerse::css/slider.css');
         parent::_construct();
     }
 
@@ -64,21 +72,16 @@ abstract class Slider extends Template implements BlockInterface
      */
     public function getConfig(): array
     {
+        $isGroupColoursEnable = $this->config->isModuleGroupColour();
         return [
             'enabled' => $this->config->isModuleEnable(),
+            'verses_ordered' => $this->config->isModuleVersesOrdered(),
             'sweep_time' => $this->config->getModuleSweepTime(),
             'is_vertical_sweep_possible' => $this->config->isModuleVertical(),
             'vertical_sweep_time' => $this->config->getModuleVerticalSweepTime(),
-            'is_group_colours_enable' => $this->config->isModuleGroupColour()
-        ];
-    }
-
-    /**
-     */
-    public function getVerseConfig(): array
-    {
-        return [
-            'verses_ordered' => $this->config->isModuleVersesOrdered()
+            'template' => $isGroupColoursEnable ?
+                $this->config->getModuleGroupColoursTemplate() :
+                $this->config->getModuleTemplate()
         ];
     }
 

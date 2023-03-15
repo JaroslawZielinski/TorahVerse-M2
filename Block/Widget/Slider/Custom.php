@@ -32,24 +32,13 @@ class Custom extends Slider
         $config = parent::getConfig();
         $config['enabled'] = !!$config['enabled'] && $this->config->isCustomEnable();
         if ($this->config->isCustomOverride()) {
+            $config['verses_ordered'] = $this->config->isCustomVersesOrdered();
             $config['sweep_time'] = $this->config->getCustomSweepTime();
             $config['is_vertical_sweep_possible'] = $this->config->isCustomVertical();
             $config['vertical_sweep_time'] = $this->config->getCustomVerticalSweepTime();
-            $config['is_group_colours_enable'] = $this->config->isCustomGroupColour();
         }
+        $config['items'] = $this->getItems();
         return $config;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getVerseConfig(): array
-    {
-        $verseConfig = parent::getVerseConfig();
-        if ($this->config->isCustomOverride()) {
-            $verseConfig['verses_ordered'] = $this->config->isCustomVersesOrdered();
-        }
-        return $verseConfig;
     }
 
     /**

@@ -71,6 +71,26 @@
                     </depends>
                 </field>
 
+                <field id="template" translate="label" type="textarea" sortOrder="70" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Html Template for Slider Frame</label>
+                    <comment><![CDATA[Html Template for Slider Frame (key words: <strong>content</strong>, <strong>description</strong>, <strong>groupName</strong>, <strong>colour</strong>, <strong>antiColour</strong> written in {})]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_group_colours_enable" negative="1">1</field>
+                    </depends>
+                </field>
+
+                <field id="group_colours_template" translate="label" type="textarea" sortOrder="70" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Html Template for Slider Frame</label>
+                    <comment><![CDATA[Html Template for Slider Frame (key words: <strong>content</strong>, <strong>description</strong>, <strong>groupName</strong>, <strong>colour</strong>, <strong>antiColour</strong> written in {})]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_group_colours_enable">1</field>
+                    </depends>
+                </field>
+
                 <attribute type="expanded">1</attribute>
             </group>
 
@@ -129,24 +149,14 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="70" showInDefault="1"
-                    showInWebsite="1" showInStore="1">
-                    <label>Is group colours enable</label>
-                    <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <depends>
-                        <field id="override">1</field>
-                    </depends>
-                </field>
-
-                <field id="placement" translate="label" type="multiselect" sortOrder="80" showInDefault="1"
+                <field id="placement" translate="label" type="multiselect" sortOrder="70" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Placement of a slider</label>
                     <validate>required-entry</validate>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Placement</source_model>
                 </field>
 
-                <field id="slider" type="multiselect" sortOrder="90" showInDefault="1" showInWebsite="1"
+                <field id="slider" type="multiselect" sortOrder="80" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Slider Configuration</label>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>
@@ -217,17 +227,7 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="70" showInDefault="1"
-                    showInWebsite="1" showInStore="1">
-                    <label>Is group colours enable</label>
-                    <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <depends>
-                        <field id="override">1</field>
-                    </depends>
-                </field>
-
-                <field id="sliders" translate="label comment" type="text" sortOrder="80" showInDefault="1"
+                <field id="sliders" translate="label comment" type="text" sortOrder="70" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Slider Configurations</label>
                     <comment><![CDATA[Slider configurations.]]></comment>
@@ -297,17 +297,7 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="70" showInDefault="1"
-                    showInWebsite="1" showInStore="1">
-                    <label>Is group colours enable</label>
-                    <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <depends>
-                        <field id="override">1</field>
-                    </depends>
-                </field>
-
-                <field id="slider" type="multiselect" sortOrder="80" showInDefault="1" showInWebsite="1"
+                <field id="slider" type="multiselect" sortOrder="70" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Slider Configuration</label>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>

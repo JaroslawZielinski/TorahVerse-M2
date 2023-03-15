@@ -1,21 +1,8 @@
 <?php
     /** @var \ITZielArt\TorahVerse\Block\Widget\Slider $block */
     $config = $block->getConfig();
-    $verseConfig = $block->getVerseConfig();
-    $isVerseOrdered = !!$verseConfig['verses_ordered'];
 ?>
 <?php if ($block->isVisible()): ?>
-    <div style="display:none;" data-mage-init='{"ITZielArt_TorahVerse/js/verseSlider":
-        <?=  /* @noEscape */ $block->arrayToJson($config); ?>}'>
-        <?php foreach ($block->getItems() as $item): ?>
-            <div class="item">
-                <div class="group" style="border: 1px solid <?= $item['colour_value']; ?>;"
-                    title="<?= $item['groupName']; ?>">
-                    <?php $verseContentKey = $isVerseOrdered ? 'content' : 'unordered'; ?>
-                    <span class="content"><?= $item[$verseContentKey]; ?></span>
-                    <span class="description"><?= $item['description']; ?></span>
-                </div>
-            </div>
-        <?php endforeach; ?>
-    </div>
+    <div class="verse-slider" data-mage-init='{"ITZielArt_TorahVerse/js/simple.slider":
+        <?=  /* @noEscape */ $block->arrayToJson($config); ?>}'></div>
 <?php endif; ?>

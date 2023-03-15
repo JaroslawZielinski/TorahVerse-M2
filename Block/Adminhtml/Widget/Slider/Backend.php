@@ -25,24 +25,13 @@ class Backend extends Slider
         $config = parent::getConfig();
         $config['enabled'] = !!$config['enabled'] && $this->config->isBackendEnable();
         if ($this->config->isBackendOverride()) {
+            $config['verses_ordered'] = $this->config->isBackendVersesOrdered();
             $config['sweep_time'] = $this->config->getBackendSweepTime();
             $config['is_vertical_sweep_possible'] = $this->config->isBackendVertical();
             $config['vertical_sweep_time'] = $this->config->getBackendVerticalSweepTime();
-            $config['is_group_colours_enable'] = $this->config->isBackendGroupColour();
         }
+        $config['items'] = $this->getItems();
         return $config;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getVerseConfig(): array
-    {
-        $verseConfig = parent::getVerseConfig();
-        if ($this->config->isBackendOverride()) {
-            $verseConfig['verses_ordered'] = $this->config->isBackendVersesOrdered();
-        }
-        return $verseConfig;
     }
 
     /**

@@ -68,7 +68,7 @@ class GroupAssign implements JsonSerializable
         if (empty($this->options)) {
             $groupsCollection = $this->groupCollectionFactory->create()->load();
             if (!count($groupsCollection->getItems())) {
-                return $this->options;
+                return [];
             }
             $options = [];
             /** @var Group $group */

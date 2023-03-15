@@ -8,13 +8,13 @@ define([
         }
         return false;
     };
-
+    /**
+     * @see https://stackoverflow.com/questions/377961/efficient-javascript-string-replacement#answer-50545691
+     */
     return function(config, element) {
         if (isDisabled(config)) {
             return;
         }
-        //TODO:
-        $(element).show();
-        console.log(element);
+        $(element).html(config.template);
     }
 });
