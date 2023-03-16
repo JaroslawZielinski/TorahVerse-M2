@@ -1,0 +1,33 @@
+.verse-slider {
+    .item {
+        position: relative;
+        padding: 18px 2px 2px;
+    }
+    .group {
+        position: absolute;
+        top: 0px;
+        padding: 2px 5px !important;
+        font: 11px Arial;
+        left: 0px;
+        white-space: nowrap;
+        z-index: auto;
+    }
+    .slider, .item {
+        max-height: 120px;
+    }
+    .content {
+        max-height: 100px;
+        text-overflow: ellipsis;
+        white-space: normal;
+        overflow: hidden;
+        padding-bottom: 10px;
+        font-style: italic;
+        font-size: 14px;
+        &::before, &::after {
+            content: "\""
+        }
+    }
+    .description {
+        font-size: 12px;
+    }
+}

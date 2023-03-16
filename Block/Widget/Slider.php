@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace ITZielArt\TorahVerse\Block\Widget;
 
+use GuzzleHttp\Client;
 use ITZielArt\TorahVerse\Api\Data\GroupInterface;
+use ITZielArt\TorahVerse\Helper\Data;
 use ITZielArt\TorahVerse\Model\Config;
 use ITZielArt\TorahVerse\Model\ResourceModel\Verse\CollectionFactory as VerseCollectionFactory;
 use ITZielArt\TorahVerse\Model\Verse;
+use JaroslawZielinski\Torah\Bible\Service;
+use JaroslawZielinski\Torah\Bible\Torah\SiglumFactory;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Page\Config as PageConfig;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
+use Psr\Log\LoggerInterface;
 
 abstract class Slider extends Template implements BlockInterface
 {
@@ -32,6 +37,10 @@ abstract class Slider extends Template implements BlockInterface
      * @var PageConfig
      */
     private $pagConfig;
+    /**
+     * @var LoggerInterface
+     */
+    private $logger;
 
     /**
      * @inheritDoc
@@ -41,6 +50,7 @@ abstract class Slider extends Template implements BlockInterface
         VerseCollectionFactory $verseCollectionFactory,
         Config $config,
         JsonSerializer $jsonSerializer,
+        LoggerInterface $logger,
         Template\Context $context,
         array $data = []
     ) {
@@ -48,6 +58,7 @@ abstract class Slider extends Template implements BlockInterface
         $this->verseCollectionFactory = $verseCollectionFactory;
         $this->config = $config;
         $this->jsonSerializer = $jsonSerializer;
+        $this->logger = $logger;
         parent::__construct($context, $data);
     }
 
@@ -86,6 +97,30 @@ abstract class Slider extends Template implements BlockInterface
     }
 
     /**
+     * @throws \Exception
+     */
+    private function convertDataToItem(array $data): array
+    {
+        $colour = $data['colour_value'];
+        if (GroupInterface::NO_COLOUR === $colour) {
+            $colour = '#FFFFFF';
+        }
+        $client = new Service\Client($this->logger, new Client());
+        $siglumObject = SiglumFactory::createFromTranslationAndString($data['translation'], $data['siglum']);
+        $url = $client->getUrlBySiglum($siglumObject);
+        return [
+            'colour' => $colour,
+            'antiColour' => Data::getContrastColor($colour),
+            'groupName' => $data['groupName'],
+            'content' => $data['content'],
+            'unordered' => $data['unordered'],
+            'description' => $data['description'],
+            'url' => $url
+        ];
+    }
+
+    /**
+     * @throws \Exception
      */
     public function getItems(array $groupsArray = []): array
     {
@@ -95,7 +130,7 @@ abstract class Slider extends Template implements BlockInterface
         $items = [];
         /** @var Verse $verse */
         foreach ($collection->getItems() as $verse) {
-            $items[] = $verse->getData();
+            $items[] = $this->convertDataToItem($verse->getData());
         }
         return $items;
     }

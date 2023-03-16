@@ -9,17 +9,21 @@
                 <vertical_sweep_time>200</vertical_sweep_time>
                 <is_group_colours_enable>1</is_group_colours_enable>
                 <template><![CDATA[
-<div class="item">
-    <div class="content">{content}</div>
-    <div class="description">{description}</div>
-</div>
+<a href="{url}" target="_blank">
+    <div class="item">
+        <div class="content">{content}</div>
+        <div class="description">{description}</div>
+    </div>
+</a>
 ]]></template>
                 <group_colours_template><![CDATA[
-<div class="item" style="border: 1px solid {colour};">
-    <div class="group" style="background: {colour}; color: {antiColour};" title="{groupName}">{groupName}</div>
-    <div class="content">{content}</div>
-    <div class="description">{description}</div>
-</div>
+<a href={url} target="_blank">
+    <div class="item" style="border: 1px solid {colour};">
+        <div class="group" style="background: {colour}; color: {antiColour};" title="{groupName}">{groupName}</div>
+        <div class="content">{content}</div>
+        <div class="description">{description}</div>
+    </div>
+</a>
 ]]></group_colours_template>
             </general>
 
@@ -34,11 +38,12 @@
             </frontend_slider>
 
             <custom_sliders>
-                <enable>0</enable>
+                <enable>1</enable>
                 <override>0</override>
                 <sweep_time>500</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
+                <sliders><![CDATA[{"_1678942274965_965":{"code":"test234","slider":["default","CGAV_001","CGAV_017"]}}]]></sliders>
             </custom_sliders>
 
             <backend_slider>

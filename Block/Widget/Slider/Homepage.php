@@ -24,7 +24,8 @@ class Homepage extends Slider
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     * @throws \Exception
      */
     public function getConfig(): array
     {
@@ -37,18 +38,6 @@ class Homepage extends Slider
         }
         $config['items'] = $this->getItems();
         return $config;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getVerseConfig(): array
-    {
-        $verseConfig = parent::getVerseConfig();
-        if ($this->config->isFrontendOverride()) {
-            $verseConfig['verses_ordered'] = $this->config->isFrontendVersesOrdered();
-        }
-        return $verseConfig;
     }
 
     /**

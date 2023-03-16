@@ -25,7 +25,8 @@ class Custom extends Slider
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     * @throws \Exception
      */
     public function getConfig(): array
     {
