@@ -9,19 +9,19 @@
                 <vertical_sweep_time>200</vertical_sweep_time>
                 <is_group_colours_enable>1</is_group_colours_enable>
                 <template><![CDATA[
-<a href="{url}" target="_blank">
-    <div class="item">
-        <div class="content">{content}</div>
-        <div class="description">{description}</div>
+<a href="{url}" target="_blank" style="color: {verseColour}">
+    <div class="item" title="{groupName}">
+        <div class="content" title="{groupName}">{content}</div>
+        <div class="description" title="{groupName}">{description}</div>
     </div>
 </a>
 ]]></template>
                 <group_colours_template><![CDATA[
-<a href={url} target="_blank">
-    <div class="item" style="border: 1px solid {colour};">
+<a href={url} target="_blank" style="color: {verseColour}">
+    <div class="item" style="border: 1px solid {colour};" title="{groupName}">
         <div class="group" style="background: {colour}; color: {antiColour};" title="{groupName}">{groupName}</div>
-        <div class="content">{content}</div>
-        <div class="description">{description}</div>
+        <div class="content" title="{groupName}">{content}</div>
+        <div class="description" title="{groupName}">{description}</div>
     </div>
 </a>
 ]]></group_colours_template>

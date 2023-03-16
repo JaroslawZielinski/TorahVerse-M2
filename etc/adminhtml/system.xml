@@ -74,7 +74,7 @@
                 <field id="template" translate="label" type="textarea" sortOrder="70" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Html Template for Slider Frame</label>
-                    <comment><![CDATA[Html Template for Slider Frame (key words: <strong>url</strong>, <strong>content</strong>, <strong>description</strong>, <strong>groupName</strong>, <strong>colour</strong>, <strong>antiColour</strong> written in {})]]></comment>
+                    <comment><![CDATA[Html Template for Slider Frame (key words: <strong>verseColour</strong>, <strong>url</strong>, <strong>content</strong>, <strong>description</strong>, <strong>groupName</strong>, <strong>colour</strong>, <strong>antiColour</strong> written in {})]]></comment>
                     <depends>
                         <field id="enable">1</field>
                         <field id="is_group_colours_enable" negative="1">1</field>
@@ -84,7 +84,7 @@
                 <field id="group_colours_template" translate="label" type="textarea" sortOrder="70" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Html Template for Slider Frame</label>
-                    <comment><![CDATA[Html Template for Slider Frame (key words: <strong>url</strong>, <strong>content</strong>, <strong>description</strong>, <strong>groupName</strong>, <strong>colour</strong>, <strong>antiColour</strong> written in {})]]></comment>
+                    <comment><![CDATA[Html Template for Slider Frame (key words: <strong>verseColour</strong>, <strong>url</strong>, <strong>content</strong>, <strong>description</strong>, <strong>groupName</strong>, <strong>colour</strong>, <strong>antiColour</strong> written in {})]]></comment>
                     <depends>
                         <field id="enable">1</field>
                         <field id="is_group_colours_enable">1</field>

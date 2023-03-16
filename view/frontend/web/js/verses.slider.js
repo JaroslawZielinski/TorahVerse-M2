@@ -10,9 +10,11 @@ define([
         return template.replace(pattern, (_, token) => data[token] || '');
     };
 
-    $.widget('simple.slider', {
+    $.widget('verses.slider', {
         defaults: {
-            'sweep_time': 100
+            'sweep_time': 100,
+            'verses_ordered': true,
+            'verse_colour': 'red'
         },
         nIntervalID: null,
         max: null,
@@ -30,27 +32,29 @@ define([
             this._initSlider(this.element);
         },
         /**
-         * Init Slider
+         * Init Verses Slider
          * @protected
          * @param {Object} element
          */
         _initSlider: function (element) {
             let self = this;
             self.max = self.options.items.length;
-            //first Swipe;
+            //initial Swipe;
             self._moveSlide(element);
             self.nIntervalID = setInterval(function () {
                 self._moveSlide(element);
             },self.options.sweep_time);
         },
         /**
-         * Move Single Slide
+         * Move Single Verse Slide
          * @protected
          * @param {Object} element
          */
         _moveSlide: function (element) {
             const html = this.options.template;
-            const data = this.options.items[this.current];
+            const data = $.extend(this.options.items[this.current], {
+                'verseColour': this.options.verse_colour
+            });
             const hydratedHtml = replaceMe(html, data);
 
             $(element).hide();
@@ -65,5 +69,5 @@ define([
         }
     });
 
-    return $.simple.slider;
+    return $.verses.slider;
 });
