@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace ITZielArt\TorahVerse\Block\Widget\Slider;
 
-use ITZielArt\TorahVerse\Api\Data\GroupInterface;
 use ITZielArt\TorahVerse\Block\Widget\Slider;
-use ITZielArt\TorahVerse\Model\Verse;
 
 /**
  * @method string getPlacement()

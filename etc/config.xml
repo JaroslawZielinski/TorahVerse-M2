@@ -4,7 +4,7 @@
         <itzielart_torahverse>
             <general>
                 <enable>1</enable>
-                <sweep_time>500</sweep_time>
+                <sweep_time>12000</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
                 <is_group_colours_enable>1</is_group_colours_enable>
@@ -30,7 +30,7 @@
             <frontend_slider>
                 <enable>0</enable>
                 <override>0</override>
-                <sweep_time>500</sweep_time>
+                <sweep_time>12000</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
                 <placement>top.container,footer-container</placement>
@@ -38,9 +38,9 @@
             </frontend_slider>
 
             <custom_sliders>
-                <enable>1</enable>
+                <enable>0</enable>
                 <override>0</override>
-                <sweep_time>500</sweep_time>
+                <sweep_time>12000</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
                 <sliders><![CDATA[{"_1678942274965_965":{"code":"test234","slider":["default","CGAV_001","CGAV_017"]}}]]></sliders>
@@ -49,7 +49,7 @@
             <backend_slider>
                 <enable>1</enable>
                 <override>0</override>
-                <sweep_time>500</sweep_time>
+                <sweep_time>12000</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
                 <slider><![CDATA[CGAV_001,CGAV_006]]></slider>
