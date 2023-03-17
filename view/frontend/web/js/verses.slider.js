@@ -81,8 +81,10 @@ define([
          */
         _moveSlide: function (element) {
             const html = this.options.template;
-            const data = $.extend(this.options.items[this.current], {
-                'verseColour': this.options.verse_colour
+            const item = this.options.items[this.current];
+            const data = $.extend({}, item, {
+                'verseColour': this.options.verse_colour,
+                'content': this.options.verses_ordered ? item.content : item.unordered
             });
             const hydratedHtml = replaceMe(html, data);
 
