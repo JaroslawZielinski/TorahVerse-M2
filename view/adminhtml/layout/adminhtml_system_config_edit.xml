@@ -4,5 +4,6 @@
     <head>
         <css src="ITZielArt_TorahVerse::css/chosen/chosen.css"/>
         <css src="ITZielArt_TorahVerse::css/chosen-slider.css"/>
+        <css src="jquery/colorpicker/css/colorpicker.css"/>
     </head>
 </page>

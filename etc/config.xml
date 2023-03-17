@@ -7,7 +7,7 @@
                 <sweep_time>12000</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
-                <is_group_colours_enable>1</is_group_colours_enable>
+                <is_group_colours_enable>0</is_group_colours_enable>
                 <template><![CDATA[
 <a href="{url}" target="_blank" style="color: {verseColour}">
     <div class="item" title="{groupName}">
@@ -25,6 +25,7 @@
     </div>
 </a>
 ]]></group_colours_template>
+                <verse_colour>#000000</verse_colour>
             </general>
 
             <frontend_slider>
@@ -33,6 +34,8 @@
                 <sweep_time>12000</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
+                <is_group_colours_enable>0</is_group_colours_enable>
+                <verse_colour>#000000</verse_colour>
                 <placement>top.container,footer-container</placement>
                 <slider><![CDATA[default,CGAV_001,CGAV_002,CGAV_003,CGAV_006,CGAV_009,CGAV_028,CGAV_029]]></slider>
             </frontend_slider>
@@ -43,6 +46,8 @@
                 <sweep_time>12000</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
+                <is_group_colours_enable>0</is_group_colours_enable>
+                <verse_colour>#000000</verse_colour>
                 <sliders><![CDATA[{"_1678942274965_965":{"code":"test234","slider":["default","CGAV_001","CGAV_017"]}}]]></sliders>
             </custom_sliders>
 
@@ -52,6 +57,8 @@
                 <sweep_time>12000</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
+                <is_group_colours_enable>0</is_group_colours_enable>
+                <verse_colour>#000000</verse_colour>
                 <slider><![CDATA[CGAV_001,CGAV_006]]></slider>
             </backend_slider>
         </itzielart_torahverse>

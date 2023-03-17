@@ -1,9 +1,8 @@
 .verse-slider {
     a {
-        &:hover {
+        &:hover, &:visited {
             text-decoration: none;
         }
-
     }
     .item {
         position: relative;
@@ -24,7 +23,7 @@
     .content {
         max-height: 100px;
         text-overflow: ellipsis;
-        white-space: normal;
+        white-space: nowrap;
         overflow: hidden;
         padding-bottom: 10px;
         font-style: italic;

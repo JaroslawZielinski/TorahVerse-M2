@@ -14,7 +14,8 @@ define([
         defaults: {
             'sweep_time': 100,
             'verses_ordered': true,
-            'verse_colour': 'red'
+            'verse_colour': '#ff0000',
+            'mode': 'autoplayinf'
         },
         nIntervalID: null,
         max: null,
@@ -37,13 +38,41 @@ define([
          * @param {Object} element
          */
         _initSlider: function (element) {
+            this.max = this.options.items.length;
+            switch (this.options.mode) {
+                default:
+                case 'autoplayinf':
+                    this._moveInfiniteAutoPlayMode(element);
+                    break;
+                case 'random':
+                    this._moveRandomMode(element);
+                    break;
+            }
+        },
+        /**
+         * @protected
+         * @param {Object} element
+         */
+        _moveInfiniteAutoPlayMode: function (element) {
             let self = this;
-            self.max = self.options.items.length;
             //initial Swipe;
             self._moveSlide(element);
             self.nIntervalID = setInterval(function () {
+                if (self.current + 1 < self.max) {
+                    self.current++;
+                } else {
+                    self.current = 0;
+                }
                 self._moveSlide(element);
             },self.options.sweep_time);
+        },
+        /**
+         * @protected
+         * @param {Object} element
+         */
+        _moveRandomMode: function (element) {
+            this.current = Math.floor(Math.random() * this.max);
+            this._moveSlide(element);
         },
         /**
          * Move Single Verse Slide
@@ -60,12 +89,6 @@ define([
             $(element).hide();
             $(element).html(hydratedHtml);
             $(element).show();
-
-            if (this.current + 1 < this.max) {
-                this.current++;
-            } else {
-                this.current = 0;
-            }
         }
     });
 

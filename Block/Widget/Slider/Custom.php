@@ -30,6 +30,7 @@ class Custom extends Slider
      */
     public function getConfig(): array
     {
+        $isGroupColoursEnable = $this->config->isCustomGroupColour();
         $config = parent::getConfig();
         $config['enabled'] = !!$config['enabled'] && $this->config->isCustomEnable();
         if ($this->config->isCustomOverride()) {
@@ -37,6 +38,10 @@ class Custom extends Slider
             $config['sweep_time'] = $this->config->getCustomSweepTime();
             $config['is_vertical_sweep_possible'] = $this->config->isCustomVertical();
             $config['vertical_sweep_time'] = $this->config->getCustomVerticalSweepTime();
+            $config['template'] = $isGroupColoursEnable ?
+                $this->config->getModuleGroupColoursTemplate() :
+                $this->config->getModuleTemplate();
+            $config['verse_colour'] = $this->config->getCustomVerseColour();
         }
         $config['items'] = $this->getItems();
         return $config;
