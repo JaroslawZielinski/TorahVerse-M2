@@ -34,6 +34,7 @@ class Backend extends Slider
                 $this->config->getModuleGroupColoursTemplate() :
                 $this->config->getModuleTemplate();
             $config['verse_colour'] = $this->config->getBackendVerseColour();
+            $config['mode'] = $this->config->getBackendMode();
         }
         $config['items'] = $this->getItems();
         return $config;

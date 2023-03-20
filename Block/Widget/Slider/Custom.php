@@ -42,6 +42,7 @@ class Custom extends Slider
                 $this->config->getModuleGroupColoursTemplate() :
                 $this->config->getModuleTemplate();
             $config['verse_colour'] = $this->config->getCustomVerseColour();
+            $config['mode'] = $this->config->getCustomMode();
         }
         $config['items'] = $this->getItems();
         return $config;

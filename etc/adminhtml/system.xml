@@ -98,6 +98,12 @@
                     <frontend_model>ITZielArt\TorahVerse\Block\Colour</frontend_model>
                 </field>
 
+                <field id="mode" translate="label" type="select" sortOrder="100" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Mode of slider</label>
+                    <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
+                </field>
+
                 <attribute type="expanded">1</attribute>
             </group>
 
@@ -175,14 +181,23 @@
                     </depends>
                 </field>
 
-                <field id="placement" translate="label" type="multiselect" sortOrder="90" showInDefault="1"
+                <field id="mode" translate="label" type="select" sortOrder="90" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Mode of slider</label>
+                    <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="placement" translate="label" type="multiselect" sortOrder="100" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Placement of a slider</label>
                     <validate>required-entry</validate>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Placement</source_model>
                 </field>
 
-                <field id="slider" type="multiselect" sortOrder="100" showInDefault="1" showInWebsite="1"
+                <field id="slider" type="multiselect" sortOrder="110" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Slider Configuration</label>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>
@@ -272,7 +287,16 @@
                     </depends>
                 </field>
 
-                <field id="sliders" translate="label comment" type="text" sortOrder="90" showInDefault="1"
+                <field id="mode" translate="label" type="select" sortOrder="90" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Mode of slider</label>
+                    <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="sliders" translate="label comment" type="text" sortOrder="100" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Slider Configurations</label>
                     <comment><![CDATA[Slider configurations.]]></comment>
@@ -361,7 +385,16 @@
                     </depends>
                 </field>
 
-                <field id="slider" type="multiselect" sortOrder="90" showInDefault="1" showInWebsite="1"
+                <field id="mode" translate="label" type="select" sortOrder="90" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Mode of slider</label>
+                    <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="slider" type="multiselect" sortOrder="100" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Slider Configuration</label>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>

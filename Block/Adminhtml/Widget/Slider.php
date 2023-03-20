@@ -100,7 +100,8 @@ abstract class Slider extends Template
             'template' => $isGroupColoursEnable ?
                 $this->config->getModuleGroupColoursTemplate() :
                 $this->config->getModuleTemplate(),
-            'verse_colour' => $this->config->getModuleVerseColour()
+            'verse_colour' => $this->config->getModuleVerseColour(),
+            'mode' => $this->config->getModuleMode()
         ];
     }
 

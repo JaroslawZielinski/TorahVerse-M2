@@ -38,6 +38,7 @@ class Homepage extends Slider
                 $this->config->getModuleGroupColoursTemplate() :
                 $this->config->getModuleTemplate();
             $config['verse_colour'] = $this->config->getFrontendVerseColour();
+            $config['mode'] = $this->config->getFrontendMode();
         }
         $config['items'] = $this->getItems();
         return $config;

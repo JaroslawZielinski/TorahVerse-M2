@@ -22,6 +22,7 @@ class Config
     public const CONFIG_PATH_MODULE_TEMPLATE = 'itzielart_torahverse/general/template';
     public const CONFIG_PATH_MODULE_GROUP_COLOURS_TEMPLATE = 'itzielart_torahverse/general/group_colours_template';
     public const CONFIG_PATH_MODULE_VERSE_COLOUR = 'itzielart_torahverse/general/verse_colour';
+    public const CONFIG_PATH_MODULE_MODE = 'itzielart_torahverse/general/mode';
     public const CONFIG_PATH_FRONTEND_ENABLE = 'itzielart_torahverse/frontend_slider/enable';
     public const CONFIG_PATH_FRONTEND_OVERRIDE = 'itzielart_torahverse/frontend_slider/override';
     public const CONFIG_PATH_FRONTEND_VERSES_ORDERED = 'itzielart_torahverse/frontend_slider/verses_ordered';
@@ -30,6 +31,7 @@ class Config
     public const CONFIG_PATH_FRONTEND_VERTICAL_SWEEP_TIME = 'itzielart_torahverse/frontend_slider/vertical_sweep_time';
     public const CONFIG_PATH_FRONTEND_IS_GROUP_COLOUR = 'itzielart_torahverse/frontend_slider/is_group_colours_enable';
     public const CONFIG_PATH_FRONTEND_VERSE_COLOUR = 'itzielart_torahverse/frontend_slider/verse_colour';
+    public const CONFIG_PATH_FRONTEND_MODE = 'itzielart_torahverse/frontend_slider/mode';
     public const CONFIG_PATH_FRONTEND_PLACEMENT = 'itzielart_torahverse/frontend_slider/placement';
     public const CONFIG_PATH_FRONTEND_SLIDER = 'itzielart_torahverse/frontend_slider/slider';
     public const CONFIG_PATH_BACKEND_ENABLE = 'itzielart_torahverse/backend_slider/enable';
@@ -40,6 +42,7 @@ class Config
     public const CONFIG_PATH_BACKEND_VERTICAL_SWEEP_TIME = 'itzielart_torahverse/backend_slider/vertical_sweep_time';
     public const CONFIG_PATH_BACKEND_IS_GROUP_COLOUR = 'itzielart_torahverse/backend_slider/is_group_colours_enable';
     public const CONFIG_PATH_BACKEND_VERSE_COLOUR = 'itzielart_torahverse/backend_slider/verse_colour';
+    public const CONFIG_PATH_BACKEND_MODE = 'itzielart_torahverse/backend_slider/mode';
     public const CONFIG_PATH_BACKEND_SLIDER = 'itzielart_torahverse/backend_slider/slider';
     public const CONFIG_PATH_CUSTOM_ENABLE = 'itzielart_torahverse/custom_sliders/enable';
     public const CONFIG_PATH_CUSTOM_OVERRIDE = 'itzielart_torahverse/custom_sliders/override';
@@ -49,6 +52,7 @@ class Config
     public const CONFIG_PATH_CUSTOM_VERTICAL_SWEEP_TIME = 'itzielart_torahverse/custom_sliders/vertical_sweep_time';
     public const CONFIG_PATH_CUSTOM_IS_GROUP_COLOUR = 'itzielart_torahverse/custom_sliders/is_group_colours_enable';
     public const CONFIG_PATH_CUSTOM_VERSE_COLOUR = 'itzielart_torahverse/custom_sliders/verse_colour';
+    public const CONFIG_PATH_CUSTOM_MODE = 'itzielart_torahverse/custom_sliders/mode';
     public const CONFIG_PATH_CUSTOM_SLIDERS = 'itzielart_torahverse/custom_sliders/sliders';
 
     /**
@@ -124,6 +128,13 @@ class Config
         return empty($verseColour) ? null : (string)$verseColour;
     }
 
+    public function getModuleMode(): ?string
+    {
+        $mode = $this->scopeConfig
+            ->getValue(self::CONFIG_PATH_MODULE_MODE, ScopeInterface::SCOPE_STORE);
+        return empty($mode) ? null : (string)$mode;
+    }
+
     public function isFrontendEnable(): bool
     {
         return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_FRONTEND_ENABLE, ScopeInterface::SCOPE_STORE);
@@ -169,6 +180,13 @@ class Config
         $verseColour = $this->scopeConfig
             ->getValue(self::CONFIG_PATH_FRONTEND_VERSE_COLOUR, ScopeInterface::SCOPE_STORE);
         return empty($verseColour) ? null : (string)$verseColour;
+    }
+
+    public function getFrontendMode(): ?string
+    {
+        $mode = $this->scopeConfig
+            ->getValue(self::CONFIG_PATH_FRONTEND_MODE, ScopeInterface::SCOPE_STORE);
+        return empty($mode) ? null : (string)$mode;
     }
 
     public function getFrontendPlacement(): array
@@ -232,6 +250,13 @@ class Config
         return empty($verseColour) ? null : (string)$verseColour;
     }
 
+    public function getBackendMode(): ?string
+    {
+        $mode = $this->scopeConfig
+            ->getValue(self::CONFIG_PATH_BACKEND_MODE, ScopeInterface::SCOPE_STORE);
+        return empty($mode) ? null : (string)$mode;
+    }
+
     public function getBackendSlider(): array
     {
         $sliderString = $this->scopeConfig->getValue(self::CONFIG_PATH_BACKEND_SLIDER, ScopeInterface::SCOPE_STORE);
@@ -283,6 +308,13 @@ class Config
         $verseColour = $this->scopeConfig
             ->getValue(self::CONFIG_PATH_CUSTOM_VERSE_COLOUR, ScopeInterface::SCOPE_STORE);
         return empty($verseColour) ? null : (string)$verseColour;
+    }
+
+    public function getCustomMode(): ?string
+    {
+        $mode = $this->scopeConfig
+            ->getValue(self::CONFIG_PATH_CUSTOM_MODE, ScopeInterface::SCOPE_STORE);
+        return empty($mode) ? null : (string)$mode;
     }
 
     public function getCustomSliders(): array
