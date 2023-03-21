@@ -27,6 +27,17 @@ interface QuoteInterface extends ExtensibleDataInterface
     public function setQuoteId($quoteId): self;
 
     /**
+     * @return ?int
+     */
+    public function getGroupId();
+
+    /**
+     * @param ?int $groupId
+     * @return QuoteInterface
+     */
+    public function setGroupId($groupId): self;
+
+    /**
      * @return ?string
      */
     public function getName(): ?string;

@@ -56,7 +56,7 @@ define([
         _moveInfiniteAutoPlayMode: function (element) {
             let self = this;
             //initial Swipe;
-            self._moveSlide(element);
+            self._moveRandomMode(element);
             self.nIntervalID = setInterval(function () {
                 if (self.current + 1 < self.max) {
                     self.current++;

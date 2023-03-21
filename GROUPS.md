@@ -137,3 +137,19 @@
 
 ## The Godly piece of advice
 * [Hbr 12, 1](https://biblia.info.pl/biblia/web/hbr/12/1)
+
+## Charles Spurgeon's quotes
+* [My evidence that I am saved](https://www.brainyquote.com/quotes/charles_spurgeon_718657)
+* [Trials teach us what we are](https://www.brainyquote.com/quotes/charles_spurgeon_165812)
+* [We have no superstitious regard for times and seasons 1](https://www.martintop.org.uk/blog/spurgeons-nevertheless)
+* [We have no superstitious regard for times and seasons 2](https://www.sermonindex.net/modules/newbb/viewtopic.php?topic_id=21360&forum=35)
+* [When it can be proved that the observance of Christmas](https://www.azquotes.com/quote/1136831)
+* [Those who follow the custom of observing Christmas, follow not the Bible but pagan ceremonies.](https://www.calltoworship.org/spurgeon-on-christmas.html)
+
+## William Tyndale's quotes
+* ["Foxe's Book of Martyrs". Book by John Foxe, March 20, 1563.](https://www.azquotes.com/quote/715015)
+* [Be cold, sober, wise, circumspect](https://www.azquotes.com/quote/1380579)
+* [William Tyndale, John Frith, Thomas Russell (1831). “The Works of the English Reformers: The works of Tyndale, (continued:) An answer to Sir Thomas More's Dialogue ; An exposition upon the 5th, 6th, and 7th chapters of Matthew ; An exposition upon the 1st epistle of St. John ; A pathway into the Holy Scripture ; The sacrament of baptism, and the sacrament of the body and blood of our saviour Jesus Christ”, p.540](https://www.azquotes.com/quote/870524)
+* [William Tyndale (1848). “Doctrinal treatises and introductions to different portions of the Holy Scriptures”, p.354](https://www.azquotes.com/quote/1012939)
+* [William Tyndale, John Frith, Thomas Russell (1831). “The Works of the English Reformers: The works of Tyndale, (continued:) An answer to Sir Thomas More's Dialogue ; An exposition upon the 5th, 6th, and 7th chapters of Matthew ; An exposition upon the 1st epistle of St. John ; A pathway into the Holy Scripture ; The sacrament of baptism, and the sacrament of the body and blood of our saviour Jesus Christ”, p.522](https://www.azquotes.com/quote/1012938)
+

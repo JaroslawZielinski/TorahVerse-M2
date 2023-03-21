@@ -1076,7 +1076,6 @@ class AddCustomGroups implements DataPatchInterface
         GroupRepositoryInterface $groupRepository,
         VerseFactory $verseFactory,
         VerseRepositoryInterface $verseRepository
-
     ) {
         $this->groupFactory = $groupFactory;
         $this->groupRepository = $groupRepository;
