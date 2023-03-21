@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ITZielArt\TorahVerse\Model\ResourceModel\Verse;
+namespace ITZielArt\TorahVerse\Model\ResourceModel\Quote;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
-use ITZielArt\TorahVerse\Model\Verse;
+use ITZielArt\TorahVerse\Model\Quote;
 use ITZielArt\TorahVerse\Model\ResourceModel;
 
 class Collection extends AbstractCollection
@@ -13,7 +13,7 @@ class Collection extends AbstractCollection
     /**
      * @var string
      */
-    protected $_idFieldName = 'verse_id';
+    protected $_idFieldName = 'quote_id';
 
     /**
      * @inheritDoc
@@ -21,8 +21,8 @@ class Collection extends AbstractCollection
     protected function _construct()
     {
         $this->_init(
-            Verse::class,
-            ResourceModel\Verse::class
+            Quote::class,
+            ResourceModel\Quote::class
         );
     }
 
@@ -38,7 +38,7 @@ class Collection extends AbstractCollection
                 ['groups' => $this->getTable('torahverse_groups')],
                 'main_table.group_id = groups.group_id',
                 ['groupName' => 'groups.name', 'colour_value', 'code']
-        );
+            );
         $this->addFilterToMap('groupName', 'groups.name');
         $this->addFilterToMap('name', 'main_table.name');
     }

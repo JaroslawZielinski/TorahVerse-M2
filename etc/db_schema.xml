@@ -60,4 +60,32 @@
             table="torahverse_verses" column="group_id" referenceTable="torahverse_groups" referenceColumn="group_id"
             onDelete="CASCADE"/>
     </table>
+
+    <table name="torahverse_quotes" engine="innodb" resource="default" comment="ITZielArt Torah Verse Quotes">
+        <column name="quote_id" identity="true" nullable="false" padding="6" unsigned="true" xsi:type="int"
+            comment="Quote ID"/>
+
+        <column name="group_id" nullable="false" padding="6" unsigned="true" xsi:type="int"
+            comment="Group ID"/>
+
+        <column name="name" nullable="false" xsi:type="text" comment="Name of a quote"/>
+
+        <column name="content" nullable="false" xsi:type="text" comment="Content"/>
+
+        <column name="description" nullable="false" xsi:type="text" comment="Description"/>
+
+        <column name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Created At"/>
+
+        <column name="updated_at" nullable="false" on_update="true" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
+            comment="Updated At"/>
+
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="quote_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="TORAHVERSE_QUOTES_GROUP_ID_TORAHVERSE_GROUPS_GROUP_ID"
+            table="torahverse_quotes" column="group_id" referenceTable="torahverse_groups" referenceColumn="group_id"
+            onDelete="CASCADE"/>
+    </table>
 </schema>

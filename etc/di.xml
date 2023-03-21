@@ -57,9 +57,14 @@
     </type>
 
     <!-- CRUD preferences -->
+    <preference for="ITZielArt\TorahVerse\Api\Data\QuoteInterface" type="ITZielArt\TorahVerse\Model\Data\Quote"/>
+
     <preference for="ITZielArt\TorahVerse\Api\Data\GroupInterface" type="ITZielArt\TorahVerse\Model\Data\Group"/>
 
     <preference for="ITZielArt\TorahVerse\Api\Data\VerseInterface" type="ITZielArt\TorahVerse\Model\Data\Verse"/>
+
+    <preference for="ITZielArt\TorahVerse\Api\QuoteRepositoryInterface"
+        type="ITZielArt\TorahVerse\Model\QuoteRepository"/>
 
     <preference for="ITZielArt\TorahVerse\Api\GroupRepositoryInterface"
         type="ITZielArt\TorahVerse\Model\GroupRepository"/>
@@ -68,19 +73,22 @@
         type="ITZielArt\TorahVerse\Model\VerseRepository"/>
 
     <!-- Search preferences -->
+    <preference for="ITZielArt\TorahVerse\Api\Data\QuoteSearchResultsInterface"
+        type="Magento\Framework\Api\SearchResults"/>
+
     <preference for="ITZielArt\TorahVerse\Api\Data\GroupSearchResultsInterface"
         type="Magento\Framework\Api\SearchResults"/>
 
     <preference for="ITZielArt\TorahVerse\Api\Data\VerseSearchResultsInterface"
         type="Magento\Framework\Api\SearchResults"/>
 
-    <!-- Verses Grid -->
-    <type name="ITZielArt\TorahVerse\Model\ResourceModel\Verse\Grid\Collection">
+    <!-- Quotes Grid -->
+    <type name="ITZielArt\TorahVerse\Model\ResourceModel\Quote\Grid\Collection">
         <arguments>
-            <argument name="mainTable" xsi:type="string">torahverse_verses</argument>
+            <argument name="mainTable" xsi:type="string">torahverse_quotes</argument>
             <argument name="eventPrefix" xsi:type="string">torahverse_grid_collection</argument>
             <argument name="eventObject" xsi:type="string">torahverse_collection</argument>
-            <argument name="resourceModel" xsi:type="string">ITZielArt\TorahVerse\Model\ResourceModel\Verse</argument>
+            <argument name="resourceModel" xsi:type="string">ITZielArt\TorahVerse\Model\ResourceModel\Quote</argument>
         </arguments>
     </type>
 
@@ -93,6 +101,16 @@
         </arguments>
     </virtualType>
 
+    <!-- Verses Grid -->
+    <type name="ITZielArt\TorahVerse\Model\ResourceModel\Verse\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">torahverse_verses</argument>
+            <argument name="eventPrefix" xsi:type="string">torahverse_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">torahverse_collection</argument>
+            <argument name="resourceModel" xsi:type="string">ITZielArt\TorahVerse\Model\ResourceModel\Verse</argument>
+        </arguments>
+    </type>
+
     <!-- All grids DataProviders -->
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
@@ -102,6 +120,9 @@
                 </item>
                 <item name="itzielart_torahverse_groups_listing_data_source" xsi:type="string">
                     ITZielArt\TorahVerse\Model\ResourceModel\Group\Grid\Collection
+                </item>
+                <item name="itzielart_torahverse_quotes_listing_data_source" xsi:type="string">
+                    ITZielArt\TorahVerse\Model\ResourceModel\Quote\Grid\Collection
                 </item>
             </argument>
         </arguments>

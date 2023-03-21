@@ -8,16 +8,16 @@ use Magento\Framework\Api\DataObjectHelper;
 use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\Model\Context;
 use Magento\Framework\Registry;
-use ITZielArt\TorahVerse\Api\Data\VerseInterface;
-use ITZielArt\TorahVerse\Api\Data\VerseInterfaceFactory;
-use ITZielArt\TorahVerse\Model\ResourceModel\Verse\Collection;
+use ITZielArt\TorahVerse\Api\Data\QuoteInterface;
+use ITZielArt\TorahVerse\Api\Data\QuoteInterfaceFactory;
+use ITZielArt\TorahVerse\Model\ResourceModel\Quote\Collection;
 
-class Verse extends AbstractModel
+class Quote extends AbstractModel
 {
     /**
-     * @var VerseInterfaceFactory
+     * @var QuoteInterfaceFactory
      */
-    protected $verseDataFactory;
+    protected $quoteDataFactory;
 
     /**
      * @var DataObjectHelper
@@ -27,36 +27,36 @@ class Verse extends AbstractModel
     /**
      * @var string
      */
-    protected $_eventPrefix = 'torahverse_verses';
+    protected $_eventPrefix = 'torahverse_quotes';
 
     /**
      * @inheritDoc
      */
     public function __construct(
-        VerseInterfaceFactory $verseDataFactory,
+        QuoteInterfaceFactory $quoteDataFactory,
         DataObjectHelper $dataObjectHelper,
         Context $context,
         Registry $registry,
-        ResourceModel\Verse $resource,
+        ResourceModel\Quote $resource,
         Collection $resourceCollection,
         array $data = []
     ) {
-        $this->verseDataFactory = $verseDataFactory;
+        $this->quoteDataFactory = $quoteDataFactory;
         $this->dataObjectHelper = $dataObjectHelper;
         parent::__construct($context, $registry, $resource, $resourceCollection, $data);
     }
 
-    public function getDataModel(): VerseInterface
+    public function getDataModel(): QuoteInterface
     {
-        $verseData = $this->getData();
+        $quoteData = $this->getData();
 
-        $verseDataObject = $this->verseDataFactory->create();
+        $quoteDataObject = $this->quoteDataFactory->create();
         $this->dataObjectHelper->populateWithArray(
-            $verseDataObject,
-            $verseData,
-            Verse::class
+            $quoteDataObject,
+            $quoteData,
+            Quote::class
         );
 
-        return $verseDataObject;
+        return $quoteDataObject;
     }
 }

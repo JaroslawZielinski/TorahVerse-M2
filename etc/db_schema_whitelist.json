@@ -30,5 +30,20 @@
             "PRIMARY": true,
             "TORAHVERSE_VERSES_GROUP_ID_TORAHVERSE_GROUPS_GROUP_ID": true
         }
+    },
+    "torahverse_quotes": {
+        "column": {
+            "quote_id": true,
+            "group_id": true,
+            "name": true,
+            "content": true,
+            "description": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "TORAHVERSE_QUOTES_GROUP_ID_TORAHVERSE_GROUPS_GROUP_ID": true
+        }
     }
 }
