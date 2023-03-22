@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ITZielArt\TorahVerse\Model\Verse;
+namespace ITZielArt\TorahVerse\Model\Quote;
 
-use ITZielArt\TorahVerse\Model\ResourceModel\Verse\CollectionFactory;
-use ITZielArt\TorahVerse\Model\Verse;
+use ITZielArt\TorahVerse\Model\ResourceModel\Quote\CollectionFactory;
+use ITZielArt\TorahVerse\Model\Quote;
 use Magento\Ui\DataProvider\AbstractDataProvider;
 use Magento\Framework\App\Request\DataPersistorInterface;
 
@@ -27,7 +27,7 @@ class DataProvider extends AbstractDataProvider
      * @inheritDoc
      */
     public function __construct(
-        CollectionFactory $verseCollectionFactory,
+        CollectionFactory $quoteCollectionFactory,
         DataPersistorInterface $dataPersistor,
         string $name,
         string $primaryFieldName,
@@ -35,7 +35,7 @@ class DataProvider extends AbstractDataProvider
         array $meta = [],
         array $data = []
     ) {
-        $this->collection = $verseCollectionFactory->create();
+        $this->collection = $quoteCollectionFactory->create();
         $this->dataPersistor = $dataPersistor;
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
@@ -48,16 +48,16 @@ class DataProvider extends AbstractDataProvider
         if (isset($this->loadedData)) {
             return $this->loadedData;
         }
-        $verses = $this->collection->getItems();
-        /** @var Verse $verse */
-        foreach ($verses as $verse) {
-            $this->loadedData[$verse->getId()] = $verse->getData();
+        $quotes = $this->collection->getItems();
+        /** @var Quote $quote */
+        foreach ($quotes as $quote) {
+            $this->loadedData[$quote->getId()] = $quote->getData();
         }
-        /** @var Verse $verse */
-        $verse = $this->dataPersistor->get('itzielart_verses');
-        if (!empty($verse)) {
-            $this->loadedData[$verse->getVerseId()] = $verse->getData();
-            $this->dataPersistor->clear('itzielart_verses');
+        /** @var Quote $quote */
+        $quote = $this->dataPersistor->get('itzielart_quotes');
+        if (!empty($quote)) {
+            $this->loadedData[$quote->getQuoteId()] = $quote->getData();
+            $this->dataPersistor->clear('itzielart_quotes');
         }
         return $this->loadedData;
     }
