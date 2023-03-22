@@ -7,13 +7,14 @@
                     <resource id="ITZielArt_TorahVerse::torahverse" title="ITZielArt TorahVerse">
                         <resource id="ITZielArt_TorahVerse::groups" title="ITZielArt TorahVerse Groups"/>
                         <resource id="ITZielArt_TorahVerse::verses" title="ITZielArt TorahVerse Verses"/>
+                        <resource id="ITZielArt_TorahVerse::quotes" title="ITZielArt TorahVerse Quotes"/>
                         <resource id="ITZielArt_TorahVerse::config"
                             title="ITZielArt TorahVerse Configuration Menu" translate="title" />
                     </resource>
                 </resource>
 
                 <resource id="Magento_Backend::system">
-                    <resource id="ITZielArt_TorahVerse::elements" title="Torah Verse" sortOrder="60">
+                    <resource id="ITZielArt_TorahVerse::elements" title="ITZielArt TorahVerse" sortOrder="60">
                         <resource id="ITZielArt_TorahVerse::addedit" title="Add/Edit" sortOrder="10" />
                     </resource>
                 </resource>

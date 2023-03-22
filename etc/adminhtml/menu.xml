@@ -19,6 +19,11 @@
              module="ITZielArt_TorahVerse" sortOrder="40" parent="ITZielArt_TorahVerse::torahverse"
              dependsOnModule="ITZielArt_TorahVerse"/>
 
+        <add id="ITZielArt_TorahVerse::quotes" resource="ITZielArt_TorahVerse::quotes"
+             title="Quotes" action="torahverse/quotes/index"
+             module="ITZielArt_TorahVerse" sortOrder="50" parent="ITZielArt_TorahVerse::torahverse"
+             dependsOnModule="ITZielArt_TorahVerse"/>
+
         <add id="ITZielArt_TorahVerse::config"  resource="ITZielArt_TorahVerse::config"
              title="Configuration" translate="title" module="ITZielArt_TorahVerse"
              parent="ITZielArt_TorahVerse::menu" sortOrder="20"/>
