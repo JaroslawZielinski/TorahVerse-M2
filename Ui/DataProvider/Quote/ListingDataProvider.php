@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ITZielArt\TorahVerse\Ui\DataProvider\Verse;
+namespace ITZielArt\TorahVerse\Ui\DataProvider\Quote;
 
 use Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider;
 

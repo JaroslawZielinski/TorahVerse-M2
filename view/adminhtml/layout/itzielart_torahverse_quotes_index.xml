@@ -6,7 +6,7 @@
     </head>
     <body>
         <referenceContainer name="content">
-
+            <uiComponent name="itzielart_torahverse_quotes_listing"/>
         </referenceContainer>
     </body>
 </page>

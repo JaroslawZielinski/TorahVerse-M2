@@ -1,0 +1,234 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">
+                itzielart_torahverse_quotes_listing.itzielart_torahverse_quotes_listing_data_source
+            </item>
+		</item>
+	</argument>
+
+	<settings>
+		<spinner>itzielart_torahverse_quotes_columns</spinner>
+
+		<deps>
+			<dep>itzielart_torahverse_quotes_listing.itzielart_torahverse_quotes_listing_data_source</dep>
+		</deps>
+
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add New Quote</label>
+            </button>
+        </buttons>
+	</settings>
+
+	<dataSource component="Magento_Ui/js/grid/provider" name="itzielart_torahverse_quotes_listing_data_source">
+		<settings>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+
+		<aclResource>ITZielArt_TorahVerse::quotes</aclResource>
+
+		<dataProvider class="ITZielArt\TorahVerse\Ui\DataProvider\Quote\ListingDataProvider"
+            name="itzielart_torahverse_quotes_listing_data_source">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>quote_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+
+		<bookmark name="bookmarks"/>
+
+		<columnsControls name="columns_controls"/>
+
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">itzielart_torahverse_quotes_listing.itzielart_torahverse_quotes_listing.itzielart_torahverse_quotes_columns.ids</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+                    <item name="indexField" xsi:type="string">quote_id</item>
+                </item>
+            </argument>
+
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="itzielart_torahverse/quotes/massdelete" />
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete quotes</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to delete selected quotes?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+
+            <action name="groupAssign">
+                <settings>
+                    <actionDisable>false</actionDisable>
+                    <type>group_assign</type>
+                    <label translate="true">Group Assign</label>
+                    <actions class="ITZielArt\TorahVerse\Ui\Component\MassAction\Quote\GroupAssign"/>
+                </settings>
+            </action>
+        </massaction>
+
+        <filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="templates" xsi:type="array">
+                        <item name="filters" xsi:type="array">
+                            <item name="select" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                                <item name="template" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </filters>
+
+		<paging name="listing_paging"/>
+	</listingToolbar>
+
+	<columns name="itzielart_torahverse_quotes_columns">
+		<settings>
+			<editorConfig>
+				<param name="selectProvider" xsi:type="string">
+                    itzielart_torahverse_quotes_listing.itzielart_torahverse_quotes_listing.itzielart_torahverse_quotes_columns.ids
+                </param>
+
+				<param name="enabled" xsi:type="boolean">false</param>
+
+                <param name="indexField" xsi:type="string">quote_id</param>
+
+				<param name="clientConfig" xsi:type="array">
+					<item name="saveUrl" path="itzielart_torahverse/quotes/inlineEdit" xsi:type="url"/>
+					<item name="validateBeforeSave" xsi:type="boolean">false</item>
+				</param>
+			</editorConfig>
+
+			<childDefaults>
+				<param name="fieldAction" xsi:type="array">
+					<item name="provider" xsi:type="string">
+                        itzielart_torahverse_quotes_listing.itzielart_torahverse_quotes_listing.itzielart_torahverse_quotes_columns_editor
+                    </item>
+
+					<item name="target" xsi:type="string">startEdit</item>
+
+					<item name="params" xsi:type="array">
+						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+						<item name="1" xsi:type="boolean">true</item>
+					</item>
+				</param>
+			</childDefaults>
+		</settings>
+
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>quote_id</indexField>
+			</settings>
+		</selectionsColumn>
+
+		<column name="quote_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+                    <item name="label" xsi:type="string" translate="true">ID</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+		</column>
+
+        <column name="groupName" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Quotes\Group">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="label" xsi:type="string" translate="true">Group</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+                    <item name="label" xsi:type="string" translate="true">Name</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="content">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+                    <item name="label" xsi:type="string" translate="true">Content</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="description">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+                    <item name="label" xsi:type="string" translate="true">Description</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
+                </item>
+            </argument>
+        </column>
+
+		<column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+                    <item name="dataType" xsi:type="string">date</item>
+                    <item name="label" xsi:type="string" translate="true">Create</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
+                </item>
+            </argument>
+		</column>
+
+        <actionsColumn name="actions" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Quotes\Actions">
+            <settings>
+                <indexField>quote_id</indexField>
+                <resizeEnabled>false</resizeEnabled>
+                <resizeDefaultWidth>70</resizeDefaultWidth>
+            </settings>
+        </actionsColumn>
+	</columns>
+</listing>

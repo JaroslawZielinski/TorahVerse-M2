@@ -140,4 +140,17 @@
             </argument>
         </arguments>
     </type>
+
+    <type name="ITZielArt\TorahVerse\Ui\Component\MassAction\Quote\GroupAssign">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="urlPath" xsi:type="string">itzielart_torahverse/quotes/groupAssign</item>
+                <item name="paramName" xsi:type="string">group</item>
+                <item name="confirm" xsi:type="array">
+                    <item name="message" xsi:type="string" translatable="true">Are you sure?</item>
+                    <item name="title" xsi:type="string" translatable="true">Assign to '%s' group</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
 </config>

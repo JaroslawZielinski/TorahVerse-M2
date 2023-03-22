@@ -34,7 +34,7 @@ class Group extends Column
         return $dataSource;
     }
 
-    private function getGroupHtml(string $colourValue, string $groupName): string
+    protected function getGroupHtml(string $colourValue, string $groupName): string
     {
         if (GroupInterface::NO_COLOUR === $colourValue) {
             $colourValue = '#FFFFFF';
