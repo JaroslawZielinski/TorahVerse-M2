@@ -67,8 +67,9 @@ class GroupAssign extends Action
     {
         try {
             $collection = $this->filter->getCollection($this->collectionFactory->create());
-            $defaultGroup = $this->groupManagement->getDefaultGroup();
-            $groupId = (int)$defaultGroup->getGroupId();
+            $groupCode = $this->getRequest()->getParam('group', 'default');
+            $group = $this->groupManagement->getGroupByCode($groupCode);
+            $groupId = (int)$group->getGroupId();
             $updated = 0;
             /** @var Verse $item */
             foreach ($collection as $item) {
