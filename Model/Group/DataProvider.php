@@ -51,12 +51,14 @@ class DataProvider extends AbstractDataProvider
         $groups = $this->collection->getItems();
         /** @var $groups Group */
         foreach ($groups as $group) {
-            $this->loadedData[$group->getId()] = array_merge($group->getData(), ['verses_ids' => []]);
+            $this->loadedData[$group->getId()] =
+                array_merge($group->getData(), ['verses_ids' => [], 'quotes_ids' => []]);
         }
         /** @var Group $group */
         $group = $this->dataPersistor->get('itzielart_groups');
         if (!empty($group)) {
-            $this->loadedData[$group->getGroupId()] = array_merge($group->getData(), ['verses_ids' => []]);
+            $this->loadedData[$group->getGroupId()] =
+                array_merge($group->getData(), ['verses_ids' => [], 'quotes_ids' => []]);
             $this->dataPersistor->clear('itzielart_groups');
         }
         return $this->loadedData;

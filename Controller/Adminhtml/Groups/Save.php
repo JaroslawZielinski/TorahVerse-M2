@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ITZielArt\TorahVerse\Controller\Adminhtml\Groups;
 
+use ITZielArt\TorahVerse\Api\QuoteRepositoryInterface;
 use ITZielArt\TorahVerse\Api\VerseRepositoryInterface;
 use ITZielArt\TorahVerse\Model\GroupFactory;
 use ITZielArt\TorahVerse\Model\GroupManagement;
@@ -30,6 +31,10 @@ class Save extends Action
      * @var VerseRepositoryInterface
      */
     private $verseRepository;
+    /**
+     * @var QuoteRepositoryInterface
+     */
+    private $quoteRepository;
 
     /**
      * @inheritDoc
@@ -39,12 +44,14 @@ class Save extends Action
         GroupFactory $groupFactory,
         GroupManagement $groupManagement,
         VerseRepositoryInterface $verseRepository,
+        QuoteRepositoryInterface $quoteRepository,
         Context $context
     ) {
         $this->logger = $logger;
         $this->groupFactory = $groupFactory;
         $this->groupManagement = $groupManagement;
         $this->verseRepository = $verseRepository;
+        $this->quoteRepository = $quoteRepository;
         parent::__construct($context);
     }
 
@@ -57,6 +64,7 @@ class Save extends Action
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
         $assignVerseIds = $data['verses_ids'] ?? [];
+        $assignQuoteIds = $data['quotes_ids'] ?? [];
         if (empty($data['group_id'])) {
             unset($data['group_id']);
         }
@@ -75,6 +83,16 @@ class Save extends Action
                     $count++;
                 }
                 $this->messageManager->addSuccess(__('A total of %1 verse(s) have been assign to it.', $count));
+            }
+            if (!empty($assignQuoteIds)) {
+                $count = 0;
+                foreach ($assignQuoteIds as $assignQuoteId) {
+                    $quoteModelData = $this->quoteRepository->get((int)$assignQuoteId);
+                    $quoteModelData->setGroupId($modelData->getGroupId());
+                    $this->quoteRepository->save($quoteModelData);
+                    $count++;
+                }
+                $this->messageManager->addSuccess(__('A total of %1 quote(s) have been assign to it.', $count));
             }
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage(), $e->getTrace());
