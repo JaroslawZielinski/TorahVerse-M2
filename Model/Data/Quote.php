@@ -76,6 +76,22 @@ class Quote extends AbstractExtensibleObject implements QuoteInterface
     /**
      * @inheritDoc
      */
+    public function getAuthor(): ?string
+    {
+        return $this->_get(QuoteInterface::AUTHOR);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setAuthor(?string $author): QuoteInterface
+    {
+        return $this->setData(QuoteInterface::AUTHOR, $author);
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getDescription(): ?string
     {
         return $this->_get(QuoteInterface::DESCRIPTION);

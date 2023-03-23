@@ -207,25 +207,11 @@
             </argument>
         </column>
 
-		<column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
-                    <item name="dataType" xsi:type="string">date</item>
-                    <item name="label" xsi:type="string" translate="true">Create</item>
-                    <item name="sorting" xsi:type="string">desc</item>
-                    <item name="sortable" xsi:type="boolean">true</item>
-                    <item name="visible" xsi:type="boolean">true</item>
-                    <item name="sortOrder" xsi:type="number">60</item>
-                </item>
-            </argument>
-		</column>
-
         <actionsColumn name="actions" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Verses\Actions">
             <settings>
                 <indexField>verse_id</indexField>
                 <resizeEnabled>false</resizeEnabled>
-                <resizeDefaultWidth>70</resizeDefaultWidth>
+                <resizeDefaultWidth>60</resizeDefaultWidth>
             </settings>
         </actionsColumn>
 	</columns>

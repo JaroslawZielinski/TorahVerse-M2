@@ -72,6 +72,8 @@
 
         <column name="content" nullable="false" xsi:type="text" comment="Content"/>
 
+        <column name="author" nullable="false" xsi:type="text" comment="Author"/>
+
         <column name="description" nullable="false" xsi:type="text" comment="Description"/>
 
         <column name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" xsi:type="timestamp"

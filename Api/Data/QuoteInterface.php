@@ -11,6 +11,7 @@ interface QuoteInterface extends ExtensibleDataInterface
     public const GROUP_ID = 'group_id';
     public const NAME = 'name';
     public const CONTENT = 'content';
+    public const AUTHOR = 'author';
     public const DESCRIPTION = 'description';
     public const CREATED_AT = 'created_at';
     public const UPDATED_AT = 'updated_at';
@@ -58,6 +59,17 @@ interface QuoteInterface extends ExtensibleDataInterface
      * @return QuoteInterface
      */
     public function setContent(?string $content): self;
+
+    /**
+     * @return ?string
+     */
+    public function getAuthor(): ?string;
+
+    /**
+     * @param ?string $author
+     * @return QuoteInterface
+     */
+    public function setAuthor(?string $author): self;
 
     /**
      * @return ?string

@@ -37,6 +37,7 @@
             "group_id": true,
             "name": true,
             "content": true,
+            "author": true,
             "description": true,
             "created_at": true,
             "updated_at": true

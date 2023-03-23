@@ -12,6 +12,7 @@ interface QuoteSearchResultsInterface extends SearchResultsInterface
      * @return QuoteInterface[]
      */
     public function getItems();
+
     /**
      * @param QuoteInterface[] $items
      * @return $this
