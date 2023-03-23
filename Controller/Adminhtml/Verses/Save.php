@@ -93,7 +93,6 @@ EOT, $torah->getErrors());
             unset($data['verse_id']);
         }
         try {
-            /** @var Verse $model */
             $model = $this->verseFactory->create();
             $model->setData($data);
             $modelData = $model->getDataModel();
@@ -101,6 +100,7 @@ EOT, $torah->getErrors());
             $modelData = $this->verseRepository->save($modelData);
             $this->messageManager->addSuccessMessage(__('You saved the verse [ID: %1].', $modelData->getVerseId()));
         } catch (\Exception $e) {
+            $this->logger->error($e->getMessage(), $e->getTrace());
             $this->messageManager->addErrorMessage(nl2br($e->getMessage()));
             return $resultRedirect->setPath('*/*/index');
         }

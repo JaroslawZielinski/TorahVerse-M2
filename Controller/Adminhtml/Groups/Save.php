@@ -77,6 +77,7 @@ class Save extends Action
                 $this->messageManager->addSuccess(__('A total of %1 verse(s) have been assign to it.', $count));
             }
         } catch (\Exception $e) {
+            $this->logger->error($e->getMessage(), $e->getTrace());
             $this->messageManager->addErrorMessage(nl2br($e->getMessage()));
             return $resultRedirect->setPath('*/*/index');
         }
