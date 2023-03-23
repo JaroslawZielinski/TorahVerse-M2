@@ -200,11 +200,24 @@
             </argument>
         </column>
 
+        <column name="quotes" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Groups\Quotes">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="label" xsi:type="string" translate="true">Quotes</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
+                </item>
+            </argument>
+        </column>
+
         <actionsColumn name="actions" class="ITZielArt\TorahVerse\Ui\Component\Listing\Column\Groups\Actions">
             <settings>
                 <indexField>group_id</indexField>
                 <resizeEnabled>false</resizeEnabled>
-                <resizeDefaultWidth>60</resizeDefaultWidth>
+                <resizeDefaultWidth>70</resizeDefaultWidth>
             </settings>
         </actionsColumn>
 	</columns>

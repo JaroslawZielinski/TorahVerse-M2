@@ -16,6 +16,7 @@ class ListingDataProvider extends DataProvider
         $data = parent::getData();
         $data['items'] = array_map(function ($item) {
             $item['verses'] = '';
+            $item['quotes'] = '';
             return $item;
         }, $data['items']);
         return $data;
