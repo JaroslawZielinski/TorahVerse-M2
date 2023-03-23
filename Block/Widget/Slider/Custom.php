@@ -34,14 +34,14 @@ class Custom extends Slider
         $config = parent::getConfig();
         $config['enabled'] = !!$config['enabled'] && $this->config->isCustomEnable();
         if ($this->config->isCustomOverride()) {
-            $config['verses_ordered'] = $this->config->isCustomVersesOrdered();
             $config['sweep_time'] = $this->config->getCustomSweepTime();
             $config['is_vertical_sweep_possible'] = $this->config->isCustomVertical();
             $config['vertical_sweep_time'] = $this->config->getCustomVerticalSweepTime();
             $config['template'] = $isGroupColoursEnable ?
-                $this->config->getModuleGroupColoursTemplate() :
-                $this->config->getModuleTemplate();
-            $config['verse_colour'] = $this->config->getCustomVerseColour();
+                $this->config->getModuleGroupColoursVerseTemplate() :
+                $this->config->getModuleVerseTemplate();
+            $config['verses_ordered'] = $this->config->isCustomVersesOrdered();
+            $config['text_colour'] = $this->config->getCustomTextColour();
             $config['mode'] = $this->config->getCustomMode();
         }
         $config['items'] = $this->getItems();

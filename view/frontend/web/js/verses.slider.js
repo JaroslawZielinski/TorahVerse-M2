@@ -14,7 +14,7 @@ define([
         defaults: {
             'sweep_time': 100,
             'verses_ordered': true,
-            'verse_colour': '#ff0000',
+            'text_colour': '#ff0000',
             'mode': 'autoplayinf'
         },
         nIntervalID: null,
@@ -83,7 +83,7 @@ define([
             const html = this.options.template;
             const item = this.options.items[this.current];
             const data = $.extend({}, item, {
-                'verseColour': this.options.verse_colour,
+                'textColour': this.options.text_colour,
                 'content': this.options.verses_ordered ? item.content : item.unordered
             });
             const hydratedHtml = replaceMe(html, data);

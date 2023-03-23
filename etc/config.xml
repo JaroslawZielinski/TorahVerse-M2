@@ -8,24 +8,25 @@
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
                 <is_group_colours_enable>0</is_group_colours_enable>
-                <template><![CDATA[
-<a href="{url}" target="_blank" style="color: {verseColour}">
+                <verse_template><![CDATA[
+<a href="{url}" target="_blank" style="color: {textColour}">
     <div class="item" title="{groupName}">
         <div class="content" title="{groupName}">{content}</div>
         <div class="description" title="{groupName}">{description}</div>
     </div>
 </a>
-]]></template>
-                <group_colours_template><![CDATA[
-<a href={url} target="_blank" style="color: {verseColour}">
+]]></verse_template>
+                <group_colours_verse_template><![CDATA[
+<a href={url} target="_blank" style="color: {textColour}">
     <div class="item" style="border: 1px solid {colour};" title="{groupName}">
         <div class="group" style="background: {colour}; color: {antiColour};" title="{groupName}">{groupName}</div>
         <div class="content" title="{groupName}">{content}</div>
         <div class="description" title="{groupName}">{description}</div>
     </div>
 </a>
-]]></group_colours_template>
-                <verse_colour>#000000</verse_colour>
+]]></group_colours_verse_template>
+                <verses_ordered>0</verses_ordered>
+                <text_colour>#000000</text_colour>
                 <mode>autoplayinf</mode>
             </general>
 
@@ -36,7 +37,8 @@
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
                 <is_group_colours_enable>0</is_group_colours_enable>
-                <verse_colour>#000000</verse_colour>
+                <verses_ordered>0</verses_ordered>
+                <text_colour>#000000</text_colour>
                 <mode>autoplayinf</mode>
                 <placement>top.container,footer-container</placement>
                 <slider><![CDATA[default,CGAV_001,CGAV_002,CGAV_003,CGAV_006,CGAV_009,CGAV_028,CGAV_029]]></slider>
@@ -49,7 +51,8 @@
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
                 <is_group_colours_enable>0</is_group_colours_enable>
-                <verse_colour>#000000</verse_colour>
+                <verses_ordered>0</verses_ordered>
+                <text_colour>#000000</text_colour>
                 <mode>autoplayinf</mode>
                 <sliders><![CDATA[{"_1678942274965_965":{"code":"test234","slider":["default","CGAV_001","CGAV_017"]}}]]></sliders>
             </custom_sliders>
@@ -61,7 +64,8 @@
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
                 <is_group_colours_enable>0</is_group_colours_enable>
-                <verse_colour>#000000</verse_colour>
+                <verses_ordered>0</verses_ordered>
+                <text_colour>#000000</text_colour>
                 <mode>autoplayinf</mode>
                 <slider><![CDATA[CGAV_001,CGAV_006]]></slider>
             </backend_slider>

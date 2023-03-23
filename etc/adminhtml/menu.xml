@@ -6,7 +6,7 @@
             module="ITZielArt_TorahVerse" sortOrder="10"/>
 
         <add id="ITZielArt_TorahVerse::torahverse" resource="ITZielArt_TorahVerse::torahverse"
-             title="Main Feature" translate="title" module="ITZielArt_TorahVerse"
+             title="Grids" translate="title" module="ITZielArt_TorahVerse"
              parent="ITZielArt_TorahVerse::menu" sortOrder="10"/>
 
         <add id="ITZielArt_TorahVerse::groups" resource="ITZielArt_TorahVerse::groups"
@@ -15,17 +15,17 @@
              dependsOnModule="ITZielArt_TorahVerse"/>
 
         <add id="ITZielArt_TorahVerse::verses" resource="ITZielArt_TorahVerse::verses"
-             title="Verses" action="torahverse/verses/index"
+             title="Groups/Verses" action="torahverse/verses/index"
              module="ITZielArt_TorahVerse" sortOrder="40" parent="ITZielArt_TorahVerse::torahverse"
              dependsOnModule="ITZielArt_TorahVerse"/>
 
         <add id="ITZielArt_TorahVerse::quotes" resource="ITZielArt_TorahVerse::quotes"
-             title="Quotes" action="torahverse/quotes/index"
+             title="Groups/Quotes" action="torahverse/quotes/index"
              module="ITZielArt_TorahVerse" sortOrder="50" parent="ITZielArt_TorahVerse::torahverse"
              dependsOnModule="ITZielArt_TorahVerse"/>
 
         <add id="ITZielArt_TorahVerse::config"  resource="ITZielArt_TorahVerse::config"
-             title="Configuration" translate="title" module="ITZielArt_TorahVerse"
+             title="Settings" translate="title" module="ITZielArt_TorahVerse"
              parent="ITZielArt_TorahVerse::menu" sortOrder="20"/>
 
         <add id="ITZielArt_TorahVerse::configuration" resource="ITZielArt_TorahVerse::configuration"

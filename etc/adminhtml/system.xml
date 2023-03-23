@@ -22,17 +22,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
-                <field id="verses_ordered" translate="label" type="select" sortOrder="20" showInDefault="1"
-                    showInWebsite="1" showInStore="1">
-                    <label>Verses ordered</label>
-                    <comment><![CDATA[Verses Order.]]></comment>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <depends>
-                        <field id="enable">1</field>
-                    </depends>
-                </field>
-
-                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                <field id="sweep_time" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
@@ -41,7 +31,7 @@
                     </depends>
                 </field>
 
-                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="30" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
                     <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
@@ -51,7 +41,7 @@
                     </depends>
                 </field>
 
-                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="40" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Vertical Sweep time</label>
                     <comment><![CDATA[time of sweeping one line vertically.]]></comment>
@@ -61,7 +51,7 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -71,9 +61,9 @@
                     </depends>
                 </field>
 
-                <field id="template" translate="label" type="textarea" sortOrder="70" showInDefault="1"
+                <field id="verse_template" translate="label" type="textarea" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
-                    <label>Html Template for Slider Frame</label>
+                    <label>Html Template for Verse Slider Frame</label>
                     <comment><![CDATA[Html Template for Slider Frame (key words: <strong>verseColour</strong>, <strong>url</strong>, <strong>content</strong>, <strong>description</strong>, <strong>groupName</strong>, <strong>colour</strong>, <strong>antiColour</strong> written in {})]]></comment>
                     <depends>
                         <field id="enable">1</field>
@@ -81,9 +71,9 @@
                     </depends>
                 </field>
 
-                <field id="group_colours_template" translate="label" type="textarea" sortOrder="80" showInDefault="1"
-                       showInWebsite="1" showInStore="1">
-                    <label>Html Template for Slider Frame</label>
+                <field id="group_colours_verse_template" translate="label" type="textarea" sortOrder="70"
+                    showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Html Template for Verse Slider Frame</label>
                     <comment><![CDATA[Html Template for Slider Frame (key words: <strong>verseColour</strong>, <strong>url</strong>, <strong>content</strong>, <strong>description</strong>, <strong>groupName</strong>, <strong>colour</strong>, <strong>antiColour</strong> written in {})]]></comment>
                     <depends>
                         <field id="enable">1</field>
@@ -91,10 +81,20 @@
                     </depends>
                 </field>
 
+                <field id="verses_ordered" translate="label" type="select" sortOrder="80" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Verses ordered</label>
+                    <comment><![CDATA[Verses Order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+
                 <!-- @see https://webkul.com/blog/add-color-picker-magento2-system-config/ -->
-                <field id="verse_colour" translate="label" type="text" sortOrder="90" showInDefault="1"
+                <field id="text_colour" translate="label" type="text" sortOrder="90" showInDefault="1"
                     showInWebsite="1" showInStore="1">
-                    <label>Verse Colour</label>
+                    <label>Text Colour</label>
                     <frontend_model>ITZielArt\TorahVerse\Block\Colour</frontend_model>
                 </field>
 
@@ -123,17 +123,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
 
-                <field id="verses_ordered" translate="label" type="select" sortOrder="30" showInDefault="1"
-                    showInWebsite="1" showInStore="1">
-                    <label>Verses ordered</label>
-                    <comment><![CDATA[Verses Order.]]></comment>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <depends>
-                        <field id="override">1</field>
-                    </depends>
-                </field>
-
-                <field id="sweep_time" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
@@ -142,7 +132,7 @@
                     </depends>
                 </field>
 
-                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="50" showInDefault="1"
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
                     <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
@@ -152,7 +142,7 @@
                     </depends>
                 </field>
 
-                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="60" showInDefault="1"
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Vertical Sweep time</label>
                     <comment><![CDATA[time of sweeping one line vertically.]]></comment>
@@ -162,7 +152,7 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="70" showInDefault="1"
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -172,9 +162,19 @@
                     </depends>
                 </field>
 
-                <field id="verse_colour" translate="label" type="text" sortOrder="80" showInDefault="1"
+                <field id="verses_ordered" translate="label" type="select" sortOrder="70" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Verses ordered</label>
+                    <comment><![CDATA[Verses Order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="text_colour" translate="label" type="text" sortOrder="80" showInDefault="1"
                     showInWebsite="1" showInStore="1">
-                    <label>Verse Colour</label>
+                    <label>Text Colour</label>
                     <frontend_model>ITZielArt\TorahVerse\Block\Colour</frontend_model>
                     <depends>
                         <field id="override">1</field>
@@ -229,17 +229,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
 
-                <field id="verses_ordered" translate="label" type="select" sortOrder="30" showInDefault="1"
-                    showInWebsite="1" showInStore="1">
-                    <label>Verses ordered</label>
-                    <comment><![CDATA[Verses Order.]]></comment>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <depends>
-                        <field id="override">1</field>
-                    </depends>
-                </field>
-
-                <field id="sweep_time" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
@@ -248,7 +238,7 @@
                     </depends>
                 </field>
 
-                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="50" showInDefault="1"
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
                     <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
@@ -258,7 +248,7 @@
                     </depends>
                 </field>
 
-                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="60" showInDefault="1"
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Vertical Sweep time</label>
                     <comment><![CDATA[time of sweeping one line vertically.]]></comment>
@@ -268,7 +258,7 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="70" showInDefault="1"
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -278,9 +268,19 @@
                     </depends>
                 </field>
 
-                <field id="verse_colour" translate="label" type="text" sortOrder="80" showInDefault="1"
+                <field id="verses_ordered" translate="label" type="select" sortOrder="70" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Verses ordered</label>
+                    <comment><![CDATA[Verses Order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="text_colour" translate="label" type="text" sortOrder="80" showInDefault="1"
                     showInWebsite="1" showInStore="1">
-                    <label>Verse Colour</label>
+                    <label>Text Colour</label>
                     <frontend_model>ITZielArt\TorahVerse\Block\Colour</frontend_model>
                     <depends>
                         <field id="override">1</field>
@@ -327,17 +327,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
 
-                <field id="verses_ordered" translate="label" type="select" sortOrder="30" showInDefault="1"
-                    showInWebsite="1" showInStore="1">
-                    <label>Verses ordered</label>
-                    <comment><![CDATA[Verses Order.]]></comment>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <depends>
-                        <field id="override">1</field>
-                    </depends>
-                </field>
-
-                <field id="sweep_time" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
@@ -346,7 +336,7 @@
                     </depends>
                 </field>
 
-                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="50" showInDefault="1"
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
                     <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
@@ -356,7 +346,7 @@
                     </depends>
                 </field>
 
-                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="60" showInDefault="1"
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Vertical Sweep time</label>
                     <comment><![CDATA[time of sweeping one line vertically.]]></comment>
@@ -366,7 +356,7 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="70" showInDefault="1"
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -376,9 +366,19 @@
                     </depends>
                 </field>
 
-                <field id="verse_colour" translate="label" type="text" sortOrder="80" showInDefault="1"
+                <field id="verses_ordered" translate="label" type="select" sortOrder="70" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Verses ordered</label>
+                    <comment><![CDATA[Verses Order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="override">1</field>
+                    </depends>
+                </field>
+
+                <field id="text_colour" translate="label" type="text" sortOrder="80" showInDefault="1"
                     showInWebsite="1" showInStore="1">
-                    <label>Verse Colour</label>
+                    <label>Text Colour</label>
                     <frontend_model>ITZielArt\TorahVerse\Block\Colour</frontend_model>
                     <depends>
                         <field id="override">1</field>

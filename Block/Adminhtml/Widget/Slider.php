@@ -93,14 +93,14 @@ abstract class Slider extends Template
         $isGroupColoursEnable = $this->config->isModuleGroupColour();
         return [
             'enabled' => $this->config->isModuleEnable(),
-            'verses_ordered' => $this->config->isModuleVersesOrdered(),
             'sweep_time' => $this->config->getModuleSweepTime(),
             'is_vertical_sweep_possible' => $this->config->isModuleVertical(),
             'vertical_sweep_time' => $this->config->getModuleVerticalSweepTime(),
             'template' => $isGroupColoursEnable ?
-                $this->config->getModuleGroupColoursTemplate() :
-                $this->config->getModuleTemplate(),
-            'verse_colour' => $this->config->getModuleVerseColour(),
+                $this->config->getModuleGroupColoursVerseTemplate() :
+                $this->config->getModuleVerseTemplate(),
+            'verses_ordered' => $this->config->isModuleVersesOrdered(),
+            'text_colour' => $this->config->getModuleTextColour(),
             'mode' => $this->config->getModuleMode()
         ];
     }
