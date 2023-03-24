@@ -29,9 +29,12 @@ class Backend extends Slider
             $config['sweep_time'] = $this->config->getBackendSweepTime();
             $config['is_vertical_sweep_possible'] = $this->config->isBackendVertical();
             $config['vertical_sweep_time'] = $this->config->getBackendVerticalSweepTime();
-            $config['template'] = $isGroupColoursEnable ?
+            $config['verse_template'] = $isGroupColoursEnable ?
                 $this->config->getModuleGroupColoursVerseTemplate() :
                 $this->config->getModuleVerseTemplate();
+            $config['quote_template'] = $isGroupColoursEnable ?
+                $this->config->getModuleGroupColoursQuoteTemplate() :
+                $this->config->getModuleQuoteTemplate();
             $config['verses_ordered'] = $this->config->isBackendVersesOrdered();
             $config['text_colour'] = $this->config->getBackendTextColour();
             $config['mode'] = $this->config->getBackendMode();

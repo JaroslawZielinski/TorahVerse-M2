@@ -14,9 +14,9 @@ class Groups implements ArrayInterface
     /**
      * @var CollectionFactory
      */
-    private $collectionFactory;
+    protected $collectionFactory;
 
-    private $options;
+    protected $options;
 
     public function __construct(CollectionFactory $collectionFactory)
     {

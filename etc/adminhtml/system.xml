@@ -64,17 +64,37 @@
                 <field id="verse_template" translate="label" type="textarea" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Html Template for Verse Slider Frame</label>
-                    <comment><![CDATA[Html Template for Slider Frame (key words: <strong>verseColour</strong>, <strong>url</strong>, <strong>content</strong>, <strong>description</strong>, <strong>groupName</strong>, <strong>colour</strong>, <strong>antiColour</strong> written in {})]]></comment>
+                    <comment><![CDATA[Key words: <strong>url</strong>, <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>description</strong> written in {}]]></comment>
                     <depends>
                         <field id="enable">1</field>
                         <field id="is_group_colours_enable" negative="1">1</field>
                     </depends>
                 </field>
 
-                <field id="group_colours_verse_template" translate="label" type="textarea" sortOrder="70"
+                <field id="group_colours_verse_template" translate="label" type="textarea" sortOrder="60"
                     showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Html Template for Verse Slider Frame</label>
-                    <comment><![CDATA[Html Template for Slider Frame (key words: <strong>verseColour</strong>, <strong>url</strong>, <strong>content</strong>, <strong>description</strong>, <strong>groupName</strong>, <strong>colour</strong>, <strong>antiColour</strong> written in {})]]></comment>
+                    <comment><![CDATA[Key words: <strong>url</strong>, <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>description</strong> written in {}]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_group_colours_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="quote_template" translate="label" type="textarea" sortOrder="70" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Html Template for Quote Slider Frame</label>
+                    <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_group_colours_enable" negative="1">1</field>
+                    </depends>
+                </field>
+
+                <field id="group_colours_quote_template" translate="label" type="textarea" sortOrder="70"
+                    showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Html Template for Quote Slider Frame</label>
+                    <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
                     <depends>
                         <field id="enable">1</field>
                         <field id="is_group_colours_enable">1</field>

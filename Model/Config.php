@@ -21,6 +21,9 @@ class Config
     public const CONFIG_PATH_MODULE_VERSE_TEMPLATE = 'itzielart_torahverse/general/verse_template';
     public const CONFIG_PATH_MODULE_GROUP_COLOURS_VERSE_TEMPLATE
         = 'itzielart_torahverse/general/group_colours_verse_template';
+    public const CONFIG_PATH_MODULE_QUOTE_TEMPLATE = 'itzielart_torahverse/general/quote_template';
+    public const CONFIG_PATH_MODULE_GROUP_COLOURS_QUOTE_TEMPLATE
+        = 'itzielart_torahverse/general/group_colours_quote_template';
     public const CONFIG_PATH_MODULE_VERSES_ORDERED = 'itzielart_torahverse/general/verses_ordered';
     public const CONFIG_PATH_MODULE_TEXT_COLOUR = 'itzielart_torahverse/general/text_colour';
     public const CONFIG_PATH_MODULE_MODE = 'itzielart_torahverse/general/mode';
@@ -116,6 +119,20 @@ class Config
         $groupColoursVerseTemplate = $this->scopeConfig
             ->getValue(self::CONFIG_PATH_MODULE_GROUP_COLOURS_VERSE_TEMPLATE, ScopeInterface::SCOPE_STORE);
         return empty($groupColoursVerseTemplate) ? null : (string)$groupColoursVerseTemplate;
+    }
+
+    public function getModuleQuoteTemplate(): ?string
+    {
+        $quoteTemplate = $this->scopeConfig
+            ->getValue(self::CONFIG_PATH_MODULE_QUOTE_TEMPLATE, ScopeInterface::SCOPE_STORE);
+        return empty($quoteTemplate) ? null : (string)$quoteTemplate;
+    }
+
+    public function getModuleGroupColoursQuoteTemplate(): ?string
+    {
+        $groupColoursQuoteTemplate = $this->scopeConfig
+            ->getValue(self::CONFIG_PATH_MODULE_GROUP_COLOURS_QUOTE_TEMPLATE, ScopeInterface::SCOPE_STORE);
+        return empty($groupColoursQuoteTemplate) ? null : (string)$groupColoursQuoteTemplate;
     }
 
     public function isModuleVersesOrdered(): bool

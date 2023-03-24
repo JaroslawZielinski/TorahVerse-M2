@@ -34,9 +34,12 @@ class Homepage extends Slider
             $config['sweep_time'] = $this->config->getFrontendSweepTime();
             $config['is_vertical_sweep_possible'] = $this->config->isFrontendVertical();
             $config['vertical_sweep_time'] = $this->config->getFrontendVerticalSweepTime();
-            $config['template'] = $isGroupColoursEnable ?
+            $config['verse_template'] = $isGroupColoursEnable ?
                 $this->config->getModuleGroupColoursVerseTemplate() :
                 $this->config->getModuleVerseTemplate();
+            $config['quote_template'] = $isGroupColoursEnable ?
+                $this->config->getModuleGroupColoursQuoteTemplate() :
+                $this->config->getModuleQuoteTemplate();
             $config['verses_ordered'] = $this->config->isFrontendVersesOrdered();
             $config['text_colour'] = $this->config->getFrontendTextColour();
             $config['mode'] = $this->config->getFrontendMode();

@@ -89,8 +89,10 @@ EOT, $torah->getErrors());
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
+        $isNew = false;
         if (empty($data['verse_id'])) {
             unset($data['verse_id']);
+            $isNew = true;
         }
         try {
             $model = $this->verseFactory->create();
@@ -105,7 +107,7 @@ EOT, $torah->getErrors());
             return $resultRedirect->setPath('*/*/index');
         }
         if (!empty($this->getRequest()->getParam('back'))) {
-            $verseId = (int)$this->getRequest()->getParam('verse_id');
+            $verseId = (int)($isNew ? $modelData->getVerseId() : $this->getRequest()->getParam('verse_id'));
             return $resultRedirect->setPath('*/*/edit', ['verse_id' => $verseId, '_current' => true]);
         }
         return $resultRedirect->setPath('*/*/index');

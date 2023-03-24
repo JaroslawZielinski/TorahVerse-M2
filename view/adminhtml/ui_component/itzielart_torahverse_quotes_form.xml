@@ -148,5 +148,32 @@
                 <dataScope>description</dataScope>
             </settings>
         </field>
+
+        <field name="group_id" formElement="select" sortOrder="60">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">quotes</item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <label translate="true">Group</label>
+                <dataScope>group_id</dataScope>
+                <visible>true</visible>
+            </settings>
+
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="ITZielArt\TorahVerse\Model\Config\Source\Quotes\Groups"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
     </fieldset>
 </form>

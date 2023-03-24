@@ -37,9 +37,12 @@ class Custom extends Slider
             $config['sweep_time'] = $this->config->getCustomSweepTime();
             $config['is_vertical_sweep_possible'] = $this->config->isCustomVertical();
             $config['vertical_sweep_time'] = $this->config->getCustomVerticalSweepTime();
-            $config['template'] = $isGroupColoursEnable ?
+            $config['verse_template'] = $isGroupColoursEnable ?
                 $this->config->getModuleGroupColoursVerseTemplate() :
                 $this->config->getModuleVerseTemplate();
+            $config['quote_template'] = $isGroupColoursEnable ?
+                $this->config->getModuleGroupColoursQuoteTemplate() :
+                $this->config->getModuleQuoteTemplate();
             $config['verses_ordered'] = $this->config->isCustomVersesOrdered();
             $config['text_colour'] = $this->config->getCustomTextColour();
             $config['mode'] = $this->config->getCustomMode();

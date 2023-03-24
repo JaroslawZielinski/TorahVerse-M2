@@ -65,8 +65,10 @@ class Save extends Action
         $data = $this->getRequest()->getPostValue();
         $assignVerseIds = $data['verses_ids'] ?? [];
         $assignQuoteIds = $data['quotes_ids'] ?? [];
+        $isNew = false;
         if (empty($data['group_id'])) {
             unset($data['group_id']);
+            $isNew = true;
         }
         try {
             $model = $this->groupFactory->create();
@@ -100,7 +102,7 @@ class Save extends Action
             return $resultRedirect->setPath('*/*/index');
         }
         if (!empty($this->getRequest()->getParam('back'))) {
-            $groupId = (int)$this->getRequest()->getParam('group_id');
+            $groupId = (int)($isNew ? $modelData->getGroupId() : $this->getRequest()->getParam('group_id'));
             return $resultRedirect->setPath('*/*/edit', ['group_id' => $groupId, '_current' => true]);
         }
         return $resultRedirect->setPath('*/*/index');

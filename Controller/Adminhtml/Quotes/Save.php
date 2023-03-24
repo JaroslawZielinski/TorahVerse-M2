@@ -50,8 +50,10 @@ class Save extends Action
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
+        $isNew = false;
         if (empty($data['quote_id'])) {
             unset($data['quote_id']);
+            $isNew = true;
         }
         try {
             $model = $this->quoteFactory->create();
@@ -65,7 +67,7 @@ class Save extends Action
             return $resultRedirect->setPath('*/*/index');
         }
         if (!empty($this->getRequest()->getParam('back'))) {
-            $quoteId = (int)$this->getRequest()->getParam('quote_id');
+            $quoteId = (int)($isNew ? $modelData->getQuoteId() : $this->getRequest()->getParam('quote_id'));
             return $resultRedirect->setPath('*/*/edit', ['quote_id' => $quoteId, '_current' => true]);
         }
         return $resultRedirect->setPath('*/*/index');

@@ -80,7 +80,7 @@ define([
          * @param {Object} element
          */
         _moveSlide: function (element) {
-            const html = this.options.template;
+            const html = this.options.verse_template;
             const item = this.options.items[this.current];
             const data = $.extend({}, item, {
                 'textColour': this.options.text_colour,

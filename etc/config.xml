@@ -25,6 +25,25 @@
     </div>
 </a>
 ]]></group_colours_verse_template>
+                <quote_template><![CDATA[
+<a href="#" style="color: {textColour}">
+    <div class="item" title="{groupName}">
+        <div class="content" title="{groupName}">{content}</div>
+        <div class="author" title="{groupName}">{author}</div>
+        <div class="description" title="{groupName}">{description}</div>
+    </div>
+</a>
+]]></quote_template>
+                <group_colours_quote_template><![CDATA[
+<a href="#" style="color: {textColour}">
+    <div class="item" style="border: 1px solid {colour};" title="{groupName}">
+        <div class="group" style="background: {colour}; color: {antiColour};" title="{groupName}">{groupName}</div>
+        <div class="content" title="{groupName}">{content}</div>
+        <div class="author" title="{groupName}">{author}</div>
+        <div class="description" title="{groupName}">{description}</div>
+    </div>
+</a>
+]]></group_colours_quote_template>
                 <verses_ordered>0</verses_ordered>
                 <text_colour>#000000</text_colour>
                 <mode>autoplayinf</mode>
