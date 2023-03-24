@@ -38,7 +38,7 @@ class AddCustomQuoteGroups implements DataPatchInterface
             'data' => [
                 'name' => 'Charles Spurgeon',
                 'code' => 'CH_SP_01',
-                'colour_value' => '#B282FFFF'
+                'colour_value' => '#7a7afb'
             ],
             'child' => [
                 [
@@ -87,7 +87,7 @@ class AddCustomQuoteGroups implements DataPatchInterface
             'data' => [
                 'name' => 'William Tyndale',
                 'code' => 'WM_TN_01',
-                'colour_value' => '#48208AFF'
+                'colour_value' => '#2323bd'
             ],
             'child' => [
                 [

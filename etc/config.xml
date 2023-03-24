@@ -60,7 +60,7 @@
                 <text_colour>#000000</text_colour>
                 <mode>autoplayinf</mode>
                 <placement>top.container,footer-container</placement>
-                <slider><![CDATA[default,CGAV_001,CGAV_002,CGAV_003,CGAV_006,CGAV_009,CGAV_028,CGAV_029]]></slider>
+                <slider><![CDATA[CGAV_001,CGAV_029,CH_SP_01]]></slider>
             </frontend_slider>
 
             <custom_sliders>
@@ -73,7 +73,7 @@
                 <verses_ordered>0</verses_ordered>
                 <text_colour>#000000</text_colour>
                 <mode>autoplayinf</mode>
-                <sliders><![CDATA[{"_1678942274965_965":{"code":"test234","slider":["default","CGAV_001","CGAV_017"]}}]]></sliders>
+                <sliders><![CDATA[{"_1678942274965_965":{"code":"tv_slider_01","slider":["CGAV_001","CGAV_029","CH_SP_01"]}}]]></sliders>
             </custom_sliders>
 
             <backend_slider>
@@ -86,7 +86,7 @@
                 <verses_ordered>0</verses_ordered>
                 <text_colour>#000000</text_colour>
                 <mode>autoplayinf</mode>
-                <slider><![CDATA[CGAV_001,CGAV_006]]></slider>
+                <slider><![CDATA[CGAV_001,CGAV_029,CH_SP_01]]></slider>
             </backend_slider>
         </itzielart_torahverse>
     </default>
