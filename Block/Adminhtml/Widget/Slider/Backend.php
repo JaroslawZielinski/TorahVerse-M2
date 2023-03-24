@@ -22,19 +22,13 @@ class Backend extends Slider
      */
     public function getConfig(): array
     {
-        $isGroupColoursEnable = $this->config->isBackendGroupColour();
         $config = parent::getConfig();
         $config['enabled'] = !!$config['enabled'] && $this->config->isBackendEnable();
         if ($this->config->isBackendOverride()) {
             $config['sweep_time'] = $this->config->getBackendSweepTime();
             $config['is_vertical_sweep_possible'] = $this->config->isBackendVertical();
             $config['vertical_sweep_time'] = $this->config->getBackendVerticalSweepTime();
-            $config['verse_template'] = $isGroupColoursEnable ?
-                $this->config->getModuleGroupColoursVerseTemplate() :
-                $this->config->getModuleVerseTemplate();
-            $config['quote_template'] = $isGroupColoursEnable ?
-                $this->config->getModuleGroupColoursQuoteTemplate() :
-                $this->config->getModuleQuoteTemplate();
+            $config['is_group_colours'] = $this->config->isBackendGroupColour();
             $config['verses_ordered'] = $this->config->isBackendVersesOrdered();
             $config['text_colour'] = $this->config->getBackendTextColour();
             $config['mode'] = $this->config->getBackendMode();

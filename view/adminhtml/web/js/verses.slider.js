@@ -13,6 +13,7 @@ define([
     $.widget('verses.slider', {
         defaults: {
             'sweep_time': 100,
+            'is_group_colours': true,
             'verses_ordered': true,
             'text_colour': '#ff0000',
             'mode': 'autoplayinf'
@@ -80,11 +81,16 @@ define([
          * @param {Object} element
          */
         _moveSlide: function (element) {
-            const html = this.options.verse_template;
             const item = this.options.items[this.current];
-            const data = $.extend({}, item, {
+            let html = '';
+            if (this.options.is_group_colours) {
+                html = item.group_colours_template;
+            } else {
+                html = item.template;
+            }
+            const data = $.extend({}, item.data, {
                 'textColour': this.options.text_colour,
-                'content': this.options.verses_ordered ? item.content : item.unordered
+                'content': this.options.verses_ordered ? item.data.content : item.data.unordered
             });
             const hydratedHtml = replaceMe(html, data);
 

@@ -46,7 +46,7 @@ class AddCustomQuoteGroups implements DataPatchInterface
                         'name' => 'My evidence that I am saved',
                         'content' => 'My evidence that I am saved does not lie in the fact that I preach, or that I do this or that. All my hope lies in this: that Jesus Christ came to save sinners. I am a sinner, I trust Him, then He came to save me, and I am saved.',
                         'author' => 'Charles Spurgeon',
-                        'description' => 'Charles Spurgeon'
+                        'description' => ''
                     ]
                 ],
                 [
@@ -54,7 +54,7 @@ class AddCustomQuoteGroups implements DataPatchInterface
                         'name' => 'Trials teach us',
                         'content' => 'Trials teach us what we are; they dig up the soil, and let us see what we are made of.',
                         'author' => 'Charles Spurgeon',
-                        'description' => 'Charles Spurgeon'
+                        'description' => ''
                     ]
                 ],
                 [
@@ -78,7 +78,7 @@ class AddCustomQuoteGroups implements DataPatchInterface
                         'name' => 'Those who follow the custom of observing Christmas',
                         'content' => 'Those who follow the custom of observing Christmas, follow not the Bible but pagan ceremonies.',
                         'author' => 'Charles Spurgeon',
-                        'description' => 'Charles Spurgeon'
+                        'description' => ''
                     ]
                 ]
             ]
@@ -103,7 +103,7 @@ class AddCustomQuoteGroups implements DataPatchInterface
                         'name' => 'Be cold, sober, wise, circumspect',
                         'content' => 'Be cold, sober, wise, circumspect. Keep yourself low by the ground avoiding high questions. Expound the Law truly and open the veil of Moses to condemn all flesh and prove all men sinners, and set at broach the mercy of our Lord Jesus, and let wounded consciences drink of Him.',
                         'author' => 'William Tyndale',
-                        'description' => 'William Tyndale'
+                        'description' => ''
                     ]
                 ],
                 [

@@ -59,4 +59,12 @@ class Data extends AbstractHelper
         });
         return $found;
     }
+
+    public static function escapeQuotes(?string $input): ?string
+    {
+        if (empty($input)) {
+            return null;
+        }
+        return str_replace(['\''], ['`'], $input);
+    }
 }

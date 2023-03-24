@@ -10,6 +10,8 @@ use ITZielArt\TorahVerse\Helper\Data;
 use ITZielArt\TorahVerse\Model\Config;
 use ITZielArt\TorahVerse\Model\ResourceModel\Verse\CollectionFactory as VerseCollectionFactory;
 use ITZielArt\TorahVerse\Model\Verse;
+use ITZielArt\TorahVerse\Model\ResourceModel\Quote\CollectionFactory as QuoteCollectionFactory;
+use ITZielArt\TorahVerse\Model\Quote;
 use JaroslawZielinski\Torah\Bible\Service;
 use JaroslawZielinski\Torah\Bible\Torah\SiglumFactory;
 use Magento\Backend\Block\Template;
@@ -26,17 +28,18 @@ abstract class Slider extends Template
      * @var CollectionFactory
      */
     private $collectionFactory;
-
     /**
      * @var VerseCollectionFactory
      */
     private $verseCollectionFactory;
-
+    /**
+     * @var QuoteCollectionFactory
+     */
+    private $quoteCollectionFactory;
     /**
      * @var Config
      */
     protected $config;
-
     /**
      * @var JsonHelper
      */
@@ -52,6 +55,7 @@ abstract class Slider extends Template
     public function __construct(
         CollectionFactory $collectionFactory,
         VerseCollectionFactory $verseCollectionFactory,
+        QuoteCollectionFactory $quoteCollectionFactory,
         Config $config,
         JsonSerializer $jsonSerializer,
         LoggerInterface $logger,
@@ -62,6 +66,7 @@ abstract class Slider extends Template
     ) {
         $this->collectionFactory = $collectionFactory;
         $this->verseCollectionFactory = $verseCollectionFactory;
+        $this->quoteCollectionFactory = $quoteCollectionFactory;
         $this->config = $config;
         $this->jsonSerializer = $jsonSerializer;
         $this->logger = $logger;
@@ -90,25 +95,22 @@ abstract class Slider extends Template
      */
     public function getConfig(): array
     {
-        $isGroupColoursEnable = $this->config->isModuleGroupColour();
         return [
             'enabled' => $this->config->isModuleEnable(),
             'sweep_time' => $this->config->getModuleSweepTime(),
             'is_vertical_sweep_possible' => $this->config->isModuleVertical(),
             'vertical_sweep_time' => $this->config->getModuleVerticalSweepTime(),
-            'verse_template' => $isGroupColoursEnable ?
-                $this->config->getModuleGroupColoursVerseTemplate() :
-                $this->config->getModuleVerseTemplate(),
-            'quote_template' => $isGroupColoursEnable ?
-                $this->config->getModuleGroupColoursQuoteTemplate() :
-                $this->config->getModuleQuoteTemplate(),
+            'is_group_colours' => $this->config->isModuleGroupColour(),
             'verses_ordered' => $this->config->isModuleVersesOrdered(),
             'text_colour' => $this->config->getModuleTextColour(),
             'mode' => $this->config->getModuleMode()
         ];
     }
 
-    private function convertDataToItem(array $data): array
+    /**
+     * @throws \Exception
+     */
+    private function convertVerseDataToItem(array $data): array
     {
         $colour = $data['colour_value'];
         if (GroupInterface::NO_COLOUR === $colour) {
@@ -120,11 +122,28 @@ abstract class Slider extends Template
         return [
             'colour' => $colour,
             'antiColour' => Data::getContrastColor($colour),
-            'groupName' => $data['groupName'],
-            'content' => $data['content'],
-            'unordered' => $data['unordered'],
-            'description' => $data['description'],
+            'groupName' => Data::escapeQuotes($data['groupName']),
+            'content' => Data::escapeQuotes($data['content']),
+            'unordered' => Data::escapeQuotes($data['unordered']),
+            'description' => Data::escapeQuotes($data['description']),
             'url' => $url
+        ];
+    }
+
+    private function convertQuoteDataToItem(array $data): array
+    {
+        $colour = $data['colour_value'];
+        if (GroupInterface::NO_COLOUR === $colour) {
+            $colour = '#FFFFFF';
+        }
+        return [
+            'colour' => $colour,
+            'antiColour' => Data::getContrastColor($colour),
+            'groupName' => Data::escapeQuotes($data['groupName']),
+            'content' => Data::escapeQuotes($data['content']),
+            'unordered' => Data::escapeQuotes($data['content']),
+            'author' => Data::escapeQuotes($data['author']),
+            'description' => Data::escapeQuotes($data['description'])
         ];
     }
 
@@ -132,13 +151,28 @@ abstract class Slider extends Template
      */
     public function getItems(array $groupsArray = []): array
     {
-        $collection = $this->verseCollectionFactory->create();
-        $collection
-            ->addFieldToFilter(GroupInterface::CODE, ['in' => $groupsArray]);
         $items = [];
+        $verseCollection = $this->verseCollectionFactory->create();
+        $verseCollection
+            ->addFieldToFilter(GroupInterface::CODE, ['in' => $groupsArray]);
         /** @var Verse $verse */
-        foreach ($collection->getItems() as $verse) {
-            $items[] = $this->convertDataToItem($verse->getData());
+        foreach ($verseCollection->getItems() as $verse) {
+            $items[] = [
+                'data' => $this->convertVerseDataToItem($verse->getData()),
+                'template' => $this->config->getModuleVerseTemplate(),
+                'group_colours_template' => $this->config->getModuleGroupColoursVerseTemplate()
+            ];
+        }
+        $quoteCollection = $this->quoteCollectionFactory->create();
+        $quoteCollection
+            ->addFieldToFilter(GroupInterface::CODE, ['in' => $groupsArray]);
+        /** @var Quote $quote */
+        foreach ($quoteCollection->getItems() as $quote) {
+            $items[] = [
+                'data' => $this->convertQuoteDataToItem($quote->getData()),
+                'template' => $this->config->getModuleQuoteTemplate(),
+                'group_colours_template' => $this->config->getModuleGroupColoursQuoteTemplate()
+            ];
         }
         return $items;
     }

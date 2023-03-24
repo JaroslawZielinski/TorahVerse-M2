@@ -27,19 +27,13 @@ class Homepage extends Slider
      */
     public function getConfig(): array
     {
-        $isGroupColoursEnable = $this->config->isFrontendGroupColour();
         $config = parent::getConfig();
         $config['enabled'] = !!$config['enabled'] && $this->config->isFrontendEnable();
         if ($this->config->isFrontendOverride()) {
             $config['sweep_time'] = $this->config->getFrontendSweepTime();
             $config['is_vertical_sweep_possible'] = $this->config->isFrontendVertical();
             $config['vertical_sweep_time'] = $this->config->getFrontendVerticalSweepTime();
-            $config['verse_template'] = $isGroupColoursEnable ?
-                $this->config->getModuleGroupColoursVerseTemplate() :
-                $this->config->getModuleVerseTemplate();
-            $config['quote_template'] = $isGroupColoursEnable ?
-                $this->config->getModuleGroupColoursQuoteTemplate() :
-                $this->config->getModuleQuoteTemplate();
+            $config['is_group_colours'] = $this->config->isFrontendGroupColour();
             $config['verses_ordered'] = $this->config->isFrontendVersesOrdered();
             $config['text_colour'] = $this->config->getFrontendTextColour();
             $config['mode'] = $this->config->getFrontendMode();
