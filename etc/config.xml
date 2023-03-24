@@ -46,7 +46,7 @@
 ]]></group_colours_quote_template>
                 <verses_ordered>0</verses_ordered>
                 <text_colour>#000000</text_colour>
-                <mode>autoplayinf</mode>
+                <mode>randomautoplayinf</mode>
             </general>
 
             <frontend_slider>
@@ -58,7 +58,7 @@
                 <is_group_colours_enable>0</is_group_colours_enable>
                 <verses_ordered>0</verses_ordered>
                 <text_colour>#000000</text_colour>
-                <mode>autoplayinf</mode>
+                <mode>randomautoplayinf</mode>
                 <placement>top.container,footer-container</placement>
                 <slider><![CDATA[CGAV_001,CGAV_029,CH_SP_01]]></slider>
             </frontend_slider>
@@ -72,7 +72,7 @@
                 <is_group_colours_enable>0</is_group_colours_enable>
                 <verses_ordered>0</verses_ordered>
                 <text_colour>#000000</text_colour>
-                <mode>autoplayinf</mode>
+                <mode>randomautoplayinf</mode>
                 <sliders><![CDATA[{"_1678942274965_965":{"code":"tv_slider_01","slider":["CGAV_001","CGAV_029","CH_SP_01"]}}]]></sliders>
             </custom_sliders>
 
@@ -85,7 +85,7 @@
                 <is_group_colours_enable>0</is_group_colours_enable>
                 <verses_ordered>0</verses_ordered>
                 <text_colour>#000000</text_colour>
-                <mode>autoplayinf</mode>
+                <mode>randomautoplayinf</mode>
                 <slider><![CDATA[CGAV_001,CGAV_029,CH_SP_01]]></slider>
             </backend_slider>
         </itzielart_torahverse>

@@ -10,7 +10,8 @@ use Magento\Framework\Data\OptionSourceInterface;
 class Mode extends AbstractSource implements OptionSourceInterface
 {
     public const MODE = [
-        'autoplayinf' => 'Auto play infinity loop',
+        'randomautoplayinf' => 'Randomized Auto play infinity loop',
+        'autoplayinf' => 'Ordered Auto play infinity loop',
         'random' => 'Random view - static'
     ];
 
