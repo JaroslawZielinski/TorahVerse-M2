@@ -58,6 +58,12 @@ define([
          */
         _initSlider: function (element) {
             this.max = this.options.items.length;
+            $(element).on('mouseenter', function (event) {
+                $(element).addClass('paused-slider');
+            });
+            $(element).on('mouseleave', function (event) {
+                $(element).removeClass('paused-slider');
+            });
             switch (this.options.mode) {
                 default:
                 case 'randomautoplayinf':
@@ -90,10 +96,13 @@ define([
             //initial Swipe;
             self._moveRandomMode(element);
             self.nIntervalID = setInterval(function () {
-                if (self.current + 1 < self.max) {
-                    self.current++;
-                } else {
-                    self.current = 0;
+                const isPaused = $(element).hasClass('paused-slider');
+                if (!isPaused) {
+                    if (self.current + 1 < self.max) {
+                        self.current++;
+                    } else {
+                        self.current = 0;
+                    }
                 }
                 self._moveSlide(element);
             },self.options.sweep_time);
