@@ -7,6 +7,7 @@
                 <sweep_time>12000</sweep_time>
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
                 <vertical_sweep_time>200</vertical_sweep_time>
+                <vertical_characters_trigger>780</vertical_characters_trigger>
                 <is_group_colours_enable>0</is_group_colours_enable>
                 <verse_template><![CDATA[
 <a href="{url}" target="_blank" style="color: {textColour}">

@@ -95,6 +95,7 @@ abstract class Slider extends Template implements BlockInterface
             'sweep_time' => $this->config->getModuleSweepTime(),
             'is_vertical_sweep_possible' => $this->config->isModuleVertical(),
             'vertical_sweep_time' => $this->config->getModuleVerticalSweepTime(),
+            'vertical_characters_trigger' => $this->config->getModuleVerticalCharactersTrigger(),
             'is_group_colours' => $this->config->isModuleGroupColour(),
             'verses_ordered' => $this->config->isModuleVersesOrdered(),
             'text_colour' => $this->config->getModuleTextColour(),
