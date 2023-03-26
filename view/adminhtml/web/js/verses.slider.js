@@ -1,7 +1,9 @@
 define([
-    'jquery'
-], function($) {
+    'jquery',
+    'verticalScroll'
+], function($, verticalScroll) {
     'use strict';
+
     /**
      * Hydrate template with key vars by given values (f.e. {variable} to 'test')
      * @see https://stackoverflow.com/questions/377961/efficient-javascript-string-replacement#answer-50545691
@@ -31,14 +33,19 @@ define([
     $.widget('verses.slider', {
         defaults: {
             'sweep_time': 100,
+            'is_vertical_sweep_possible': true,
+            'vertical_sweep_time': 5,
+            'vertical_characters_trigger': 100,
             'is_group_colours': true,
             'verses_ordered': true,
             'text_colour': '#ff0000',
             'mode': 'autoplayinf'
         },
         nIntervalID: null,
+        htmlId: null,
         max: null,
         current: 0,
+        suppress: false,
         /**
          * Merge global options with options passed to widget invoke
          * @protected
@@ -57,13 +64,20 @@ define([
          * @param {Object} element
          */
         _initSlider: function (element) {
+            //count of items
             this.max = this.options.items.length;
+            //add html ID
+            this.htmlId = 'vs_';
+            this.htmlId += Date.now();
+            $(element).attr('id', this.htmlId);
+            //add Pause on hover
             $(element).on('mouseenter', function (event) {
                 $(element).addClass('paused-slider');
             });
             $(element).on('mouseleave', function (event) {
                 $(element).removeClass('paused-slider');
             });
+            //switch slider mode
             switch (this.options.mode) {
                 default:
                 case 'randomautoplayinf':
@@ -97,14 +111,14 @@ define([
             self._moveRandomMode(element);
             self.nIntervalID = setInterval(function () {
                 const isPaused = $(element).hasClass('paused-slider');
-                if (!isPaused) {
+                if (!this.suppress && !isPaused) {
                     if (self.current + 1 < self.max) {
                         self.current++;
                     } else {
                         self.current = 0;
                     }
+                    self._moveSlide(element);
                 }
-                self._moveSlide(element);
             },self.options.sweep_time);
         },
         /**
@@ -133,9 +147,20 @@ define([
                 'content': this.options.verses_ordered ? item.data.content : item.data.unordered
             });
             const hydratedHtml = replaceMe(html, data);
-
             $(element).hide();
             $(element).html(hydratedHtml);
+            if (this.options.vertical_characters_trigger <= data.content.length) {
+                let self = this;
+                self.suppress = true;
+                $('#' + self.htmlId + ' a .item .content').verticalScroll({
+                    'sweep_time': self.vertical_sweep_time,
+                    'character_trigger': self.vertical_characters_trigger,
+                    'onFinish': function (verticalScroll) {
+                        self.suppress = false;
+                        verticalScroll.unScroll();
+                    }
+                });
+            }
             $(element).show();
         }
     });

@@ -17,6 +17,8 @@ class Config
     public const CONFIG_PATH_MODULE_SWEEP_TIME = 'itzielart_torahverse/general/sweep_time';
     public const CONFIG_PATH_MODULE_IS_VERTICAL = 'itzielart_torahverse/general/is_vertical_sweep_possible';
     public const CONFIG_PATH_MODULE_VERTICAL_SWEEP_TIME = 'itzielart_torahverse/general/vertical_sweep_time';
+    public const CONFIG_PATH_MODULE_VERTICAL_CHARACTERS_TRIGGER
+        = 'itzielart_torahverse/general/vertical_characters_trigger';
     public const CONFIG_PATH_MODULE_IS_GROUP_COLOUR = 'itzielart_torahverse/general/is_group_colours_enable';
     public const CONFIG_PATH_MODULE_VERSE_TEMPLATE = 'itzielart_torahverse/general/verse_template';
     public const CONFIG_PATH_MODULE_GROUP_COLOURS_VERSE_TEMPLATE
@@ -99,6 +101,14 @@ class Config
         return (int)(
             $this->scopeConfig
                 ->getValue(self::CONFIG_PATH_MODULE_VERTICAL_SWEEP_TIME, ScopeInterface::SCOPE_STORE) ?? '0'
+        );
+    }
+
+    public function getModuleVerticalCharactersTrigger(): int
+    {
+        return (int)(
+            $this->scopeConfig
+                ->getValue(self::CONFIG_PATH_MODULE_VERTICAL_CHARACTERS_TRIGGER, ScopeInterface::SCOPE_STORE) ?? '0'
         );
     }
 
@@ -212,6 +222,9 @@ class Config
     {
         $placementString = (string)$this->scopeConfig
             ->getValue(self::CONFIG_PATH_FRONTEND_PLACEMENT, ScopeInterface::SCOPE_STORE);
+        if (empty($placementString)) {
+            return [];
+        }
         return explode(',', $placementString);
     }
 
@@ -219,6 +232,9 @@ class Config
     {
         $sliderString = (string)$this->scopeConfig
             ->getValue(self::CONFIG_PATH_FRONTEND_SLIDER, ScopeInterface::SCOPE_STORE);
+        if (empty($sliderString)) {
+            return [];
+        }
         return explode(',', $sliderString);
     }
 
@@ -279,6 +295,9 @@ class Config
     public function getBackendSlider(): array
     {
         $sliderString = $this->scopeConfig->getValue(self::CONFIG_PATH_BACKEND_SLIDER, ScopeInterface::SCOPE_STORE);
+        if (empty($sliderString)) {
+            return [];
+        }
         return explode(',', $sliderString);
     }
 

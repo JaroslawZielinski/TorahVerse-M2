@@ -51,7 +51,17 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="50" showInDefault="1"
+                <field id="vertical_characters_trigger" translate="label" type="text" sortOrder="50" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Vertical Characters trigger</label>
+                    <comment><![CDATA[Number of characters including white characters that triggers vertical sweep event.]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_vertical_sweep_possible">1</field>
+                    </depends>
+                </field>
+
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
@@ -61,7 +71,7 @@
                     </depends>
                 </field>
 
-                <field id="verse_template" translate="label" type="textarea" sortOrder="60" showInDefault="1"
+                <field id="verse_template" translate="label" type="textarea" sortOrder="70" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Html Template for Verse Slider Frame</label>
                     <comment><![CDATA[Key words: <strong>url</strong>, <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>description</strong> written in {}]]></comment>
@@ -71,7 +81,7 @@
                     </depends>
                 </field>
 
-                <field id="group_colours_verse_template" translate="label" type="textarea" sortOrder="60"
+                <field id="group_colours_verse_template" translate="label" type="textarea" sortOrder="80"
                     showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Html Template for Verse Slider Frame</label>
                     <comment><![CDATA[Key words: <strong>url</strong>, <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>description</strong> written in {}]]></comment>
@@ -81,7 +91,7 @@
                     </depends>
                 </field>
 
-                <field id="quote_template" translate="label" type="textarea" sortOrder="70" showInDefault="1"
+                <field id="quote_template" translate="label" type="textarea" sortOrder="90" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Html Template for Quote Slider Frame</label>
                     <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
@@ -91,7 +101,7 @@
                     </depends>
                 </field>
 
-                <field id="group_colours_quote_template" translate="label" type="textarea" sortOrder="70"
+                <field id="group_colours_quote_template" translate="label" type="textarea" sortOrder="100"
                     showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Html Template for Quote Slider Frame</label>
                     <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
@@ -101,7 +111,7 @@
                     </depends>
                 </field>
 
-                <field id="verses_ordered" translate="label" type="select" sortOrder="80" showInDefault="1"
+                <field id="verses_ordered" translate="label" type="select" sortOrder="110" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Verses ordered</label>
                     <comment><![CDATA[Verses Order.]]></comment>
@@ -112,13 +122,13 @@
                 </field>
 
                 <!-- @see https://webkul.com/blog/add-color-picker-magento2-system-config/ -->
-                <field id="text_colour" translate="label" type="text" sortOrder="90" showInDefault="1"
+                <field id="text_colour" translate="label" type="text" sortOrder="120" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Text Colour</label>
                     <frontend_model>ITZielArt\TorahVerse\Block\Colour</frontend_model>
                 </field>
 
-                <field id="mode" translate="label" type="select" sortOrder="100" showInDefault="1"
+                <field id="mode" translate="label" type="select" sortOrder="130" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Mode of slider</label>
                     <source_model>ITZielArt\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
