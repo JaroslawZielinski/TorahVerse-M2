@@ -5,7 +5,7 @@
     "license": "MIT",
     "version": "1.0.0",
     "require": {
-        "jaroslawzielinski/torah": "1.x"
+        "jaroslawzielinski/torah": "1.0.0"
     },
     "repositories": {
         "Torah": {
