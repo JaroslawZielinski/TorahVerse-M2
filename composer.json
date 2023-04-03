@@ -4,6 +4,7 @@
     "type": "magento2-module",
     "license": "MIT",
     "version": "1.0.0",
+    "minimum-stability": "stable",
     "require": {
         "jaroslawzielinski/torah": "1.0.0"
     },
