@@ -7,5 +7,5 @@ that shows Torah(Bible - Old and New Testament) verses or a quotes
 cd YourProject
 composer config repositories.Torah vcs https://github.com/JaroslawZielinski/Torah.git
 composer config repositories.TorahVerse vcs https://github.com/JaroslawZielinski/TorahVerse-M2.git
-composer require jaroslawzielinski/torahverse-m2 dev-master
+composer require jaroslawzielinski/torahverse-m2 1.0.0
 ```
