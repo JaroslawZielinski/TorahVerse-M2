@@ -6,6 +6,6 @@ that shows Torah(Bible - Old and New Testament) verses or a quotes
 ```shell
 cd YourProject
 composer config repositories.Torah vcs https://github.com/JaroslawZielinski/Torah.git
-composer config repositories.torahverse vcs https://github.com/JaroslawZielinski/TorahVerse-M2.git
+composer config repositories.TorahVerse vcs https://github.com/JaroslawZielinski/TorahVerse-M2.git
 composer require --dev jaroslawzielinski/torahverse-m2 dev-master
 ```
