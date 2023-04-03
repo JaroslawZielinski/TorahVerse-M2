@@ -3,7 +3,7 @@
     "description": "This module is for Torah verse for the shop",
     "type": "magento2-module",
     "license": "MIT",
-    "minimum-stability": "dev",
+    "version": "1.0.0",
     "require": {
         "jaroslawzielinski/torah": "dev-master"
     },
