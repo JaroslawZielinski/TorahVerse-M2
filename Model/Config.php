@@ -33,9 +33,12 @@ class Config
     public const CONFIG_PATH_FRONTEND_ENABLE = 'jaroslawzielinski_torahverse/frontend_slider/enable';
     public const CONFIG_PATH_FRONTEND_OVERRIDE = 'jaroslawzielinski_torahverse/frontend_slider/override';
     public const CONFIG_PATH_FRONTEND_SWEEP_TIME = 'jaroslawzielinski_torahverse/frontend_slider/sweep_time';
-    public const CONFIG_PATH_FRONTEND_IS_VERTICAL = 'jaroslawzielinski_torahverse/frontend_slider/is_vertical_sweep_possible';
-    public const CONFIG_PATH_FRONTEND_VERTICAL_SWEEP_TIME = 'jaroslawzielinski_torahverse/frontend_slider/vertical_sweep_time';
-    public const CONFIG_PATH_FRONTEND_IS_GROUP_COLOUR = 'jaroslawzielinski_torahverse/frontend_slider/is_group_colours_enable';
+    public const CONFIG_PATH_FRONTEND_IS_VERTICAL
+        = 'jaroslawzielinski_torahverse/frontend_slider/is_vertical_sweep_possible';
+    public const CONFIG_PATH_FRONTEND_VERTICAL_SWEEP_TIME
+        = 'jaroslawzielinski_torahverse/frontend_slider/vertical_sweep_time';
+    public const CONFIG_PATH_FRONTEND_IS_GROUP_COLOUR
+        = 'jaroslawzielinski_torahverse/frontend_slider/is_group_colours_enable';
     public const CONFIG_PATH_FRONTEND_VERSES_ORDERED = 'jaroslawzielinski_torahverse/frontend_slider/verses_ordered';
     public const CONFIG_PATH_FRONTEND_TEXT_COLOUR = 'jaroslawzielinski_torahverse/frontend_slider/text_colour';
     public const CONFIG_PATH_FRONTEND_MODE = 'jaroslawzielinski_torahverse/frontend_slider/mode';
@@ -44,9 +47,12 @@ class Config
     public const CONFIG_PATH_BACKEND_ENABLE = 'jaroslawzielinski_torahverse/backend_slider/enable';
     public const CONFIG_PATH_BACKEND_OVERRIDE = 'jaroslawzielinski_torahverse/backend_slider/override';
     public const CONFIG_PATH_BACKEND_SWEEP_TIME = 'jaroslawzielinski_torahverse/backend_slider/sweep_time';
-    public const CONFIG_PATH_BACKEND_IS_VERTICAL = 'jaroslawzielinski_torahverse/backend_slider/is_vertical_sweep_possible';
-    public const CONFIG_PATH_BACKEND_VERTICAL_SWEEP_TIME = 'jaroslawzielinski_torahverse/backend_slider/vertical_sweep_time';
-    public const CONFIG_PATH_BACKEND_IS_GROUP_COLOUR = 'jaroslawzielinski_torahverse/backend_slider/is_group_colours_enable';
+    public const CONFIG_PATH_BACKEND_IS_VERTICAL
+        = 'jaroslawzielinski_torahverse/backend_slider/is_vertical_sweep_possible';
+    public const CONFIG_PATH_BACKEND_VERTICAL_SWEEP_TIME
+        = 'jaroslawzielinski_torahverse/backend_slider/vertical_sweep_time';
+    public const CONFIG_PATH_BACKEND_IS_GROUP_COLOUR
+        = 'jaroslawzielinski_torahverse/backend_slider/is_group_colours_enable';
     public const CONFIG_PATH_BACKEND_VERSES_ORDERED = 'jaroslawzielinski_torahverse/backend_slider/verses_ordered';
     public const CONFIG_PATH_BACKEND_TEXT_COLOUR = 'jaroslawzielinski_torahverse/backend_slider/text_colour';
     public const CONFIG_PATH_BACKEND_MODE = 'jaroslawzielinski_torahverse/backend_slider/mode';
@@ -54,9 +60,12 @@ class Config
     public const CONFIG_PATH_CUSTOM_ENABLE = 'jaroslawzielinski_torahverse/custom_sliders/enable';
     public const CONFIG_PATH_CUSTOM_OVERRIDE = 'jaroslawzielinski_torahverse/custom_sliders/override';
     public const CONFIG_PATH_CUSTOM_SWEEP_TIME = 'jaroslawzielinski_torahverse/custom_sliders/sweep_time';
-    public const CONFIG_PATH_CUSTOM_IS_VERTICAL = 'jaroslawzielinski_torahverse/custom_sliders/is_vertical_sweep_possible';
-    public const CONFIG_PATH_CUSTOM_VERTICAL_SWEEP_TIME = 'jaroslawzielinski_torahverse/custom_sliders/vertical_sweep_time';
-    public const CONFIG_PATH_CUSTOM_IS_GROUP_COLOUR = 'jaroslawzielinski_torahverse/custom_sliders/is_group_colours_enable';
+    public const CONFIG_PATH_CUSTOM_IS_VERTICAL
+        = 'jaroslawzielinski_torahverse/custom_sliders/is_vertical_sweep_possible';
+    public const CONFIG_PATH_CUSTOM_VERTICAL_SWEEP_TIME
+        = 'jaroslawzielinski_torahverse/custom_sliders/vertical_sweep_time';
+    public const CONFIG_PATH_CUSTOM_IS_GROUP_COLOUR
+        = 'jaroslawzielinski_torahverse/custom_sliders/is_group_colours_enable';
     public const CONFIG_PATH_CUSTOM_VERSES_ORDERED = 'jaroslawzielinski_torahverse/custom_sliders/verses_ordered';
     public const CONFIG_PATH_CUSTOM_TEXT_COLOUR = 'jaroslawzielinski_torahverse/custom_sliders/text_colour';
     public const CONFIG_PATH_CUSTOM_MODE = 'jaroslawzielinski_torahverse/custom_sliders/mode';

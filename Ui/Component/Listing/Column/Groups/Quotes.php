@@ -64,7 +64,7 @@ class Quotes extends Column
             $item = sprintf(
                 '<span title="%s (%s)">%s</span>',
                 $quote['name'],
-                $quote['description'],
+                !empty($quote['description']) ? $quote['description'] : $quote['author'],
                 $quote['quote_id']
             );
             $spans[$count++] = $item;
