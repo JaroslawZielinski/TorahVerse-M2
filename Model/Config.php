@@ -87,7 +87,9 @@ class Config
 
     public function isModuleMenuEnabled(): bool
     {
-        return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_MODULE_MENU_ENABLED, ScopeInterface::SCOPE_STORE);
+        $isEnabled = $this->isModuleEnable();
+        return $isEnabled && $this->scopeConfig
+                ->isSetFlag(self::CONFIG_PATH_MODULE_MENU_ENABLED, ScopeInterface::SCOPE_STORE);
     }
 
     public function getModuleSweepTime(): int
