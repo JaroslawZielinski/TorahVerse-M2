@@ -1,18 +1,40 @@
 {
     "name": "jaroslawzielinski/torahverse-m2",
-    "description": "This module is for Torah verse for the shop",
+    "description": "Torah verses (and quotes) slider",
     "type": "magento2-module",
+    "version": "1.0.3",
     "license": "MIT",
-    "version": "1.0.0",
     "require": {
         "jaroslawzielinski/torah": "dev-master"
     },
-    "repositories": {
-        "Torah": {
-            "type": "vcs",
-            "url": "https://github.com/JaroslawZielinski/Torah.git"
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "jaroslawzielinski/torahverse-m2",
+                "version": "1.0.3",
+                "type": "magento2-module",
+                "source": {
+                    "url": "https://github.com/JaroslawZielinski/TorahVerse-M2.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "jaroslawzielinski/torah",
+                "version": "1.0.0",
+                "type": "library",
+                "source": {
+                    "url": "https://github.com/JaroslawZielinski/Torah.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
         }
-    },
+    ],
     "autoload": {
         "files": [
             "registration.php"

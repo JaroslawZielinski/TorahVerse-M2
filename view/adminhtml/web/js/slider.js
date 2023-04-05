@@ -6,7 +6,7 @@ define([
     'use strict';
 
     // Value related to Arial 14pt
-    const wWidth = 7;
+    const wWidth = 6.5;
 
     $.widget('verses.slider', {
         defaults: {
