@@ -4,8 +4,10 @@
     "type": "magento2-module",
     "version": "1.0.3",
     "license": "MIT",
+    "version": "1.0.0",
+    "minimum-stability": "stable",
     "require": {
-        "jaroslawzielinski/torah": "dev-master"
+        "jaroslawzielinski/torah": "1.0.0"
     },
     "repositories": [
         {
