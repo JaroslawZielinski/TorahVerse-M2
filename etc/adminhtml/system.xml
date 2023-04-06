@@ -2,15 +2,15 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="torahVerse" sortOrder="20" translate="label" class="torahVerse-main">
-            <label>TorahVerse</label>
+        <tab id="torah" sortOrder="20" translate="label" class="torah-main">
+            <label>Torah</label>
         </tab>
 
         <section id="jaroslawzielinski_torahverse" translate="label" sortOrder="10" showInDefault="1" showInStore="1"
             showInWebsite="1">
             <class>separator-top</class>
             <label>Torah Verse</label>
-            <tab>torahVerse</tab>
+            <tab>torah</tab>
             <resource>JaroslawZielinski_TorahVerse::configuration</resource>
 
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1"
