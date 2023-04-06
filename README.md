@@ -2,7 +2,7 @@
 Magento2 module that provides sliders both backend and frontend
 that shows Torah(Bible - Old and New Testament) verses or a quotes
 
-## How to install the Torah Verse Module via shell (1 Step out of 3)
+## How to install the Torah Verse Module via shell
 in [packagist](https://packagist.org/packages/jaroslawzielinski/torah)
 ```shell
 cd YourProject
