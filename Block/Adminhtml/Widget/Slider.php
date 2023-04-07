@@ -187,4 +187,9 @@ abstract class Slider extends Template
     {
         return $this->config->getModuleCustomStyles();
     }
+
+    public function getBackgroundHoverColour(): ?string
+    {
+        return $this->config->getModuleBackgroundHoverColour();
+    }
 }

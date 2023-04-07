@@ -2,12 +2,16 @@
     /** @var \JaroslawZielinski\TorahVerse\Block\Widget\Slider $block */
     $config = $block->getConfig();
     $customStyles = trim($block->getModuleCustomStyles() ?? '');
+    $backgroundHoverColour = $block->getBackgroundHoverColour() ?? 'none';
 ?>
 <?php if ($block->isVisible()): ?>
     <?php if (!empty($customStyles)): ?>
         <style type="text/css">
             /* <![CDATA[ */
             <?= $customStyles; ?>
+            .verse-slider.paused-slider {
+                background-color: <?= $backgroundHoverColour; ?>;
+            }
             /* ]]> */
         </style>
     <?php endif; ?>

@@ -47,6 +47,7 @@
 ]]></group_colours_quote_template>
                 <verses_ordered>1</verses_ordered>
                 <text_colour>#000000</text_colour>
+                <background_hover_colour>#dddddd</background_hover_colour>
                 <mode>randomautoplayinf</mode>
                 <content_shown_rows>2</content_shown_rows>
                 <custom_styles><![CDATA[.verse-slider .slider, .verse-slider .item { height: 98px; }

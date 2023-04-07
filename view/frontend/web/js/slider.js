@@ -59,6 +59,9 @@ define([
         _initSlider: function (element) {
             //count of items
             this.max = this.options.items.length;
+            if (0 === this.max) {
+                return;
+            }
             //format width of an element
             let words = '';
             for (let i = 0; i < 160; i++) {

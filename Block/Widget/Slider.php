@@ -183,4 +183,9 @@ abstract class Slider extends Template implements BlockInterface
     {
         return $this->config->getModuleCustomStyles();
     }
+
+    public function getBackgroundHoverColour(): ?string
+    {
+        return $this->config->getModuleBackgroundHoverColour();
+    }
 }

@@ -27,6 +27,8 @@ class Config
         = 'jaroslawzielinski_torahverse/general/group_colours_quote_template';
     public const CONFIG_PATH_MODULE_VERSES_ORDERED = 'jaroslawzielinski_torahverse/general/verses_ordered';
     public const CONFIG_PATH_MODULE_TEXT_COLOUR = 'jaroslawzielinski_torahverse/general/text_colour';
+    public const CONFIG_PATH_MODULE_BACKGROUND_HOVER_COLOUR
+        = 'jaroslawzielinski_torahverse/general/background_hover_colour';
     public const CONFIG_PATH_MODULE_MODE = 'jaroslawzielinski_torahverse/general/mode';
     public const CONFIG_PATH_MODULE_CONTENT_SHOWN_ROWS = 'jaroslawzielinski_torahverse/general/content_shown_rows';
     public const CONFIG_PATH_MODULE_CUSTOM_STYLES = 'jaroslawzielinski_torahverse/general/custom_styles';
@@ -163,6 +165,13 @@ class Config
         $textColour = $this->scopeConfig
             ->getValue(self::CONFIG_PATH_MODULE_TEXT_COLOUR, ScopeInterface::SCOPE_STORE);
         return empty($textColour) ? null : (string)$textColour;
+    }
+
+    public function getModuleBackgroundHoverColour(): ?string
+    {
+        $backgroundHoverColour = $this->scopeConfig
+            ->getValue(self::CONFIG_PATH_MODULE_BACKGROUND_HOVER_COLOUR, ScopeInterface::SCOPE_STORE);
+        return empty($backgroundHoverColour) ? null : (string)$backgroundHoverColour;
     }
 
     public function getModuleMode(): ?string
