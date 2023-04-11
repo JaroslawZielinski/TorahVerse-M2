@@ -138,6 +138,24 @@
 ## The Godly piece of advice
 * [Hbr 12, 1](https://biblia.info.pl/biblia/web/hbr/12/1)
 
+## Nawróćcie się i wierzcie w Ewangelię
+* [Iz 52, 7](https://biblia.info.pl/biblia/bw/isa/52/7)
+* [Mk 1, 15](https://biblia.info.pl/biblia/bw/mk/1/15)
+* [Rz 10, 9-10](https://biblia.info.pl/biblia/bw/ro/10/9-10)
+* [Dz 3, 18-19](https://biblia.info.pl/biblia/bw/ac/3/18-19)
+* [Dz 10, 39-43](https://biblia.info.pl/biblia/bw/ac/10/39-43)
+* [1 J 3, 4](https://biblia.info.pl/biblia/bw/1jn/3/4)
+* [Mt 7, 15-23](https://biblia.info.pl/biblia/bw/mt/7/15-23)
+* [Mt 7, 21](https://biblia.info.pl/biblia/bw/mt/7/21)
+* [J 16, 7-11](https://biblia.info.pl/biblia/bw/jn/16/7-11)
+* [Rz 11, 1-12](https://biblia.info.pl/biblia/bw/ro/11/1-12)
+* [Rz 4, 13-25](https://biblia.info.pl/biblia/bw/ro/4/13-25)
+* [J 14, 21-25](https://biblia.info.pl/biblia/bw/jn/14/21-25)
+* [J 3, 16-19](https://biblia.info.pl/biblia/bw/jn/3/16-19)
+* [J 3, 1-15](https://biblia.info.pl/biblia/bw/jn/3/1-15)
+* [Dz 8, 36-28](https://biblia.info.pl/biblia/bw/ac/8/36-38)
+* [Mk 16, 16](https://biblia.info.pl/biblia/bw/mk/16/16)
+
 ## Charles Spurgeon's quotes
 * [My evidence that I am saved](https://www.brainyquote.com/quotes/charles_spurgeon_718657)
 * [Trials teach us what we are](https://www.brainyquote.com/quotes/charles_spurgeon_165812)
