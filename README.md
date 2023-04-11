@@ -161,7 +161,15 @@ You may override following settings (from **General Settings**):
 * **Mode of slider**
 ### Slider Configurations
 Array for sliders (code, slider configuration). You may add/edit/delete as many configurations as
-you want. 
+you want.
+# Frontend
+## Example uses
+![Groups grid](docs/tv_slider_04.png)
+## Pause mode (cursor changes, and background)
+![Groups grid](docs/tv_slider_05.png)
+_Notice_: You can configure it in  **Background Hover Colour**, **Custom Styles** configuration options.
+## Group Colours enabled
+![Groups grid](docs/tv_slider_06.png)
 # See also
 * [Example Groups](GROUPS.md)
 * [Torah github](https://github.com/JaroslawZielinski/Torah)
