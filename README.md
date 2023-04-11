@@ -1,5 +1,9 @@
 # TorahVerse-M2
 Magento2 module providing Torah verses/quotes text sliders both for backend (by default) and for frontend.
+
+The length of available space is measured during slider display. Next the number of words for row division is 
+calculated. The first shown rows are presented. If the number of rows exceeds threshold set in configuration, 
+the verse is being scrolled vertically.
 # How to install
 in [packagist](https://packagist.org/packages/jaroslawzielinski/torahverse-m2)
 ```shell
@@ -11,7 +15,7 @@ composer require jaroslawzielinski/torahverse-m2
 Backend part (**_Admin Panel Slider_**) is only for magento2 users/supporters but not for customers.
 
 Frontend part is available for magento2 customers in two types. First Type (**_Homepage Slider_**) is available
-only on Homepage in 5 placements:
+only on Homepage in 5 placements (**Magento2** container name in layout):
 * **_'top.container'_** - After page header top
 * **_'content.top'_** - Main content top
 * **_'content.bottom'_** - Main content bottom
