@@ -162,6 +162,7 @@ You may override following settings (from **General Settings**):
 ### Slider Configurations
 Array for sliders (code, slider configuration). You may add/edit/delete as many configurations as
 you want.
+![Groups grid](docs/tv_slider_13.png)
 # Frontend
 ## Example uses
 ![Groups grid](docs/tv_slider_04.png)
