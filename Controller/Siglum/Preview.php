@@ -13,9 +13,14 @@ use JaroslawZielinski\Torah\Bible\Torah;
 use JaroslawZielinski\Torah\Bible\Torah\SiglumFactory;
 use JaroslawZielinski\Torah\Bible\TorahValidator;
 use Psr\Log\LoggerInterface;
+use JaroslawZielinski\TorahVerse\Model\Config;
 
 class Preview extends Ajax
 {
+    /**
+     * @var Config
+     */
+    private $config;
     /**
      * @var LoggerInterface
      */
@@ -25,10 +30,12 @@ class Preview extends Ajax
      * @inheritDoc
      */
     public function __construct(
+        Config $config,
         LoggerInterface $logger,
         JsonFactory $resultJsonFactory,
         Context $context
     ) {
+        $this->config = $config;
         $this->logger = $logger;
         parent::__construct($resultJsonFactory, $context);
     }
@@ -51,7 +58,8 @@ class Preview extends Ajax
                 throw new \Exception('String is empty!');
             }
             $siglum =  SiglumFactory::createFromTranslationAndString($translationParameter, $siglumParameter);
-            $text = $torah->getTextBySiglum($siglum);
+            $language = $this->config->getInternalizationLanguage();
+            $text = $torah->getTextBySiglum($siglum, $language);
             if (!empty($text)) {
                 $content = $text->getOrdered();
                 $description = $text->getDescription();

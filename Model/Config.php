@@ -72,6 +72,7 @@ class Config
     public const CONFIG_PATH_CUSTOM_TEXT_COLOUR = 'jaroslawzielinski_torahverse/custom_sliders/text_colour';
     public const CONFIG_PATH_CUSTOM_MODE = 'jaroslawzielinski_torahverse/custom_sliders/mode';
     public const CONFIG_PATH_CUSTOM_SLIDERS = 'jaroslawzielinski_torahverse/custom_sliders/sliders';
+    public const CONFIG_PATH_INTERNALIZATION_LANGUAGE = 'jaroslawzielinski_torahverse/internalization/language';
 
     /**
      * @var ScopeConfigInterface
@@ -408,5 +409,11 @@ class Config
     {
         return (int)($this->scopeConfig
             ->getValue(DesignInterface::XML_PATH_THEME_ID, ScopeInterface::SCOPE_STORE) ?? '');
+    }
+
+    public function getInternalizationLanguage(): string
+    {
+        return (string)$this->scopeConfig
+            ->getValue(self::CONFIG_PATH_INTERNALIZATION_LANGUAGE, ScopeInterface::SCOPE_STORE);
     }
 }

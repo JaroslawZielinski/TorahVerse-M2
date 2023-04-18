@@ -6,6 +6,7 @@ namespace JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders;
 
 use Magento\Eav\Model\Entity\Attribute\Source\AbstractSource;
 use Magento\Framework\Data\OptionSourceInterface;
+
 class Placement extends AbstractSource implements OptionSourceInterface
 {
     public const PLACEMENTS = [
