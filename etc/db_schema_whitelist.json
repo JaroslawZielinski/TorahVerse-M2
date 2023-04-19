@@ -17,6 +17,7 @@
         "column": {
             "verse_id": true,
             "group_id": true,
+            "code": true,
             "name": true,
             "siglum": true,
             "translation": true,
@@ -28,13 +29,15 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "TORAHVERSE_VERSES_GROUP_ID_TORAHVERSE_GROUPS_GROUP_ID": true
+            "TORAHVERSE_VERSES_GROUP_ID_TORAHVERSE_GROUPS_GROUP_ID": true,
+            "TORAHVERSE_VERSES_CODE": true
         }
     },
     "torahverse_quotes": {
         "column": {
             "quote_id": true,
             "group_id": true,
+            "code": true,
             "name": true,
             "content": true,
             "author": true,
@@ -44,7 +47,8 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "TORAHVERSE_QUOTES_GROUP_ID_TORAHVERSE_GROUPS_GROUP_ID": true
+            "TORAHVERSE_QUOTES_GROUP_ID_TORAHVERSE_GROUPS_GROUP_ID": true,
+            "TORAHVERSE_QUOTES_CODE": true
         }
     }
 }

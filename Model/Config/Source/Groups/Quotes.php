@@ -6,6 +6,7 @@ namespace JaroslawZielinski\TorahVerse\Model\Config\Source\Groups;
 
 use JaroslawZielinski\TorahVerse\Model\ResourceModel\Quote\CollectionFactory as QuoteCollectionFactory;
 use Magento\Framework\Data\OptionSourceInterface;
+use JaroslawZielinski\TorahVerse\Api\Data\GroupInterface;
 
 class Quotes implements OptionSourceInterface
 {
@@ -35,7 +36,7 @@ class Quotes implements OptionSourceInterface
             $this->attributeOptionsList = [];
             $quoteCollection = $this->quoteCollectionFactory
                 ->create()
-                ->addFieldToFilter('code', ['eq' => 'default'])
+                ->addFieldToFilter('groups.' . GroupInterface::CODE, ['eq' => 'default'])
                 ->load();
             foreach ($quoteCollection as $item) {
                $this->attributeOptionsList[] = [

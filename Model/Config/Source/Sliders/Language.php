@@ -10,12 +10,28 @@ use JaroslawZielinski\Torah\Bible\Torah;
 
 class Language extends AbstractSource implements OptionSourceInterface
 {
+    public const LANGUAGE_EN = Torah::LANGUAGE_EN;
+
+    public const LANGUAGE_PL = Torah::LANGUAGE_PL;
+
+    public const LANGUAGE_OPTIONS = [
+        self::LANGUAGE_EN => [
+            'label' => 'English',
+            'value' => self::LANGUAGE_EN
+        ],
+        self::LANGUAGE_PL => [
+            'label' => 'Polish',
+            'value' => self::LANGUAGE_PL
+        ]
+    ];
+
     public function getOptions(): array
     {
-        return [
-            ['label' => __('English'), 'value' => Torah::LANGUAGE_EN],
-            ['label' => __('Polish'), 'value' => Torah::LANGUAGE_PL]
-        ];
+        $options = [];
+        foreach (self::LANGUAGE_OPTIONS as $value => $option) {
+            $options[] = ['label' => __($option['label']), 'value' => $value];
+        }
+        return $options;
     }
 
     /**

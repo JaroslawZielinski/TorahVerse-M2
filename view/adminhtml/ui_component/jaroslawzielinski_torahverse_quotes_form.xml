@@ -86,7 +86,24 @@
             </settings>
         </field>
 
-        <field name="name" sortOrder="20" formElement="input">
+        <field name="code" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">quotes</item>
+                </item>
+            </argument>
+
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Code</label>
+                <dataScope>code</dataScope>
+            </settings>
+        </field>
+
+        <field name="name" sortOrder="30" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">quotes</item>
@@ -102,7 +119,7 @@
             </settings>
         </field>
 
-        <field name="content" sortOrder="30" formElement="textarea">
+        <field name="content" sortOrder="40" formElement="textarea">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">quotes</item>
@@ -118,7 +135,7 @@
             </settings>
         </field>
 
-        <field name="author" sortOrder="40" formElement="input">
+        <field name="author" sortOrder="50" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">quotes</item>
@@ -134,7 +151,7 @@
             </settings>
         </field>
 
-        <field name="description" sortOrder="50" formElement="textarea">
+        <field name="description" sortOrder="60" formElement="textarea">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">quotes</item>
@@ -150,7 +167,7 @@
             </settings>
         </field>
 
-        <field name="group_id" formElement="select" sortOrder="60">
+        <field name="group_id" formElement="select" sortOrder="70">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">quotes</item>

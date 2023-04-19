@@ -66,6 +66,14 @@ class GroupManagement implements GroupRepositoryInterface
     /**
      * @inheritDoc
      */
+    public function getByCode($groupCode): GroupInterface
+    {
+        return $this->groupRepository->getByCode($groupCode);
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getList(SearchCriteriaInterface $searchCriteria)
     {
         return $this->groupRepository->getList($searchCriteria);
@@ -105,20 +113,7 @@ class GroupManagement implements GroupRepositoryInterface
      */
     public function getDefaultGroup(): GroupInterface
     {
-        return $this->getGroupByCode('default');
-    }
-
-    /**
-     * @throws LocalizedException
-     */
-    public function getGroupByCode(string $code): GroupInterface
-    {
-        $searchCriteria = $this->searchCriteriaBuilder
-            ->addFilter(GroupInterface::CODE, $code)
-            ->create();
-        $groupList = $this->groupRepository->getList($searchCriteria);
-        $groupsItems = $groupList->getItems();
-        return reset($groupsItems);
+        return $this->getByCode('default');
     }
 
     /**

@@ -151,7 +151,7 @@ abstract class Slider extends Template implements BlockInterface
         $items = [];
         $verseCollection = $this->verseCollectionFactory->create();
         $verseCollection
-            ->addFieldToFilter(GroupInterface::CODE, ['in' => $groupsArray]);
+            ->addFieldToFilter('groups.' . GroupInterface::CODE, ['in' => $groupsArray]);
         /** @var Verse $verse */
         foreach ($verseCollection->getItems() as $verse) {
             $items[] = [
@@ -162,7 +162,7 @@ abstract class Slider extends Template implements BlockInterface
         }
         $quoteCollection = $this->quoteCollectionFactory->create();
         $quoteCollection
-            ->addFieldToFilter(GroupInterface::CODE, ['in' => $groupsArray]);
+            ->addFieldToFilter('groups.' . GroupInterface::CODE, ['in' => $groupsArray]);
         /** @var Quote $quote */
         foreach ($quoteCollection->getItems() as $quote) {
             $items[] = [

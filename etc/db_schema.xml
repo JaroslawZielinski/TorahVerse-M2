@@ -34,6 +34,8 @@
         <column name="group_id" nullable="false" padding="6" unsigned="true" xsi:type="int"
             comment="Group ID"/>
 
+        <column name="code" nullable="false" xsi:type="varchar" length="15" default="default" comment="Code"/>
+
         <column name="name" nullable="false" xsi:type="text" comment="Name of a verse"/>
 
         <column name="siglum" nullable="false" xsi:type="text" comment="Siglum"/>
@@ -59,6 +61,10 @@
         <constraint xsi:type="foreign" referenceId="TORAHVERSE_VERSES_GROUP_ID_TORAHVERSE_GROUPS_GROUP_ID"
             table="torahverse_verses" column="group_id" referenceTable="torahverse_groups" referenceColumn="group_id"
             onDelete="CASCADE"/>
+
+        <constraint xsi:type="unique" referenceId="TORAHVERSE_VERSES_CODE">
+            <column name="code"/>
+        </constraint>
     </table>
 
     <table name="torahverse_quotes" engine="innodb" resource="default" comment="JaroslawZielinski Torah Verse Quotes">
@@ -67,6 +73,8 @@
 
         <column name="group_id" nullable="false" padding="6" unsigned="true" xsi:type="int"
             comment="Group ID"/>
+
+        <column name="code" nullable="false" xsi:type="varchar" length="15" default="default" comment="Code"/>
 
         <column name="name" nullable="false" xsi:type="text" comment="Name of a quote"/>
 
@@ -89,5 +97,9 @@
         <constraint xsi:type="foreign" referenceId="TORAHVERSE_QUOTES_GROUP_ID_TORAHVERSE_GROUPS_GROUP_ID"
             table="torahverse_quotes" column="group_id" referenceTable="torahverse_groups" referenceColumn="group_id"
             onDelete="CASCADE"/>
+
+        <constraint xsi:type="unique" referenceId="TORAHVERSE_QUOTES_CODE">
+            <column name="code"/>
+        </constraint>
     </table>
 </schema>

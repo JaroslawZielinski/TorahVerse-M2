@@ -4,6 +4,7 @@
     <head>
         <css src="JaroslawZielinski_TorahVerse/css/torahverse.css"/>
     </head>
+
     <body>
         <referenceContainer name="content">
             <uiComponent name="jaroslawzielinski_torahverse_quotes_listing"/>

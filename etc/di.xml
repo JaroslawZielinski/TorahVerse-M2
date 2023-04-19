@@ -62,6 +62,12 @@
         </arguments>
     </type>
 
+    <type name="JaroslawZielinski\TorahVerse\Controller\Adminhtml\System\Config\Translate">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
     <type name="JaroslawZielinski\TorahVerse\Console\Command\HomepageWidgetInit">
         <arguments>
             <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>

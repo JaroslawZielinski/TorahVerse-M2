@@ -11,6 +11,7 @@ use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Reflection\DataObjectProcessor;
 use Magento\Store\Model\StoreManagerInterface;
@@ -139,6 +140,19 @@ class QuoteRepository implements QuoteRepositoryInterface
         $this->resource->load($quote, $quoteId);
         if (!$quote->getId()) {
             throw new NoSuchEntityException(__('Quote with id "%1" does not exist.', $quoteId));
+        }
+        return $quote->getDataModel();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getByCode($quoteCode)
+    {
+        $quote = $this->quoteFactory->create();
+        $this->resource->load($quote, $quoteCode, QuoteInterface::CODE);
+        if (!$quote->getId()) {
+            throw new NoSuchEntityException(__('Quote with code "%1" does not exist.', $quoteCode));
         }
         return $quote->getDataModel();
     }

@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace JaroslawZielinski\TorahVerse\Api\Data;
 
 use Magento\Framework\Api\ExtensibleDataInterface;
+
 interface QuoteInterface extends ExtensibleDataInterface
 {
     public const QUOTE_ID = 'quote_id';
     public const GROUP_ID = 'group_id';
+    public const CODE = 'code';
     public const NAME = 'name';
     public const CONTENT = 'content';
     public const AUTHOR = 'author';
@@ -26,6 +28,17 @@ interface QuoteInterface extends ExtensibleDataInterface
      * @return QuoteInterface
      */
     public function setQuoteId($quoteId): self;
+
+    /**
+     * @return ?string
+     */
+    public function getCode(): ?string;
+
+    /**
+     * @param ?string $code
+     * @return QuoteInterface
+     */
+    public function setCode(?string $code): self;
 
     /**
      * @return ?int
