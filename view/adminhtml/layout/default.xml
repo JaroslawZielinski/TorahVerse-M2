@@ -4,6 +4,7 @@
     <head>
         <css src="JaroslawZielinski_TorahVerse::css/torahverse.css"/>
     </head>
+
     <body>
         <referenceContainer name="notifications">
             <block class="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\Slider\Backend"

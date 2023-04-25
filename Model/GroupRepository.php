@@ -144,6 +144,19 @@ class GroupRepository implements GroupRepositoryInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function getByCode($groupCode)
+    {
+        $group = $this->groupFactory->create();
+        $this->resource->load($group, $groupCode, GroupInterface::CODE);
+        if (!$group->getId()) {
+            throw new NoSuchEntityException(__('Group with code "%1" does not exist.', $groupCode));
+        }
+        return $group->getDataModel();
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getList(

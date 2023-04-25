@@ -474,6 +474,31 @@
 
                 <attribute type="expanded">0</attribute>
             </group>
+
+            <group id="internalization" translate="label" type="text" sortOrder="50" showInDefault="1" showInStore="1"
+                showInWebsite="1">
+                <label>Language Settings</label>
+
+                <field id="language" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Language</label>
+                    <comment><![CDATA[Choose language version of Torah settings.]]></comment>
+                    <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Language</source_model>
+                </field>
+
+                <field id="translate_preset" translate="label comment" type="button" sortOrder="20" showInDefault="1"
+                    showInWebsite="1" showInStore="0">
+                    <label>Translate Preset</label>
+                    <comment><![CDATA[Update/Add Default Groups/Verses/Quotes in proper language<br /><br /> <i>Please remember to save change of language first</i>.]]></comment>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\System\Config\TranslatePreset</frontend_model>
+                </field>
+
+                <depends>
+                    <field id="jaroslawzielinski_torahverse/general/enable">1</field>
+                </depends>
+
+                <attribute type="expanded">0</attribute>
+            </group>
         </section>
     </system>
 </config>

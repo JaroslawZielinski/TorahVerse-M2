@@ -1,4 +1,4 @@
-# Groups
+# Grupy
 ## Boję się
 * [Mt 10, 28](https://biblia.info.pl/biblia/bw/mt/10/28)
 * [Jk 4, 12](https://biblia.info.pl/biblia/bw/jk/4/12)
@@ -10,7 +10,7 @@
 * [Flp 4, 6](https://biblia.info.pl/biblia/bw/flp/4/6)
 * [1P 5, 6-7](https://biblia.info.pl/biblia/bw/1p/5/6-7)
 
-## Updam w wierze
+## Upadam w wierze
 * [1J 1, 4-9](https://biblia.info.pl/biblia/bw/1j/1/4-9)
 
 ## Jestem w żałobie
@@ -80,7 +80,7 @@
 
 ## W znużeniu
 * [Mt 11, 28-30](https://biblia.info.pl/biblia/bw/mt/11/28-30)
-* [1Kor 15, 58](https://biblia.info.pl/biblia/bw/1kor/15/58)
+* [1 Kor 15, 58](https://biblia.info.pl/biblia/bw/1kor/15/58)
 * [Gal 6, 9-10](https://biblia.info.pl/biblia/bw/gal/6/9-10)
 
 ## Potrzebuję Bożej pomocy
@@ -94,7 +94,7 @@
 
 ## W pokuszeniu
 * [Mt 26, 41](https://biblia.info.pl/biblia/bw/mt/26/41)
-* [1Kor 10, 12-14](https://biblia.info.pl/biblia/bw/1kor/10/12-14)
+* [1 Kor 10, 12-14](https://biblia.info.pl/biblia/bw/1kor/10/12-14)
 * [Flp 4, 8](https://biblia.info.pl/biblia/bw/flp/4/8)
 * [Jk 4, 7](https://biblia.info.pl/biblia/bw/jk/4/7)
 * [2P 2, 9](https://biblia.info.pl/biblia/bw/2p/2/9)
@@ -123,7 +123,7 @@
 ## Boża rada dla grzeszników
 * [Rz 6, 23](https://biblia.info.pl/biblia/bw/rz/6/23)
 * [J 1, 12](https://biblia.info.pl/biblia/bw/j/1/12)
-* [1Kor 15, 3-4](https://biblia.info.pl/biblia/bw/1kor/15/3-4)
+* [1 Kor 15, 3-4](https://biblia.info.pl/biblia/bw/1kor/15/3-4)
 
 ## Teraz wszyscy mogą być zbawieni
 * [Obj 3, 20](https://biblia.info.pl/biblia/bw/ap/3/20)
@@ -135,8 +135,8 @@
 * [1J 5, 13](https://biblia.info.pl/biblia/bw/1j/5/13)
 * [J 20, 31](https://biblia.info.pl/biblia/bw/j/20/31)
 
-## The Godly piece of advice
-* [Hbr 12, 1](https://biblia.info.pl/biblia/web/hbr/12/1)
+## Boża rada
+* [Hbr 12, 1](https://biblia.info.pl/biblia/bw/hbr/12/1)
 
 ## Nawróćcie się i wierzcie w Ewangelię
 * [Iz 52, 7](https://biblia.info.pl/biblia/bw/isa/52/7)
@@ -156,18 +156,17 @@
 * [Dz 8, 36-28](https://biblia.info.pl/biblia/bw/ac/8/36-38)
 * [Mk 16, 16](https://biblia.info.pl/biblia/bw/mk/16/16)
 
-## Charles Spurgeon's quotes
-* [My evidence that I am saved](https://www.brainyquote.com/quotes/charles_spurgeon_718657)
-* [Trials teach us what we are](https://www.brainyquote.com/quotes/charles_spurgeon_165812)
-* [We have no superstitious regard for times and seasons 1](https://www.martintop.org.uk/blog/spurgeons-nevertheless)
-* [We have no superstitious regard for times and seasons 2](https://www.sermonindex.net/modules/newbb/viewtopic.php?topic_id=21360&forum=35)
-* [When it can be proved that the observance of Christmas](https://www.azquotes.com/quote/1136831)
-* [Those who follow the custom of observing Christmas, follow not the Bible but pagan ceremonies.](https://www.calltoworship.org/spurgeon-on-christmas.html)
+## Cytaty Charlsa Spurgeona
+* [Mój dowód na to, że jestem zbawiony](https://www-brainyquote-com.translate.goog/quotes/charles_spurgeon_718657?_x_tr_sl=la&_x_tr_tl=pl&_x_tr_hl=en&_x_tr_pto=wapp)
+* [Próby uczą nas, kim jesteśmy](https://www-brainyquote-com.translate.goog/quotes/charles_spurgeon_165812?_x_tr_sl=la&_x_tr_tl=pl&_x_tr_hl=en&_x_tr_pto=wapp)
+* [Nie mamy przesądnego szacunku dla czasów i pór roku 1](https://translate.google.com/translate?sl=la&tl=pl&hl=en&u=https://www.martintop.org.uk/blog/spurgeons-nevertheless&client=webapp)
+* [Nie mamy przesądnego szacunku dla czasów i pór roku 2](https://www-sermonindex-net.translate.goog/modules/newbb/viewtopic.php?topic_id=21360&forum=35&_x_tr_sl=la&_x_tr_tl=pl&_x_tr_hl=en&_x_tr_pto=wapp)
+* [Kiedy można udowodnić, że przestrzeganie Bożego Narodzenia](https://www-azquotes-com.translate.goog/quote/1136831?_x_tr_sl=la&_x_tr_tl=pl&_x_tr_hl=en&_x_tr_pto=wapp)
+* [Ci, którzy przestrzegają zwyczaju obchodzenia Bożego Narodzenia, przestrzegają nie Biblii, ale pogańskich ceremonii.](https://www-calltoworship-org.translate.goog/spurgeon-on-christmas.html?_x_tr_sl=la&_x_tr_tl=pl&_x_tr_hl=en&_x_tr_pto=wapp)
 
-## William Tyndale's quotes
-* ["Foxe's Book of Martyrs". Book by John Foxe, March 20, 1563.](https://www.azquotes.com/quote/715015)
-* [Be cold, sober, wise, circumspect](https://www.azquotes.com/quote/1380579)
-* [William Tyndale, John Frith, Thomas Russell (1831). “The Works of the English Reformers: The works of Tyndale, (continued:) An answer to Sir Thomas More's Dialogue ; An exposition upon the 5th, 6th, and 7th chapters of Matthew ; An exposition upon the 1st epistle of St. John ; A pathway into the Holy Scripture ; The sacrament of baptism, and the sacrament of the body and blood of our saviour Jesus Christ”, p.540](https://www.azquotes.com/quote/870524)
-* [William Tyndale (1848). “Doctrinal treatises and introductions to different portions of the Holy Scriptures”, p.354](https://www.azquotes.com/quote/1012939)
-* [William Tyndale, John Frith, Thomas Russell (1831). “The Works of the English Reformers: The works of Tyndale, (continued:) An answer to Sir Thomas More's Dialogue ; An exposition upon the 5th, 6th, and 7th chapters of Matthew ; An exposition upon the 1st epistle of St. John ; A pathway into the Holy Scripture ; The sacrament of baptism, and the sacrament of the body and blood of our saviour Jesus Christ”, p.522](https://www.azquotes.com/quote/1012938)
-
+## Cytaty Williama Tyndale
+* ["Foxe's Book of Martyrs". Book by John Foxe, March 20, 1563.](https://www-azquotes-com.translate.goog/quote/715015?_x_tr_sl=la&_x_tr_tl=pl&_x_tr_hl=en&_x_tr_pto=wapp)
+* [Bądź zimny, trzeźwy, mądry, ostrożny](https://www-azquotes-com.translate.goog/quote/1380579?_x_tr_sl=la&_x_tr_tl=pl&_x_tr_hl=en&_x_tr_pto=wapp)
+* [William Tyndale, John Frith, Thomas Russell (1831). “The Works of the English Reformers: The works of Tyndale, (continued:) An answer to Sir Thomas More's Dialogue ; An exposition upon the 5th, 6th, and 7th chapters of Matthew ; An exposition upon the 1st epistle of St. John ; A pathway into the Holy Scripture ; The sacrament of baptism, and the sacrament of the body and blood of our saviour Jesus Christ”, p.540](https://www-azquotes-com.translate.goog/quote/870524?_x_tr_sl=la&_x_tr_tl=pl&_x_tr_hl=en&_x_tr_pto=wapp)
+* [William Tyndale (1848). “Doctrinal treatises and introductions to different portions of the Holy Scriptures”, p.354](https://www-azquotes-com.translate.goog/quote/1012939?_x_tr_sl=la&_x_tr_tl=pl&_x_tr_hl=en&_x_tr_pto=wapp)
+* [William Tyndale, John Frith, Thomas Russell (1831). “The Works of the English Reformers: The works of Tyndale, (continued:) An answer to Sir Thomas More's Dialogue ; An exposition upon the 5th, 6th, and 7th chapters of Matthew ; An exposition upon the 1st epistle of St. John ; A pathway into the Holy Scripture ; The sacrament of baptism, and the sacrament of the body and blood of our saviour Jesus Christ”, p.522](https://www-azquotes-com.translate.goog/quote/1012938?_x_tr_sl=la&_x_tr_tl=pl&_x_tr_hl=en&_x_tr_pto=wapp)

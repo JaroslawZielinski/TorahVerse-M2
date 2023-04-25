@@ -20,12 +20,21 @@ interface VerseRepositoryInterface
     public function save(
         VerseInterface $verse
     );
+
     /**
      * @param string $verseId
      * @return VerseInterface
      * @throws LocalizedException
      */
     public function get($verseId);
+
+    /**
+     * @param string $verseCode
+     * @return VerseInterface
+     * @throws LocalizedException
+     */
+    public function getByCode($verseCode);
+
     /**
      * @param SearchCriteriaInterface $searchCriteria
      * @return VerseSearchResultsInterface
@@ -34,6 +43,7 @@ interface VerseRepositoryInterface
     public function getList(
         SearchCriteriaInterface $searchCriteria
     );
+
     /**
      * @param VerseInterface $verse
      * @return bool true on success
@@ -42,6 +52,7 @@ interface VerseRepositoryInterface
     public function delete(
         VerseInterface $verse
     );
+
     /**
      * @param string $verseId
      * @return bool true on success

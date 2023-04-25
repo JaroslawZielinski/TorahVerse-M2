@@ -170,6 +170,20 @@
             </argument>
         </column>
 
+        <column name="code">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+                    <item name="label" xsi:type="string" translate="true">Code</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                </item>
+            </argument>
+        </column>
+
         <column name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -179,7 +193,7 @@
                     <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
-                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
                 </item>
             </argument>
         </column>
@@ -192,7 +206,7 @@
                     <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
-                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
                 </item>
             </argument>
         </column>
@@ -206,7 +220,7 @@
                     <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
-                    <item name="sortOrder" xsi:type="number">50</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
                 </item>
             </argument>
         </column>
@@ -215,7 +229,7 @@
             <settings>
                 <indexField>verse_id</indexField>
                 <resizeEnabled>false</resizeEnabled>
-                <resizeDefaultWidth>60</resizeDefaultWidth>
+                <resizeDefaultWidth>70</resizeDefaultWidth>
             </settings>
         </actionsColumn>
 	</columns>

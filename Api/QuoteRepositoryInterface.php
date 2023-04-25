@@ -29,6 +29,13 @@ interface QuoteRepositoryInterface
     public function get($quoteId);
 
     /**
+     * @param string $quoteCode
+     * @return QuoteInterface
+     * @throws LocalizedException
+     */
+    public function getByCode($quoteCode);
+
+    /**
      * @param SearchCriteriaInterface $searchCriteria
      * @return QuoteSearchResultsInterface
      * @throws LocalizedException

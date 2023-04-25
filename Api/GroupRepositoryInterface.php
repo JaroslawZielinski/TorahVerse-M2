@@ -29,6 +29,13 @@ interface GroupRepositoryInterface
     public function get($groupId);
 
     /**
+     * @param string $groupCode
+     * @return GroupInterface
+     * @throws LocalizedException
+     */
+    public function getByCode($groupCode);
+
+    /**
      * @param SearchCriteriaInterface $searchCriteria
      * @return GroupSearchResultsInterface
      * @throws LocalizedException

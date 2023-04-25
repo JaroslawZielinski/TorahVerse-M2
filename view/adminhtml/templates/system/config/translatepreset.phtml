@@ -1,0 +1,45 @@
+<?php
+    /* @var $block \JaroslawZielinski\TorahVerse\Block\Adminhtml\System\Config\TranslatePreset */
+?>
+<script>
+    require([
+        'jquery',
+        'prototype'
+    ], function($){
+        var translateSpan = $('#translate_preset_span');
+        $('#translate_preset_button').click(function () {
+            var params = {};
+            new Ajax.Request('<?php echo $block->getAjaxUrl() ?>', {
+                parameters: params,
+                loaderArea: false,
+                asynchronous: true,
+                onCreate: function() {
+                    translateSpan.find('.translated').hide();
+                    translateSpan.find('.processing').show();
+                    $('#translate_preset_message_span').text('');
+                },
+                onSuccess: function(response) {
+                    translateSpan.find('.processing').hide();
+
+                    var resultText = '';
+                    if (response.status > 200) {
+                        resultText = response.statusText;
+                    } else {
+                        var json = response.responseJSON;
+                        resultText = 'Success [' + json.message + ']';
+                        translateSpan.find('.translated').show();
+                    }
+                    $('#translate_preset_message_span').text(resultText);
+                }
+            });
+        });
+
+    });
+</script>
+
+<?php echo $block->getButtonHtml() ?>
+<span class="translate_preset-indicator" id="translate_preset_span">
+    <img class="processing" hidden="hidden" alt="Translating" style="margin:0 5px" src="<?= $block->getViewFileUrl('images/process_spinner.gif') ?>"/>
+    <img class="translated" hidden="hidden" alt="Translated" style="margin:-3px 5px" src="<?= $block->getViewFileUrl('images/rule_component_apply.gif') ?>"/>
+    <span id="translate_preset_message_span"></span>
+</span>

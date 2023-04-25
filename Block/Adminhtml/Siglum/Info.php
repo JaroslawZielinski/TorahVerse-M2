@@ -6,9 +6,31 @@ namespace JaroslawZielinski\TorahVerse\Block\Adminhtml\Siglum;
 
 use JaroslawZielinski\Torah\Translations\Resources;
 use Magento\Backend\Block\Template;
+use Magento\Directory\Helper\Data as DirectoryHelper;
+use Magento\Framework\Json\Helper\Data as JsonHelper;
+use Magento\Backend\Block\Template\Context;
+use JaroslawZielinski\TorahVerse\Model\Config;
 
 class Info extends Template
 {
+    /**
+     * @var Config
+     */
+    private $config;
+    /**
+     * @inheritDoc
+     */
+    public function __construct(
+        Config $config,
+        Context $context,
+        array $data = [],
+        ?JsonHelper $jsonHelper = null,
+        ?DirectoryHelper $directoryHelper = null
+    ) {
+        $this->config = $config;
+        parent::__construct($context, $data, $jsonHelper, $directoryHelper);
+    }
+
     /**
      * @inheritDoc
      */
@@ -21,8 +43,9 @@ class Info extends Template
     public function getBooksInfo(string $part = 'Tanakh'): array
     {
         $results = [];
-        array_filter(Resources::TORAH_BOOKS_EXTENDED[$part], function ($value, $key) use (&$results) {
-            $results[$key] = $value['full'];
+        $language = $this->config->getInternalizationLanguage();
+        array_filter(Resources::TORAH_BOOKS_EXTENDED[$part], function ($value, $key) use (&$results, $language) {
+            $results[$key] = $value[$language];
         }, ARRAY_FILTER_USE_BOTH);
         return $results;
     }

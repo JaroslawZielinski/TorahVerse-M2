@@ -144,6 +144,19 @@ class VerseRepository implements VerseRepositoryInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function getByCode($verseCode)
+    {
+        $verse = $this->verseFactory->create();
+        $this->resource->load($verse, $verseCode, VerseInterface::CODE);
+        if (!$verse->getId()) {
+            throw new NoSuchEntityException(__('Verse with code "%1" does not exist.', $verseCode));
+        }
+        return $verse->getDataModel();
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getList(

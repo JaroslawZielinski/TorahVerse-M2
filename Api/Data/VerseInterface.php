@@ -10,6 +10,7 @@ interface VerseInterface extends ExtensibleDataInterface
 {
     public const VERSE_ID = 'verse_id';
     public const GROUP_ID = 'group_id';
+    public const CODE = 'code';
     public const NAME = 'name';
     public const SIGLUM = 'siglum';
     public const TRANSLATION = 'translation';
@@ -40,6 +41,17 @@ interface VerseInterface extends ExtensibleDataInterface
      * @return VerseInterface
      */
     public function setGroupId($groupId): self;
+
+    /**
+     * @return ?string
+     */
+    public function getCode(): ?string;
+
+    /**
+     * @param ?string $code
+     * @return VerseInterface
+     */
+    public function setCode(?string $code): self;
 
     /**
      * @return ?string

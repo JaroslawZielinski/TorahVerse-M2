@@ -4,6 +4,9 @@ Magento2 module providing Torah verses/quotes text sliders both for backend (by 
 The length of available space is measured during slider display. Next the number of words for row division is 
 calculated. The first shown rows are presented. If the number of rows exceeds threshold set in configuration, 
 the verse is being scrolled vertically.
+
+Thanks to above the widget is **R**esponsive **W**eb **D**esigned and can be shown on various types of devices.
+
 # How to install
 in [packagist](https://packagist.org/packages/jaroslawzielinski/torahverse-m2)
 ```shell
@@ -167,6 +170,13 @@ You may override following settings (from **General Settings**):
 Array for sliders (code, slider configuration). You may add/edit/delete as many configurations as
 you want.
 ![Groups grid](docs/tv_slider_13.png)
+## Language Settings
+### Language
+You have two available languages: English and Polish. This settings changes the language of description in Torah siglum.
+### Translate Preset
+You may also update Groups/Verses/Quotes Presets in given language version. Remember to Save before clicking the button
+unless you prefer the language written in button's label.
+![Groups grid](docs/tv_slider_14.png)
 # Frontend
 ## Example uses
 ![Groups grid](docs/tv_slider_04.png)
@@ -176,7 +186,8 @@ _Notice_: You can configure it in  **Background Hover Colour**, **Custom Styles*
 ## Group Colours enabled
 ![Groups grid](docs/tv_slider_06.png)
 # See also
-* [Example Groups](GROUPS.md)
+* [Groups/Verses/Quotes Presets (EN)](GROUPS_en.md)
+* [Groups/Verses/Quotes Presets (PL)](GROUPS_pl.md)
 * [Torah github](https://github.com/JaroslawZielinski/Torah)
 # Inspiration for vertical scroll
 * [Truthunedited](https://www.youtube.com/@Truthunedited) - presenting Torah verses

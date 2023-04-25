@@ -18,6 +18,7 @@ use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\Exception\LocalizedException;
 use Psr\Log\LoggerInterface;
+use JaroslawZielinski\TorahVerse\Model\Config;
 
 class Save extends Action
 {
@@ -25,10 +26,17 @@ class Save extends Action
      * @var LoggerInterface
      */
     private $logger;
+
+    /**
+     * @var Config
+     */
+    private $config;
+
     /**
      * @var VerseFactory
      */
     private $verseFactory;
+
     /**
      * @var VerseRepositoryInterface
      */
@@ -39,11 +47,13 @@ class Save extends Action
      */
     public function __construct(
         LoggerInterface $logger,
+        Config $config,
         VerseFactory $verseFactory,
         VerseRepositoryInterface $verseRepository,
         Context $context
     ) {
         $this->logger = $logger;
+        $this->config = $config;
         $this->verseFactory = $verseFactory;
         $this->verseRepository = $verseRepository;
         parent::__construct($context);
@@ -67,7 +77,8 @@ class Save extends Action
             throw new \Exception('String is empty!');
         }
         $siglum =  SiglumFactory::createFromTranslationAndString($translationParameter, $siglumParameter);
-        $text = $torah->getTextBySiglum($siglum);
+        $language = $this->config->getInternalizationLanguage();
+        $text = $torah->getTextBySiglum($siglum, $language);
         if (!empty($text)) {
             $verse->setContent($text->getOrdered());
             $verse->setUnordered($text->getUnOrdered());

@@ -6,6 +6,7 @@
         <css src="JaroslawZielinski_TorahVerse/css/info.css"/>
         <link src="JaroslawZielinski_TorahVerse/js/siglum/data.js"/>
     </head>
+
     <body>
         <referenceContainer name="content">
             <uiComponent name="jaroslawzielinski_torahverse_verses_form"/>
