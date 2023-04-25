@@ -62,15 +62,15 @@ See the Torah Verse menu on the left bar.
 Possible operations: **Add New Group**, **Delete**, **Edit**
 
 _Notice_: You can not modify/delete **Default Group**.
-![Groups grid](docs/tv_slider_12.png)
+![Groups grid](docs/tv_slider_08.png)
 ### Groups/Verses
-![Verses grid](docs/tv_slider_08.png)
+![Verses grid](docs/tv_slider_09.png)
 Possible operations: **Add New Verse**, **Delete**, **Group Assign**, **Edit**
 ![Verses grid](docs/tv_slider_10.png)
 ### Groups/Quotes
-![Quotes grid](docs/tv_slider_09.png)
-Possible operations: **Add New Quote**, **Delete**, **Group Assign**, **Edit**
 ![Quotes grid](docs/tv_slider_11.png)
+Possible operations: **Add New Quote**, **Delete**, **Group Assign**, **Edit**
+![Quotes grid](docs/tv_slider_12.png)
 # Configuration
 ## General Settings
 ### Enable
