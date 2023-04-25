@@ -47,7 +47,7 @@ class HomepageWidgetInit extends Command
     {
         $this->setName('torahverse:homepage-widget:init');
         $this->setDescription('JaroslawZielinski TorahVerse Homepage widget init');
-        $this->addArgument(self::THEME_NAME, InputArgument::REQUIRED, __('Theme Name'));
+        $this->addArgument(self::THEME_NAME, InputArgument::REQUIRED, (string)__('Theme Name'));
     }
 
     private function displayMessages(OutputInterface $output): bool
