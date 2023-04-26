@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace JaroslawZielinski\TorahVerse\Model\ResourceModel;
 
 use JaroslawZielinski\TorahVerse\Api\Data\GroupInterface;
-use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
-class Group extends AbstractDb
+class Group extends AbstractUninstall
 {
     /**
      * @inheritDoc

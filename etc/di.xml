@@ -7,6 +7,10 @@
                 <item name="torahverse_homepage_widget_init" xsi:type="object">
                     JaroslawZielinski\TorahVerse\Console\Command\HomepageWidgetInit
                 </item>
+
+                <item name="torahverse_module_uninstall" xsi:type="object">
+                    JaroslawZielinski\TorahVerse\Console\Command\Uninstall
+                </item>
             </argument>
         </arguments>
     </type>
@@ -69,6 +73,12 @@
     </type>
 
     <type name="JaroslawZielinski\TorahVerse\Console\Command\HomepageWidgetInit">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Console\Command\Uninstall">
         <arguments>
             <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
         </arguments>

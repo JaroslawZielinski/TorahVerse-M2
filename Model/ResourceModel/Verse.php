@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace JaroslawZielinski\TorahVerse\Model\ResourceModel;
 
 use JaroslawZielinski\TorahVerse\Api\Data\VerseInterface;
-use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
-class Verse extends AbstractDb
+class Verse extends AbstractUninstall
 {
     /**
      * @inheritDoc

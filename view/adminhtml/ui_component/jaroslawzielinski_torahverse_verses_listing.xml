@@ -148,7 +148,7 @@
                 <item name="config" xsi:type="array">
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
                     <item name="label" xsi:type="string" translate="true">ID</item>
-                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sorting" xsi:type="string">asc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="sortOrder" xsi:type="number">10</item>
@@ -162,7 +162,6 @@
                     <item name="filter" xsi:type="string">text</item>
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
                     <item name="label" xsi:type="string" translate="true">Group</item>
-                    <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="sortOrder" xsi:type="number">20</item>
@@ -176,7 +175,6 @@
                     <item name="filter" xsi:type="string">text</item>
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
                     <item name="label" xsi:type="string" translate="true">Code</item>
-                    <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="sortOrder" xsi:type="number">30</item>
@@ -190,7 +188,6 @@
                     <item name="filter" xsi:type="string">text</item>
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
                     <item name="label" xsi:type="string" translate="true">Name</item>
-                    <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="sortOrder" xsi:type="number">40</item>
@@ -203,7 +200,6 @@
                 <item name="config" xsi:type="array">
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
                     <item name="label" xsi:type="string" translate="true">Siglum</item>
-                    <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="sortOrder" xsi:type="number">50</item>
@@ -217,7 +213,6 @@
                     <item name="filter" xsi:type="string">text</item>
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
                     <item name="label" xsi:type="string" translate="true">Translation</item>
-                    <item name="sorting" xsi:type="string">desc</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="sortOrder" xsi:type="number">60</item>

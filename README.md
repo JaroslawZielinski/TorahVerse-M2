@@ -13,6 +13,13 @@ in [packagist](https://packagist.org/packages/jaroslawzielinski/torahverse-m2)
 cd YourProject
 composer require jaroslawzielinski/torahverse-m2
 ```
+# How to Uninstall
+excecute in shell the following command (one step before removing the module):
+
+```ssh
+bin/magento torahverse:module:uninstall
+```
+in order to restore all database changes
 # Text Slider Features
 ## Types
 Backend part (**_Admin Panel Slider_**) is only for magento2 users/supporters but not for customers.

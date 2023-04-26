@@ -4,39 +4,41 @@ declare(strict_types=1);
 
 namespace JaroslawZielinski\TorahVerse\Console\Command;
 
-use JaroslawZielinski\TorahVerse\Model\Cms\HomepageWidgetInit as HomepageWidgetInitModel;
+use JaroslawZielinski\TorahVerse\Model\ResourceModel\Verse as VerseResource;
+
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class HomepageWidgetInit extends Command
+class Uninstall extends Command
 {
-    public const THEME_NAME = 'theme';
     /**
      * @var array
      */
     private $messages;
+
     /**
      * @var LoggerInterface
      */
     private $logger;
+
     /**
-     * @var HomepageWidgetInitModel
+     * @var VerseResource
      */
-    private $homepageWidgetInit;
+    private $verseResource;
 
     /**
      * @inheirtDoc
      */
     public function __construct(
         LoggerInterface $logger,
-        HomepageWidgetInitModel $homepageWidgetInit
+        VerseResource $verseResource
     ) {
         $this->messages = [];
         $this->logger = $logger;
-        $this->homepageWidgetInit = $homepageWidgetInit;
+        $this->verseResource = $verseResource;
         parent::__construct();
     }
 
@@ -45,9 +47,8 @@ class HomepageWidgetInit extends Command
      */
     protected function configure()
     {
-        $this->setName('torahverse:homepage-widget:init');
-        $this->setDescription('JaroslawZielinski TorahVerse Homepage widget init');
-        $this->addArgument(self::THEME_NAME, InputArgument::REQUIRED, (string)__('Theme Name'));
+        $this->setName('torahverse:module:uninstall');
+        $this->setDescription('JaroslawZielinski TorahVerse Module Uninstall (use wisely)');
     }
 
     private function displayMessages(OutputInterface $output): int
@@ -70,8 +71,8 @@ class HomepageWidgetInit extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         try {
-            $theme = $input->getArgument(self::THEME_NAME);
-            $this->homepageWidgetInit->execute($theme);
+            $this->verseResource->unInstall();
+            $this->addMessage((string)__('All changes removed successfully from db.'));
         } catch (\Exception $e) {
             $message = sprintf(
                 '<fg=red;options=bold>Something went wrong</>: <fg=white>\'%s\'</>: <fg=yellow>%s</>.',
