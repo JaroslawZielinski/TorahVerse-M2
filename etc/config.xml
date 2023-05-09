@@ -94,10 +94,17 @@
                 <mode>randomautoplayinf</mode>
                 <sliders><![CDATA[{"_1678942274965_965":{"code":"tv_slider_01","slider":["CH_SP_01","CGAV_033"]}}]]></sliders>
             </custom_sliders>
+        </jaroslawzielinski_torahverse>
 
+        <jaroslawzielinski_torah>
             <internalization>
                 <language>en</language>
             </internalization>
-        </jaroslawzielinski_torahverse>
+
+            <torah_input>
+                <division>three-division</division>
+                <frontend_enabled>0</frontend_enabled>
+            </torah_input>
+        </jaroslawzielinski_torah>
     </default>
 </config>

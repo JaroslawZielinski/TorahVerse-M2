@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Torah Verse Search</title>
+    </head>
+
+    <body>
+        <referenceContainer name="content">
+            <block name="torahverse_search" as="torahverse_search" class="JaroslawZielinski\TorahVerse\Block\Search">
+                <block name="html_content" as="html_content"
+                    class="JaroslawZielinski\TorahVerse\Block\Adminhtml\Siglum\Info" />
+            </block>
+        </referenceContainer>
+    </body>
+</page>

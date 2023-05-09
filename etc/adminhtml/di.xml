@@ -22,4 +22,16 @@
             </argument>
         </arguments>
     </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Plugin\Backend\Model\Menu\ItemPlugin">
+        <arguments>
+            <!-- force Frontend Url -->
+            <argument name="frontUrlModel" xsi:type="object" shared="false">Magento\Framework\Url</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Backend\Model\Menu\Item">
+        <plugin name="add-frontend-verse-search-in-admin-menu"
+            type="JaroslawZielinski\TorahVerse\Plugin\Backend\Model\Menu\ItemPlugin" sortOrder="20" disabled="false" />
+    </type>
 </config>
