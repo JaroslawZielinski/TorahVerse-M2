@@ -4,12 +4,21 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="JaroslawZielinski_TorahVerse::menu" title="TorahVerse Menu">
-                    <resource id="JaroslawZielinski_TorahVerse::torahverse" title="JaroslawZielinski TorahVerse">
-                        <resource id="JaroslawZielinski_TorahVerse::groups" title="JaroslawZielinski TorahVerse Groups"/>
-                        <resource id="JaroslawZielinski_TorahVerse::verses" title="JaroslawZielinski TorahVerse Verses"/>
-                        <resource id="JaroslawZielinski_TorahVerse::quotes" title="JaroslawZielinski TorahVerse Quotes"/>
-                        <resource id="JaroslawZielinski_TorahVerse::config"
-                            title="JaroslawZielinski TorahVerse Configuration Menu" translate="title" />
+                    <resource id="JaroslawZielinski_TorahVerse::grids" title="TorahVerse Grids">
+                        <resource id="JaroslawZielinski_TorahVerse::groups" title="TorahVerse Groups"/>
+                        <resource id="JaroslawZielinski_TorahVerse::verses" title="TorahVerse Verses"/>
+                        <resource id="JaroslawZielinski_TorahVerse::quotes" title="TorahVerse Quotes"/>
+                    </resource>
+
+                    <resource id="JaroslawZielinski_TorahVerse::settings" title="TorahVerse Settings"
+                        translate="title">
+                        <resource id="JaroslawZielinski_TorahVerse::configuration"
+                            title="TorahVerse Configuration" translate="title" />
+                    </resource>
+
+                    <resource id="JaroslawZielinski_TorahVerse::search" title="TorahVerse Search"
+                        translate="title">
+                        <resource id="JaroslawZielinski_TorahVerse::versesearch" title="TorahVerse Verse Search" />
                     </resource>
                 </resource>
 
@@ -22,8 +31,8 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="JaroslawZielinski_TorahVerse::configuration"
-                                title="JaroslawZielinski TorahVerse Configuration" translate="title" />
+                            <resource id="JaroslawZielinski_Torah::configuration"
+                                title="Torah Configuration" translate="title" />
                         </resource>
                     </resource>
                 </resource>

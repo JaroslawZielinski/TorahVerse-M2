@@ -72,7 +72,9 @@ class Config
     public const CONFIG_PATH_CUSTOM_TEXT_COLOUR = 'jaroslawzielinski_torahverse/custom_sliders/text_colour';
     public const CONFIG_PATH_CUSTOM_MODE = 'jaroslawzielinski_torahverse/custom_sliders/mode';
     public const CONFIG_PATH_CUSTOM_SLIDERS = 'jaroslawzielinski_torahverse/custom_sliders/sliders';
-    public const CONFIG_PATH_INTERNALIZATION_LANGUAGE = 'jaroslawzielinski_torahverse/internalization/language';
+    public const CONFIG_PATH_INTERNALIZATION_LANGUAGE = 'jaroslawzielinski_torah/internalization/language';
+    public const CONFIG_PATH_TORAHINPUT_DIVISION = 'jaroslawzielinski_torah/torah_input/division';
+    public const CONFIG_PATH_TORAHINPUT_FRONTENDENABLED = 'jaroslawzielinski_torah/torah_input/frontend_enabled';
 
     /**
      * @var ScopeConfigInterface
@@ -415,5 +417,17 @@ class Config
     {
         return (string)$this->scopeConfig
             ->getValue(self::CONFIG_PATH_INTERNALIZATION_LANGUAGE, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getTorahInputDivision(): string
+    {
+        return (string)$this->scopeConfig
+            ->getValue(self::CONFIG_PATH_TORAHINPUT_DIVISION, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function isTorahInputFrontendEnabled(): bool
+    {
+        return $this->scopeConfig
+            ->isSetFlag(self::CONFIG_PATH_TORAHINPUT_FRONTENDENABLED, ScopeInterface::SCOPE_STORE);
     }
 }

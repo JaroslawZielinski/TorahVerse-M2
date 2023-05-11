@@ -24,6 +24,10 @@ class BuilderPlugin
     {
         if (!$this->config->isModuleMenuEnabled()) {
             $result->remove('JaroslawZielinski_TorahVerse::menu');
+        } else {
+            if (!$this->config->isTorahInputFrontendEnabled()) {
+                $result->remove('JaroslawZielinski_TorahVerse::versesearch');
+            }
         }
         return $result;
     }
