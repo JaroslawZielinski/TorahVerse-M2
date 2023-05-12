@@ -8,6 +8,9 @@
             <span><?= __('Torahverse Search'); ?></span>
         </legend>
         <br>
+
+        <input name="form_key" type="hidden" value="">
+
         <div class="field required">
             <label for="translation" class="label">
                 <span><?= __('Translation'); ?></span>
@@ -73,14 +76,15 @@
             event.preventDefault();
             let validation = dataForm.validation('isValid');
             if (validation) {
-                let translationCode = $('#translation').val(),
+                let formKey = $('input[name="form_key"]').val(),
+                    translationCode = $('#translation').val(),
                     siglumCode = $('#siglum').val();
                 $.ajax({
                     showLoader: false,
                     url: ajaxUrl,
                     data: {
                         isAjax: true,
-                        form_key: window.FORM_KEY,
+                        form_key: formKey,
                         translation: translationCode,
                         siglum: siglumCode
                     },

@@ -14,6 +14,7 @@ use JaroslawZielinski\Torah\Bible\Torah\SiglumFactory;
 use JaroslawZielinski\Torah\Bible\TorahValidator;
 use Psr\Log\LoggerInterface;
 use JaroslawZielinski\TorahVerse\Model\Config;
+use Magento\Framework\Data\Form\FormKey;
 
 class Preview extends Ajax
 {
@@ -32,12 +33,13 @@ class Preview extends Ajax
     public function __construct(
         Config $config,
         LoggerInterface $logger,
+        FormKey $formKey,
         JsonFactory $resultJsonFactory,
         Context $context
     ) {
         $this->config = $config;
         $this->logger = $logger;
-        parent::__construct($resultJsonFactory, $context);
+        parent::__construct($formKey, $resultJsonFactory, $context);
     }
 
     /**
