@@ -10,9 +10,14 @@ use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\App\Request\Http;
 use Magento\Framework\App\RequestInterface;
+use Magento\Framework\Data\Form\FormKey;
 
 abstract class Ajax extends Action
 {
+    /**
+     * @var FormKey
+     */
+    private $formKey;
     /**
      * @var JsonFactory
      */
@@ -22,9 +27,11 @@ abstract class Ajax extends Action
      * @inheritDoc
      */
     public function __construct(
+        FormKey $formKey,
         JsonFactory $resultJsonFactory,
         Context $context
     ) {
+        $this->formKey = $formKey;
         $this->resultJsonFactory = $resultJsonFactory;
         parent::__construct($context);
     }
@@ -38,6 +45,14 @@ abstract class Ajax extends Action
             return $result->setData([
                 'status' => 'ERROR',
                 'message' => __('It is not an ajax.'),
+                'result' => __('It is not an ajax.')
+            ]);
+        }
+        if ($request->getParam('form_key', '') !== $this->formKey->getFormKey()) {
+            return $result->setData([
+                'status' => 'ERROR',
+                'message' => __('CSRF attack possible.'),
+                'result' => __('Form is broken.')
             ]);
         }
         return $result->setData($data);

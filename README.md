@@ -78,7 +78,7 @@ Possible operations: **Add New Verse**, **Delete**, **Group Assign**, **Edit**
 ![Quotes grid](docs/tv_slider_11.png)
 Possible operations: **Add New Quote**, **Delete**, **Group Assign**, **Edit**
 ![Quotes grid](docs/tv_slider_12.png)
-# Configuration
+# Configuration - Torah Verse
 ## General Settings
 ### Enable
 Enable module / Disable module and disable menu.
@@ -177,6 +177,7 @@ You may override following settings (from **General Settings**):
 Array for sliders (code, slider configuration). You may add/edit/delete as many configurations as
 you want.
 ![Groups grid](docs/tv_slider_13.png)
+# Configuration - Torah
 ## Language Settings
 ### Language
 You have two available languages: English and Polish. This settings changes the language of description in Torah siglum.
@@ -184,6 +185,19 @@ You have two available languages: English and Polish. This settings changes the 
 You may also update Groups/Verses/Quotes Presets in given language version. Remember to Save before clicking the button
 unless you prefer the language written in button's label.
 ![Groups grid](docs/tv_slider_14.png)
+## Torah Input
+### Division
+You may choose division of books in Torah Input (e.g **Old Testament\New Testament**). Default value is 
+**Tanakh/Nevi'im ketuvim/Brithadasha**. This feature will be used in the future.
+### Torah Verse Search enabled
+Default value is **No**. If set to **Yes** it appears in menu in **Search** group as **Verse Search** where Torah input
+ is presented. In the future the input will be customized (you will choose all of the options by just clicking it,
+  without typing anything). The Torah input is also used in Admin Panel in Verse Grid (_Add New Verse/Edit_ action)
+![Groups grid](docs/tv_slider_15.png)
+
+after clicking it will be opened in new tab (notice little square put next to the link) as a front page:
+
+![Groups grid](docs/tv_slider_17.png)
 # Frontend
 ## Example uses
 ![Groups grid](docs/tv_slider_04.png)

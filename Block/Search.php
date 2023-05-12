@@ -14,6 +14,7 @@ class Search extends Template
      * @var TranslationOptions
      */
     private $translationOptions;
+
     /**
      * @inheritDoc
      */

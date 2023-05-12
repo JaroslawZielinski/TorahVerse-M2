@@ -6,10 +6,10 @@ namespace JaroslawZielinski\TorahVerse\Block\Siglum;
 
 use JaroslawZielinski\Torah\Translations\Resources;
 use JaroslawZielinski\TorahVerse\Model\Config;
-use Magento\Backend\Block\Template\Context;
 use Magento\Directory\Helper\Data as DirectoryHelper;
 use Magento\Framework\Json\Helper\Data as JsonHelper;
 use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Element\Template\Context;
 
 class Info extends Template
 {
@@ -17,18 +17,16 @@ class Info extends Template
      * @var Config
      */
     private $config;
+
     /**
      * @inheritDoc
      */
     public function __construct(
         Config $config,
-        Context $context,
-        array $data = [],
-        ?JsonHelper $jsonHelper = null,
-        ?DirectoryHelper $directoryHelper = null
+        Context $context, array $data = []
     ) {
         $this->config = $config;
-        parent::__construct($context, $data, $jsonHelper, $directoryHelper);
+        parent::__construct($context, $data);
     }
 
     /**
