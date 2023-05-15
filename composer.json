@@ -5,7 +5,7 @@
     "license": "MIT",
     "minimum-stability": "stable",
     "require": {
-        "jaroslawzielinski/torah": "^1"
+        "jaroslawzielinski/torah": "^1.1.0"
     },
     "autoload": {
         "files": [
