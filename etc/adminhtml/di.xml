@@ -13,8 +13,6 @@
 
     <type name="JaroslawZielinski\TorahVerse\Plugin\Ui\Component\Form\FieldPlugin">
         <arguments>
-            <!-- force Frontend Url -->
-            <argument name="urlBuilder" xsi:type="object" shared="false">Magento\Framework\Url</argument>
             <argument name="key" xsi:type="string">previewUrl</argument>
             <argument name="fields" xsi:type="array">
                 <item name="0" xsi:type="string">siglum</item>

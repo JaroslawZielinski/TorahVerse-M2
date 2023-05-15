@@ -126,7 +126,7 @@
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">verses</item>
                     <item name="default" xsi:type="number">0</item>
-                    <item name="previewUrl" xsi:type="string">torahverse/siglum/preview</item>
+                    <item name="previewUrl" xsi:type="string">jaroslawzielinski_torahverse/siglum/preview</item>
                 </item>
             </argument>
 
@@ -159,7 +159,7 @@
                         </br>
                         <textarea id="preview-result" disabled></textarea>
                     ]]></item>
-                    <item name="previewUrl" xsi:type="string">torahverse/siglum/preview</item>
+                    <item name="previewUrl" xsi:type="string">jaroslawzielinski_torahverse/siglum/preview</item>
                 </item>
             </argument>
 
