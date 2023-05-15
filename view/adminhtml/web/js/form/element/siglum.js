@@ -52,12 +52,13 @@ define([
                 resultId = self.resultSelector;
             if (undefined !== translationCode && undefined !== siglumCode &&
                 !SiglumData.compareToCurrent(translationCode, siglumCode)) {
+                let formKey = window.FORM_KEY;
                 $.ajax({
                     showLoader: false,
                     url: ajaxUrl,
                     data: {
                         isAjax: true,
-                        form_key: window.FORM_KEY,
+                        form_key: formKey,
                         translation: translationCode,
                         siglum: siglumCode
                     },
