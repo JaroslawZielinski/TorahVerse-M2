@@ -7,6 +7,8 @@ the verse is being scrolled vertically.
 
 Thanks to above the widget is **R**esponsive **W**eb **D**esigned and can be shown on various types of devices.
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jaroslawzielinski)
+
 # How to install
 in [packagist](https://packagist.org/packages/jaroslawzielinski/torahverse-m2)
 ```shell

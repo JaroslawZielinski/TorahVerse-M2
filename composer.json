@@ -14,5 +14,11 @@
         "psr-4": {
             "JaroslawZielinski\\TorahVerse\\": ""
         }
-    }
+    },
+    "funding": [
+        {
+          "type": "By me a coffee",
+          "url": "https://www.buymeacoffee.com/jaroslawzielinski"
+        }
+    ]
 }
