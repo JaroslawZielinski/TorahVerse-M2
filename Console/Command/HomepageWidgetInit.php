@@ -14,14 +14,17 @@ use Symfony\Component\Console\Output\OutputInterface;
 class HomepageWidgetInit extends Command
 {
     public const THEME_NAME = 'theme';
+
     /**
      * @var array
      */
     private $messages;
+
     /**
      * @var LoggerInterface
      */
     private $logger;
+
     /**
      * @var HomepageWidgetInitModel
      */

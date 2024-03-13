@@ -1,0 +1,52 @@
+<?php
+    /** @var \JaroslawZielinski\TorahVerse\Block\Adminhtml\Cache\Progress $block */
+    $cachedVerses = $block->getCachedVerses();
+    $maxVerses = $block->getMaxVerses();
+?>
+<span><?= $cachedVerses; ?> / <?= $maxVerses; ?></span>
+<div class="container">
+    <div class="progress">
+        <?php
+            // @see https://colordesigner.io/gradient-generator
+            // @see https://cats2d.com/colormaps/rainbow.png
+            $progressPercents = $maxVerses > 0 ? (float)number_format((100 * $cachedVerses) / $maxVerses, 2, '.', '') : 0.0;
+            switch ($progressPercents) {
+                case $progressPercents > 0.0 && $progressPercents <= 10.0:
+                    $backgroundColor = '#0000ff';
+                    break;
+                case $progressPercents > 10.0 && $progressPercents <= 20.0:
+                    $backgroundColor = '#0c87ff';
+                    break;
+                case $progressPercents > 20.0 && $progressPercents <= 30.0:
+                    $backgroundColor = '#00f1ff';
+                    break;
+                case $progressPercents > 30.0 && $progressPercents <= 40.0:
+                    $backgroundColor = '#00ffa0';
+                    break;
+                case $progressPercents > 40.0 && $progressPercents <= 50.0:
+                    $backgroundColor = '#00ff36';
+                    break;
+                case $progressPercents > 50.0 && $progressPercents <= 60.0:
+                    $backgroundColor = '#36ff0c';
+                    break;
+                case $progressPercents > 60.0 && $progressPercents <= 70.0:
+                    $backgroundColor = '#a0ff01';
+                    break;
+                case $progressPercents > 70.0 && $progressPercents <= 80.0:
+                    $backgroundColor = '#fef305';
+                    break;
+                case $progressPercents > 80.0 && $progressPercents <= 90.0:
+                    $backgroundColor = '#ff8500';
+                    break;
+                case $progressPercents > 90.0 && $progressPercents < 100.0:
+                    $backgroundColor = '#ff2500';
+                    break;
+                case $progressPercents >= 100.0:
+                    $backgroundColor = '#ff0000';
+                    break;
+            }
+        ?>
+        <div class="progress-bar" style="width: <?= $progressPercents; ?>%; background-color: <?= $backgroundColor; ?>;"></div>
+        <span><?= (int)$progressPercents; ?>%</span>
+    </div>
+</div>

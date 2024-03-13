@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as GuzzleClient;
 use JaroslawZielinski\TorahVerse\Api\Data\GroupInterface;
 use JaroslawZielinski\TorahVerse\Helper\Data;
 use JaroslawZielinski\TorahVerse\Model\Config;
@@ -117,9 +117,9 @@ abstract class Slider extends Template
         if (GroupInterface::NO_COLOUR === $colour) {
             $colour = '#FFFFFF';
         }
-        $client = new Service\Client($this->logger, new Client());
+        $onlineClient = new Service\Online\Client($this->logger, new GuzzleClient());
         $siglumObject = SiglumFactory::createFromTranslationAndString($data['translation'], $data['siglum']);
-        $url = $client->getUrlBySiglum($siglumObject);
+        $url = $onlineClient->getUrlBySiglum($siglumObject);
         return [
             'colour' => $colour,
             'antiColour' => Data::getContrastColor($colour),

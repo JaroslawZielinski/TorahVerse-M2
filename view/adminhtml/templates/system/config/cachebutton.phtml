@@ -1,0 +1,22 @@
+<?php
+    /** @var \JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton $block */
+    $translation = $block->getTranslation();
+    $htmlWarmUpId = $block->getConfigWarmUpHtmlId();
+?>
+<table class="cache-button" border="0">
+    <tr>
+        <th><?= __(strip_tags(\JaroslawZielinski\Torah\Translations\Resources::TORAH_TRANSLATIONS[$translation])); ?></th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr>
+        <td>
+            <div id="<?= $htmlWarmUpId; ?>_progress">
+                <?= $block->getLayout()
+                    ->createBlock(\JaroslawZielinski\TorahVerse\Block\Adminhtml\Cache\Progress::class)
+                    ->setTranslation($translation)
+                    ->toHtml()
+                ?>
+            </div>
+        </td>
+    </tr>
+</table>

@@ -32,4 +32,172 @@
         <plugin name="add-frontend-verse-search-in-admin-menu"
             type="JaroslawZielinski\TorahVerse\Plugin\Backend\Model\Menu\ItemPlugin" sortOrder="20" disabled="false" />
     </type>
+
+    <!-- Cache Button - BT -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BTButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">bt</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - BW -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BWButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">bw</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - BR -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BRButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">br</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - ESP -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\ESPButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">esp</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - BG -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BGButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">bg</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - NG -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\NGButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">ng</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - UG -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\UGButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">ug</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - BB -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BBButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">bb</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - BP -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BPButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">bp</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - JW -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\JWButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">jw</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - BM -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BMButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">bm</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - NS -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\NSButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">ns</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - BL -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BLButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">bl</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - SZ -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\SZButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">sz</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - EIB -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\EIBButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">eib</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - TNP -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\TNPButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">tnp</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - KJV -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\KJVButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">kjv</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - WEB -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\WEBButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">web</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - YLT -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\YLTButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">ylt</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - VUL -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\VULButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">vul</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Cache Button - GR -->
+    <virtualType name="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\GRButton"
+        type="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\CacheButton">
+        <arguments>
+            <argument name="translation" xsi:type="string">gr</argument>
+        </arguments>
+    </virtualType>
 </config>

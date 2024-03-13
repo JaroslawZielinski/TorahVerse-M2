@@ -105,6 +105,10 @@
                 <division>three-division</division>
                 <frontend_enabled>0</frontend_enabled>
             </torah_input>
+
+            <settings>
+                <cache_enable>1</cache_enable>
+            </settings>
         </jaroslawzielinski_torah>
     </default>
 </config>

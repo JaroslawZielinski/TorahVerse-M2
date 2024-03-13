@@ -11,6 +11,14 @@
                 <item name="torahverse_module_uninstall" xsi:type="object">
                     JaroslawZielinski\TorahVerse\Console\Command\Uninstall
                 </item>
+
+                <item name="torahverse_cache_flush" xsi:type="object">
+                    JaroslawZielinski\TorahVerse\Console\Command\CacheFlush
+                </item>
+
+                <item name="torahverse_cache_warm" xsi:type="object">
+                    JaroslawZielinski\TorahVerse\Console\Command\CacheWarm
+                </item>
             </argument>
         </arguments>
     </type>
@@ -29,12 +37,6 @@
             </argument>
         </arguments>
     </virtualType>
-
-    <type name="JaroslawZielinski\TorahVerse\Controller\Siglum\Preview">
-        <arguments>
-            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
-        </arguments>
-    </type>
 
     <type name="JaroslawZielinski\TorahVerse\Controller\Adminhtml\Verses\Save">
         <arguments>
@@ -79,6 +81,24 @@
     </type>
 
     <type name="JaroslawZielinski\TorahVerse\Console\Command\Uninstall">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Console\Command\CacheFlush">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Console\Command\CacheWarm">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\TorahVerse\Model\TorahFactory">
         <arguments>
             <argument name="logger" xsi:type="object">JaroslawZielinski\TorahVerse\Logger</argument>
         </arguments>

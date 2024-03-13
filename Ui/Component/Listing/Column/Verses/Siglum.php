@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace JaroslawZielinski\TorahVerse\Ui\Component\Listing\Column\Verses;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as GuzzleClient;
 use JaroslawZielinski\TorahVerse\Api\Data\VerseInterface;
 use JaroslawZielinski\TorahVerse\Api\VerseRepositoryInterface;
 use JaroslawZielinski\TorahVerse\Model\Data\Verse;
@@ -53,9 +53,9 @@ class Siglum extends Column
      */
     private function getServiceAnchor(int $verseId, string $translation, string $siglum): string
     {
-        $client = new Service\Client($this->logger, new Client());
+        $onlineClient = new Service\Online\Client($this->logger, new GuzzleClient());
         $siglumObject = SiglumFactory::createFromTranslationAndString($translation, $siglum);
-        $url = $client->getUrlBySiglum($siglumObject);
+        $url = $onlineClient->getUrlBySiglum($siglumObject);
         /** @var VerseInterface|Verse $verseObject */
         $verseObject = $this->verseRepository->get($verseId);
         return <<<EOT

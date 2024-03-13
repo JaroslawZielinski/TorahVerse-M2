@@ -14,66 +14,117 @@ use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 class Config
 {
     public const CONFIG_PATH_MODULE_ENABLE = 'jaroslawzielinski_torahverse/general/enable';
+
     public const CONFIG_PATH_MODULE_MENU_ENABLED = 'jaroslawzielinski_torahverse/general/menu_enabled';
+
     public const CONFIG_PATH_MODULE_SWEEP_TIME = 'jaroslawzielinski_torahverse/general/sweep_time';
+
     public const CONFIG_PATH_MODULE_IS_VERTICAL = 'jaroslawzielinski_torahverse/general/is_vertical_sweep_possible';
+
     public const CONFIG_PATH_MODULE_VERTICAL_SWEEP_TIME = 'jaroslawzielinski_torahverse/general/vertical_sweep_time';
+
     public const CONFIG_PATH_MODULE_IS_GROUP_COLOUR = 'jaroslawzielinski_torahverse/general/is_group_colours_enable';
+
     public const CONFIG_PATH_MODULE_VERSE_TEMPLATE = 'jaroslawzielinski_torahverse/general/verse_template';
+
     public const CONFIG_PATH_MODULE_GROUP_COLOURS_VERSE_TEMPLATE
         = 'jaroslawzielinski_torahverse/general/group_colours_verse_template';
+
     public const CONFIG_PATH_MODULE_QUOTE_TEMPLATE = 'jaroslawzielinski_torahverse/general/quote_template';
+
     public const CONFIG_PATH_MODULE_GROUP_COLOURS_QUOTE_TEMPLATE
         = 'jaroslawzielinski_torahverse/general/group_colours_quote_template';
+
     public const CONFIG_PATH_MODULE_VERSES_ORDERED = 'jaroslawzielinski_torahverse/general/verses_ordered';
+
     public const CONFIG_PATH_MODULE_TEXT_COLOUR = 'jaroslawzielinski_torahverse/general/text_colour';
+
     public const CONFIG_PATH_MODULE_BACKGROUND_HOVER_COLOUR
         = 'jaroslawzielinski_torahverse/general/background_hover_colour';
+
     public const CONFIG_PATH_MODULE_MODE = 'jaroslawzielinski_torahverse/general/mode';
+
     public const CONFIG_PATH_MODULE_CONTENT_SHOWN_ROWS = 'jaroslawzielinski_torahverse/general/content_shown_rows';
+
     public const CONFIG_PATH_MODULE_CUSTOM_STYLES = 'jaroslawzielinski_torahverse/general/custom_styles';
+
     public const CONFIG_PATH_FRONTEND_ENABLE = 'jaroslawzielinski_torahverse/frontend_slider/enable';
+
     public const CONFIG_PATH_FRONTEND_OVERRIDE = 'jaroslawzielinski_torahverse/frontend_slider/override';
+
     public const CONFIG_PATH_FRONTEND_SWEEP_TIME = 'jaroslawzielinski_torahverse/frontend_slider/sweep_time';
+
     public const CONFIG_PATH_FRONTEND_IS_VERTICAL
         = 'jaroslawzielinski_torahverse/frontend_slider/is_vertical_sweep_possible';
+
     public const CONFIG_PATH_FRONTEND_VERTICAL_SWEEP_TIME
         = 'jaroslawzielinski_torahverse/frontend_slider/vertical_sweep_time';
+
     public const CONFIG_PATH_FRONTEND_IS_GROUP_COLOUR
         = 'jaroslawzielinski_torahverse/frontend_slider/is_group_colours_enable';
+
     public const CONFIG_PATH_FRONTEND_VERSES_ORDERED = 'jaroslawzielinski_torahverse/frontend_slider/verses_ordered';
+
     public const CONFIG_PATH_FRONTEND_TEXT_COLOUR = 'jaroslawzielinski_torahverse/frontend_slider/text_colour';
+
     public const CONFIG_PATH_FRONTEND_MODE = 'jaroslawzielinski_torahverse/frontend_slider/mode';
+
     public const CONFIG_PATH_FRONTEND_PLACEMENT = 'jaroslawzielinski_torahverse/frontend_slider/placement';
+
     public const CONFIG_PATH_FRONTEND_SLIDER = 'jaroslawzielinski_torahverse/frontend_slider/slider';
+
     public const CONFIG_PATH_BACKEND_ENABLE = 'jaroslawzielinski_torahverse/backend_slider/enable';
+
     public const CONFIG_PATH_BACKEND_OVERRIDE = 'jaroslawzielinski_torahverse/backend_slider/override';
+
     public const CONFIG_PATH_BACKEND_SWEEP_TIME = 'jaroslawzielinski_torahverse/backend_slider/sweep_time';
+
     public const CONFIG_PATH_BACKEND_IS_VERTICAL
         = 'jaroslawzielinski_torahverse/backend_slider/is_vertical_sweep_possible';
+
     public const CONFIG_PATH_BACKEND_VERTICAL_SWEEP_TIME
         = 'jaroslawzielinski_torahverse/backend_slider/vertical_sweep_time';
+
     public const CONFIG_PATH_BACKEND_IS_GROUP_COLOUR
         = 'jaroslawzielinski_torahverse/backend_slider/is_group_colours_enable';
+
     public const CONFIG_PATH_BACKEND_VERSES_ORDERED = 'jaroslawzielinski_torahverse/backend_slider/verses_ordered';
+
     public const CONFIG_PATH_BACKEND_TEXT_COLOUR = 'jaroslawzielinski_torahverse/backend_slider/text_colour';
+
     public const CONFIG_PATH_BACKEND_MODE = 'jaroslawzielinski_torahverse/backend_slider/mode';
+
     public const CONFIG_PATH_BACKEND_SLIDER = 'jaroslawzielinski_torahverse/backend_slider/slider';
+
     public const CONFIG_PATH_CUSTOM_ENABLE = 'jaroslawzielinski_torahverse/custom_sliders/enable';
+
     public const CONFIG_PATH_CUSTOM_OVERRIDE = 'jaroslawzielinski_torahverse/custom_sliders/override';
+
     public const CONFIG_PATH_CUSTOM_SWEEP_TIME = 'jaroslawzielinski_torahverse/custom_sliders/sweep_time';
+
     public const CONFIG_PATH_CUSTOM_IS_VERTICAL
         = 'jaroslawzielinski_torahverse/custom_sliders/is_vertical_sweep_possible';
+
     public const CONFIG_PATH_CUSTOM_VERTICAL_SWEEP_TIME
         = 'jaroslawzielinski_torahverse/custom_sliders/vertical_sweep_time';
+
     public const CONFIG_PATH_CUSTOM_IS_GROUP_COLOUR
         = 'jaroslawzielinski_torahverse/custom_sliders/is_group_colours_enable';
+
     public const CONFIG_PATH_CUSTOM_VERSES_ORDERED = 'jaroslawzielinski_torahverse/custom_sliders/verses_ordered';
+
     public const CONFIG_PATH_CUSTOM_TEXT_COLOUR = 'jaroslawzielinski_torahverse/custom_sliders/text_colour';
+
     public const CONFIG_PATH_CUSTOM_MODE = 'jaroslawzielinski_torahverse/custom_sliders/mode';
+
     public const CONFIG_PATH_CUSTOM_SLIDERS = 'jaroslawzielinski_torahverse/custom_sliders/sliders';
+
+    public const CONFIG_PATH_SETTINGS_CACHE_ENABLE = 'jaroslawzielinski_torah/settings/cache_enable';
+
     public const CONFIG_PATH_INTERNALIZATION_LANGUAGE = 'jaroslawzielinski_torah/internalization/language';
+
     public const CONFIG_PATH_TORAHINPUT_DIVISION = 'jaroslawzielinski_torah/torah_input/division';
+
     public const CONFIG_PATH_TORAHINPUT_FRONTENDENABLED = 'jaroslawzielinski_torah/torah_input/frontend_enabled';
 
     /**
@@ -411,6 +462,11 @@ class Config
     {
         return (int)($this->scopeConfig
             ->getValue(DesignInterface::XML_PATH_THEME_ID, ScopeInterface::SCOPE_STORE) ?? '');
+    }
+
+    public function isTorahCacheEnabled(): bool
+    {
+        return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_SETTINGS_CACHE_ENABLE, ScopeInterface::SCOPE_STORE);
     }
 
     public function getInternalizationLanguage(): string

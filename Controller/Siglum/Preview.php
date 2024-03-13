@@ -7,38 +7,36 @@ namespace JaroslawZielinski\TorahVerse\Controller\Siglum;
 use JaroslawZielinski\TorahVerse\Controller\Ajax;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\Result\JsonFactory;
-use GuzzleHttp\Client;
-use JaroslawZielinski\Torah\Bible\Service;
-use JaroslawZielinski\Torah\Bible\Torah;
 use JaroslawZielinski\Torah\Bible\Torah\SiglumFactory;
-use JaroslawZielinski\Torah\Bible\TorahValidator;
-use Psr\Log\LoggerInterface;
 use JaroslawZielinski\TorahVerse\Model\Config;
 use Magento\Framework\Data\Form\FormKey;
+use JaroslawZielinski\TorahVerse\Model\TorahFactory;
+use JaroslawZielinski\Torah\Bible\Torah;
 
 class Preview extends Ajax
 {
     /**
+     * @var Torah
+     */
+    private $torah;
+
+    /**
      * @var Config
      */
     private $config;
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
 
     /**
      * @inheritDoc
      */
     public function __construct(
+        TorahFactory $torahFactory,
         Config $config,
-        LoggerInterface $logger,
         FormKey $formKey,
         JsonFactory $resultJsonFactory,
         Context $context
     ) {
+        $this->torah = $torahFactory->create();
         $this->config = $config;
-        $this->logger = $logger;
         parent::__construct($formKey, $resultJsonFactory, $context);
     }
 
@@ -48,8 +46,6 @@ class Preview extends Ajax
     public function execute()
     {
         try {
-            $client = new Service\Client($this->logger, new Client());
-            $torah = new Torah(new TorahValidator(), new Service($client));
             $request = $this->getRequest();
             $translationParameter = $request->getParam('translation');
             if (empty($translationParameter)) {
@@ -59,9 +55,9 @@ class Preview extends Ajax
             if (empty(trim($siglumParameter))) {
                 throw new \Exception('String is empty!');
             }
-            $siglum =  SiglumFactory::createFromTranslationAndString($translationParameter, $siglumParameter);
+            $siglum = SiglumFactory::createFromTranslationAndString($translationParameter, $siglumParameter);
             $language = $this->config->getInternalizationLanguage();
-            $text = $torah->getTextBySiglum($siglum, $language);
+            $text = $this->torah->getTextBySiglum($siglum, $language);
             if (!empty($text)) {
                 $content = $text->getOrdered();
                 $description = $text->getDescription();
@@ -73,7 +69,7 @@ EOT;
             } else {
                 $previewText = implode(<<<EOT
 
-EOT, $torah->getErrors());
+EOT, $this->torah->getErrors());
             }
             $data['status'] = 'ok';
         } catch (\Exception $e) {

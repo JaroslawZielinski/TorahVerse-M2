@@ -5,7 +5,8 @@
     "license": "MIT",
     "minimum-stability": "stable",
     "require": {
-        "jaroslawzielinski/torah": "^1.1.0"
+        "jaroslawzielinski/sqlite3-database-class": "1.0.3",
+        "jaroslawzielinski/torah": "2.0.6",
     },
     "autoload": {
         "files": [
