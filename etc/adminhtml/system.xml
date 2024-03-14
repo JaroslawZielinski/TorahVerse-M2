@@ -16,6 +16,7 @@
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1"
                 showInStore="1" showInWebsite="1">
                 <label>General Settings</label>
+
                 <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Enable</label>
@@ -482,6 +483,7 @@
             <label>Torah</label>
             <tab>torah</tab>
             <resource>JaroslawZielinski_Torah::configuration</resource>
+
             <group id="internalization" translate="label" type="text" sortOrder="10" showInDefault="1" showInStore="1"
                 showInWebsite="1">
                 <label>Language Settings</label>
@@ -529,6 +531,213 @@
                 </depends>
 
                 <attribute type="expanded">0</attribute>
+            </group>
+
+            <group id="settings" translate="label" type="text" sortOrder="30" showInDefault="1" showInStore="1"
+                showInWebsite="1">
+                <label>Library Settings</label>
+
+                <field id="cache_enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Cache Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[All queries will be cached (sqlite) if enabled.]]></comment>
+                </field>
+                
+                <field id="translation_bt" translate="label comment" type="button" sortOrder="20" showInDefault="1">
+                    <label>BT</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BTButton</frontend_model>
+                    <comment><![CDATA[Biblia Tysiąclecia.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_bw" translate="label comment" type="button" sortOrder="30" showInDefault="1">
+                    <label>BW</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BWButton</frontend_model>
+                    <comment><![CDATA[Biblia Warszawska.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_br" translate="label comment" type="button" sortOrder="40" showInDefault="1">
+                    <label>BR</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BRButton</frontend_model>
+                    <comment><![CDATA[Biblia Warszawsko-Praska.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_esp" translate="label comment" type="button" sortOrder="50" showInDefault="1">
+                    <label>ESP</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\ESPButton</frontend_model>
+                    <comment><![CDATA[Edycja Świętego Pawła.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_bg" translate="label comment" type="button" sortOrder="60" showInDefault="1">
+                    <label>BG</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BGButton</frontend_model>
+                    <comment><![CDATA[Biblia Gdańska.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_ng" translate="label comment" type="button" sortOrder="70" showInDefault="1">
+                    <label>NG</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\NGButton</frontend_model>
+                    <comment><![CDATA[Nowa Biblia Gdańska.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_ug" translate="label comment" type="button" sortOrder="80" showInDefault="1">
+                    <label>UG</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\UGButton</frontend_model>
+                    <comment><![CDATA[Uwspółcześniona Biblia Gdańska.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_bb" translate="label comment" type="button" sortOrder="90" showInDefault="1">
+                    <label>BB</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BBButton</frontend_model>
+                    <comment><![CDATA[Biblia Brzeska.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_bp" translate="label comment" type="button" sortOrder="100" showInDefault="1">
+                    <label>BP</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BPButton</frontend_model>
+                    <comment><![CDATA[Biblia Poznańska.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_jw" translate="label comment" type="button" sortOrder="110" showInDefault="1">
+                    <label>JW</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\JWButton</frontend_model>
+                    <comment><![CDATA[Biblia Jakuba Wujka.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_bm" translate="label comment" type="button" sortOrder="120" showInDefault="1">
+                    <label>BM</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BMButton</frontend_model>
+                    <comment><![CDATA[Biblia Mesjańska.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_ns" translate="label comment" type="button" sortOrder="130" showInDefault="1">
+                    <label>NS</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\NSButton</frontend_model>
+                    <comment><![CDATA[Biblia Nowego Świata.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_bl" translate="label comment" type="button" sortOrder="140" showInDefault="1">
+                    <label>BL</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BLButton</frontend_model>
+                    <comment><![CDATA[Biblia Lubelska.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_sz" translate="label comment" type="button" sortOrder="150" showInDefault="1">
+                    <label>SZ</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\SZButton</frontend_model>
+                    <comment><![CDATA[Słowo Życia.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_eib" translate="label comment" type="button" sortOrder="160" showInDefault="1">
+                    <label>EIB</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\EIBButton</frontend_model>
+                    <comment><![CDATA[Przekład Dosłowny.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_tnp" translate="label comment" type="button" sortOrder="170" showInDefault="1">
+                    <label>TNP</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\TNPButton</frontend_model>
+                    <comment><![CDATA[Biblia Toruńska.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_kjv" translate="label comment" type="button" sortOrder="180" showInDefault="1">
+                    <label>KJV</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\KJVButton</frontend_model>
+                    <comment><![CDATA[King James Version.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_web" translate="label comment" type="button" sortOrder="190" showInDefault="1">
+                    <label>WEB</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\WEBButton</frontend_model>
+                    <comment><![CDATA[Webster Bible.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_ylt" translate="label comment" type="button" sortOrder="200" showInDefault="1">
+                    <label>YLT</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\YLTButton</frontend_model>
+                    <comment><![CDATA[Young’s Literal Translation.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_vul" translate="label comment" type="button" sortOrder="210" showInDefault="1">
+                    <label>VUL</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\VULButton</frontend_model>
+                    <comment><![CDATA[Łacińska Vulgata.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="translation_gr" translate="label comment" type="button" sortOrder="220" showInDefault="1">
+                    <label>GR</label>
+                    <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\GRButton</frontend_model>
+                    <comment><![CDATA[Grecka Septuaginta.]]></comment>
+                    <depends>
+                        <field id="cache_enable">1</field>
+                    </depends>
+                </field>
+
+                <depends>
+                    <field id="jaroslawzielinski_torahverse/general/enable">1</field>
+                </depends>
+
+                <attribute type="expanded">1</attribute>
             </group>
         </section>
     </system>

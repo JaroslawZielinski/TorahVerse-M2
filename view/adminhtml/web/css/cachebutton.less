@@ -1,0 +1,87 @@
+table.cache-button {
+    text-align: center;
+    vertical-align: middle;
+    width: 727px !important;
+    tr {
+        & > td {
+            height: 30px;
+            line-height: 30px;
+            padding: 5px !important;
+            vertical-align: middle !important;
+            &.button {
+                width: 20%;
+            }
+        }
+    }
+    tr {
+        & > th {
+            height: 22px !important;
+            line-height: 22px !important;
+        }
+    }
+    /*
+     * Copyright (c) 2012-2013 Thibaut Courouble
+     * http://www.cssflow.com
+     * Licensed under the MIT License
+     *
+     * Sass/SCSS source: https://goo.gl/UhXKg
+     * PSD by Vin Thomas: https://goo.gl/n1M2e
+     */
+
+    body {
+        font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
+        color: #404040;
+        background: #2a2a2a;
+    }
+
+    .container {
+        margin: 0 auto;
+        width: 95%;
+        text-align: center;
+    }
+
+    .container .progress {
+        margin: 0 auto;
+        width: 95%;
+        height: 16px;
+    }
+
+    .progress {
+        padding: 4px;
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 6px;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+        .progress-bar {
+            height: 16px;
+            border-radius: 4px;
+            background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+            background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+            background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+            -webkit-transition: 0.4s linear;
+            -moz-transition: 0.4s linear;
+            -o-transition: 0.4s linear;
+            transition: 0.4s linear;
+            -webkit-transition-property: width, background-color;
+            -moz-transition-property: width, background-color;
+            -o-transition-property: width, background-color;
+            transition-property: width, background-color;
+            -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+        }
+        span {
+            position: relative;
+            top: -24px;
+        }
+    }
+
+    td.button {
+        &:nth-child(2) {
+            width: 15%;
+        }
+        &:nth-child(3) {
+            width: 11%;
+        }
+    }
+}

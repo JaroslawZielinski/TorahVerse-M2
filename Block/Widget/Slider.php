@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace JaroslawZielinski\TorahVerse\Block\Widget;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as GuzzleClient;
 use JaroslawZielinski\TorahVerse\Api\Data\GroupInterface;
 use JaroslawZielinski\TorahVerse\Helper\Data;
 use JaroslawZielinski\TorahVerse\Model\Config;
@@ -26,22 +26,27 @@ abstract class Slider extends Template implements BlockInterface
      * @var VerseCollectionFactory
      */
     private $verseCollectionFactory;
+
     /**
      * @var QuoteCollectionFactory
      */
     private $quoteCollectionFactory;
+
     /**
      * @var Config
      */
     protected $config;
+
     /**
      * @var JsonSerializer
      */
     private $jsonSerializer;
+
     /**
      * @var PageConfig
      */
     private $pagConfig;
+
     /**
      * @var LoggerInterface
      */
@@ -112,9 +117,9 @@ abstract class Slider extends Template implements BlockInterface
         if (GroupInterface::NO_COLOUR === $colour) {
             $colour = '#FFFFFF';
         }
-        $client = new Service\Client($this->logger, new Client());
+        $onlineClient = new Service\Online\Client($this->logger, new GuzzleClient());
         $siglumObject = SiglumFactory::createFromTranslationAndString($data['translation'], $data['siglum']);
-        $url = $client->getUrlBySiglum($siglumObject);
+        $url = $onlineClient->getUrlBySiglum($siglumObject);
         return [
             'colour' => $colour,
             'antiColour' => Data::getContrastColor($colour),
@@ -126,6 +131,8 @@ abstract class Slider extends Template implements BlockInterface
         ];
     }
 
+    /**
+     */
     private function convertQuoteDataToItem(array $data): array
     {
         $colour = $data['colour_value'];
@@ -174,16 +181,22 @@ abstract class Slider extends Template implements BlockInterface
         return $items;
     }
 
+    /**
+     */
     public function arrayToJson(array $inputArray): string
     {
         return $this->jsonSerializer->serialize($inputArray);
     }
 
+    /**
+     */
     public function getModuleCustomStyles(): ?string
     {
         return $this->config->getModuleCustomStyles();
     }
 
+    /**
+     */
     public function getBackgroundHoverColour(): ?string
     {
         return $this->config->getModuleBackgroundHoverColour();

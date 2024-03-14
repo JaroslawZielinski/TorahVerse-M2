@@ -4,24 +4,26 @@ declare(strict_types=1);
 
 namespace JaroslawZielinski\TorahVerse\Controller\Adminhtml\Verses;
 
-use GuzzleHttp\Client;
 use JaroslawZielinski\TorahVerse\Api\Data\VerseInterface;
 use JaroslawZielinski\TorahVerse\Api\VerseRepositoryInterface;
-use JaroslawZielinski\TorahVerse\Model\Verse;
 use JaroslawZielinski\TorahVerse\Model\VerseFactory;
-use JaroslawZielinski\Torah\Bible\Service;
 use JaroslawZielinski\Torah\Bible\Torah;
 use JaroslawZielinski\Torah\Bible\Torah\SiglumFactory;
-use JaroslawZielinski\Torah\Bible\TorahValidator;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\Exception\LocalizedException;
 use Psr\Log\LoggerInterface;
 use JaroslawZielinski\TorahVerse\Model\Config;
+use JaroslawZielinski\TorahVerse\Model\TorahFactory;
 
 class Save extends Action
 {
+    /**
+     * @var Torah
+     */
+    private $torah;
+
     /**
      * @var LoggerInterface
      */
@@ -46,12 +48,14 @@ class Save extends Action
      * @inheritDoc
      */
     public function __construct(
+        TorahFactory $torahFactory,
         LoggerInterface $logger,
         Config $config,
         VerseFactory $verseFactory,
         VerseRepositoryInterface $verseRepository,
         Context $context
     ) {
+        $this->torah = $torahFactory->create();
         $this->logger = $logger;
         $this->config = $config;
         $this->verseFactory = $verseFactory;
@@ -66,8 +70,6 @@ class Save extends Action
     private function postProcess(VerseInterface $verse): VerseInterface
     {
         //Verse Content Part
-        $client = new Service\Client($this->logger, new Client());
-        $torah = new Torah(new TorahValidator(), new Service($client));
         $translationParameter = $verse->getTranslation();
         if (empty($translationParameter)) {
             throw new \Exception('Translation is not set!');
@@ -78,7 +80,7 @@ class Save extends Action
         }
         $siglum =  SiglumFactory::createFromTranslationAndString($translationParameter, $siglumParameter);
         $language = $this->config->getInternalizationLanguage();
-        $text = $torah->getTextBySiglum($siglum, $language);
+        $text = $this->torah->getTextBySiglum($siglum, $language);
         if (!empty($text)) {
             $verse->setContent($text->getOrdered());
             $verse->setUnordered($text->getUnOrdered());
@@ -86,7 +88,7 @@ class Save extends Action
         } else {
             $previewText = implode(<<<EOT
 
-EOT, $torah->getErrors());
+EOT, $this->torah->getErrors());
             throw new \Exception($previewText);
         }
         return $verse;
