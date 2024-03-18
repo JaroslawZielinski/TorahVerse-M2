@@ -7,6 +7,8 @@ the verse is being scrolled vertically.
 
 Thanks to above the widget is **R**esponsive **W**eb **D**esigned and can be shown on various types of devices.
 
+It is worth mentioning that this module uses library [Torah](https://github.com/JaroslawZielinski/Torah), which is an API client with a caching (SQLite) option. This simple PHP library calls the [Bible Info](https://biblia.info.pl/) service and can store the response in cache (21 translations available). If you would like to learn more, please see the [link](https://github.com/JaroslawZielinski/Torah)...
+
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jaroslawzielinski)
 
 # How to install
