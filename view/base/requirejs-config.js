@@ -14,9 +14,6 @@ var config = {
         },
         verseSlider: {
             deps: ['jquery']
-        },
-        verseUtils: {
-            deps: ['jquery']
         }
     }
 };

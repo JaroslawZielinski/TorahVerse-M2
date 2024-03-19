@@ -7,8 +7,10 @@
 
     <body>
         <referenceContainer name="notifications">
-            <block class="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\Slider\Backend"
-                name="torah-verse-admin-panel-slider" as="torah-verse-admin-panel-slider"/>
+            <container name="verseSliders" as="verseSliders" htmlId="verseSliders" htmlTag="div">
+                <block class="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\Slider\Backend"
+                    name="torah-verse-admin-panel-slider" as="torah-verse-admin-panel-slider"/>
+            </container>
         </referenceContainer>
     </body>
 </page>

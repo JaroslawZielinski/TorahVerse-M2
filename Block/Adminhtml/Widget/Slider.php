@@ -104,7 +104,8 @@ abstract class Slider extends Template
             'verses_ordered' => $this->config->isModuleVersesOrdered(),
             'text_colour' => $this->config->getModuleTextColour(),
             'mode' => $this->config->getModuleMode(),
-            'content_shown_rows' => $this->config->getModuleContentShownRows()
+            'content_shown_rows' => $this->config->getModuleContentShownRows(),
+            'superHtmlId' => '#verseSliders '
         ];
     }
 
