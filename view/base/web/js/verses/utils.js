@@ -1,6 +1,6 @@
 define([
-    'jquery'
-], function($) {
+    'prototype'
+], function() {
     'use strict';
 
     const softBreakWords = ['a', 'i', 'o', 'u', 'w', 'z'];
@@ -37,18 +37,25 @@ define([
                     lastLine += ' ' + end;
                     lines.push(lastLine);
                 } else {
-                    lines.push(end)
+                    lines.push(end);
                 }
             }
             return lines;
         },
         stringToSliderStructure: function (string, characterTrigger) {
             const lines = this.stringToLinesByChunkSize(string, characterTrigger);
-            let preparedHtml = $('<div>', {class: 'list'});
+            let preparedHtml = document.createElement('div');
+            preparedHtml.classList.add('list');
             for (let i = 0; i < lines.length; i++) {
-                $(preparedHtml).append($('<div>', {class: i}).html(lines[i]));
+                let div = document.createElement('div');
+                div.classList.add(i);
+                div.innerHTML = lines[i];
+                preparedHtml.appendChild(div);
             }
-            return $('<div>', {class: 'transformed'}).html($(preparedHtml))
+            let transformed = document.createElement('div');
+            transformed.classList.add('transformed');
+            transformed.appendChild(preparedHtml);
+            return transformed.outerHTML;
         },
         /**
          * Hydrate template with key vars by given values (f.e. {variable} to 'test')

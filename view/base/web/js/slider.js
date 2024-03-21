@@ -8,7 +8,7 @@ define([
     // Value related to Arial 14pt
     const wWidth = 6.89;
 
-    $.widget('verses.slider', {
+    $.widget('verses.bibleSlider', {
         defaults: {
             'sweep_time': 100,
             'is_vertical_sweep_possible': true,
@@ -17,7 +17,9 @@ define([
             'verses_ordered': true,
             'text_colour': '#ff0000',
             'mode': 'autoplayinf',
-            'content_shown_rows': 3
+            'content_shown_rows': 3,
+            'superHtmlId': '',
+            controlType: 'bibleSlider'
         },
         htmlID: null,
         max: null,
@@ -38,6 +40,9 @@ define([
             this._initSlider(this.element);
             this._addResizeWindowEvent(this.element);
         },
+        value: function () {
+            return '';
+        },
         /**
          * Init Element
          * @protected
@@ -45,7 +50,7 @@ define([
          */
         _initElement: function (element) {
             //add html ID
-            let htmlId = 'vs_';
+            let htmlId = 'bibleslider_';
             htmlId += Date.now();
             htmlId += '_' + Math.floor(Math.random() * 1000);
             $(element).attr('id', htmlId);
@@ -87,7 +92,7 @@ define([
         _determineWMax: function (element) {
             const htmlId = $(element).attr('id');
             const slider = document.getElementById(htmlId);
-            const width = slider.clientWidth;
+            const width = null !== slider ? slider.clientWidth : 1757;
             this.wMax = Math.round(width/wWidth);
         },
         /**
@@ -112,17 +117,20 @@ define([
          * @param {Object} element
          */
         _dispatchSliders: function (element) {
-            switch (this.options.mode) {
-                default:
-                case 'randomautoplayinf':
-                    this._moveRandomInfiniteAutoPlayMode(element);
-                    break;
-                case 'autoplayinf':
-                    this._moveInfiniteAutoPlayMode(element);
-                    break;
-                case 'random':
-                    this._moveRandomMode(element);
-                    break;
+            try {
+                switch (this.options.mode) {
+                    default:
+                    case 'randomautoplayinf':
+                        this._moveRandomInfiniteAutoPlayMode(element);
+                        break;
+                    case 'autoplayinf':
+                        this._moveInfiniteAutoPlayMode(element);
+                        break;
+                    case 'random':
+                        this._moveRandomMode(element);
+                        break;
+                }
+            } catch (e) {
             }
         },
         /**
@@ -206,13 +214,13 @@ define([
             $(element).hide();
             $(element).html(hydratedHtml);
             const htmlSliderContent = verseUtils.stringToSliderStructure(data.content, self.wMax);
-            const htmlContentSelector = '#' + self.htmlID + ' a .item .content';
-            $(htmlContentSelector).html(htmlSliderContent);
+            const htmlContentSelector = self.options.superHtmlId + '#' + self.htmlID + ' a .item .content';
+            document.querySelector(htmlContentSelector).innerHTML = htmlSliderContent;
             if (self.options.is_vertical_sweep_possible && self.options.content_shown_rows * self.wMax <= data.content.length) {
                 //event that content is too big (requires vertical scroll - more than 2 rows)
                 self.suppress[self.htmlID] = true;
                 $(htmlContentSelector).verticalScroll({
-                    'parent_html_id': self.htmlID,
+                    'parent_html_id': self.options.superHtmlId + self.htmlID,
                     'sweep_time': self.options.vertical_sweep_time,
                     'content_shown_rows': self.options.content_shown_rows,
                     'onFinish': function (verticalScroll, vParentHtmlId, vHtmlId) {
@@ -225,5 +233,5 @@ define([
         }
     });
 
-    return $.verses.slider;
+    return $.verses.bibleSlider;
 });
