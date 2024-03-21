@@ -9,7 +9,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use JaroslawZielinski\Torah\Bible\Service\Offline\Repository;
+use JaroslawZielinski\Torah\Bible\Service\Offline\RepositoryInterface;
 use JaroslawZielinski\Torah\Translations\Resources;
 
 class CacheFlush extends Command
@@ -27,7 +27,7 @@ class CacheFlush extends Command
     private $logger;
 
     /**
-     * @var Repository
+     * @var RepositoryInterface
      */
     private $repository;
 
@@ -36,7 +36,7 @@ class CacheFlush extends Command
      */
     public function __construct(
         LoggerInterface $logger,
-        Repository $repository
+        RepositoryInterface $repository
     ) {
         $this->messages = [];
         $this->logger = $logger;

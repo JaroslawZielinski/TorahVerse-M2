@@ -8,7 +8,7 @@ define([
     // Value related to Arial 14pt
     const wWidth = 6.89;
 
-    $.widget('verses.bibleSlider', {
+    $.widget('verses.verseSlider', {
         defaults: {
             'sweep_time': 100,
             'is_vertical_sweep_possible': true,
@@ -19,7 +19,7 @@ define([
             'mode': 'autoplayinf',
             'content_shown_rows': 3,
             'superHtmlId': '',
-            controlType: 'bibleSlider'
+            controlType: 'verseSlider'
         },
         htmlID: null,
         max: null,
@@ -233,5 +233,5 @@ define([
         }
     });
 
-    return $.verses.bibleSlider;
+    return $.verses.verseSlider;
 });
