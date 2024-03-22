@@ -123,6 +123,10 @@
     <preference for="JaroslawZielinski\TorahVerse\Api\VerseRepositoryInterface"
         type="JaroslawZielinski\TorahVerse\Model\VerseRepository"/>
 
+    <!-- Torah preferences -->
+    <preference for="JaroslawZielinski\Torah\Bible\Service\Offline\RepositoryInterface"
+        type="JaroslawZielinski\Torah\Bible\Service\Offline\Repository"/>
+
     <!-- Search preferences -->
     <preference for="JaroslawZielinski\TorahVerse\Api\Data\QuoteSearchResultsInterface"
         type="Magento\Framework\Api\SearchResults"/>

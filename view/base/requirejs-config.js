@@ -1,7 +1,7 @@
 var config = {
     map: {
         '*': {
-            verseSlider: 'JaroslawZielinski_TorahVerse/js/slider',
+            verseSlider: 'JaroslawZielinski_TorahVerse/js/verseSlider',
             verticalScroll: 'JaroslawZielinski_TorahVerse/js/verticalScroll'
         }
     },
