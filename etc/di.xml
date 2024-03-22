@@ -124,8 +124,8 @@
         type="JaroslawZielinski\TorahVerse\Model\VerseRepository"/>
 
     <!-- Torah preferences -->
-    <preference for="JaroslawZielinski\Torah\Bible\Service\Offline\RepositoryInterface"
-        type="JaroslawZielinski\Torah\Bible\Service\Offline\Repository"/>
+    <preference for="JaroslawZielinski\TorahVerse\Api\TorahRepositoryInterface"
+        type="JaroslawZielinski\TorahVerse\Model\TorahRepository"/>
 
     <!-- Search preferences -->
     <preference for="JaroslawZielinski\TorahVerse\Api\Data\QuoteSearchResultsInterface"
