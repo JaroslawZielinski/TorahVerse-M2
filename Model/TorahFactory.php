@@ -9,13 +9,13 @@ use GuzzleHttp\Client as GuzzleClient;
 use JaroslawZielinski\Torah\Bible\Service;
 use Psr\Log\LoggerInterface;
 use JaroslawZielinski\TorahVerse\Model\Config;
-use JaroslawZielinski\TorahVerse\Api\TorahRepositoryInterface;
+use JaroslawZielinski\Torah\Bible\Service\Offline\Repository;
 use JaroslawZielinski\Torah\Bible\TorahValidator;
 
 class TorahFactory
 {
     /**
-     * @var TorahRepositoryInterface
+     * @var Repository
      */
     private $repository;
 
@@ -32,7 +32,7 @@ class TorahFactory
     /**
      */
     public function __construct(
-        TorahRepositoryInterface $repository,
+        Repository $repository,
         Config $config,
         LoggerInterface $logger
     ) {
