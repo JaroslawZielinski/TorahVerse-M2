@@ -12,6 +12,7 @@ interface VerseSearchResultsInterface extends SearchResultsInterface
      * @return VerseInterface[]
      */
     public function getItems();
+
     /**
      * @param VerseInterface[] $items
      * @return $this

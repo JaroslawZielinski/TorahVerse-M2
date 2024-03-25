@@ -1,0 +1,47 @@
+<?php
+    /** @var \JaroslawZielinski\TorahVerse\Block\Search $block */
+    $translations = $block->getTranslations();
+?>
+<form class="form" id="torahverse-pick" action="#" method="post" autocomplete="off">
+    <fieldset class="fieldset">
+        <legend class="legend">
+            <span><?= __('Torahverse Search'); ?></span>
+        </legend>
+        <br>
+
+        <input name="form_key" type="hidden" value="">
+
+        <div class="field required">
+            <label for="siglum" class="label">
+                <span><?= __('Siglum'); ?></span>
+            </label>
+
+            <div class="control">
+                <?= $block->getVersePickComponentHtml(); ?>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<script type="text/x-magento-init">
+    {
+        "#torahverse-pick": {
+            "validation": {}
+        }
+    }
+</script>
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        const ajaxUrl = '/torahverse/siglum/preview',
+            resultId = '#preview';
+        let dataForm = $('#torahverse-pick');
+        $(dataForm).on('submit', function(event) {
+            event.preventDefault();
+            let validation = dataForm.validation('isValid');
+            if (validation) {
+
+            }
+        });
+    });
+</script>

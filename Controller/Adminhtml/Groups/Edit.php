@@ -20,6 +20,7 @@ class Edit extends Grid implements HttpGetActionInterface
      * @var GroupFactory
      */
     private $groupFactory;
+
     /**
      * @var GroupManagement
      */

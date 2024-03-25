@@ -28,22 +28,27 @@ abstract class Slider extends Template
      * @var CollectionFactory
      */
     private $collectionFactory;
+
     /**
      * @var VerseCollectionFactory
      */
     private $verseCollectionFactory;
+
     /**
      * @var QuoteCollectionFactory
      */
     private $quoteCollectionFactory;
+
     /**
      * @var Config
      */
     protected $config;
+
     /**
      * @var JsonHelper
      */
     private $jsonSerializer;
+
     /**
      * @var LoggerInterface
      */
@@ -119,7 +124,7 @@ abstract class Slider extends Template
             $colour = '#FFFFFF';
         }
         $onlineClient = new Service\Online\Client($this->logger, new GuzzleClient());
-        $siglumObject = SiglumFactory::createFromTranslationAndString($data['translation'], $data['siglum']);
+        $siglumObject = SiglumFactory::createFromString($data['siglum']);
         $url = $onlineClient->getUrlBySiglum($siglumObject);
         return [
             'colour' => $colour,

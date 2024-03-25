@@ -11,48 +11,24 @@ define([
 
     return Component.extend({
         defaults: {
-            resultSelector: '#preview-result',
-            imports: {
-                translation: '${ $.parentName }.translation:value'
-            }
+            resultSelector: '#preview-result'
         },
-
         initialize: function () {
             this._super();
-
+            
             this.previewSiglum();
-
-            return this;
-        },
-
-        /**
-         * Initializes observable properties of instance
-         *
-         * @returns {Abstract} Chainable.
-         */
-        initObservable: function () {
-            this._super();
-
-            /**
-             * equalityComparer function
-             *
-             * @returns boolean.
-             */
-            this.value.equalityComparer = function (oldValue, newValue) {
-                return !oldValue && !newValue || oldValue === newValue;
-            };
 
             return this;
         },
         previewSiglum: function () {
             var self = this,
                 ajaxUrl = self.previewUrl,
-                translationCode = self.translation,
-                siglumCode = self.value._latestValue,
+                codeData = self.value._latestValue.split('/'),
+                translationCode = codeData[0],
+                siglumCode = self.value._latestValue.replace(translationCode + '/', ''),
                 resultId = self.resultSelector;
-            if (undefined !== translationCode && undefined !== siglumCode &&
-                !SiglumData.compareToCurrent(translationCode, siglumCode)) {
-                let formKey = window.FORM_KEY;
+            if (undefined !== translationCode && undefined !== siglumCode) {
+                let formKey = window.FORM_KEY || $('input[name="form_key"]').val();
                 $.ajax({
                     showLoader: false,
                     url: ajaxUrl,
@@ -66,7 +42,6 @@ define([
                     dataType: 'json'
                 }).done(function (data) {
                     $(resultId).html(data['result']);
-                    SiglumData.setPrevious(translationCode, siglumCode);
                 });
             }
         },
@@ -79,6 +54,6 @@ define([
             this.validate();
 
             this.previewSiglum();
-        },
+        }
     });
 });

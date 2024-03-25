@@ -18,6 +18,7 @@ abstract class Ajax extends Action
      * @var FormKey
      */
     private $formKey;
+
     /**
      * @var JsonFactory
      */
