@@ -40,8 +40,6 @@
 
         <column name="siglum" nullable="false" xsi:type="text" comment="Siglum"/>
 
-        <column name="translation" nullable="false" xsi:type="text" comment="Translation"/>
-
         <column name="content" nullable="false" xsi:type="text" comment="Content"/>
 
         <column name="unordered" nullable="false" xsi:type="text" comment="Unordered content"/>

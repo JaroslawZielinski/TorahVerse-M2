@@ -39,9 +39,11 @@ class Verses implements OptionSourceInterface
                 ->addFieldToFilter('groups.'. GroupInterface::CODE, ['eq' => 'default'])
                 ->load();
             foreach ($verseCollection as $item) {
+               //TODO: change translation 
+               $translation = $item['translation'];
                $this->attributeOptionsList[] = [
                    'value' => $item['verse_id'],
-                   'label' => sprintf('%s (%s/%s)', $item['name'], $item['translation'], $item['siglum'])
+                   'label' => sprintf('%s (%s/%s)', $item['name'], $translation, $item['siglum'])
                ];
             }
         }

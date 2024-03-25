@@ -11,12 +11,8 @@ define([
 
     return Component.extend({
         defaults: {
-            resultSelector: '#preview-result',
-            imports: {
-                translation: '${ $.parentName }.translation:value'
-            }
+            resultSelector: '#preview-result'
         },
-
         initialize: function () {
             this._super();
 
@@ -24,34 +20,14 @@ define([
 
             return this;
         },
-
-        /**
-         * Initializes observable properties of instance
-         *
-         * @returns {Abstract} Chainable.
-         */
-        initObservable: function () {
-            this._super();
-
-            /**
-             * equalityComparer function
-             *
-             * @returns boolean.
-             */
-            this.value.equalityComparer = function (oldValue, newValue) {
-                return !oldValue && !newValue || oldValue === newValue;
-            };
-
-            return this;
-        },
         previewSiglum: function () {
             var self = this,
                 ajaxUrl = self.previewUrl,
-                translationCode = self.translation,
+                //TODO: split translation and abstract siglum
+                translationCode = self.value._latestValue,
                 siglumCode = self.value._latestValue,
                 resultId = self.resultSelector;
-            if (undefined !== translationCode && undefined !== siglumCode &&
-                !SiglumData.compareToCurrent(translationCode, siglumCode)) {
+            if (undefined !== translationCode && undefined !== siglumCode) {
                 let formKey = window.FORM_KEY;
                 $.ajax({
                     showLoader: false,
@@ -66,7 +42,6 @@ define([
                     dataType: 'json'
                 }).done(function (data) {
                     $(resultId).html(data['result']);
-                    SiglumData.setPrevious(translationCode, siglumCode);
                 });
             }
         },
@@ -79,6 +54,6 @@ define([
             this.validate();
 
             this.previewSiglum();
-        },
+        }
     });
 });

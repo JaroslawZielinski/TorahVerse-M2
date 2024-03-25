@@ -19,9 +19,11 @@ abstract class AbstractUninstall extends AbstractDb
         'widget_instance' => 'DELETE FROM %s WHERE instance_type LIKE "&TorahVerse&";',
     ];
 
-    public function unInstall(): void
+    public function unInstall($connection = null): void
     {
-        $connection = $this->getConnection();
+        if (empty($connection)) {
+            $connection = $this->getConnection();
+        }
         foreach (self::UNINSTALL_DATA as $tableNameItem => $queryItem) {
             $tableName = $connection->getTableName($tableNameItem);
             $query = sprintf(

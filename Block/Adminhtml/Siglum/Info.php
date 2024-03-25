@@ -17,6 +17,7 @@ class Info extends Template
      * @var Config
      */
     private $config;
+
     /**
      * @inheritDoc
      */
