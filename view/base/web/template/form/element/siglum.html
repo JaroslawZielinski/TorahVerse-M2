@@ -1,25 +1,63 @@
-<!--
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
--->
-<input class="admin__control-text" type="text"
-    data-bind="
-        event: {change: userChanges},
-        value: value,
-        hasFocus: focused,
-        valueUpdate: valueUpdate,
-        attr: {
-            name: inputName,
-            placeholder: placeholder,
-            'aria-describedby': noticeId,
-            id: uid,
-            disabled: disabled,
-            maxlength: 255
-    }"/>
-<!-- ko if: $data.additionalInfo -->
-    <!-- ko with: {additionalInfoUnsanitizedHtml: $data.additionalInfo} -->
-        <div class="admin__additional-info" html="additionalInfoUnsanitizedHtml"></div>
-    <!-- /ko -->
-<!-- /ko -->
+<div class="container" style="width: 100%;">
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <select class="admin__control-select" data-bind="
+                        attr: {
+                            name: 'translation',
+                            id: 'translation_' + uid,
+                            disabled: disabled,
+                            'aria-describedby': noticeId,
+                            'aria-label': noticeId
+                        },
+                        event: {
+                            change: $data.translationBinding
+                        },
+                        hasFocus: focused,
+                        optgroup: $data.options,
+                        value: $data.state.translation,
+                        optionsValue: 'value',
+                        optionsText: 'label'
+                    ">
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-12">y</div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <span class="siglum-indicator" data-bind="
+                    html: value,
+                    attr: {
+                        id: 'span_' + uid,
+                        disabled: 'disabled',
+                }"></span>
+            <input class="admin__control-text" type="hidden"
+                data-bind="
+                    event: {change: userChanges},
+                    value: value,
+                    hasFocus: focused,
+                    valueUpdate: valueUpdate,
+                    attr: {
+                        name: inputName,
+                        placeholder: placeholder,
+                        'aria-describedby': noticeId,
+                        id: uid,
+                        disabled: disabled,
+                        maxlength: 255
+                }"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <!-- ko if: $data.additionalInfo -->
+            <!-- ko with: {additionalInfoUnsanitizedHtml: $data.additionalInfo} -->
+                <div class="admin__additional-info" html="additionalInfoUnsanitizedHtml"></div>
+            <!-- /ko -->
+        <!-- /ko -->
+        </div>
+    </div>
+</div>

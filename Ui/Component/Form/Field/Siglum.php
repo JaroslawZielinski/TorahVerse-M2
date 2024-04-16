@@ -8,6 +8,7 @@ use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Form\Field;
 use JaroslawZielinski\TorahVerse\Model\Config;
+use JaroslawZielinski\TorahVerse\Model\Config\Source\Verses\Division;
 
 class Siglum extends Field
 {
@@ -36,7 +37,16 @@ class Siglum extends Field
     public function getConfiguration(): array
     {
         $configuration = parent::getConfiguration();
-        // inject admin panel configuration to ui component js configuration
+        $torahInputDivision = $this->config->getTorahInputDivision();
+        switch ($torahInputDivision) {
+            case Division::TWO_DIVISION_MODE:
+                //TODO: upon $torahInputDivision inject Torah Structure to js component
+                break;
+            default:
+            case Division::THREE_DIVISION_MODE:
+                //TODO: upon $torahInputDivision inject Torah Structure to js component
+                break;
+        }
         return $configuration;
     }
 }
