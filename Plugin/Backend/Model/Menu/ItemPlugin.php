@@ -14,6 +14,8 @@ class ItemPlugin
      */
     private $frontUrlModel;
 
+    /**
+     */
     public function __construct(UrlInterface $frontUrlModel)
     {
         $this->frontUrlModel = $frontUrlModel;
@@ -22,7 +24,7 @@ class ItemPlugin
     public function afterGetUrl(Item $subject, $result)
     {
         $info = $subject->toArray();
-        if ('JaroslawZielinski_TorahVerse::versesearch' === $info['resource']) {
+        if ('JaroslawZielinski_TorahVerse::versepick' === $info['resource']) {
             return $this->frontUrlModel->getUrl($info['action']);
         }
         return $result;

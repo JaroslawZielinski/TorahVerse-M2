@@ -118,7 +118,7 @@ abstract class Slider extends Template implements BlockInterface
             $colour = '#FFFFFF';
         }
         $onlineClient = new Service\Online\Client($this->logger, new GuzzleClient());
-        $siglumObject = SiglumFactory::createFromTranslationAndString($data['translation'], $data['siglum']);
+        $siglumObject = SiglumFactory::createFromString($data['siglum']);
         $url = $onlineClient->getUrlBySiglum($siglumObject);
         return [
             'colour' => $colour,

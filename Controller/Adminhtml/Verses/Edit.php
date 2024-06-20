@@ -20,6 +20,7 @@ class Edit extends Grid implements HttpGetActionInterface
      * @var VerseFactory
      */
     private $verseFactory;
+
     /**
      * @var VerseRepositoryInterface
      */

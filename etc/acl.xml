@@ -16,9 +16,9 @@
                             title="TorahVerse Configuration" translate="title" />
                     </resource>
 
-                    <resource id="JaroslawZielinski_TorahVerse::search" title="TorahVerse Search"
+                    <resource id="JaroslawZielinski_TorahVerse::pick" title="TorahVerse Pick"
                         translate="title">
-                        <resource id="JaroslawZielinski_TorahVerse::versesearch" title="TorahVerse Verse Search" />
+                        <resource id="JaroslawZielinski_TorahVerse::versepick" title="TorahVerse Pick Verse" />
                     </resource>
                 </resource>
 

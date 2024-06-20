@@ -17,19 +17,24 @@ class HomepageWidgetInit
      * @var Config
      */
     private $config;
+
     /**
      * @var InstanceCreator
      */
     private $instanceCreator;
+
     /**
      * @var ThemeProviderInterface
      */
     private $themeProvider;
+
     /**
      * @var ResolverInterface
      */
     private $themeResolver;
 
+    /**
+     */
     public function __construct(
         Config $config,
         InstanceCreator $instanceCreator,
@@ -58,6 +63,9 @@ class HomepageWidgetInit
         $this->execute($currentTheme);
     }
 
+    /**
+     * @inheritDoc
+     */
     public function execute(string $themeName): void
     {
         $theme = $this->themeProvider->getThemeByFullPath($themeName);

@@ -9,9 +9,13 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class Division extends AbstractSource implements OptionSourceInterface
 {
+    public const TWO_DIVISION_MODE = 'two-division';
+
+    public const THREE_DIVISION_MODE = 'three-division';
+
     public const MODE = [
-        'two-division' => 'Old Testamen/New Testament',
-        'three-division' => 'Tanakh/Nevi\'im ketuvim/Brithadasha'
+        self::TWO_DIVISION_MODE => 'Old Testamen/New Testament',
+        self::THREE_DIVISION_MODE => 'Tanakh/Nevi\'im ketuvim/Brithadasha'
     ];
 
     public function getOptions(): array

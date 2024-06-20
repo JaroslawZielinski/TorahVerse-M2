@@ -33,13 +33,13 @@
              module="JaroslawZielinski_TorahVerse" sortOrder="50" parent="JaroslawZielinski_TorahVerse::settings"
              dependsOnModule="JaroslawZielinski_TorahVerse"/>
 
-        <add id="JaroslawZielinski_TorahVerse::search" resource="JaroslawZielinski_TorahVerse::search"
-             title="Search" translate="title" module="JaroslawZielinski_TorahVerse"
+        <add id="JaroslawZielinski_TorahVerse::pick" resource="JaroslawZielinski_TorahVerse::pick"
+             title="Pick" translate="title" module="JaroslawZielinski_TorahVerse"
              parent="JaroslawZielinski_TorahVerse::menu" sortOrder="30"/>
 
-        <add id="JaroslawZielinski_TorahVerse::versesearch" resource="JaroslawZielinski_TorahVerse::versesearch"
-             title="Verse Search" action="torahverse/siglum/search"
-             module="JaroslawZielinski_TorahVerse" sortOrder="10" parent="JaroslawZielinski_TorahVerse::search"
+        <add id="JaroslawZielinski_TorahVerse::versepick" resource="JaroslawZielinski_TorahVerse::versepick"
+             title="Verse Pick" action="torahverse/siglum/pick"
+             module="JaroslawZielinski_TorahVerse" sortOrder="10" parent="JaroslawZielinski_TorahVerse::pick"
              target="_blank" dependsOnModule="JaroslawZielinski_TorahVerse"/>
     </menu>
 </config>
