@@ -5,6 +5,11 @@ define([
 
     const softBreakWords = ['a', 'i', 'o', 'u', 'w', 'z'];
 
+    const groupsMap = {
+        'Old Testament': ['Tanakh', 'Nevi\'im ketuvim'],
+        'New Testament': ['Brit Hadasha']
+    };
+
     return {
         stringToLinesByChunkSize: function (string, chunkSize) {
             const words = string.split(' ');
@@ -79,6 +84,44 @@ define([
                 array[j] = temp;
             }
             return array;
+        },
+        /**
+         * Search for value in object
+         * @see https://stackoverflow.com/questions/8517089/js-search-in-object-values#answer-40890687
+         * @see https://stackoverflow.com/questions/4059147/check-if-a-variable-is-a-string-in-javascript#answer-4059166
+         * @param haystack
+         * @param needle
+         * @returns {*}
+         */
+        findIt: function (haystack, needle) {
+            return haystack.filter(function(obj) {
+                return Object.keys(obj).some(function(key) {
+                    switch (typeof obj[key]) {
+                        default:
+                        case 'string':
+                            return obj[key].includes(needle);
+                        case 'object':
+                            return undefined !== obj[key][needle];
+                    }
+                })
+            });
+        },
+        getGroupsMap: function () {
+            return groupsMap;
+        },
+        /**
+         * Equivalent of PHP in_array
+         *
+         * @see https://stackoverflow.com/questions/784012/javascript-equivalent-of-phps-in-array#answer-784015
+         */
+        inArray: function (needle, haystack) {
+            const length = haystack.length;
+            for (let i = 0; i < length; i++) {
+                if (haystack[i] === needle) {
+                    return true;
+                }
+            }
+            return false;
         }
     };
 });

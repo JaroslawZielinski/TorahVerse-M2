@@ -136,6 +136,7 @@
                     <item name="elementTmpl" xsi:type="string">JaroslawZielinski_TorahVerse/form/element/siglum</item>
                     <item name="dataScope" xsi:type="string">siglum</item>
                     <item name="filterOptions" xsi:type="boolean">true</item>
+                    <item name="initialState" xsi:type="number">6</item>
                 </item>
             </argument>
 
@@ -144,6 +145,7 @@
                     <rule name="required-entry" xsi:type="boolean">true</rule>
                 </validation>
                 <dataType>text</dataType>
+                <visible>true</visible>
                 <label translate="true">Siglum</label>
             </settings>
         </field>

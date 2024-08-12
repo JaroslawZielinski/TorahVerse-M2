@@ -1,0 +1,46 @@
+<style>
+    .container {
+        width: 100%;
+        padding: 10px 0 0 0;
+    }
+    .button-grid {
+        display: grid;
+        grid-template-columns: repeat(<%= m %>, 1fr);
+        grid-template-rows: repeat(<%= n %>, 1fr);
+        gap: 0;
+        margin-top: 7px;
+        margin-bottom: 7px;
+    }
+    .button-grid .btn {
+        width: 217px;
+        height: 31px;
+        font-size: 1.5rem;
+        margin-bottom: 6px;
+        margin-left: 6px;
+    }
+    .label-torah-div {
+        padding-top: 13px;
+    }
+    <% if (isFinished === 'true') { %>
+    .label-torah {
+        font-size: 32px;
+        font-weight: bold;
+        color: red;
+    }
+    <% } %>
+</style>
+<div class="container">
+    <div>
+        <% if (disabled !== 'true') { %>
+            <button type="button" class="btn-back btn btn-warning" data-id="back">⇦</button>
+        <% } %>
+    </div>
+    <div class="label-torah-div">
+        <span class="label-torah"><%= label %></span>
+    </div>
+    <div class="button-grid">
+        <% _.each(buttons, function(value, key) { %>
+            <button type="button" class="btn-torah btn btn-warning" data-id="<%= key %>"><%= value %></button>
+        <% }); %>
+    </div>
+</div>

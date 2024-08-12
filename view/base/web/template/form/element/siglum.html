@@ -14,7 +14,7 @@
                         },
                         hasFocus: focused,
                         optgroup: $data.options,
-                        value: $data.state.translation,
+                        value: $data.parts.translation,
                         optionsValue: 'value',
                         optionsText: 'label'
                     ">
@@ -23,7 +23,8 @@
     </div>
 
     <div class="row">
-        <div class="col-12 col-sm-12">y</div>
+        <div id="buttons" class="buttons col-12 col-sm-12" data-bind="
+            html: $data.renderButtons(), afterRender: $data.handleButtons() "></div>
     </div>
 
     <div class="row">
@@ -32,7 +33,7 @@
                     html: value,
                     attr: {
                         id: 'span_' + uid,
-                        disabled: 'disabled',
+                        disabled: 'disabled'
                 }"></span>
             <input class="admin__control-text" type="hidden"
                 data-bind="

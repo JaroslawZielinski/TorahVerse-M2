@@ -2,7 +2,9 @@ var config = {
     map: {
         '*': {
             verseSlider: 'JaroslawZielinski_TorahVerse/js/verseSlider',
-            verticalScroll: 'JaroslawZielinski_TorahVerse/js/verticalScroll'
+            verticalScroll: 'JaroslawZielinski_TorahVerse/js/verticalScroll',
+            siglumInput: 'JaroslawZielinski_TorahVerse/js/form/element/siglum',
+            verseUtils: 'JaroslawZielinski_TorahVerse/js/verses/utils'
         }
     },
     paths: {
@@ -14,6 +16,9 @@ var config = {
         },
         verseSlider: {
             deps: ['jquery']
+        },
+        siglumInput: {
+            deps: ['verseUtils']
         }
     }
 };
