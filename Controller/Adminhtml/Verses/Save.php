@@ -69,16 +69,11 @@ class Save extends Action
      */
     private function postProcess(VerseInterface $verse): VerseInterface
     {
-        //Verse Content Part
-        $translationParameter = $verse->getTranslation();
-        if (empty($translationParameter)) {
-            throw new \Exception('Translation is not set!');
-        }
         $siglumParameter = $verse->getSiglum();
         if (empty(trim($siglumParameter))) {
             throw new \Exception('String is empty!');
         }
-        $siglum =  SiglumFactory::createFromTranslationAndString($translationParameter, $siglumParameter);
+        $siglum =  SiglumFactory::createFromString($siglumParameter);
         $language = $this->config->getInternalizationLanguage();
         $text = $this->torah->getTextBySiglum($siglum, $language);
         if (!empty($text)) {
