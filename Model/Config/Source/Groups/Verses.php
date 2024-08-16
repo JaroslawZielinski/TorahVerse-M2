@@ -41,7 +41,7 @@ class Verses implements OptionSourceInterface
             foreach ($verseCollection as $item) {
                $this->attributeOptionsList[] = [
                    'value' => $item['verse_id'],
-                   'label' => sprintf('%s (%s/%s)', $item['name'], $item['translation'], $item['siglum'])
+                   'label' => sprintf('%s (%s)', $item['name'], $item['siglum'])
                ];
             }
         }

@@ -120,46 +120,23 @@
             </settings>
         </field>
 
-        <field name="translation" formElement="select" sortOrder="40"
-            component="JaroslawZielinski_TorahVerse/js/form/element/translation">
+        <field name="siglum" sortOrder="50" formElement="select"
+            class="JaroslawZielinski\TorahVerse\Ui\Component\Form\Field\Siglum">
             <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">JaroslawZielinski\TorahVerse\Model\Config\Source\Verses\Translation</item>
                 <item name="config" xsi:type="array">
-                    <item name="source" xsi:type="string">verses</item>
-                    <item name="default" xsi:type="number">0</item>
-                    <item name="previewUrl" xsi:type="string">jaroslawzielinski_torahverse/siglum/preview</item>
-                </item>
-            </argument>
-
-            <settings>
-                <validation>
-                    <rule name="required-entry" xsi:type="boolean">true</rule>
-                </validation>
-                <dataType>string</dataType>
-                <label translate="true">Translation</label>
-                <dataScope>translation</dataScope>
-                <visible>true</visible>
-            </settings>
-
-            <formElements>
-                <select>
-                    <settings>
-                        <options class="JaroslawZielinski\TorahVerse\Model\Config\Source\Verses\Translation"/>
-                    </settings>
-                </select>
-            </formElements>
-        </field>
-
-        <field name="siglum" sortOrder="50" formElement="input"
-            component="JaroslawZielinski_TorahVerse/js/form/element/siglum">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
+                    <item name="template" xsi:type="string">JaroslawZielinski_TorahVerse/field</item>
                     <item name="source" xsi:type="string">verses</item>
                     <item name="additionalInfo" xsi:type="string" translate="true"><![CDATA[
-                        księga / rozdział / werset(y) np. <i><strong>mt</strong>/1/1-2</i>
-                        </br>
                         <textarea id="preview-result" disabled></textarea>
                     ]]></item>
                     <item name="previewUrl" xsi:type="string">jaroslawzielinski_torahverse/siglum/preview</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="component" xsi:type="string">JaroslawZielinski_TorahVerse/js/form/element/siglum</item>
+                    <item name="elementTmpl" xsi:type="string">JaroslawZielinski_TorahVerse/form/element/siglum</item>
+                    <item name="dataScope" xsi:type="string">siglum</item>
+                    <item name="filterOptions" xsi:type="boolean">true</item>
+                    <item name="initialState" xsi:type="number">6</item>
                 </item>
             </argument>
 
@@ -168,8 +145,8 @@
                     <rule name="required-entry" xsi:type="boolean">true</rule>
                 </validation>
                 <dataType>text</dataType>
+                <visible>true</visible>
                 <label translate="true">Siglum</label>
-                <dataScope>siglum</dataScope>
             </settings>
         </field>
 
@@ -199,18 +176,5 @@
                 </select>
             </formElements>
         </field>
-
-        <!-- @see https://webkul.com/blog/add-html-content-using-uicomponent-form/ -->
-        <container name="info_container" >
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="sortOrder" xsi:type="number">70</item>
-                </item>
-            </argument>
-
-            <htmlContent name="html_content">
-                <argument name="block" xsi:type="object">JaroslawZielinski\TorahVerse\Block\Adminhtml\Siglum\Info</argument>
-            </htmlContent>
-        </container>
     </fieldset>
 </form>

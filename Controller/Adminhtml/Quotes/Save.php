@@ -18,10 +18,12 @@ class Save extends Action
      * @var LoggerInterface
      */
     private $logger;
+
     /**
      * @var QuoteFactory
      */
     private $quoteFactory;
+
     /**
      * @var QuoteRepositoryInterface
      */

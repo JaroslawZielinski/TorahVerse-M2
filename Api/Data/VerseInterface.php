@@ -9,15 +9,23 @@ use Magento\Framework\Api\ExtensibleDataInterface;
 interface VerseInterface extends ExtensibleDataInterface
 {
     public const VERSE_ID = 'verse_id';
+
     public const GROUP_ID = 'group_id';
+
     public const CODE = 'code';
+
     public const NAME = 'name';
+
     public const SIGLUM = 'siglum';
-    public const TRANSLATION = 'translation';
+
     public const CONTENT = 'content';
+
     public const UNORDERED = 'unordered';
+
     public const DESCRIPTION = 'description';
+
     public const CREATED_AT = 'created_at';
+
     public const UPDATED_AT = 'updated_at';
 
     /**
@@ -74,17 +82,6 @@ interface VerseInterface extends ExtensibleDataInterface
      * @return VerseInterface
      */
     public function setSiglum(?string $siglum): self;
-
-    /**
-     * @return ?string
-     */
-    public function getTranslation(): ?string;
-
-    /**
-     * @param ?string $translation
-     * @return VerseInterface
-     */
-    public function setTranslation(?string $translation): self;
 
     /**
      * @return ?string

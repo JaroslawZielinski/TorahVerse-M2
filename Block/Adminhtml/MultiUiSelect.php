@@ -10,6 +10,7 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 class MultiUiSelect extends Field
 {
     public const SELECT_PLACEHOLDER = 'Select Group';
+
     /**
      * @inheritDoc
      */

@@ -19,18 +19,22 @@ class Save extends Action
      * @var LoggerInterface
      */
     private $logger;
+
     /**
      * @var GroupFactory
      */
     private $groupFactory;
+
     /**
      * @var GroupManagement
      */
     private $groupManagement;
+
     /**
      * @var VerseRepositoryInterface
      */
     private $verseRepository;
+
     /**
      * @var QuoteRepositoryInterface
      */

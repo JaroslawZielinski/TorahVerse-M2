@@ -20,7 +20,6 @@ use Psr\Log\LoggerInterface;
 class Siglum extends Column
 {
     public const COLUMN_NAME = 'siglum';
-    public const COLUMN_TRANSLATION = 'translation';
     public const COLUMN_VERSE_ID = 'verse_id';
     /**
      * @var LoggerInterface
@@ -51,10 +50,10 @@ class Siglum extends Column
      * @throws LocalizedException
      * @throws \Exception
      */
-    private function getServiceAnchor(int $verseId, string $translation, string $siglum): string
+    private function getServiceAnchor(int $verseId, string $siglum): string
     {
         $onlineClient = new Service\Online\Client($this->logger, new GuzzleClient());
-        $siglumObject = SiglumFactory::createFromTranslationAndString($translation, $siglum);
+        $siglumObject = SiglumFactory::createFromString($siglum);
         $url = $onlineClient->getUrlBySiglum($siglumObject);
         /** @var VerseInterface|Verse $verseObject */
         $verseObject = $this->verseRepository->get($verseId);
@@ -80,7 +79,6 @@ EOT;
                     /** @var AttributeInterface $groupCustomerAttribute */
                     $item[self::COLUMN_NAME] = $this->getServiceAnchor(
                         (int)$item[self::COLUMN_VERSE_ID],
-                        $item[self::COLUMN_TRANSLATION],
                         $item[self::COLUMN_NAME]
                     );
                 }

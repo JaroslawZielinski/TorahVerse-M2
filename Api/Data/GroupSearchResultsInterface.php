@@ -12,6 +12,7 @@ interface GroupSearchResultsInterface extends SearchResultsInterface
      * @return GroupInterface[]
      */
     public function getItems();
+
     /**
      * @param GroupInterface[] $items
      * @return $this
