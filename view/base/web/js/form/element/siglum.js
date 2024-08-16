@@ -65,7 +65,7 @@ define([
         },
         renderSetBook: function () {
             const booksByTranslation = this.structure[this.parts.translation];
-            let booksSelected = [];
+            let booksSelected = {};
             switch (this.divisionType) {
                 case 'two-division':
                     const map = utils.getGroupsMap();
@@ -154,7 +154,7 @@ define([
             const chapters = this.getCurrentChapters();
             const versesMax = chapters[this.parts.chapter];
             let buttons = {};
-            for (let i = this.parts.verseStart; i <= versesMax; i++) {
+            for (let i = this.parts.verseStart + 1; i <= versesMax; i++) {
                 buttons[i] = i;
             }
             buttons['.'] = '.';
