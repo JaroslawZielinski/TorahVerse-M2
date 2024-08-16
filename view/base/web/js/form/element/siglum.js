@@ -134,18 +134,10 @@ define([
         renderSetVerseStart: function () {
             const chapters = this.getCurrentChapters();
             const versesMax = chapters[this.parts.chapter];
-            let buttons = [];
+            let buttons = {};
             for (let i = 1; i <= versesMax; i++) {
                 buttons[i] = i;
             }
-            buttons.shift();
-            buttons = buttons.reduce(
-                function (result, key) {
-                    result[key] = key;
-                    return result;
-                },
-                {}
-            );
             let m = 5,
                 n = Object.keys(buttons).length / m;
             const data = {
@@ -161,21 +153,10 @@ define([
         renderSetVerseStop: function () {
             const chapters = this.getCurrentChapters();
             const versesMax = chapters[this.parts.chapter];
-            let buttons = [];
+            let buttons = {};
             for (let i = this.parts.verseStart; i <= versesMax; i++) {
                 buttons[i] = i;
             }
-            buttons.shift();
-            for (let i = 0; i < this.parts.verseStart; i++) {
-                buttons.shift();
-            }
-            buttons = buttons.reduce(
-                function (result, key) {
-                    result[key] = key;
-                    return result;
-                },
-                {}
-            );
             buttons['.'] = '.';
             let m = 5,
                 n = Object.keys(buttons).length / m;
@@ -233,6 +214,9 @@ define([
             let self = this;
             $('.btn-torah').off().on('click', function (event) {
                 const dataId = event.target.dataset.id;
+                if (utils.isEmpty(self.parts.translation)) {
+                    return;
+                }
                 if (0 === self.progressPointer || self.progressPointer > 6) {
                     self.progressPointer = 6;
                 }
@@ -287,9 +271,11 @@ define([
          * Refresh buttons and add onclick handling
          */
         updateUi: function () {
-            this.value(this.updateValue());
-            $('#buttons').html(this.renderButtons());
-            this.handleButtons();
+            try {
+                this.value(this.updateValue());
+                $('#buttons').html(this.renderButtons());
+                this.handleButtons();
+            } catch (e) {}
         },
         findGroupByBook: function (book) {
             return utils.findIt(Object.entries(this.division), book).pop()[0];

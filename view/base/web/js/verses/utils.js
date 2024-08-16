@@ -122,6 +122,15 @@ define([
                 }
             }
             return false;
+        },
+        /**
+         * Is Empty
+         * @see https://stackoverflow.com/questions/154059/how-do-i-check-for-an-empty-undefined-null-string-in-javascript#answer-3261380
+         * @param str
+         * @returns {boolean}
+         */
+        isEmpty: function (str) {
+            return (!str || str.length === 0 );
         }
     };
 });
