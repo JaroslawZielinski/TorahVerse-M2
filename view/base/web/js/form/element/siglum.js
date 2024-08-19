@@ -25,6 +25,178 @@ define([
             progressPointer: 6,
             initialState: 1
         },
+        initialize: function () {
+            this._super();
+            this.updateState(this.initialValue);
+            this.previewSiglum();
+            return this;
+        },
+        /**
+         * Callback that fires when 'value' property is updated.
+         */
+        onUpdate: function () {
+            this.bubble('update', this.hasChanged());
+            this.validate();
+            this.previewSiglum();
+        },
+        /**
+         * Refresh buttons and add onclick handling
+         */
+        updateUi: function (handling) {
+            handling = undefined !== handling ? handling : true;
+            try {
+                this.value(this.updateValue());
+                $('#buttons').html(this.renderButtons());
+                if (handling) {
+                    this.handleButtons();
+                }
+            } catch (e) {}
+        },
+        updateState: function (value) {
+            const parts = value.split('/');
+            try {
+                this.parts.translation = parts[0];
+                this.parts.book = parts[1];
+                this.parts.chapter = parts[2];
+                const verseArray = parts[3].split('-');
+                this.parts.verseStart = verseArray[0];
+                this.parts.verseStop = undefined !== verseArray[1] ? verseArray[1] : verseArray[0];
+                this.parts.group = this.findGroupByBook(this.parts.book);
+            } catch (e) {}
+        },
+        updateValue: function() {
+            let verse = '' !== this.parts.verseStop && this.parts.verseStart !== this.parts.verseStop
+                ? this.parts.verseStart + '-' + this.parts.verseStop : this.parts.verseStart;
+            return this.parts.translation + '/' + this.parts.book + '/' +
+                this.parts.chapter + '/' + verse;
+        },
+        renderButtons: function () {
+            let result = '';
+            switch (this.progressPointer) {
+                default:
+                case 1:
+                    result = this.renderSetGroup();
+                    break;
+                case 2:
+                    result = this.renderSetBook();
+                    break;
+                case 3:
+                    result = this.renderSetChapter();
+                    break;
+                case 4:
+                    result = this.renderSetVerseStart();
+                    break;
+                case 5:
+                    result = this.renderSetVerseStop();
+                    break;
+                case 6:
+                    result = this.renderSetFinished();
+                    break;
+            }
+            return result;
+        },
+        handleButtons: function () {
+            this.reduceToInitialState();
+            let self = this;
+            $('.btn-torah').off().on('click', function (event) {
+                const dataId = event.target.dataset.id;
+                if (utils.isEmpty(self.parts.translation)) {
+                    return;
+                }
+                if (0 === self.progressPointer || self.progressPointer > 6) {
+                    self.progressPointer = 6;
+                }
+                switch (self.progressPointer) {
+                    default:
+                    case 1:
+                        self.parts.group = dataId;
+                        break;
+                    case 2:
+                        self.parts.book = dataId;
+                        break;
+                    case 3:
+                        self.parts.chapter = dataId;
+                        break;
+                    case 4:
+                        self.parts.verseStart = dataId;
+                        break;
+                    case 5:
+                        self.parts.verseStop = dataId;
+                        if ('.' === dataId) {
+                            self.parts.verseStop = '';
+                        }
+                        break;
+                    case 6:
+                        break;
+                }
+                self.progressPointer++;
+                self.updateUi();
+            });
+            $('.btn-back').off().on('click', function (event) {
+                if (self.progressPointer > 1) {
+                    self.progressPointer--;
+                }
+                switch (self.progressPointer) {
+                    case 1:
+                        self.parts.group = '';
+                    case 2:
+                        self.parts.book = '';
+                    case 3:
+                        self.parts.chapter = '';
+                    case 4:
+                        self.parts.verseStart = '';
+                    case 5:
+                        self.parts.verseStop = '';
+                        self.updateUi();
+                    default:
+                    case 6:
+                }
+            });
+        },
+        reduceToInitialState: function () {
+            switch (parseInt(this.initialState)) {
+                case 1:
+                    this.parts.group = '';
+                case 2:
+                    this.parts.book = '';
+                case 3:
+                    this.parts.chapter = '';
+                case 4:
+                    this.parts.verseStart = '';
+                case 5:
+                    this.parts.verseStop = '';
+                    this.progressPointer = parseInt(this.initialState);
+                    this.initialState = '6';
+                    this.updateUi(false);
+                default:
+                case 6:
+            }
+        },
+        previewSiglum: function () {
+            var self = this,
+                ajaxUrl = self.previewUrl,
+                codeData = self.value._latestValue.split('/'),
+                translationCode = codeData[0],
+                siglumCode = self.value._latestValue.replace(translationCode + '/', ''),
+                resultId = self.resultSelector;
+            if (undefined !== translationCode && undefined !== siglumCode) {
+                let formKey = window.FORM_KEY || $('input[name="form_key"]').val();
+                $.ajax({
+                    showLoader: false,
+                    url: ajaxUrl,
+                    data: {
+                        isAjax: true,
+                        form_key: formKey,
+                        translation: translationCode,
+                        siglum: siglumCode
+                    },
+                    type: 'GET',
+                    dataType: 'json'
+                }).done(function (data) {
+                    $(resultId).html(data['result']);
+                });
+            }
+        },
         renderDivisionArray: function () {
             if (utils.inArray(this.parts.translation, ['eib', 'sz', 'tnp'])) {
                 return Object
@@ -154,7 +326,7 @@ define([
             const chapters = this.getCurrentChapters();
             const versesMax = chapters[this.parts.chapter];
             let buttons = {};
-            for (let i = this.parts.verseStart + 1; i <= versesMax; i++) {
+            for (let i = parseInt(this.parts.verseStart) + 1; i <= versesMax; i++) {
                 buttons[i] = i;
             }
             buttons['.'] = '.';
@@ -184,145 +356,8 @@ define([
             };
             return _.template(multiButtons)(data);
         },
-        renderButtons: function () {
-            let result = '';
-            switch (this.progressPointer) {
-                default:
-                case 1:
-                    result = this.renderSetGroup();
-                    break;
-                case 2:
-                    result = this.renderSetBook();
-                    break;
-                case 3:
-                    result = this.renderSetChapter();
-                    break;
-                case 4:
-                    result = this.renderSetVerseStart();
-                    break;
-                case 5:
-                    result = this.renderSetVerseStop();
-                    break;
-                case 6:
-                    result = this.renderSetFinished();
-                    break;
-            }
-            return result;
-        },
-        handleButtons: function () {
-            this.reduceToInitialState();
-            let self = this;
-            $('.btn-torah').off().on('click', function (event) {
-                const dataId = event.target.dataset.id;
-                if (utils.isEmpty(self.parts.translation)) {
-                    return;
-                }
-                if (0 === self.progressPointer || self.progressPointer > 6) {
-                    self.progressPointer = 6;
-                }
-                switch (self.progressPointer) {
-                    default:
-                    case 1:
-                        self.parts.group = dataId;
-                        break;
-                    case 2:
-                        self.parts.book = dataId;
-                        break;
-                    case 3:
-                        self.parts.chapter = dataId;
-                        break;
-                    case 4:
-                        self.parts.verseStart = dataId;
-                        break;
-                    case 5:
-                        self.parts.verseStop = dataId;
-                        if ('.' === dataId) {
-                            self.parts.verseStop = '';
-                        }
-                        break;
-                    case 6:
-                        break;
-                }
-                self.progressPointer++;
-                self.updateUi();
-            });
-            $('.btn-back').off().on('click', function (event) {
-                if (self.progressPointer > 1) {
-                    self.progressPointer--;
-                }
-                switch (self.progressPointer) {
-                    case 1:
-                        self.parts.group = '';
-                    case 2:
-                        self.parts.book = '';
-                    case 3:
-                        self.parts.chapter = '';
-                    case 4:
-                        self.parts.verseStart = '';
-                    case 5:
-                        self.parts.verseStop = '';
-                        self.updateUi();
-                    default:
-                    case 6:
-                }
-            });
-        },
-        /**
-         * Refresh buttons and add onclick handling
-         */
-        updateUi: function () {
-            try {
-                this.value(this.updateValue());
-                $('#buttons').html(this.renderButtons());
-                this.handleButtons();
-            } catch (e) {}
-        },
         findGroupByBook: function (book) {
             return utils.findIt(Object.entries(this.division), book).pop()[0];
-        },
-        updateState: function (value) {
-            const parts = value.split('/');
-            try {
-                this.parts.translation = parts[0];
-                this.parts.book = parts[1];
-                this.parts.chapter = parts[2];
-                const verseArray = parts[3].split('-');
-                this.parts.verseStart = verseArray[0];
-                this.parts.verseStop = undefined !== verseArray[1] ? verseArray[1] : verseArray[0];
-                this.parts.group = this.findGroupByBook(this.parts.book)
-            } catch (e) {}
-        },
-        updateValue: function() {
-            let verse = '' !== this.parts.verseStop && this.parts.verseStart !== this.parts.verseStop
-                ? this.parts.verseStart + '-' + this.parts.verseStop : this.parts.verseStart;
-            return this.parts.translation + '/' + this.parts.book + '/' +
-                this.parts.chapter + '/' + verse;
-        },
-        reduceToInitialState: function () {
-            switch (parseInt(this.initialState)) {
-                case 1:
-                    this.parts.group = '';
-                case 2:
-                    this.parts.book = '';
-                case 3:
-                    this.parts.chapter = '';
-                case 4:
-                    this.parts.verseStart = '';
-                case 5:
-                    this.parts.verseStop = '';
-                    this.value(this.updateValue());
-                    this.progressPointer = parseInt(this.initialState);
-                    this.initialState = '6';
-                    $('#buttons').html(this.renderButtons());
-                default:
-                case 6:
-            }
-        },
-        initialize: function () {
-            this._super();
-            this.updateState(this.initialValue);
-            this.previewSiglum();
-            return this;
         },
         translationBinding: function (obj, event) {
             const translation = event.target.value;
@@ -330,39 +365,6 @@ define([
                 this.parts.translation = translation;
                 this.updateUi();
             }
-        },
-        previewSiglum: function () {
-            var self = this,
-                ajaxUrl = self.previewUrl,
-                codeData = self.value._latestValue.split('/'),
-                translationCode = codeData[0],
-                siglumCode = self.value._latestValue.replace(translationCode + '/', ''),
-                resultId = self.resultSelector;
-            if (undefined !== translationCode && undefined !== siglumCode) {
-                let formKey = window.FORM_KEY || $('input[name="form_key"]').val();
-                $.ajax({
-                    showLoader: false,
-                    url: ajaxUrl,
-                    data: {
-                        isAjax: true,
-                        form_key: formKey,
-                        translation: translationCode,
-                        siglum: siglumCode
-                    },
-                    type: 'GET',
-                    dataType: 'json'
-                }).done(function (data) {
-                    $(resultId).html(data['result']);
-                });
-            }
-        },
-        /**
-         * Callback that fires when 'value' property is updated.
-         */
-        onUpdate: function () {
-            this.bubble('update', this.hasChanged());
-            this.validate();
-            this.previewSiglum();
         }
     });
 });
