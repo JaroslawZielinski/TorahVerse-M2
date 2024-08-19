@@ -275,9 +275,11 @@ define([
         },
         getCurrentChapters: function () {
             const selectedTorah = this.structure[this.parts.translation];
+            let selectedTorah2 = Object.entries(selectedTorah);
+            // remove exceptions
+            delete selectedTorah2[3];
             const selectedGroup = utils
-                .findIt(Object.entries(selectedTorah), this.parts.book)
-                .pop()[0];
+                .findIt(selectedTorah2, this.parts.book).pop()[0];
             return selectedTorah[selectedGroup][this.parts.book]['chapters'];
         },
         renderSetChapter: function () {

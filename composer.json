@@ -6,7 +6,7 @@
     "minimum-stability": "stable",
     "require": {
         "jaroslawzielinski/sqlite3-database-class": "1.0.3",
-        "jaroslawzielinski/torah": "2.0.13"
+        "jaroslawzielinski/torah": "^2.0"
     },
     "autoload": {
         "files": [
