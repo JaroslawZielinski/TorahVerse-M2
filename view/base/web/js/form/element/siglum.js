@@ -351,6 +351,7 @@ define([
                 n: n,
                 label: this.value(),
                 isFinished: 'true',
+                baseUrl: this.baseUrl,
                 disabled: 'false',
                 buttons: buttons
             };

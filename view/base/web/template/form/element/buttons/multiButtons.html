@@ -22,10 +22,13 @@
         padding-top: 13px;
     }
     <% if (isFinished === 'true') { %>
-    .label-torah {
+    .label-torah, a, a:hover, a:focus {
         font-size: 32px;
         font-weight: bold;
         color: red;
+    }
+    a:hover, a:focus {
+        text-decoration: none;
     }
     <% } %>
 </style>
@@ -36,7 +39,13 @@
         <% } %>
     </div>
     <div class="label-torah-div">
-        <span class="label-torah"><%= label %></span>
+        <% if (isFinished === 'true') { %>
+            <span class="label-torah">
+                <a href="<%= baseUrl %><%= label %>" target="_blank"><%= label %></a>
+            </span>
+        <% } else { %>
+            <span class="label-torah"><%= label %></span>
+        <% } %>
     </div>
     <div class="button-grid">
         <% _.each(buttons, function(value, key) { %>
