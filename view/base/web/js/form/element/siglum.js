@@ -100,6 +100,7 @@ define([
             let self = this;
             $('.btn-torah').off().on('click', function (event) {
                 const dataId = event.target.dataset.id;
+                const item = dataId.split('item_').pop();
                 if (utils.isEmpty(self.parts.translation)) {
                     return;
                 }
@@ -118,11 +119,11 @@ define([
                         self.parts.chapter = dataId;
                         break;
                     case 4:
-                        self.parts.verseStart = dataId;
+                        self.parts.verseStart = item;
                         break;
                     case 5:
-                        self.parts.verseStop = dataId;
-                        if ('.' === dataId) {
+                        self.parts.verseStop = item;
+                        if ('.' === item) {
                             self.parts.verseStop = '';
                         }
                         break;
@@ -181,18 +182,12 @@ define([
                 resultId = self.resultSelector;
             if (undefined !== translationCode && undefined !== siglumCode) {
                 let formKey = window.FORM_KEY || $('input[name="form_key"]').val();
-                $.ajax({
-                    showLoader: false,
-                    url: ajaxUrl,
-                    data: {
-                        isAjax: true,
-                        form_key: formKey,
-                        translation: translationCode,
-                        siglum: siglumCode
-                    },
-                    type: 'GET',
-                    dataType: 'json'
-                }).done(function (data) {
+                utils.ajaxGetItJson(ajaxUrl, {
+                    isAjax: true,
+                    form_key: formKey,
+                    translation: translationCode,
+                    siglum: siglumCode
+                }, function (data) {
                     $(resultId).html(data['result']);
                 });
             }
@@ -306,14 +301,9 @@ define([
             return _.template(multiButtons)(data);
         },
         renderSetVerseStart: function () {
-            const chapters = this.getCurrentChapters();
-            const versesMax = chapters[this.parts.chapter];
-            let buttons = {};
-            for (let i = 1; i <= versesMax; i++) {
-                buttons[i] = i;
-            }
-            let m = 5,
-                n = Object.keys(buttons).length / m;
+            let buttons = {},
+                m = 1,
+                n = 1;
             const data = {
                 m: m,
                 n: n,
@@ -322,18 +312,39 @@ define([
                 disabled: 'false',
                 buttons: buttons
             };
+            // Parallel calling Verse Start - start
+            const ajaxUrl = this.structureUrl;
+            let self = this;
+            let formKey = window.FORM_KEY || $('input[name="form_key"]').val();
+            utils.ajaxGetItJson(ajaxUrl, {
+                isAjax: true,
+                form_key: formKey,
+                translation: self.parts.translation,
+                book: self.parts.book,
+                chapter: self.parts.chapter
+            }, function (ajaxData) {
+                let ajaxButtons = JSON.parse(ajaxData['result']),
+                    m = 5,
+                    n = Object.keys(ajaxButtons).length / m;
+                const ajaxTemplateData = {
+                    m: m,
+                    n: n,
+                    label: $t('Choose verse start:'),
+                    isFinished: 'false',
+                    disabled: 'false',
+                    buttons: ajaxButtons
+                };
+                const result = _.template(multiButtons)(ajaxTemplateData);
+                $('#buttons').html(result);
+                self.handleButtons();
+            });
+            // Parallel calling Verse Start - stop
             return _.template(multiButtons)(data);
         },
         renderSetVerseStop: function () {
-            const chapters = this.getCurrentChapters();
-            const versesMax = chapters[this.parts.chapter];
-            let buttons = {};
-            for (let i = parseInt(this.parts.verseStart) + 1; i <= versesMax; i++) {
-                buttons[i] = i;
-            }
-            buttons['.'] = '.';
-            let m = 5,
-                n = Object.keys(buttons).length / m;
+            let buttons = {},
+                m = 1,
+                n = 1;
             const data = {
                 m: m,
                 n: n,
@@ -342,6 +353,34 @@ define([
                 disabled: 'false',
                 buttons: buttons
             };
+            // Parallel calling Verse Stop - start
+            const ajaxUrl = this.structureUrl;
+            let self = this;
+            let formKey = window.FORM_KEY || $('input[name="form_key"]').val();
+            utils.ajaxGetItJson(ajaxUrl, {
+                isAjax: true,
+                form_key: formKey,
+                translation: self.parts.translation,
+                book: self.parts.book,
+                chapter: self.parts.chapter,
+                verse: self.parts.verseStart
+            }, function (ajaxData) {
+                let ajaxButtons = JSON.parse(ajaxData['result']),
+                m = 5,
+                n = Object.keys(ajaxButtons).length / m;
+                const ajaxTemplateData = {
+                    m: m,
+                    n: n,
+                    label: $t('Choose verse stop:'),
+                    isFinished: 'false',
+                    disabled: 'false',
+                    buttons: ajaxButtons
+                };
+                const result = _.template(multiButtons)(ajaxTemplateData);
+                $('#buttons').html(result);
+                self.handleButtons();
+            });
+            // Parallel calling Verse Stop - stop
             return _.template(multiButtons)(data);
         },
         renderSetFinished: function () {

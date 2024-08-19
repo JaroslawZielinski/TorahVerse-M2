@@ -1,6 +1,7 @@
 define([
+    'jquery',
     'prototype'
-], function() {
+], function($) {
     'use strict';
 
     const softBreakWords = ['a', 'i', 'o', 'u', 'w', 'z'];
@@ -131,6 +132,17 @@ define([
          */
         isEmpty: function (str) {
             return (!str || str.length === 0 );
+        },
+        ajaxGetItJson: function (ajaxUrl, data, callBack) {
+            $.ajax({
+                showLoader: false,
+                url: ajaxUrl,
+                data: data,
+                type: 'GET',
+                dataType: 'json'
+            }).done(function (data) {
+                callBack(data);
+            });
         }
     };
 });
