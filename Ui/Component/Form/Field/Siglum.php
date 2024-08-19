@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace JaroslawZielinski\TorahVerse\Ui\Component\Form\Field;
 
+use JaroslawZielinski\Torah\Bible\Service\Online\Client;
+use JaroslawZielinski\Torah\Bible\Torah;
+use JaroslawZielinski\Torah\Translations\Resources;
+use JaroslawZielinski\TorahVerse\Model\Config;
 use JaroslawZielinski\TorahVerse\Model\Config\Source\Verses\Division;
+use JaroslawZielinski\TorahVerse\Model\TorahFactory;
 use JaroslawZielinski\TorahVerse\Model\Verse;
+use Magento\Framework\App\Request\DataPersistorInterface;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Form\Field;
-use JaroslawZielinski\TorahVerse\Model\Config;
-use JaroslawZielinski\TorahVerse\Model\TorahFactory;
-use JaroslawZielinski\Torah\Bible\Torah;
-use JaroslawZielinski\Torah\Translations\Resources;
-use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\App\Request\DataPersistorInterface;
 
 class Siglum extends Field
 {
@@ -88,6 +89,7 @@ class Siglum extends Field
         $configuration['division'] = $this->getDivision();
         $configuration['divisionType'] = $this->config->getTorahInputDivision();
         $configuration['structure'] = $structure;
+        $configuration['baseUrl'] = Client::getBaseUrl();
         return $configuration;
     }
 }
