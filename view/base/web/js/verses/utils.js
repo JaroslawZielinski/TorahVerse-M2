@@ -143,6 +143,9 @@ define([
             }).done(function (data) {
                 callBack(data);
             });
+        },
+        fixArray: function (array) {
+            return JSON.parse(JSON.stringify(array));
         }
     };
 });
