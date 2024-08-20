@@ -278,7 +278,7 @@ define([
             return selectedTorah[selectedGroup][this.parts.book]['chapters'];
         },
         renderSetChapter: function () {
-            const chapters = this.getCurrentChapters();
+            const chapters = this.getCurrentChapters().toArray();
             let buttons = Object
                     .keys(chapters)
                     .reduce(
