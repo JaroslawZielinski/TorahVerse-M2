@@ -96,8 +96,8 @@ class Structure extends Ajax
                 $resultArray[$itemId] = $verseStart;
             }, $sigla);
             if (!$isVerseStart) {
-                $resultArray['item_.'] = '.';
                 array_shift($resultArray);
+                $resultArray = ['item_.' => '.'] + $resultArray;
             }
             $result = $this->serializer->serialize($resultArray);
             $data['status'] = 'ok';
