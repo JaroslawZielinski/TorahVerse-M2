@@ -256,7 +256,7 @@ define([
                     },
                     {}
                 ),
-                m = 5,
+                m = 4,
                 n = Object.keys(buttons).length / m;
             const data = {
                 m: m,
@@ -288,7 +288,7 @@ define([
                         },
                         {}
                     ),
-                m = 5,
+                m = 4,
                 n = Object.keys(buttons).length / m;
             const data = {
                 m: m,
@@ -324,7 +324,7 @@ define([
                 chapter: self.parts.chapter
             }, function (ajaxData) {
                 let ajaxButtons = JSON.parse(ajaxData['result']),
-                    m = 5,
+                    m = 4,
                     n = Object.keys(ajaxButtons).length / m;
                 const ajaxTemplateData = {
                     m: m,
@@ -366,7 +366,7 @@ define([
                 verse: self.parts.verseStart
             }, function (ajaxData) {
                 let ajaxButtons = JSON.parse(ajaxData['result']),
-                m = 5,
+                m = 4,
                 n = Object.keys(ajaxButtons).length / m;
                 const ajaxTemplateData = {
                     m: m,
