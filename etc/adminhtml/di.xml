@@ -13,7 +13,7 @@
 
     <type name="JaroslawZielinski\TorahVerse\Plugin\Ui\Component\Form\FieldPlugin">
         <arguments>
-            <argument name="key" xsi:type="string">previewUrl</argument>
+            <argument name="key" xsi:type="string">previewUrl,structureUrl</argument>
             <argument name="fields" xsi:type="array">
                 <item name="0" xsi:type="string">siglum</item>
                 <item name="1" xsi:type="string">translation</item>

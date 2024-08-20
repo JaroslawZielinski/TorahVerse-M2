@@ -37,12 +37,15 @@ class FieldPlugin
         $name = $subject->getName();
         if (in_array($name, $this->fields)) {
             $configuration = $subject->getConfiguration();
-            $route = $configuration[$this->key] ?? null;
-            if (!empty($route)) {
-                $url = $this->urlBuilder->getUrl($route);
-                $configuration[$this->key] = $url;
-                $subject->setData('config', $configuration);
+            $keys = explode(',', $this->key);
+            foreach ($keys as $key) {
+                $route = $configuration[$key] ?? null;
+                if (!empty($route)) {
+                    $url = $this->urlBuilder->getUrl($route);
+                    $configuration[$key] = $url;
+                }
             }
+            $subject->setData('config', $configuration);
         }
         return $result;
     }

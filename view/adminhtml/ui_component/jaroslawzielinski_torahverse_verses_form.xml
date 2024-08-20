@@ -131,6 +131,7 @@
                         <textarea id="preview-result" disabled></textarea>
                     ]]></item>
                     <item name="previewUrl" xsi:type="string">jaroslawzielinski_torahverse/siglum/preview</item>
+                    <item name="structureUrl" xsi:type="string">jaroslawzielinski_torahverse/siglum/structure</item>
                     <item name="componentType" xsi:type="string">field</item>
                     <item name="component" xsi:type="string">JaroslawZielinski_TorahVerse/js/form/element/siglum</item>
                     <item name="elementTmpl" xsi:type="string">JaroslawZielinski_TorahVerse/form/element/siglum</item>
