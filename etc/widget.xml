@@ -3,7 +3,9 @@
     xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
     <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Slider\Homepage" id="slider_homepage">
         <label>Torah Verse Homepage Slider</label>
+
         <description>Torah Verse Slider on Homepage</description>
+
         <parameters>
             <parameter name="placement" xsi:type="select"
                 source_model="JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Placement" visible="true"
@@ -15,7 +17,9 @@
 
     <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Slider\Custom" id="slider_custom">
         <label>Torah Verse Custom Slider</label>
+
         <description>Custom Torah Verse Slider</description>
+
         <parameters>
             <parameter name="code" xsi:type="text" sort_order="10">
                 <label translate="true">Code</label>

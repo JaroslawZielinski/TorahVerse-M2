@@ -9,6 +9,7 @@ use JaroslawZielinski\TorahVerse\Model\GroupFactory;
 use JaroslawZielinski\TorahVerse\Api\VerseRepositoryInterface;
 use JaroslawZielinski\TorahVerse\Model\VerseFactory;
 use JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Language;
+use Magento\Framework\Exception\LocalizedException;
 
 class Install
 {
@@ -37,7 +38,8 @@ class Install
             'data' => [
                 'name' => 'Boję się',
                 'code' => 'CGAV_001',
-                'colour_value' => '#5020df'
+                'colour_value' => '#5020df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -86,7 +88,8 @@ class Install
             'data' => [
                 'name' => 'Jestem niespokojny',
                 'code' => 'CGAV_002',
-                'colour_value' => '#7020df'
+                'colour_value' => '#7020df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -125,7 +128,8 @@ class Install
             'data' => [
                 'name' => 'Updam w wierze',
                 'code' => 'CGAV_003',
-                'colour_value' => '#208fdf'
+                'colour_value' => '#208fdf',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -144,7 +148,8 @@ class Install
             'data' => [
                 'name' => 'Jestem w żałobie',
                 'code' => 'CGAV_004',
-                'colour_value' => '#2020df'
+                'colour_value' => '#2020df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -173,7 +178,8 @@ class Install
             'data' => [
                 'name' => 'Jestem zgorzkniały lub krytyczny',
                 'code' => 'CGAV_005',
-                'colour_value' => '#20df70'
+                'colour_value' => '#20df70',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -192,7 +198,8 @@ class Install
             'data' => [
                 'name' => 'Jestem pokonany',
                 'code' => 'CGAV_006',
-                'colour_value' => '#df20bf'
+                'colour_value' => '#df20bf',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -211,7 +218,8 @@ class Install
             'data' => [
                 'name' => 'Spotkało mnie nieszczęście',
                 'code' => 'CGAV_007',
-                'colour_value' => '#20df50'
+                'colour_value' => '#20df50',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -230,7 +238,8 @@ class Install
             'data' => [
                 'name' => 'Jestem zniechęcony',
                 'code' => 'CGAV_008',
-                'colour_value' => '#afdf20'
+                'colour_value' => '#afdf20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -269,7 +278,8 @@ class Install
             'data' => [
                 'name' => 'Wątpię',
                 'code' => 'CGAV_009',
-                'colour_value' => '#20dfbf'
+                'colour_value' => '#20dfbf',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -298,7 +308,8 @@ class Install
             'data' => [
                 'name' => 'Przeżywam kryzys',
                 'code' => 'CGAV_010',
-                'colour_value' => '#df9f20'
+                'colour_value' => '#df9f20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -327,7 +338,8 @@ class Install
             'data' => [
                 'name' => 'Zawodzi wiara',
                 'code' => 'CGAV_011',
-                'colour_value' => '#dfdf20'
+                'colour_value' => '#dfdf20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -346,7 +358,8 @@ class Install
             'data' => [
                 'name' => 'Zawodzą przyjaciele',
                 'code' => 'CGAV_012',
-                'colour_value' => '#7020df'
+                'colour_value' => '#7020df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -395,7 +408,8 @@ class Install
             'data' => [
                 'name' => 'Odchodzę z domu',
                 'code' => 'CGAV_013',
-                'colour_value' => '#df5020'
+                'colour_value' => '#df5020',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -414,7 +428,8 @@ class Install
             'data' => [
                 'name' => 'Jestem samotny',
                 'code' => 'CGAV_014',
-                'colour_value' => '#df7020'
+                'colour_value' => '#df7020',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -433,7 +448,8 @@ class Install
             'data' => [
                 'name' => 'Potrzebuję pokoju',
                 'code' => 'CGAV_015',
-                'colour_value' => '#50df20'
+                'colour_value' => '#50df20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -482,7 +498,8 @@ class Install
             'data' => [
                 'name' => 'Potrzebuję wskazówek jak żyć',
                 'code' => 'CGAV_016',
-                'colour_value' => '#20dfdf'
+                'colour_value' => '#20dfdf',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -501,7 +518,8 @@ class Install
             'data' => [
                 'name' => 'Zwyciężam',
                 'code' => 'CGAV_017',
-                'colour_value' => '#40df20'
+                'colour_value' => '#40df20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -530,7 +548,8 @@ class Install
             'data' => [
                 'name' => 'W modlitwie',
                 'code' => 'CGAV_018',
-                'colour_value' => '#dfbf20'
+                'colour_value' => '#dfbf20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -569,7 +588,8 @@ class Install
             'data' => [
                 'name' => 'W chorobie i bólu',
                 'code' => 'CGAV_019',
-                'colour_value' => '#8fdf20'
+                'colour_value' => '#8fdf20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -618,7 +638,8 @@ class Install
             'data' => [
                 'name' => 'W znużeniu',
                 'code' => 'CGAV_020',
-                'colour_value' => '#df3020'
+                'colour_value' => '#df3020',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -657,7 +678,8 @@ class Install
             'data' => [
                 'name' => 'Potrzebuję Bożej pomocy',
                 'code' => 'CGAV_021',
-                'colour_value' => '#df4020'
+                'colour_value' => '#df4020',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -676,7 +698,8 @@ class Install
             'data' => [
                 'name' => 'W smutku',
                 'code' => 'CGAV_022',
-                'colour_value' => '#2070df'
+                'colour_value' => '#2070df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -725,7 +748,8 @@ class Install
             'data' => [
                 'name' => 'W pokuszeniu',
                 'code' => 'CGAV_023',
-                'colour_value' => '#df2080'
+                'colour_value' => '#df2080',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -794,7 +818,8 @@ class Install
             'data' => [
                 'name' => 'Jestem wdzięczny',
                 'code' => 'CGAV_024',
-                'colour_value' => '#40df20'
+                'colour_value' => '#40df20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -823,7 +848,8 @@ class Install
             'data' => [
                 'name' => 'W kłopotach',
                 'code' => 'CGAV_025',
-                'colour_value' => '#2030df'
+                'colour_value' => '#2030df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -852,7 +878,8 @@ class Install
             'data' => [
                 'name' => 'W zmartwieniach',
                 'code' => 'CGAV_026',
-                'colour_value' => '#df209f'
+                'colour_value' => '#df209f',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -881,7 +908,8 @@ class Install
             'data' => [
                 'name' => 'Bóg Cię kocha',
                 'code' => 'CGAV_027',
-                'colour_value' => '#50df20'
+                'colour_value' => '#50df20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -910,7 +938,8 @@ class Install
             'data' => [
                 'name' => 'Wszyscy są grzesznikami',
                 'code' => 'CGAV_028',
-                'colour_value' => '#6020df'
+                'colour_value' => '#6020df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -939,7 +968,8 @@ class Install
             'data' => [
                 'name' => 'Boża rada dla grzeszników',
                 'code' => 'CGAV_029',
-                'colour_value' => '#afdf20'
+                'colour_value' => '#afdf20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -978,7 +1008,8 @@ class Install
             'data' => [
                 'name' => 'Teraz wszyscy mogą być zbawieni',
                 'code' => 'CGAV_030',
-                'colour_value' => '#40df20'
+                'colour_value' => '#40df20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1007,7 +1038,8 @@ class Install
             'data' => [
                 'name' => 'Zapewnienia dla wierzącego',
                 'code' => 'CGAV_031',
-                'colour_value' => '#df9f20'
+                'colour_value' => '#df9f20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1057,7 +1089,8 @@ class Install
             'data' => [
                 'name' => 'The Godly piece of advice',
                 'code' => 'CGAV_032',
-                'colour_value' => '#df6020'
+                'colour_value' => '#df6020',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1076,7 +1109,8 @@ class Install
             'data' => [
                 'name' => 'Nawróćcie się i wierzcie w Ewangelię',
                 'code' => 'CGAV_033',
-                'colour_value' => '#23ff09'
+                'colour_value' => '#23ff09',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1248,7 +1282,8 @@ class Install
             'data' => [
                 'name' => 'I am afraid',
                 'code' => 'CGAV_001',
-                'colour_value' => '#5020df'
+                'colour_value' => '#5020df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1297,7 +1332,8 @@ class Install
             'data' => [
                 'name' => 'I am restless',
                 'code' => 'CGAV_002',
-                'colour_value' => '#7020df'
+                'colour_value' => '#7020df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1336,7 +1372,8 @@ class Install
             'data' => [
                 'name' => 'I will fall in faith',
                 'code' => 'CGAV_003',
-                'colour_value' => '#208fdf'
+                'colour_value' => '#208fdf',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1355,7 +1392,8 @@ class Install
             'data' => [
                 'name' => 'I am in mourning',
                 'code' => 'CGAV_004',
-                'colour_value' => '#2020df'
+                'colour_value' => '#2020df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1384,7 +1422,8 @@ class Install
             'data' => [
                 'name' => 'I am bitter or critical',
                 'code' => 'CGAV_005',
-                'colour_value' => '#20df70'
+                'colour_value' => '#20df70',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1403,7 +1442,8 @@ class Install
             'data' => [
                 'name' => 'I am defeated',
                 'code' => 'CGAV_006',
-                'colour_value' => '#df20bf'
+                'colour_value' => '#df20bf',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1422,7 +1462,8 @@ class Install
             'data' => [
                 'name' => 'I had a misfortune',
                 'code' => 'CGAV_007',
-                'colour_value' => '#20df50'
+                'colour_value' => '#20df50',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1441,7 +1482,8 @@ class Install
             'data' => [
                 'name' => 'I am discouraged',
                 'code' => 'CGAV_008',
-                'colour_value' => '#afdf20'
+                'colour_value' => '#afdf20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1480,7 +1522,8 @@ class Install
             'data' => [
                 'name' => 'I doubt it',
                 'code' => 'CGAV_009',
-                'colour_value' => '#20dfbf'
+                'colour_value' => '#20dfbf',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1509,7 +1552,8 @@ class Install
             'data' => [
                 'name' => 'I am in a crisis',
                 'code' => 'CGAV_010',
-                'colour_value' => '#df9f20'
+                'colour_value' => '#df9f20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1538,7 +1582,8 @@ class Install
             'data' => [
                 'name' => 'Faith fails',
                 'code' => 'CGAV_011',
-                'colour_value' => '#dfdf20'
+                'colour_value' => '#dfdf20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1557,7 +1602,8 @@ class Install
             'data' => [
                 'name' => 'Friends fail',
                 'code' => 'CGAV_012',
-                'colour_value' => '#7020df'
+                'colour_value' => '#7020df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1606,7 +1652,8 @@ class Install
             'data' => [
                 'name' => 'I am leaving home',
                 'code' => 'CGAV_013',
-                'colour_value' => '#df5020'
+                'colour_value' => '#df5020',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1625,7 +1672,8 @@ class Install
             'data' => [
                 'name' => 'I am lonely',
                 'code' => 'CGAV_014',
-                'colour_value' => '#df7020'
+                'colour_value' => '#df7020',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1644,7 +1692,8 @@ class Install
             'data' => [
                 'name' => 'I need peace',
                 'code' => 'CGAV_015',
-                'colour_value' => '#50df20'
+                'colour_value' => '#50df20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1693,7 +1742,8 @@ class Install
             'data' => [
                 'name' => 'I need tips on how to live',
                 'code' => 'CGAV_016',
-                'colour_value' => '#20dfdf'
+                'colour_value' => '#20dfdf',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1712,7 +1762,8 @@ class Install
             'data' => [
                 'name' => 'I win',
                 'code' => 'CGAV_017',
-                'colour_value' => '#40df20'
+                'colour_value' => '#40df20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1741,7 +1792,8 @@ class Install
             'data' => [
                 'name' => 'In prayer',
                 'code' => 'CGAV_018',
-                'colour_value' => '#dfbf20'
+                'colour_value' => '#dfbf20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1780,7 +1832,8 @@ class Install
             'data' => [
                 'name' => 'In sickness and pain',
                 'code' => 'CGAV_019',
-                'colour_value' => '#8fdf20'
+                'colour_value' => '#8fdf20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1829,7 +1882,8 @@ class Install
             'data' => [
                 'name' => 'In weariness',
                 'code' => 'CGAV_020',
-                'colour_value' => '#df3020'
+                'colour_value' => '#df3020',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1868,7 +1922,8 @@ class Install
             'data' => [
                 'name' => 'I need God\'s help',
                 'code' => 'CGAV_021',
-                'colour_value' => '#df4020'
+                'colour_value' => '#df4020',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1887,7 +1942,8 @@ class Install
             'data' => [
                 'name' => 'In sadness',
                 'code' => 'CGAV_022',
-                'colour_value' => '#2070df'
+                'colour_value' => '#2070df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -1936,7 +1992,8 @@ class Install
             'data' => [
                 'name' => 'In temptation',
                 'code' => 'CGAV_023',
-                'colour_value' => '#df2080'
+                'colour_value' => '#df2080',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -2005,7 +2062,8 @@ class Install
             'data' => [
                 'name' => 'I am grateful',
                 'code' => 'CGAV_024',
-                'colour_value' => '#40df20'
+                'colour_value' => '#40df20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -2034,7 +2092,8 @@ class Install
             'data' => [
                 'name' => 'In trouble',
                 'code' => 'CGAV_025',
-                'colour_value' => '#2030df'
+                'colour_value' => '#2030df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -2063,7 +2122,8 @@ class Install
             'data' => [
                 'name' => 'In worries',
                 'code' => 'CGAV_026',
-                'colour_value' => '#df209f'
+                'colour_value' => '#df209f',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -2092,7 +2152,8 @@ class Install
             'data' => [
                 'name' => 'God loves you',
                 'code' => 'CGAV_027',
-                'colour_value' => '#50df20'
+                'colour_value' => '#50df20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -2121,7 +2182,8 @@ class Install
             'data' => [
                 'name' => 'They are all sinners',
                 'code' => 'CGAV_028',
-                'colour_value' => '#6020df'
+                'colour_value' => '#6020df',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -2150,7 +2212,8 @@ class Install
             'data' => [
                 'name' => 'God\'s advice to sinners',
                 'code' => 'CGAV_029',
-                'colour_value' => '#afdf20'
+                'colour_value' => '#afdf20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -2189,7 +2252,8 @@ class Install
             'data' => [
                 'name' => 'Now all can be saved',
                 'code' => 'CGAV_030',
-                'colour_value' => '#40df20'
+                'colour_value' => '#40df20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -2218,7 +2282,8 @@ class Install
             'data' => [
                 'name' => 'Assurances for the believer',
                 'code' => 'CGAV_031',
-                'colour_value' => '#df9f20'
+                'colour_value' => '#df9f20',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -2267,7 +2332,8 @@ class Install
             'data' => [
                 'name' => 'The Godly piece of advice',
                 'code' => 'CGAV_032',
-                'colour_value' => '#df6020'
+                'colour_value' => '#df6020',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -2286,7 +2352,8 @@ class Install
             'data' => [
                 'name' => 'Repent and believe in the Gospel',
                 'code' => 'CGAV_033',
-                'colour_value' => '#23ff09'
+                'colour_value' => '#23ff09',
+                'is_annual' => false
             ],
             'child' => [
                 [
@@ -2465,6 +2532,9 @@ class Install
         $this->verseRepository = $verseRepository;
     }
 
+    /**
+     * @throws LocalizedException
+     */
     private function install(array $groups): void
     {
         foreach ($groups as $groupsAndVerseArray) {
@@ -2472,6 +2542,7 @@ class Install
             $groupName = $groupDataArray['name'];
             $groupCode = $groupDataArray['code'];
             $groupColourValue = $groupDataArray['colour_value'];
+            $isAnnual = '' . (int)$groupDataArray['is_annual'];
             $group = null;
             try {
                 $group = $this->groupManagement->getByCode($groupCode);
@@ -2481,7 +2552,8 @@ class Install
             $groupData = $group
                 ->setName($groupName)
                 ->setCode($groupCode)
-                ->setColourValue($groupColourValue);
+                ->setColourValue($groupColourValue)
+                ->setIsAnnual($isAnnual);
             if (!empty($group->getGroupId())) {
                 $groupData->setGroupId($group->getGroupId());
             }
@@ -2518,6 +2590,9 @@ class Install
         }
     }
 
+    /**
+     * @throws LocalizedException
+     */
     public function execute(string $language = Language::LANGUAGE_PL): void
     {
         $groups = null;

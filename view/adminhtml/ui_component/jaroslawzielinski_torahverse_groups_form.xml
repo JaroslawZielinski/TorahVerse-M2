@@ -11,14 +11,18 @@
 
         <item name="config" xsi:type="array">
             <item name="dataScope" xsi:type="string">data</item>
+
             <item name="namespace" xsi:type="string">jaroslawzielinski_torahverse_groups_form</item>
         </item>
 
         <item name="buttons" xsi:type="array">
             <item name="back" xsi:type="array">
                 <item name="name" xsi:type="string">Back</item>
+
                 <item name="label" xsi:type="string" translate="true">Back</item>
+
                 <item name="class" xsi:type="string">back</item>
+
                 <item name="url" xsi:type="string">*/*/index</item>
             </item>
         </item>
@@ -62,6 +66,7 @@
             name="jaroslawzielinski_torahverse_groups_form_data_source">
             <settings>
                 <requestFieldName>group_id</requestFieldName>
+
                 <primaryFieldName>group_id</primaryFieldName>
             </settings>
         </dataProvider>
@@ -81,7 +86,9 @@
 
             <settings>
                 <dataType>text</dataType>
+
                 <visible>false</visible>
+
                 <dataScope>group_id</dataScope>
             </settings>
         </field>
@@ -97,8 +104,11 @@
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
                 </validation>
+
                 <dataType>text</dataType>
+
                 <label translate="true">Code</label>
+
                 <dataScope>code</dataScope>
             </settings>
         </field>
@@ -109,12 +119,16 @@
                     <item name="source" xsi:type="string">groups</item>
                 </item>
             </argument>
+
             <settings>
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
                 </validation>
+
                 <dataType>text</dataType>
+
                 <label translate="true">Group Name</label>
+
                 <dataScope>name</dataScope>
             </settings>
         </field>
@@ -123,13 +137,19 @@
         <field name="colour_value" sortOrder="40" formElement="colorPicker">
             <settings>
                 <label translate="true">Colour Value</label>
+
                 <componentType>colorPicker</componentType>
+
                 <placeholder translate="true">No Color</placeholder>
+
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
+
                     <rule name="validate-color" xsi:type="boolean">true</rule>
                 </validation>
+
                 <dataScope>colour_value</dataScope>
+
                 <additionalClasses>
                     <class name="admin__field-medium">true</class>
                 </additionalClasses>
@@ -139,9 +159,42 @@
                 <colorPicker>
                     <settings>
                         <colorPickerMode>full</colorPickerMode>
+
                         <colorFormat>name</colorFormat>
                     </settings>
                 </colorPicker>
+            </formElements>
+        </field>
+
+        <field name="is_annual" sortOrder="50" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">groups</item>
+
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+
+            <settings>
+                <dataType>boolean</dataType>
+
+                <label translate="true">Is Annual</label>
+
+                <dataScope>is_annual</dataScope>
+            </settings>
+
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="string">0</map>
+
+                            <map name="true" xsi:type="string">1</map>
+                        </valueMap>
+
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
             </formElements>
         </field>
 
@@ -149,25 +202,42 @@
         <field name="verses_ids">
             <argument name="data" xsi:type="array">
                 <item name="options" xsi:type="object">JaroslawZielinski\TorahVerse\Model\Config\Source\Groups\Verses</item>
+
                 <item name="config" xsi:type="array">
                     <item name="additionalClasses" xsi:type="string">required</item>
+
                     <item name="dataType" xsi:type="string">text</item>
+
                     <item name="label" xsi:type="string" translate="true">Assign Verses</item>
+
                     <item name="componentType" xsi:type="string">field</item>
+
                     <item name="formElement" xsi:type="string">select</item>
+
                     <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+
                     <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+
                     <item name="dataScope" xsi:type="string">verses_ids</item>
+
                     <item name="filterOptions" xsi:type="boolean">true</item>
+
                     <item name="showCheckbox" xsi:type="boolean">true</item>
+
                     <item name="disableLabel" xsi:type="boolean">true</item>
+
                     <item name="multiple" xsi:type="boolean">true</item>
+
                     <item name="levelsVisibility" xsi:type="number">1</item>
-                    <item name="sortOrder" xsi:type="number">50</item>
+
+                    <item name="sortOrder" xsi:type="number">60</item>
+
                     <item name="required" xsi:type="boolean">true</item>
+
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">false</item>
                     </item>
+
                     <item name="listens" xsi:type="array">
                         <item name="${ $.namespace }.${ $.namespace }:responseData" xsi:type="string">setParsed</item>
                     </item>
@@ -178,25 +248,42 @@
         <field name="quotes_ids">
             <argument name="data" xsi:type="array">
                 <item name="options" xsi:type="object">JaroslawZielinski\TorahVerse\Model\Config\Source\Groups\Quotes</item>
+
                 <item name="config" xsi:type="array">
                     <item name="additionalClasses" xsi:type="string">required</item>
+
                     <item name="dataType" xsi:type="string">text</item>
+
                     <item name="label" xsi:type="string" translate="true">Assign Quotes</item>
+
                     <item name="componentType" xsi:type="string">field</item>
+
                     <item name="formElement" xsi:type="string">select</item>
+
                     <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+
                     <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+
                     <item name="dataScope" xsi:type="string">quotes_ids</item>
+
                     <item name="filterOptions" xsi:type="boolean">true</item>
+
                     <item name="showCheckbox" xsi:type="boolean">true</item>
+
                     <item name="disableLabel" xsi:type="boolean">true</item>
+
                     <item name="multiple" xsi:type="boolean">true</item>
+
                     <item name="levelsVisibility" xsi:type="number">1</item>
-                    <item name="sortOrder" xsi:type="number">60</item>
+
+                    <item name="sortOrder" xsi:type="number">70</item>
+
                     <item name="required" xsi:type="boolean">true</item>
+
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">false</item>
                     </item>
+
                     <item name="listens" xsi:type="array">
                         <item name="${ $.namespace }.${ $.namespace }:responseData" xsi:type="string">setParsed</item>
                     </item>

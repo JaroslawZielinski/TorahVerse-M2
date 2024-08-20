@@ -22,6 +22,10 @@ interface QuoteInterface extends ExtensibleDataInterface
 
     public const DESCRIPTION = 'description';
 
+    public const DESCRIPTION2 = 'description2';
+
+    public const DESCRIPTION3 = 'description3';
+
     public const CREATED_AT = 'created_at';
 
     public const UPDATED_AT = 'updated_at';
@@ -102,6 +106,28 @@ interface QuoteInterface extends ExtensibleDataInterface
      * @return QuoteInterface
      */
     public function setDescription(?string $description): self;
+
+    /**
+     * @return ?string
+     */
+    public function getDescription2(): ?string;
+
+    /**
+     * @param ?string $description
+     * @return QuoteInterface
+     */
+    public function setDescription2(?string $description): self;
+
+    /**
+     * @return ?string
+     */
+    public function getDescription3(): ?string;
+
+    /**
+     * @param ?string $description
+     * @return QuoteInterface
+     */
+    public function setDescription3(?string $description): self;
 
     /**
      * @return ?string

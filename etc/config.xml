@@ -27,7 +27,7 @@
 </a>
 ]]></group_colours_verse_template>
                 <quote_template><![CDATA[
-<a href="#" style="color: {textColour}">
+<a style="color: {textColour}">
     <div class="item" title="{groupName}">
         <div class="content" title="{groupName}">{content}</div>
         <div class="author" title="{groupName}">{author}</div>
@@ -36,7 +36,7 @@
 </a>
 ]]></quote_template>
                 <group_colours_quote_template><![CDATA[
-<a href="#" style="color: {textColour}">
+<a style="color: {textColour}">
     <div class="item" style="border: 1px solid {colour};" title="{groupName}">
         <div class="group" style="background: {colour}; color: {antiColour};" title="{groupName}">{groupName}</div>
         <div class="content" title="{groupName}">{content}</div>
@@ -45,6 +45,55 @@
     </div>
 </a>
 ]]></group_colours_quote_template>
+                <annual_template><![CDATA[
+<a class="annual-quotes" style="color: {textColour}">
+    <div class="item container" title="{groupName}" style="width: 100%">
+        <div class="row">
+            <div class="name col-sm-24 col-24" title="{groupName}">{name}</div>
+        </div>
+        <div class="row">
+            <div class="content col-sm-24 col-24" title="{groupName}">{content}</div>
+        </div>
+        <div class="row">
+            <div class="author col-sm-24 col-24" title="{groupName}">{author}</div>
+        </div>
+        <div class="row">
+            <div class="description col-sm-24 col-24" title="{groupName}">{description}</div>
+        </div>
+        <div class="row">
+            <div class="description2 col-sm-24 col-24" title="{groupName}">{description2}</div>
+        </div>
+        <div class="row">
+            <div class="description3 col-sm-24 col-24" title="{groupName}">{description3}</div>
+        </div>
+    </div>
+</a>
+]]></annual_template>
+                <group_colours_annual_template><![CDATA[
+<a class="annual-quotes" style="color: {textColour}">
+    <div class="item container" title="{groupName}" style="border: 1px solid {colour}; width: 100%;" title="{groupName}">
+        <div class="group" style="background: {colour}; color: {antiColour};" title="{groupName}">{groupName}</div>
+        <div class="row">
+            <div class="name col-sm-24 col-24" title="{groupName}">{name}</div>
+        </div>
+        <div class="row">
+            <div class="content col-sm-24 col-24" title="{groupName}">{content}</div>
+        </div>
+        <div class="row">
+            <div class="author col-sm-24 col-24" title="{groupName}">{author}</div>
+        </div>
+        <div class="row">
+            <div class="description col-sm-24 col-24" title="{groupName}">{description}</div>
+        </div>
+        <div class="row">
+            <div class="description2 col-sm-24 col-24" title="{groupName}">{description2}</div>
+        </div>
+        <div class="row">
+            <div class="description3 col-sm-24 col-24" title="{groupName}">{description3}</div>
+        </div>
+    </div>
+</a>
+]]></group_colours_annual_template>
                 <verses_ordered>1</verses_ordered>
                 <text_colour>#000000</text_colour>
                 <background_hover_colour>#dddddd</background_hover_colour>
@@ -52,7 +101,8 @@
                 <content_shown_rows>2</content_shown_rows>
                 <custom_styles><![CDATA[.verse-slider .slider, .verse-slider .item { height: 98px; }
 .verse-slider .content { max-height: 47px; }
-.verse-slider .content .transformed { height: 47px; }]]></custom_styles>
+.verse-slider .content .transformed { height: 47px; }
+]]></custom_styles>
             </general>
 
             <backend_slider>
@@ -91,8 +141,8 @@
                 <is_group_colours_enable>0</is_group_colours_enable>
                 <verses_ordered>1</verses_ordered>
                 <text_colour>#000000</text_colour>
-                <mode>randomautoplayinf</mode>
-                <sliders><![CDATA[{"_1678942274965_965":{"code":"tv_slider_01","slider":["CH_SP_01","CGAV_033"]}}]]></sliders>
+                <mode>random</mode>
+                <sliders><![CDATA[{"_1678942274965_965":{"code":"ann_dicta_ignacy_loyola","slider":["ANN_MONTH_01","ANN_MONTH_02","ANN_MONTH_03","ANN_MONTH_04","ANN_MONTH_05","ANN_MONTH_06","ANN_MONTH_07","ANN_MONTH_08","ANN_MONTH_09","ANN_MONTH_10","ANN_MONTH_11","ANN_MONTH_12"]}}]]></sliders>
             </custom_sliders>
         </jaroslawzielinski_torahverse>
 
@@ -103,7 +153,7 @@
 
             <torah_input>
                 <division>three-division</division>
-                <frontend_enabled>0</frontend_enabled>
+                <frontend_enabled>1</frontend_enabled>
             </torah_input>
 
             <settings>

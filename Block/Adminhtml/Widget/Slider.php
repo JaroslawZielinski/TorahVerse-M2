@@ -6,6 +6,8 @@ namespace JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget;
 
 use GuzzleHttp\Client as GuzzleClient;
 use JaroslawZielinski\TorahVerse\Api\Data\GroupInterface;
+use JaroslawZielinski\TorahVerse\Model\Data\Group;
+use JaroslawZielinski\TorahVerse\Api\GroupRepositoryInterface;
 use JaroslawZielinski\TorahVerse\Helper\Data;
 use JaroslawZielinski\TorahVerse\Model\Config;
 use JaroslawZielinski\TorahVerse\Model\ResourceModel\Verse\CollectionFactory as VerseCollectionFactory;
@@ -49,6 +51,11 @@ abstract class Slider extends Template
      */
     private $jsonSerializer;
 
+/**
+     * @var GroupRepositoryInterface
+     */
+    private $groupRepository;
+
     /**
      * @var LoggerInterface
      */
@@ -59,6 +66,7 @@ abstract class Slider extends Template
      */
     public function __construct(
         CollectionFactory $collectionFactory,
+        GroupRepositoryInterface $groupRepository,
         VerseCollectionFactory $verseCollectionFactory,
         QuoteCollectionFactory $quoteCollectionFactory,
         Config $config,
@@ -70,6 +78,7 @@ abstract class Slider extends Template
         ?DirectoryHelper $directoryHelper = null
     ) {
         $this->collectionFactory = $collectionFactory;
+        $this->groupRepository = $groupRepository;
         $this->verseCollectionFactory = $verseCollectionFactory;
         $this->quoteCollectionFactory = $quoteCollectionFactory;
         $this->config = $config;
@@ -137,6 +146,8 @@ abstract class Slider extends Template
         ];
     }
 
+    /**
+     */
     private function convertQuoteDataToItem(array $data): array
     {
         $colour = $data['colour_value'];
@@ -146,15 +157,19 @@ abstract class Slider extends Template
         return [
             'colour' => $colour,
             'antiColour' => Data::getContrastColor($colour),
-            'groupName' => Data::escapeQuotes($data['groupName']),
-            'content' => Data::escapeQuotes($data['content']),
-            'unordered' => Data::escapeQuotes($data['content']),
-            'author' => Data::escapeQuotes($data['author']),
-            'description' => Data::escapeQuotes($data['description'])
+            'groupName' => __(Data::escapeQuotes($data['groupName'])),
+            'name' => __(Data::escapeQuotes($data['name'])),
+            'content' => __(Data::escapeQuotes($data['content'])),
+            'unordered' => __(Data::escapeQuotes($data['content'])),
+            'author' => __(Data::escapeQuotes($data['author'])),
+            'description' => __(Data::escapeQuotes($data['description'])),
+            'description2' => __(Data::escapeQuotes($data['description2'])),
+            'description3' => __(Data::escapeQuotes($data['description3']))
         ];
     }
 
     /**
+     * @throws \Exception
      */
     public function getItems(array $groupsArray = []): array
     {
@@ -173,27 +188,51 @@ abstract class Slider extends Template
         $quoteCollection = $this->quoteCollectionFactory->create();
         $quoteCollection
             ->addFieldToFilter('groups.' . GroupInterface::CODE, ['in' => $groupsArray]);
+        $now = new \DateTime();
+        $todayOfTheMonth = $now->format('md');
         /** @var Quote $quote */
         foreach ($quoteCollection->getItems() as $quote) {
+            $quoteData = $quote->getData();
+            $groupId = $quoteData['group_id'];
+            /** @var Group $group */
+            $group = $this->groupRepository->get($groupId);
+            $isAnnual = !!$group->getIsAnnual();
+            if ($isAnnual) {
+                $code = $quoteData['code'];
+                $codeDayOfTheMonth = substr($code, -4);
+                if ($codeDayOfTheMonth !== $todayOfTheMonth) {
+                    continue;
+                }
+            }
             $items[] = [
-                'data' => $this->convertQuoteDataToItem($quote->getData()),
-                'template' => $this->config->getModuleQuoteTemplate(),
-                'group_colours_template' => $this->config->getModuleGroupColoursQuoteTemplate()
+                'data' => $this->convertQuoteDataToItem($quoteData),
+                'template' => $isAnnual
+                    ? $this->config->getModuleAnnualTemplate()
+                    : $this->config->getModuleQuoteTemplate(),
+                'group_colours_template' => $isAnnual
+                    ? $this->config->getModuleGroupColoursAnnualTemplate()
+                    : $this->config->getModuleGroupColoursQuoteTemplate()
             ];
         }
         return $items;
     }
 
+    /**
+     */
     public function arrayToJson(array $inputArray): string
     {
         return $this->jsonSerializer->serialize($inputArray);
     }
 
+    /**
+     */
     public function getModuleCustomStyles(): ?string
     {
         return $this->config->getModuleCustomStyles();
     }
 
+    /**
+     */
     public function getBackgroundHoverColour(): ?string
     {
         return $this->config->getModuleBackgroundHoverColour();

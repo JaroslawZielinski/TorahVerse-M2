@@ -2,13 +2,20 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
     xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <title>Torah Verse Pick</title>
+        <title>Bible Tools</title>
         <css src="JaroslawZielinski_TorahVerse/css/pick.css"/>
     </head>
 
     <body>
         <referenceContainer name="content">
             <block name="torahverse_pick" as="torahverse_pick" class="JaroslawZielinski\TorahVerse\Block\Pick">
+                <block class="Magento\Cms\Block\Block" name="dicta-ignacy-loyola" as="dicta-ignacy-loyola"
+                    ifconfig="jaroslawzielinski_torahverse/custom_sliders/enable">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">dicta-ignacy-loyola</argument>
+                    </arguments>
+                </block>
+
                 <uiComponent name="jaroslawzielinski_torahverse_siglumpick_form"/>
             </block>
         </referenceContainer>
