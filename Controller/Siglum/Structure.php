@@ -66,11 +66,11 @@ class Structure extends Ajax
                 throw new \Exception('Book string is empty!');
             }
             $chapterParameter = $request->getParam('chapter');
-            if (empty(trim($chapterParameter))) {
+            if ('0' !== $chapterParameter && empty(trim($chapterParameter))) {
                 throw new \Exception('Chapter string is empty!');
             }
-            $verseStartParameter = $request->getParam('verse', '0');
-            $isVerseStart = '0' === $verseStartParameter;
+            $verseStartParameter = $request->getParam('verse', '-1');
+            $isVerseStart = '-1' === $verseStartParameter;
             $verseStartParameter = $isVerseStart ? '1' : $verseStartParameter;
             if (empty(trim($verseStartParameter))) {
                 throw new \Exception('Verse Start string is empty!');
@@ -95,10 +95,8 @@ class Structure extends Ajax
                 $itemId = 'item_' . $verseStart;
                 $resultArray[$itemId] = $verseStart;
             }, $sigla);
-            if ('1' !== (string)$verseStartParameter) {
-                $resultArray['item_.'] = '.';
-            }
             if (!$isVerseStart) {
+                $resultArray['item_.'] = '.';
                 array_shift($resultArray);
             }
             $result = $this->serializer->serialize($resultArray);
