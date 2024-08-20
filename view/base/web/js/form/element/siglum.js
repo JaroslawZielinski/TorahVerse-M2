@@ -232,13 +232,13 @@ define([
         },
         renderSetBook: function () {
             const booksByTranslation = this.structure[this.parts.translation];
-            let booksSelected = {};
+            let booksSelected = [];
             switch (this.divisionType) {
                 case 'two-division':
                     const map = utils.getGroupsMap();
                     const groups = map[this.parts.group];
                     for (let i = 0; i < groups.length; i++) {
-                        const foundBooks = Object.keys(booksByTranslation[groups[i]]);
+                        let foundBooks = Object.keys(booksByTranslation[groups[i]]);
                         for (let j = 0; j < foundBooks.length; j++) {
                             booksSelected.push(foundBooks[j]);
                         }
