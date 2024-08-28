@@ -1,0 +1,40 @@
+<?php
+    /** @var \JaroslawZielinski\TorahVerse\Block\BibleTools\VerseConfig $block */
+?>
+<div class="tabs-wrapper">
+    <div class="tabs-container">
+        <!-- Tab headers -->
+        <ul class="tabs">
+            <?php foreach ($block->getTabs() as $tabId => $tabLabel): ?>
+                <li class="tab-link <?= $block->getActiveTab() === $tabId ? 'active' : ''; ?>" data-tab="<?= $tabId; ?>">
+                    <a href="javascript:void(0);"><?= __($tabLabel); ?></a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <!-- Tab content -->
+        <div id="tab-content" class="tab-content">
+            <?php foreach ($block->getTabs() as $tabId => $tabLabel): ?>
+                <div id="<?= 'tab-' . $tabId ?>"
+                    style="display: <?= $block->getActiveTab() === $tabId ? 'block' : 'none' ?>;" class="tab-panes">
+                    <?= $block->getChildHtml($tabId); ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        $(document).ready(function () {
+            $('.tabs li').on('click', function () {
+                const tabId = $(this).data('tab');
+                $('.tabs li').removeClass('active');
+                $(this).addClass('active');
+                $('.tab-panes').hide();
+                $('#tab-' + tabId).show();
+            });
+        });
+    });
+</script>

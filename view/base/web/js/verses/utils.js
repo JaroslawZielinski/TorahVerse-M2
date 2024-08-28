@@ -12,6 +12,7 @@ define([
     };
 
     return {
+        ajaxResults: null,
         stringToLinesByChunkSize: function (string, chunkSize) {
             const words = string.split(' ');
             let measure = '';
@@ -134,6 +135,7 @@ define([
             return (!str || str.length === 0 );
         },
         ajaxGetItJson: function (ajaxUrl, data, callBack) {
+            let self = this;
             $.ajax({
                 showLoader: false,
                 url: ajaxUrl,
@@ -142,7 +144,9 @@ define([
                 dataType: 'json'
             }).done(function (data) {
                 callBack(data);
+                self.ajaxResults = data;
             });
+            return self.ajaxResults;
         },
         fixArray: function (array) {
             return JSON.parse(JSON.stringify(array));

@@ -130,7 +130,7 @@ class Config
 
     public const CONFIG_PATH_TORAHINPUT_DIVISION = 'jaroslawzielinski_torah/torah_input/division';
 
-    public const CONFIG_PATH_TORAHINPUT_FRONTENDENABLED = 'jaroslawzielinski_torah/torah_input/frontend_enabled';
+    public const CONFIG_PATH_TORAHINPUT_BIBLETOOLSENABLED = 'jaroslawzielinski_torah/torah_input/bibletools_enabled';
 
     /**
      * @var ScopeConfigInterface
@@ -500,9 +500,9 @@ class Config
             ->getValue(self::CONFIG_PATH_TORAHINPUT_DIVISION, ScopeInterface::SCOPE_STORE);
     }
 
-    public function isTorahInputFrontendEnabled(): bool
+    public function isTorahInputBibleToolsEnabled(): bool
     {
         return $this->scopeConfig
-            ->isSetFlag(self::CONFIG_PATH_TORAHINPUT_FRONTENDENABLED, ScopeInterface::SCOPE_STORE);
+            ->isSetFlag(self::CONFIG_PATH_TORAHINPUT_BIBLETOOLSENABLED, ScopeInterface::SCOPE_STORE);
     }
 }

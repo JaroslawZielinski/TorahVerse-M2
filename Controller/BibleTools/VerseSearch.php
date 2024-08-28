@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace JaroslawZielinski\TorahVerse\Controller\Siglum;
+namespace JaroslawZielinski\TorahVerse\Controller\BibleTools;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class Pick extends Action
+class VerseSearch extends Action
 {
     /**
      * @var PageFactory

@@ -153,7 +153,7 @@
 
             <torah_input>
                 <division>three-division</division>
-                <frontend_enabled>1</frontend_enabled>
+                <bibletools_enabled>1</bibletools_enabled>
             </torah_input>
 
             <settings>
