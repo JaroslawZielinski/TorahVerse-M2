@@ -11,6 +11,9 @@
 
         <column name="colour_value" nullable="false" xsi:type="varchar" length="15" default="#FFFFFF" comment="Colour"/>
 
+        <column xsi:type="smallint" name="is_annual" unsigned="false" nullable="false" identity="false" default="0"
+            comment="Is Annual"/>
+
         <column name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
             comment="Created At"/>
 
@@ -81,6 +84,10 @@
         <column name="author" nullable="false" xsi:type="text" comment="Author"/>
 
         <column name="description" nullable="true" xsi:type="text" comment="Description"/>
+
+        <column name="description2" nullable="true" xsi:type="text" comment="Description2"/>
+
+        <column name="description3" nullable="true" xsi:type="text" comment="Description3"/>
 
         <column name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" xsi:type="timestamp"
             comment="Created At"/>

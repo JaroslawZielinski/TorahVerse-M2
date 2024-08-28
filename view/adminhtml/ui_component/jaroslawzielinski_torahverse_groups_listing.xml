@@ -19,7 +19,9 @@
         <buttons>
             <button name="add">
                 <url path="*/*/new"/>
+
                 <class>primary</class>
+
                 <label translate="true">Add New Group</label>
             </button>
         </buttons>
@@ -28,6 +30,7 @@
     <dataSource component="Magento_Ui/js/grid/provider" name="jaroslawzielinski_torahverse_groups_listing_data_source">
         <settings>
             <updateUrl path="mui/index/render"/>
+
             <!-- @see https://magento.stackexchange.com/questions/281778/same-row-content-repeat-in-the-whole-page-grid-while-navigate-pagination#answer-349891 -->
             <storageConfig>
                 <param name="indexField" xsi:type="string">group_id</param>
@@ -40,6 +43,7 @@
             name="jaroslawzielinski_torahverse_groups_listing_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
+
                 <primaryFieldName>group_id</primaryFieldName>
             </settings>
         </dataProvider>
@@ -58,7 +62,9 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="selectProvider" xsi:type="string">jaroslawzielinski_torahverse_groups_listing.jaroslawzielinski_torahverse_groups_listing.jaroslawzielinski_torahverse_groups_columns.ids</item>
+
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+
                     <item name="indexField" xsi:type="string">group_id</item>
                 </item>
             </argument>
@@ -67,10 +73,14 @@
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">delete</item>
+
                         <item name="label" xsi:type="string" translate="true">Delete</item>
+
                         <item name="url" xsi:type="url" path="jaroslawzielinski_torahverse/groups/massdelete" />
+
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete groups</item>
+
                             <item name="message" xsi:type="string" translate="true">Are you sure you want to delete selected groups?</item>
                         </item>
                     </item>
@@ -85,6 +95,7 @@
                         <item name="filters" xsi:type="array">
                             <item name="select" xsi:type="array">
                                 <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+
                                 <item name="template" xsi:type="string">ui/grid/filters/elements/ui-select</item>
                             </item>
                         </item>
@@ -109,6 +120,7 @@
 
                 <param name="clientConfig" xsi:type="array">
                     <item name="saveUrl" path="jaroslawzielinski_torahverse/groups/inlineEdit" xsi:type="url"/>
+
                     <item name="validateBeforeSave" xsi:type="boolean">false</item>
                 </param>
             </editorConfig>
@@ -140,10 +152,15 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+
                     <item name="label" xsi:type="string" translate="true">ID</item>
+
                     <item name="sorting" xsi:type="string">asc</item>
+
                     <item name="sortable" xsi:type="boolean">true</item>
+
                     <item name="visible" xsi:type="boolean">true</item>
+
                     <item name="sortOrder" xsi:type="number">10</item>
                 </item>
             </argument>
@@ -153,10 +170,15 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
+
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+
                     <item name="label" xsi:type="string" translate="true">Code</item>
+
                     <item name="sortable" xsi:type="boolean">true</item>
+
                     <item name="visible" xsi:type="boolean">true</item>
+
                     <item name="sortOrder" xsi:type="number">20</item>
                 </item>
             </argument>
@@ -166,10 +188,15 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
+
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+
                     <item name="label" xsi:type="string" translate="true">Name</item>
+
                     <item name="sortable" xsi:type="boolean">true</item>
+
                     <item name="visible" xsi:type="boolean">true</item>
+
                     <item name="sortOrder" xsi:type="number">30</item>
                 </item>
             </argument>
@@ -179,11 +206,34 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
+
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+
                     <item name="label" xsi:type="string" translate="true">Colour Value</item>
+
                     <item name="sortable" xsi:type="boolean">true</item>
+
                     <item name="visible" xsi:type="boolean">true</item>
+
                     <item name="sortOrder" xsi:type="number">40</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="is_annual" class="JaroslawZielinski\TorahVerse\Ui\Component\Listing\Column\Groups\IsAnnual">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+
+                    <item name="label" xsi:type="string" translate="true">Is Annual</item>
+
+                    <item name="sorting" xsi:type="string">desc</item>
+
+                    <item name="sortable" xsi:type="boolean">true</item>
+
+                    <item name="visible" xsi:type="boolean">true</item>
+
+                    <item name="sortOrder" xsi:type="number">50</item>
                 </item>
             </argument>
         </column>
@@ -192,10 +242,14 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+
                     <item name="label" xsi:type="string" translate="true">Verses</item>
+
                     <item name="sortable" xsi:type="boolean">false</item>
+
                     <item name="visible" xsi:type="boolean">true</item>
-                    <item name="sortOrder" xsi:type="number">50</item>
+
+                    <item name="sortOrder" xsi:type="number">60</item>
                 </item>
             </argument>
         </column>
@@ -204,10 +258,14 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+
                     <item name="label" xsi:type="string" translate="true">Quotes</item>
+
                     <item name="sortable" xsi:type="boolean">false</item>
+
                     <item name="visible" xsi:type="boolean">true</item>
-                    <item name="sortOrder" xsi:type="number">60</item>
+
+                    <item name="sortOrder" xsi:type="number">70</item>
                 </item>
             </argument>
         </column>
@@ -215,8 +273,10 @@
         <actionsColumn name="actions" class="JaroslawZielinski\TorahVerse\Ui\Component\Listing\Column\Groups\Actions">
             <settings>
                 <indexField>group_id</indexField>
+
                 <resizeEnabled>false</resizeEnabled>
-                <resizeDefaultWidth>70</resizeDefaultWidth>
+
+                <resizeDefaultWidth>80</resizeDefaultWidth>
             </settings>
         </actionsColumn>
     </columns>

@@ -76,6 +76,22 @@ class Group extends AbstractExtensibleObject implements GroupInterface
     /**
      * @inheritDoc
      */
+    public function getIsAnnual(): string
+    {
+        return $this->_get(GroupInterface::IS_ANNUAL) ?? '0';
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setIsAnnual(string $isAnnual): GroupInterface
+    {
+        return $this->setData(GroupInterface::IS_ANNUAL, $isAnnual);
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getCreatedAt(): ?string
     {
         return $this->_get(self::CREATED_AT);

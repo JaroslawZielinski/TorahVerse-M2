@@ -6,6 +6,8 @@ namespace JaroslawZielinski\TorahVerse\Block\Widget;
 
 use GuzzleHttp\Client as GuzzleClient;
 use JaroslawZielinski\TorahVerse\Api\Data\GroupInterface;
+use JaroslawZielinski\TorahVerse\Model\Data\Group;
+use JaroslawZielinski\TorahVerse\Api\GroupRepositoryInterface;
 use JaroslawZielinski\TorahVerse\Helper\Data;
 use JaroslawZielinski\TorahVerse\Model\Config;
 use JaroslawZielinski\TorahVerse\Model\ResourceModel\Verse\CollectionFactory as VerseCollectionFactory;
@@ -48,6 +50,11 @@ abstract class Slider extends Template implements BlockInterface
     private $pagConfig;
 
     /**
+     * @var GroupRepositoryInterface
+     */
+    private $groupRepository;
+
+    /**
      * @var LoggerInterface
      */
     private $logger;
@@ -57,6 +64,7 @@ abstract class Slider extends Template implements BlockInterface
      */
     public function __construct(
         PageConfig $pagConfig,
+        GroupRepositoryInterface $groupRepository,
         VerseCollectionFactory $verseCollectionFactory,
         QuoteCollectionFactory $quoteCollectionFactory,
         Config $config,
@@ -66,6 +74,7 @@ abstract class Slider extends Template implements BlockInterface
         array $data = []
     ) {
         $this->pagConfig = $pagConfig;
+        $this->groupRepository = $groupRepository;
         $this->verseCollectionFactory = $verseCollectionFactory;
         $this->quoteCollectionFactory = $quoteCollectionFactory;
         $this->config = $config;
@@ -142,11 +151,14 @@ abstract class Slider extends Template implements BlockInterface
         return [
             'colour' => $colour,
             'antiColour' => Data::getContrastColor($colour),
-            'groupName' => Data::escapeQuotes($data['groupName']),
-            'content' => Data::escapeQuotes($data['content']),
-            'unordered' => Data::escapeQuotes($data['content']),
-            'author' => Data::escapeQuotes($data['author']),
-            'description' => Data::escapeQuotes($data['description'])
+            'groupName' => __(Data::escapeQuotes($data['groupName'])),
+            'name' => __(Data::escapeQuotes($data['name'])),
+            'content' => __(Data::escapeQuotes($data['content'])),
+            'unordered' => __(Data::escapeQuotes($data['content'])),
+            'author' => __(Data::escapeQuotes($data['author'])),
+            'description' => __(Data::escapeQuotes($data['description'])),
+            'description2' => __(Data::escapeQuotes($data['description2'])),
+            'description3' => __(Data::escapeQuotes($data['description3']))
         ];
     }
 
@@ -170,12 +182,30 @@ abstract class Slider extends Template implements BlockInterface
         $quoteCollection = $this->quoteCollectionFactory->create();
         $quoteCollection
             ->addFieldToFilter('groups.' . GroupInterface::CODE, ['in' => $groupsArray]);
+        $now = new \DateTime();
+        $todayOfTheMonth = $now->format('md');
         /** @var Quote $quote */
         foreach ($quoteCollection->getItems() as $quote) {
+            $quoteData = $quote->getData();
+            $groupId = $quoteData['group_id'];
+            /** @var Group $group */
+            $group = $this->groupRepository->get($groupId);
+            $isAnnual = !!$group->getIsAnnual();
+            if ($isAnnual) {
+                $code = $quoteData['code'];
+                $codeDayOfTheMonth = substr($code, -4);
+                if ($codeDayOfTheMonth !== $todayOfTheMonth) {
+                    continue;
+                }
+            }
             $items[] = [
-                'data' => $this->convertQuoteDataToItem($quote->getData()),
-                'template' => $this->config->getModuleQuoteTemplate(),
-                'group_colours_template' => $this->config->getModuleGroupColoursQuoteTemplate()
+                'data' => $this->convertQuoteDataToItem($quoteData),
+                'template' => $isAnnual
+                    ? $this->config->getModuleAnnualTemplate()
+                    : $this->config->getModuleQuoteTemplate(),
+                'group_colours_template' => $isAnnual
+                    ? $this->config->getModuleGroupColoursAnnualTemplate()
+                    : $this->config->getModuleGroupColoursQuoteTemplate()
             ];
         }
         return $items;

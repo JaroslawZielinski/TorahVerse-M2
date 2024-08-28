@@ -35,6 +35,11 @@ class Config
     public const CONFIG_PATH_MODULE_GROUP_COLOURS_QUOTE_TEMPLATE
         = 'jaroslawzielinski_torahverse/general/group_colours_quote_template';
 
+    public const CONFIG_PATH_MODULE_ANNUAL_TEMPLATE = 'jaroslawzielinski_torahverse/general/annual_template';
+
+    public const CONFIG_PATH_MODULE_GROUP_COLOURS_ANNUAL_TEMPLATE
+        = 'jaroslawzielinski_torahverse/general/group_colours_annual_template';
+
     public const CONFIG_PATH_MODULE_VERSES_ORDERED = 'jaroslawzielinski_torahverse/general/verses_ordered';
 
     public const CONFIG_PATH_MODULE_TEXT_COLOUR = 'jaroslawzielinski_torahverse/general/text_colour';
@@ -207,6 +212,20 @@ class Config
         $groupColoursQuoteTemplate = $this->scopeConfig
             ->getValue(self::CONFIG_PATH_MODULE_GROUP_COLOURS_QUOTE_TEMPLATE, ScopeInterface::SCOPE_STORE);
         return empty($groupColoursQuoteTemplate) ? null : (string)$groupColoursQuoteTemplate;
+    }
+
+    public function getModuleAnnualTemplate(): ?string
+    {
+        $annualTemplate = $this->scopeConfig
+            ->getValue(self::CONFIG_PATH_MODULE_ANNUAL_TEMPLATE, ScopeInterface::SCOPE_STORE);
+        return empty($annualTemplate) ? null : (string)$annualTemplate;
+    }
+
+    public function getModuleGroupColoursAnnualTemplate(): ?string
+    {
+        $groupColoursAnnualTemplate = $this->scopeConfig
+            ->getValue(self::CONFIG_PATH_MODULE_GROUP_COLOURS_ANNUAL_TEMPLATE, ScopeInterface::SCOPE_STORE);
+        return empty($groupColoursAnnualTemplate) ? null : (string)$groupColoursAnnualTemplate;
     }
 
     public function isModuleVersesOrdered(): bool

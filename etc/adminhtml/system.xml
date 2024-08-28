@@ -111,7 +111,27 @@
                     </depends>
                 </field>
 
-                <field id="verses_ordered" translate="label" type="select" sortOrder="110" showInDefault="1"
+                <field id="annual_template" translate="label" type="textarea" sortOrder="110" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Html Template for Annual Slider Frame</label>
+                    <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_group_colours_enable" negative="1">1</field>
+                    </depends>
+                </field>
+
+                <field id="group_colours_annual_template" translate="label" type="textarea" sortOrder="120"
+                    showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Html Template for Annual Slider Frame</label>
+                    <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="is_group_colours_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="verses_ordered" translate="label" type="select" sortOrder="130" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Verses ordered</label>
                     <comment><![CDATA[Verses Order.]]></comment>
@@ -122,7 +142,7 @@
                 </field>
 
                 <!-- @see https://webkul.com/blog/add-color-picker-magento2-system-config/ -->
-                <field id="text_colour" translate="label" type="text" sortOrder="120" showInDefault="1"
+                <field id="text_colour" translate="label" type="text" sortOrder="140" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Text Colour</label>
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Colour</frontend_model>
@@ -131,7 +151,7 @@
                     </depends>
                 </field>
 
-                <field id="background_hover_colour" translate="label" type="text" sortOrder="130" showInDefault="1"
+                <field id="background_hover_colour" translate="label" type="text" sortOrder="150" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Background Hover Colour</label>
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Colour</frontend_model>
@@ -140,7 +160,7 @@
                     </depends>
                 </field>
 
-                <field id="mode" translate="label" type="select" sortOrder="140" showInDefault="1"
+                <field id="mode" translate="label" type="select" sortOrder="160" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Mode of slider</label>
                     <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
@@ -149,7 +169,7 @@
                     </depends>
                 </field>
 
-                <field id="content_shown_rows" translate="label" type="text" sortOrder="150" showInDefault="1"
+                <field id="content_shown_rows" translate="label" type="text" sortOrder="170" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Number of shown rows</label>
                     <depends>
@@ -157,7 +177,7 @@
                     </depends>
                 </field>
 
-                <field id="custom_styles" translate="label" type="textarea" sortOrder="160" showInDefault="1"
+                <field id="custom_styles" translate="label" type="textarea" sortOrder="180" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Custom Styles</label>
                     <comment><![CDATA[custom css (ex. for <strong>content_shown_rows</strong> = 2: <br/>
@@ -543,7 +563,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment><![CDATA[All queries will be cached (sqlite) if enabled.]]></comment>
                 </field>
-                
+
                 <field id="translation_bt" translate="label comment" type="button" sortOrder="20" showInDefault="1">
                     <label>BT</label>
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BTButton</frontend_model>

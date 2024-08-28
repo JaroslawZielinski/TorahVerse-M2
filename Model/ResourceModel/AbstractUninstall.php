@@ -17,6 +17,7 @@ abstract class AbstractUninstall extends AbstractDb
         'torahverse_groups' => 'DROP table %s;',
         'ui_bookmark' => 'DELETE FROM %s WHERE namespace LIKE "&jaroslawzielinski_torahverse&";',
         'widget_instance' => 'DELETE FROM %s WHERE instance_type LIKE "&TorahVerse&";',
+        'cms_block' => 'DELETE FROM %s WHERE identifier LIKE "&dicta-ignacy-loyola&";'
     ];
 
     public function unInstall(): void

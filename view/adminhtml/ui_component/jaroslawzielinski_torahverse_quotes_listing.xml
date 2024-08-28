@@ -200,7 +200,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
                     <item name="label" xsi:type="string" translate="true">Content</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
@@ -213,7 +213,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
                     <item name="label" xsi:type="string" translate="true">Author</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
@@ -226,7 +226,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
                     <item name="label" xsi:type="string" translate="true">Description</item>
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
@@ -235,11 +235,37 @@
             </argument>
         </column>
 
+        <column name="description2">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="label" xsi:type="string" translate="true">Description2</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">80</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="description3">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="label" xsi:type="string" translate="true">Description3</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">90</item>
+                </item>
+            </argument>
+        </column>
+
         <actionsColumn name="actions" class="JaroslawZielinski\TorahVerse\Ui\Component\Listing\Column\Quotes\Actions">
             <settings>
                 <indexField>quote_id</indexField>
                 <resizeEnabled>false</resizeEnabled>
-                <resizeDefaultWidth>80</resizeDefaultWidth>
+                <resizeDefaultWidth>100</resizeDefaultWidth>
             </settings>
         </actionsColumn>
 	</columns>

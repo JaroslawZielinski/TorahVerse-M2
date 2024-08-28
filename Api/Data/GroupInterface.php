@@ -9,11 +9,19 @@ use Magento\Framework\Api\ExtensibleDataInterface;
 interface GroupInterface extends ExtensibleDataInterface
 {
     public const NO_COLOUR = 'no_colour';
+
     public const GROUP_ID = 'group_id';
+
     public const CODE = 'code';
+
     public const NAME = 'name';
+
     public const COLOUR_VALUE = 'colour_value';
+
+    public const IS_ANNUAL = 'is_annual';
+
     public const CREATED_AT = 'created_at';
+
     public const UPDATED_AT = 'updated_at';
 
     /**
@@ -59,6 +67,16 @@ interface GroupInterface extends ExtensibleDataInterface
      * @return GroupInterface
      */
     public function setColourValue(?string $colourValue): self;
+
+    /**
+     * @return string
+     */
+    public function getIsAnnual(): string;
+
+    /**
+     * @return GroupInterface
+     */
+    public function setIsAnnual(string $isAnnual): self;
 
     /**
      * @return ?string
