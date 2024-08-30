@@ -32,8 +32,7 @@
                     <uiComponent name="jaroslawzielinski_torahverse_siglumpick_form"/>
                 </block>
 
-                <block name="torahverse_search" as="torahverse_search"
-                    class="JaroslawZielinski\TorahVerse\Block\BibleTools\VerseSearch"
+                <block name="torahverse_search" as="torahverse_search" class="JaroslawZielinski\TorahVerse\Block\Search"
                     template="JaroslawZielinski_TorahVerse::bibletools/search.phtml" />
             </block>
         </referenceContainer>

@@ -1,6 +1,5 @@
 <?php
     /** @var \JaroslawZielinski\TorahVerse\Block\Pick $block */
-    $translations = $block->getTranslations();
     $dictaIgnacyLoyolaHtml = $block->getChildHtml('dicta-ignacy-loyola');
 ?>
 <form class="form" id="torahverse-pick" action="#" method="post" autocomplete="off">
@@ -13,7 +12,7 @@
         <input name="form_key" type="hidden" value="">
 
         <?php if (!empty($dictaIgnacyLoyolaHtml)): ?>
-            <div class="field" style="display: ruby-text;">
+            <div class="field">
                 <label for="dicta" class="label">
                     <span>&nbsp;</span>
                 </label>

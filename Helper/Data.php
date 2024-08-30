@@ -49,6 +49,39 @@ class Data extends AbstractHelper
         }
     }
 
+    /**
+     * @@see https://colordesigner.io/gradient-generator
+     * @see https://cats2d.com/colormaps/rainbow.png
+     */
+    public static function getPercentageColor(float $percents): string
+    {
+        switch ($percents) {
+            default:
+            case $percents > 0.0 && $percents <= 10.0:
+                return '#0000ff';
+            case $percents > 10.0 && $percents <= 20.0:
+                return '#0c87ff';
+            case $percents > 20.0 && $percents <= 30.0:
+                return '#00f1ff';
+            case $percents > 30.0 && $percents <= 40.0:
+                return '#00ffa0';
+            case $percents > 40.0 && $percents <= 50.0:
+                return '#00ff36';
+            case $percents > 50.0 && $percents <= 60.0:
+                return '#36ff0c';
+            case $percents > 60.0 && $percents <= 70.0:
+                return '#a0ff01';
+            case $percents > 70.0 && $percents <= 80.0:
+                return '#fef305';
+            case $percents > 80.0 && $percents <= 90.0:
+                return '#ff8500';
+            case $percents > 90.0 && $percents < 100.0:
+                return '#ff2500';
+            case $percents >= 100.0:
+                return '#ff0000';
+        }
+    }
+
     public static function assocArrayKeySearch(string $search, array $array): ?string
     {
         $found = null;

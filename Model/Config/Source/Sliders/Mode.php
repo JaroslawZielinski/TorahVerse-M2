@@ -17,6 +17,7 @@ class Mode extends AbstractSource implements OptionSourceInterface
 
     public function getOptions(): array
     {
+        $options = [];
         foreach (self::MODE as $position => $label) {
             $options[] = [
                 'label' => __($label),
