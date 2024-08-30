@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Verse Search</title>
+
+        <css src="JaroslawZielinski_TorahVerse::css/bibletools/versesearch.css"/>
+    </head>
+
+    <body>
+        <referenceContainer name="content">
+            <block name="torahverse_search" as="torahverse_search"
+                class="JaroslawZielinski\TorahVerse\Block\BibleTools\VerseSearch"
+                template="JaroslawZielinski_TorahVerse::bibletools/search.phtml" />
+        </referenceContainer>
+    </body>
+</page>

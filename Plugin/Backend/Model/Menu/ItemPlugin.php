@@ -24,7 +24,10 @@ class ItemPlugin
     public function afterGetUrl(Item $subject, $result)
     {
         $info = $subject->toArray();
-        if ('JaroslawZielinski_TorahVerse::versepick' === $info['resource']) {
+        if (in_array($info['resource'], [
+            'JaroslawZielinski_TorahVerse::versesearch',
+            'JaroslawZielinski_TorahVerse::verseconfig'
+        ])) {
             return $this->frontUrlModel->getUrl($info['action']);
         }
         return $result;

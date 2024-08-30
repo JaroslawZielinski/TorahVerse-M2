@@ -1,0 +1,75 @@
+@superWidth: 114%;
+.tabs-wrapper {
+    .tabs-container {
+        display: flex;
+        .tab-content {
+            padding: 0 15px 15px;
+            border-top: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            width: ~"calc(100% - 200px)";
+            #torahverse-pick {
+                .legend {
+                    display: none;
+                }
+                .verse-slider, .verse-slider.paused-slider {
+                    .item, .item.container {
+                        width: 100% !important;
+                    }
+                }
+                label[for="dicta"].label {
+                    display: none;
+                }
+                label.label {
+                    width: 8.8%;
+                }
+                .admin__fieldset {
+                    .label + .control > .container {
+                        width: @superWidth !important;
+                    }
+                }
+            }
+        }
+        .tabs {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            border-right: 1px solid #ccc;
+            li {
+                display: block;
+                margin-bottom: 5px;
+                a {
+                    display: block;
+                    padding: 10px 15px;
+                    text-decoration: none;
+                    background-color: #f1f1f1;
+                    border: 1px solid #ccc;
+                    border-right: none;
+                    cursor: pointer;
+                    color: #000;
+                }
+                &.active {
+                    a {
+                        background-color: white;
+                        font-weight: bold;
+                        border-right: 1px solid #fff;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .tabs-container {
+            flex-direction: column;
+            .tab-content {
+                width: 100%;
+            }
+            .tabs {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #ccc;
+            }
+        }
+    }
+}

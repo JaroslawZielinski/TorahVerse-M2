@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Bible Tools</title>
+
+        <css src="JaroslawZielinski_TorahVerse/css/pick.css"/>
+
+        <css src="JaroslawZielinski_TorahVerse/css/bibletools/verseconfig.css" />
+
+        <css src="JaroslawZielinski_TorahVerse::css/bibletools/versesearch.css"/>
+    </head>
+
+    <body>
+        <referenceContainer name="content">
+            <block class="JaroslawZielinski\TorahVerse\Block\BibleTools\VerseConfig" name="custom.tabs"
+                template="JaroslawZielinski_TorahVerse::bibletools/verseconfig.phtml">
+                <arguments>
+                    <argument name="tabs" xsi:type="array">
+                        <item name="torahverse_pick" xsi:type="string">Verse Pick</item>
+                    </argument>
+                </arguments>
+
+                <block name="torahverse_pick" as="torahverse_pick" class="JaroslawZielinski\TorahVerse\Block\Pick">
+                    <block class="Magento\Cms\Block\Block" name="dicta-ignacy-loyola" as="dicta-ignacy-loyola"
+                        ifconfig="jaroslawzielinski_torahverse/custom_sliders/enable">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">dicta-ignacy-loyola</argument>
+                        </arguments>
+                    </block>
+
+                    <uiComponent name="jaroslawzielinski_torahverse_siglumpick_form"/>
+                </block>
+
+                <block name="torahverse_search" as="torahverse_search"
+                    class="JaroslawZielinski\TorahVerse\Block\BibleTools\VerseSearch"
+                    template="JaroslawZielinski_TorahVerse::bibletools/search.phtml" />
+            </block>
+        </referenceContainer>
+    </body>
+</page>

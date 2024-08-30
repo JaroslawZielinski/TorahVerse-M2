@@ -37,8 +37,8 @@
              title="Bible Tools" translate="title" module="JaroslawZielinski_TorahVerse"
              parent="JaroslawZielinski_TorahVerse::menu" sortOrder="30"/>
 
-        <add id="JaroslawZielinski_TorahVerse::versepick" resource="JaroslawZielinski_TorahVerse::versepick"
-             title="Verse Pick" action="torahverse/siglum/pick"
+        <add id="JaroslawZielinski_TorahVerse::verseconfig" resource="JaroslawZielinski_TorahVerse::verseconfig"
+             title="Verse Config" action="torahverse/bibletools/verseconfig"
              module="JaroslawZielinski_TorahVerse" sortOrder="10" parent="JaroslawZielinski_TorahVerse::tools"
              target="_blank" dependsOnModule="JaroslawZielinski_TorahVerse"/>
     </menu>

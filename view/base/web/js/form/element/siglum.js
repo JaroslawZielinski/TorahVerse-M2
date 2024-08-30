@@ -31,13 +31,40 @@ define([
             this.previewSiglum();
             return this;
         },
+        validate: function () {
+            this._super();
+
+            let value = this.value(),
+                message = '',
+                isValid = true;
+
+            const results = this.previewSiglum();
+            const status = null !== results ? results['status'] : 'error';
+            if (status !== 'ok' || 6 !== parseInt(this.progressPointer)) {
+                isValid = false;
+                message = $t("Sigla are not valid or '.' button not pressed yet.") + '[' + value + ']';
+            }
+
+            this.error(message);
+            this.error.valueHasMutated();
+            this.bubble('error', message);
+
+            //TODO: Implement proper result propagation for form
+            if (this.source && !isValid) {
+                this.source.set('params.invalid', true);
+            }
+
+            return {
+                valid: isValid,
+                target: this
+            };
+        },
         /**
          * Callback that fires when 'value' property is updated.
          */
         onUpdate: function () {
             this.bubble('update', this.hasChanged());
             this.validate();
-            this.previewSiglum();
         },
         /**
          * Refresh buttons and add onclick handling
@@ -46,6 +73,7 @@ define([
             handling = undefined !== handling ? handling : true;
             try {
                 this.value(this.updateValue());
+                this.onUpdate();
                 $('#buttons').html(this.renderButtons());
                 if (handling) {
                     this.handleButtons();
@@ -182,7 +210,7 @@ define([
                 resultId = self.resultSelector;
             if (undefined !== translationCode && undefined !== siglumCode) {
                 let formKey = window.FORM_KEY || $('input[name="form_key"]').val();
-                utils.ajaxGetItJson(ajaxUrl, {
+                return utils.ajaxGetItJson(ajaxUrl, {
                     isAjax: true,
                     form_key: formKey,
                     translation: translationCode,
@@ -191,6 +219,7 @@ define([
                     $(resultId).html(data['result']);
                 });
             }
+            return null;
         },
         renderDivisionArray: function () {
             if (utils.inArray(this.parts.translation, ['eib', 'sz', 'tnp'])) {
@@ -366,8 +395,8 @@ define([
                 verse: self.parts.verseStart
             }, function (ajaxData) {
                 let ajaxButtons = JSON.parse(ajaxData['result']),
-                m = 4,
-                n = Object.keys(ajaxButtons).length / m;
+                    m = 4,
+                    n = Object.keys(ajaxButtons).length / m;
                 const ajaxTemplateData = {
                     m: m,
                     n: n,

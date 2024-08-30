@@ -9,8 +9,11 @@
         <section id="jaroslawzielinski_torahverse" translate="label" sortOrder="10" showInDefault="1" showInStore="1"
             showInWebsite="1">
             <class>separator-top</class>
+
             <label>Torah Verse</label>
+
             <tab>torah</tab>
+
             <resource>JaroslawZielinski_TorahVerse::configuration</resource>
 
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1"
@@ -20,13 +23,16 @@
                 <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Enable</label>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
                 <field id="menu_enabled" translate="label" type="select" sortOrder="20" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Menu enabled</label>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="enable">1</field>
                     </depends>
@@ -35,7 +41,9 @@
                 <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
+
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
+
                     <depends>
                         <field id="enable">1</field>
                     </depends>
@@ -44,8 +52,11 @@
                 <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
+
                     <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="enable">1</field>
                     </depends>
@@ -54,9 +65,12 @@
                 <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Vertical Sweep time</label>
+
                     <comment><![CDATA[time of sweeping one line vertically.]]></comment>
+
                     <depends>
                         <field id="enable">1</field>
+
                         <field id="is_vertical_sweep_possible">1</field>
                     </depends>
                 </field>
@@ -64,8 +78,11 @@
                 <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
+
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="enable">1</field>
                     </depends>
@@ -74,9 +91,12 @@
                 <field id="verse_template" translate="label" type="textarea" sortOrder="70" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Html Template for Verse Slider Frame</label>
+
                     <comment><![CDATA[Key words: <strong>url</strong>, <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>description</strong> written in {}]]></comment>
+
                     <depends>
                         <field id="enable">1</field>
+
                         <field id="is_group_colours_enable" negative="1">1</field>
                     </depends>
                 </field>
@@ -84,9 +104,12 @@
                 <field id="group_colours_verse_template" translate="label" type="textarea" sortOrder="80"
                     showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Html Template for Verse Slider Frame</label>
+
                     <comment><![CDATA[Key words: <strong>url</strong>, <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>description</strong> written in {}]]></comment>
+
                     <depends>
                         <field id="enable">1</field>
+
                         <field id="is_group_colours_enable">1</field>
                     </depends>
                 </field>
@@ -94,9 +117,12 @@
                 <field id="quote_template" translate="label" type="textarea" sortOrder="90" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Html Template for Quote Slider Frame</label>
+
                     <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
+
                     <depends>
                         <field id="enable">1</field>
+
                         <field id="is_group_colours_enable" negative="1">1</field>
                     </depends>
                 </field>
@@ -104,9 +130,12 @@
                 <field id="group_colours_quote_template" translate="label" type="textarea" sortOrder="100"
                     showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Html Template for Quote Slider Frame</label>
+
                     <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
+
                     <depends>
                         <field id="enable">1</field>
+
                         <field id="is_group_colours_enable">1</field>
                     </depends>
                 </field>
@@ -114,9 +143,12 @@
                 <field id="annual_template" translate="label" type="textarea" sortOrder="110" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Html Template for Annual Slider Frame</label>
+
                     <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
+
                     <depends>
                         <field id="enable">1</field>
+
                         <field id="is_group_colours_enable" negative="1">1</field>
                     </depends>
                 </field>
@@ -124,9 +156,12 @@
                 <field id="group_colours_annual_template" translate="label" type="textarea" sortOrder="120"
                     showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Html Template for Annual Slider Frame</label>
+
                     <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
+
                     <depends>
                         <field id="enable">1</field>
+
                         <field id="is_group_colours_enable">1</field>
                     </depends>
                 </field>
@@ -134,8 +169,11 @@
                 <field id="verses_ordered" translate="label" type="select" sortOrder="130" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Verses ordered</label>
+
                     <comment><![CDATA[Verses Order.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="enable">1</field>
                     </depends>
@@ -145,7 +183,9 @@
                 <field id="text_colour" translate="label" type="text" sortOrder="140" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Text Colour</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Colour</frontend_model>
+
                     <depends>
                         <field id="enable">1</field>
                     </depends>
@@ -154,7 +194,9 @@
                 <field id="background_hover_colour" translate="label" type="text" sortOrder="150" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Background Hover Colour</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Colour</frontend_model>
+
                     <depends>
                         <field id="enable">1</field>
                     </depends>
@@ -163,7 +205,9 @@
                 <field id="mode" translate="label" type="select" sortOrder="160" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Mode of slider</label>
+
                     <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
+
                     <depends>
                         <field id="enable">1</field>
                     </depends>
@@ -172,6 +216,7 @@
                 <field id="content_shown_rows" translate="label" type="text" sortOrder="170" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Number of shown rows</label>
+
                     <depends>
                         <field id="enable">1</field>
                     </depends>
@@ -180,11 +225,13 @@
                 <field id="custom_styles" translate="label" type="textarea" sortOrder="180" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Custom Styles</label>
+
                     <comment><![CDATA[custom css (ex. for <strong>content_shown_rows</strong> = 2: <br/>
                     <br/>.verse-slider .slider, .verse-slider .item { height: 98px; }
                     <br/>.verse-slider .content { max-height: 47px; }
                     <br/>.verse-slider .content .transformed { height: 47px; }
 ]]></comment>
+
                     <depends>
                         <field id="enable">1</field>
                     </depends>
@@ -200,19 +247,23 @@
                 <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Enable</label>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
                 <field id="override" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Override configuration</label>
+
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
 
                 <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
+
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -221,8 +272,11 @@
                 <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
+
                     <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -231,9 +285,12 @@
                 <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Vertical Sweep time</label>
+
                     <comment><![CDATA[time of sweeping one line vertically.]]></comment>
+
                     <depends>
                         <field id="override">1</field>
+
                         <field id="is_vertical_sweep_possible">1</field>
                     </depends>
                 </field>
@@ -241,8 +298,11 @@
                 <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
+
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -251,8 +311,11 @@
                 <field id="verses_ordered" translate="label" type="select" sortOrder="70" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Verses ordered</label>
+
                     <comment><![CDATA[Verses Order.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -261,7 +324,9 @@
                 <field id="text_colour" translate="label" type="text" sortOrder="80" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Text Colour</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Colour</frontend_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -270,7 +335,9 @@
                 <field id="mode" translate="label" type="select" sortOrder="90" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Mode of slider</label>
+
                     <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -279,9 +346,13 @@
                 <field id="slider" type="multiselect" sortOrder="100" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Slider Configuration</label>
+
                     <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\MultiUiSelect</frontend_model>
+
                     <can_be_empty>1</can_be_empty>
+
                     <comment><![CDATA[Select groups of verses.]]></comment>
                 </field>
 
@@ -298,20 +369,25 @@
 
                 <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
                     showInStore="1">
+
                     <label>Enable</label>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
                 <field id="override" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Override configuration</label>
+
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
 
                 <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
+
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -320,8 +396,11 @@
                 <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
+
                     <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -330,9 +409,12 @@
                 <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Vertical Sweep time</label>
+
                     <comment><![CDATA[time of sweeping one line vertically.]]></comment>
+
                     <depends>
                         <field id="override">1</field>
+
                         <field id="is_vertical_sweep_possible">1</field>
                     </depends>
                 </field>
@@ -340,8 +422,11 @@
                 <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
+
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -350,8 +435,11 @@
                 <field id="verses_ordered" translate="label" type="select" sortOrder="70" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Verses ordered</label>
+
                     <comment><![CDATA[Verses Order.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -360,7 +448,9 @@
                 <field id="text_colour" translate="label" type="text" sortOrder="80" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Text Colour</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Colour</frontend_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -369,7 +459,9 @@
                 <field id="mode" translate="label" type="select" sortOrder="90" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Mode of slider</label>
+
                     <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -378,16 +470,22 @@
                 <field id="placement" translate="label" type="multiselect" sortOrder="100" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Placement of a slider</label>
+
                     <validate>required-entry</validate>
+
                     <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Placement</source_model>
                 </field>
 
                 <field id="slider" type="multiselect" sortOrder="110" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Slider Configuration</label>
+
                     <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Groups</source_model>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\MultiUiSelect</frontend_model>
+
                     <can_be_empty>1</can_be_empty>
+
                     <comment><![CDATA[Select groups of verses.]]></comment>
                 </field>
 
@@ -405,19 +503,23 @@
                 <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Enable</label>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
                 <field id="override" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Override configuration</label>
+
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
 
                 <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
+
                     <comment><![CDATA[time in miliseconds between frames.]]></comment>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -426,8 +528,11 @@
                 <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
+
                     <comment><![CDATA[vertical sweep happens when the text is bigger than a frame.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -436,9 +541,12 @@
                 <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Vertical Sweep time</label>
+
                     <comment><![CDATA[time of sweeping one line vertically.]]></comment>
+
                     <depends>
                         <field id="override">1</field>
+
                         <field id="is_vertical_sweep_possible">1</field>
                     </depends>
                 </field>
@@ -446,8 +554,11 @@
                 <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
+
                     <comment><![CDATA[Adding colour frame with Group Name.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -456,8 +567,11 @@
                 <field id="verses_ordered" translate="label" type="select" sortOrder="70" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Verses ordered</label>
+
                     <comment><![CDATA[Verses Order.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -466,7 +580,9 @@
                 <field id="text_colour" translate="label" type="text" sortOrder="80" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Text Colour</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Colour</frontend_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -475,7 +591,9 @@
                 <field id="mode" translate="label" type="select" sortOrder="90" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Mode of slider</label>
+
                     <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Mode</source_model>
+
                     <depends>
                         <field id="override">1</field>
                     </depends>
@@ -484,8 +602,11 @@
                 <field id="sliders" translate="label comment" type="text" sortOrder="100" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Slider Configurations</label>
+
                     <comment><![CDATA[Slider configurations.]]></comment>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\System\Config\Form\Field\Sliders</frontend_model>
+
                     <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
                 </field>
 
@@ -500,8 +621,11 @@
         <section id="jaroslawzielinski_torah" translate="label" sortOrder="20" showInDefault="1" showInStore="1"
             showInWebsite="1">
             <class>separator-top</class>
+
             <label>Torah</label>
+
             <tab>torah</tab>
+
             <resource>JaroslawZielinski_Torah::configuration</resource>
 
             <group id="internalization" translate="label" type="text" sortOrder="10" showInDefault="1" showInStore="1"
@@ -511,14 +635,18 @@
                 <field id="language" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Language</label>
+
                     <comment><![CDATA[Choose language version of Torah settings.]]></comment>
+
                     <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Language</source_model>
                 </field>
 
                 <field id="translate_preset" translate="label comment" type="button" sortOrder="20" showInDefault="1"
                     showInWebsite="1" showInStore="0">
                     <label>Translate Preset</label>
+
                     <comment><![CDATA[Update/Add Default Groups/Verses/Quotes in proper language<br /><br /> <i>Please remember to save change of language first</i>.]]></comment>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\System\Config\TranslatePreset</frontend_model>
                 </field>
 
@@ -536,13 +664,18 @@
                 <field id="division" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Division</label>
+
                     <comment><![CDATA[Choose division: two or three (Old Testament/New Testament or Tanakh/Nevi'im ketuvim/Brithadasha).]]></comment>
+
                     <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Verses\Division</source_model>
                 </field>
 
-                <field id="frontend_enabled" translate="label" type="select" sortOrder="20" showInDefault="1"
+                <field id="bibletools_enabled" translate="label" type="select" sortOrder="20" showInDefault="1"
                     showInWebsite="1" showInStore="1">
-                    <label>Torah Verse Pick enabled</label>
+                    <label>Bible Tools enabled</label>
+
+                    <comment><![CDATA[<strong>Verse Pick</strong> and <strong>Verse Search</strong> enabled.]]></comment>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
@@ -560,14 +693,19 @@
                 <field id="cache_enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Cache Enable</label>
+
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
                     <comment><![CDATA[All queries will be cached (sqlite) if enabled.]]></comment>
                 </field>
 
                 <field id="translation_bt" translate="label comment" type="button" sortOrder="20" showInDefault="1">
                     <label>BT</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BTButton</frontend_model>
+
                     <comment><![CDATA[Biblia Tysiąclecia.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -575,8 +713,11 @@
 
                 <field id="translation_bw" translate="label comment" type="button" sortOrder="30" showInDefault="1">
                     <label>BW</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BWButton</frontend_model>
+
                     <comment><![CDATA[Biblia Warszawska.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -584,8 +725,11 @@
 
                 <field id="translation_br" translate="label comment" type="button" sortOrder="40" showInDefault="1">
                     <label>BR</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BRButton</frontend_model>
+
                     <comment><![CDATA[Biblia Warszawsko-Praska.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -593,8 +737,11 @@
 
                 <field id="translation_esp" translate="label comment" type="button" sortOrder="50" showInDefault="1">
                     <label>ESP</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\ESPButton</frontend_model>
+
                     <comment><![CDATA[Edycja Świętego Pawła.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -602,8 +749,11 @@
 
                 <field id="translation_bg" translate="label comment" type="button" sortOrder="60" showInDefault="1">
                     <label>BG</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BGButton</frontend_model>
+
                     <comment><![CDATA[Biblia Gdańska.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -611,8 +761,11 @@
 
                 <field id="translation_ng" translate="label comment" type="button" sortOrder="70" showInDefault="1">
                     <label>NG</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\NGButton</frontend_model>
+
                     <comment><![CDATA[Nowa Biblia Gdańska.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -620,8 +773,11 @@
 
                 <field id="translation_ug" translate="label comment" type="button" sortOrder="80" showInDefault="1">
                     <label>UG</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\UGButton</frontend_model>
+
                     <comment><![CDATA[Uwspółcześniona Biblia Gdańska.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -629,8 +785,11 @@
 
                 <field id="translation_bb" translate="label comment" type="button" sortOrder="90" showInDefault="1">
                     <label>BB</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BBButton</frontend_model>
+
                     <comment><![CDATA[Biblia Brzeska.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -638,8 +797,11 @@
 
                 <field id="translation_bp" translate="label comment" type="button" sortOrder="100" showInDefault="1">
                     <label>BP</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BPButton</frontend_model>
+
                     <comment><![CDATA[Biblia Poznańska.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -647,8 +809,11 @@
 
                 <field id="translation_jw" translate="label comment" type="button" sortOrder="110" showInDefault="1">
                     <label>JW</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\JWButton</frontend_model>
+
                     <comment><![CDATA[Biblia Jakuba Wujka.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -656,8 +821,11 @@
 
                 <field id="translation_bm" translate="label comment" type="button" sortOrder="120" showInDefault="1">
                     <label>BM</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BMButton</frontend_model>
+
                     <comment><![CDATA[Biblia Mesjańska.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -665,8 +833,11 @@
 
                 <field id="translation_ns" translate="label comment" type="button" sortOrder="130" showInDefault="1">
                     <label>NS</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\NSButton</frontend_model>
+
                     <comment><![CDATA[Biblia Nowego Świata.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -674,8 +845,11 @@
 
                 <field id="translation_bl" translate="label comment" type="button" sortOrder="140" showInDefault="1">
                     <label>BL</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\BLButton</frontend_model>
+
                     <comment><![CDATA[Biblia Lubelska.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -683,8 +857,11 @@
 
                 <field id="translation_sz" translate="label comment" type="button" sortOrder="150" showInDefault="1">
                     <label>SZ</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\SZButton</frontend_model>
+
                     <comment><![CDATA[Słowo Życia.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -692,8 +869,11 @@
 
                 <field id="translation_eib" translate="label comment" type="button" sortOrder="160" showInDefault="1">
                     <label>EIB</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\EIBButton</frontend_model>
+
                     <comment><![CDATA[Przekład Dosłowny.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -701,8 +881,11 @@
 
                 <field id="translation_tnp" translate="label comment" type="button" sortOrder="170" showInDefault="1">
                     <label>TNP</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\TNPButton</frontend_model>
+
                     <comment><![CDATA[Biblia Toruńska.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -710,8 +893,11 @@
 
                 <field id="translation_kjv" translate="label comment" type="button" sortOrder="180" showInDefault="1">
                     <label>KJV</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\KJVButton</frontend_model>
+
                     <comment><![CDATA[King James Version.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -719,8 +905,11 @@
 
                 <field id="translation_web" translate="label comment" type="button" sortOrder="190" showInDefault="1">
                     <label>WEB</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\WEBButton</frontend_model>
+
                     <comment><![CDATA[Webster Bible.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -728,8 +917,11 @@
 
                 <field id="translation_ylt" translate="label comment" type="button" sortOrder="200" showInDefault="1">
                     <label>YLT</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\YLTButton</frontend_model>
+
                     <comment><![CDATA[Young’s Literal Translation.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -737,8 +929,11 @@
 
                 <field id="translation_vul" translate="label comment" type="button" sortOrder="210" showInDefault="1">
                     <label>VUL</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\VULButton</frontend_model>
+
                     <comment><![CDATA[Łacińska Vulgata.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
@@ -746,8 +941,11 @@
 
                 <field id="translation_gr" translate="label comment" type="button" sortOrder="220" showInDefault="1">
                     <label>GR</label>
+
                     <frontend_model>JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\GRButton</frontend_model>
+
                     <comment><![CDATA[Grecka Septuaginta.]]></comment>
+
                     <depends>
                         <field id="cache_enable">1</field>
                     </depends>
