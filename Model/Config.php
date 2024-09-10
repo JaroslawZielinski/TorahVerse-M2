@@ -132,6 +132,12 @@ class Config
 
     public const CONFIG_PATH_TORAHINPUT_BIBLETOOLSENABLED = 'jaroslawzielinski_torah/torah_input/bibletools_enabled';
 
+    public const CONFIG_PATH_TORAHINPUT_CASE_SENSITIVE = 'jaroslawzielinski_torah/torah_input/case_sensitive';
+
+    public const CONFIG_PATH_TORAHINPUT_DIVISION_PARTS = 'jaroslawzielinski_torah/torah_input/division_parts';
+
+    public const CONFIG_PATH_TORAHINPUT_RESULTS_PER_PAGE = 'jaroslawzielinski_torah/torah_input/results_per_page';
+
     /**
      * @var ScopeConfigInterface
      */
@@ -504,5 +510,24 @@ class Config
     {
         return $this->scopeConfig
             ->isSetFlag(self::CONFIG_PATH_TORAHINPUT_BIBLETOOLSENABLED, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function isTorahInputCaseSensitive(): bool
+    {
+        return $this->scopeConfig
+            ->isSetFlag(self::CONFIG_PATH_TORAHINPUT_CASE_SENSITIVE, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getTorahInputDivisionParts(): array
+    {
+        $divisionParts = $this->scopeConfig
+            ->getValue(self::CONFIG_PATH_TORAHINPUT_DIVISION_PARTS, ScopeInterface::SCOPE_STORE);
+        return !empty($divisionParts) ? explode(',', (string)$divisionParts) : [];
+    }
+
+    public function getTorahInputResultsPerPage(): string
+    {
+        return (string)$this->scopeConfig
+            ->getValue(self::CONFIG_PATH_TORAHINPUT_RESULTS_PER_PAGE, ScopeInterface::SCOPE_STORE);
     }
 }

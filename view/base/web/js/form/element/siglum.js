@@ -223,27 +223,17 @@ define([
         },
         renderDivisionArray: function () {
             if (utils.inArray(this.parts.translation, ['eib', 'sz', 'tnp'])) {
-                return Object
-                    .keys(this.division)
-                    .reduce(
-                        function (result, key) {
-                            if (!utils.inArray(key, ['Old Testament', 'Tanakh', 'Nevi\'im ketuvim'])) {
-                                result[key] = $t(key);
-                            }
-                            return result;
-                        },
-                        {}
-                    );
+                const keys = Object.keys(this.divisionTranslation);
+                let result = {};
+                for (let index = 0; index < keys.length; ++index) {
+                    const newIndex = keys[index];
+                    if (!utils.inArray(newIndex, ['Old Testament', 'Tanakh', 'Nevi\'im ketuvim'])) {
+                        result[newIndex] = this.divisionTranslation[newIndex];
+                    }
+                }
+                return result;
             }
-            return Object
-                .keys(this.division)
-                .reduce(
-                    function (result, key) {
-                        result[key] = $t(key);
-                        return result;
-                    },
-                    {}
-                );
+            return this.divisionTranslation;
         },
         renderSetGroup: function () {
             let buttons = this.renderDivisionArray(),

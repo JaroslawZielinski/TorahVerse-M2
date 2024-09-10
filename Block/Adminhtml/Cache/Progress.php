@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace JaroslawZielinski\TorahVerse\Block\Adminhtml\Cache;
 
+use JaroslawZielinski\TorahVerse\Model\Cache\Progress as ModelProgress;
 use Magento\Backend\Block\Template\Context;
 use JaroslawZielinski\Torah\Bible\Service\Offline\Repository;
 use Magento\Framework\Json\Helper\Data as JsonHelper;
@@ -18,28 +19,21 @@ use Magento\Backend\Block\Template;
 class Progress extends Template
 {
     /**
-     * @var Repository
+     * @var ModelProgress
      */
-    private $repository;
-    
-    /**
-     * @var Torah
-     */
-    private $torah;
+    private $modelProgress;
 
     /**
      * @inheritDoc
      */
     public function __construct(
-        TorahFactory $torahFactory,
-        Repository $repository,
+        ModelProgress $modelProgress,
         Context $context,
         array $data = [],
         ?JsonHelper $jsonHelper = null,
         ?DirectoryHelper $directoryHelper = null
     ) {
-        $this->repository = $repository;
-        $this->torah = $torahFactory->create();
+        $this->modelProgress = $modelProgress;
         parent::__construct($context, $data, $jsonHelper, $directoryHelper);
     }
 
@@ -51,13 +45,13 @@ class Progress extends Template
         $this->setTemplate('JaroslawZielinski_TorahVerse::progress.phtml');
         parent::_construct();
     }
-    
+
     /**
      */
     public function getCachedVerses(): int
     {
         $translation = $this->getTranslation();
-        return $this->repository->totalCount($translation);
+        return $this->modelProgress->getCachedVerses($translation);
     }
 
     /**
@@ -65,7 +59,6 @@ class Progress extends Template
     public function getMaxVerses():int
     {
         $translation = $this->getTranslation();
-        $resource = $this->torah->getResourceByTranslationCode($translation);
-        return $resource->getMaxVerse();
+        return $this->modelProgress->getMaxVerses($translation);
     }
 }

@@ -1,0 +1,63 @@
+<?php
+    /** @var \JaroslawZielinski\TorahVerse\Block\Search\Results $block */
+    $page = $block->getCurPage();
+    $pageSize = $block->getPageSize();
+    /** @var \Magento\Framework\Data\Collection $collection */
+    $collection = clone $block->getCollection();
+    $pagination = $block
+        ->getChildBlock('verse.search.pagination')
+        ->setLimit($pageSize)
+        ->setCollection($collection)
+        ->toHtml();
+    $filteredCollection = $block->getFilteredCollection();
+    $baseUrl = $block->getServiceUrl();
+    $search = $block->getSearch();
+    $search2 = $block->getSearch2();
+?>
+<?php if ($filteredCollection->getSize()): ?>
+    <!-- Render pagination -->
+    <div class="pagination">
+        <?= $pagination; ?>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th><?= __('Sigla'); ?></th>
+                <th><?= __('Content'); ?></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php foreach ($filteredCollection->getItems() as $item): ?>
+                <?php $siglum = $item->getSiglum(); ?>
+                <?php $translation = $item->getTranslation(); ?>
+                <?php $content = $item->getContent(); ?>
+                <?php $newContent = $item->getNewContent(); ?>
+                <?php $description = $item->getDescription(); ?>
+                <?php $highlightedText = $block->highlightText($content, $search); ?>
+                <?php $highlightedText2 = $block->highlightText($highlightedText, $search2, 'second'); ?>
+                <?php $newContent = str_replace(
+                    $content,
+                    sprintf('<div class="core-result">%s</div>', $highlightedText2),
+                    $newContent
+                ); ?>
+                <tr>
+                    <td class="label-torah">
+                        <a href="<?= sprintf('%s%s', $baseUrl, $siglum); ?>"
+                            target="_blank"><?= $siglum ?></a>
+                    </td>
+                    <td>
+                        <?= $newContent; ?>
+                        <span class="description"><?= $description; ?></span>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <!-- Render pagination -->
+    <div class="pagination">
+        <?= $pagination; ?>
+    </div>
+<?php else: ?>
+    <p class="left"><?= __('No results found.'); ?></p>
+<?php endif; ?>

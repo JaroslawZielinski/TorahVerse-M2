@@ -6,18 +6,21 @@
 
         <css src="JaroslawZielinski_TorahVerse/css/pick.css"/>
 
-        <css src="JaroslawZielinski_TorahVerse/css/bibletools/verseconfig.css" />
+        <css src="JaroslawZielinski_TorahVerse/css/search.css"/>
 
-        <css src="JaroslawZielinski_TorahVerse::css/bibletools/versesearch.css"/>
+        <css src="JaroslawZielinski_TorahVerse/css/bibletools/verseconfig.css" />
     </head>
 
     <body>
         <referenceContainer name="content">
             <block class="JaroslawZielinski\TorahVerse\Block\BibleTools\VerseConfig" name="custom.tabs"
-                template="JaroslawZielinski_TorahVerse::bibletools/verseconfig.phtml">
+                template="JaroslawZielinski_TorahVerse::bibletools/verseconfig.phtml"
+                ifconfig="jaroslawzielinski_torah/torah_input/bibletools_enabled">
                 <arguments>
                     <argument name="tabs" xsi:type="array">
                         <item name="torahverse_pick" xsi:type="string">Verse Pick</item>
+
+                        <item name="torahverse_search" xsi:type="string">Verse Search</item>
                     </argument>
                 </arguments>
 
@@ -32,8 +35,65 @@
                     <uiComponent name="jaroslawzielinski_torahverse_siglumpick_form"/>
                 </block>
 
-                <block name="torahverse_search" as="torahverse_search" class="JaroslawZielinski\TorahVerse\Block\Search"
-                    template="JaroslawZielinski_TorahVerse::bibletools/search.phtml" />
+                <block name="torahverse_search" as="torahverse_search" class="JaroslawZielinski\TorahVerse\Block\Search">
+                    <block class="Magento\Framework\View\Element\Html\Select" name="verse-context" as="verse-context">
+                        <arguments>
+                            <argument name="id" xsi:type="string">verse-context</argument>
+
+                            <argument name="class" xsi:type="string">verse-context form-control</argument>
+
+                            <argument name="name" xsi:type="string">verse-context</argument>
+
+                            <argument name="title" xsi:type="string" translate="true">Verse Context</argument>
+
+                            <argument name="value" xsi:type="number">0</argument>
+
+                            <argument name="extra_params" xsi:type="string"><![CDATA[data-validate='{"required":true}']]></argument>
+                        </arguments>
+
+                        <action method="addOption">
+                            <argument name="value" xsi:type="string" />
+                            <argument name="label" xsi:type="string" translate="true">Choose verse context</argument>
+                        </action>
+
+                        <action method="addOption">
+                            <argument name="value" xsi:type="number">0</argument>
+                            <argument name="label" xsi:type="string" translate="true">None</argument>
+                        </action>
+
+                        <action method="addOption">
+                            <argument name="value" xsi:type="number">1</argument>
+                            <argument name="label" xsi:type="string" translate="true">1 verse</argument>
+                        </action>
+
+                        <action method="addOption">
+                            <argument name="value" xsi:type="number">2</argument>
+                            <argument name="label" xsi:type="string" translate="true">2 verses</argument>
+                        </action>
+
+                        <action method="addOption">
+                            <argument name="value" xsi:type="number">3</argument>
+                            <argument name="label" xsi:type="string" translate="true">3 verses</argument>
+                        </action>
+                    </block>
+
+                    <block class="JaroslawZielinski\TorahVerse\Block\BibleTools\View\Element\Translations"
+                        name="verse-translations" as="verse-translations">
+                        <arguments>
+                            <argument name="id" xsi:type="string">verse-translations</argument>
+
+                            <argument name="class" xsi:type="string">verse-translations form-control</argument>
+
+                            <argument name="name" xsi:type="string">verse-translations</argument>
+
+                            <argument name="title" xsi:type="string" translate="true">Verse Translations</argument>
+
+                            <argument name="extra_params" xsi:type="string"><![CDATA[data-validate='{"required":true}']]></argument>
+
+                            <argument name="after_html" xsi:type="string" translate="true"><![CDATA[<span class="after-verse-translations">To index translation (f.e 'bt') run console command: <br /> <span class="console">bin/magento torah:cache:flush bt && bin/magento torah:cache:warm bt</span></span>]]></argument>
+                        </arguments>
+                    </block>
+                </block>
             </block>
         </referenceContainer>
     </body>
