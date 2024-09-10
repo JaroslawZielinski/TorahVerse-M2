@@ -134,10 +134,11 @@ define([
         isEmpty: function (str) {
             return (!str || str.length === 0 );
         },
-        ajaxGetItJson: function (ajaxUrl, data, callBack) {
+        ajaxGetItJson: function (ajaxUrl, data, callBack, isLoader) {
             let self = this;
+            const showLoader = undefined !== isLoader ? isLoader : false;
             $.ajax({
-                showLoader: false,
+                showLoader: showLoader,
                 url: ajaxUrl,
                 data: data,
                 type: 'GET',

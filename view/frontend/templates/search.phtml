@@ -1,0 +1,71 @@
+<?php
+/** @var \JaroslawZielinski\TorahVerse\Block\Search $block */
+$translations = $block->getTranslations();
+?>
+<form role="form" id="torahverse-search" action="#" method="post" autocomplete="off">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <input name="form_key" type="hidden" value="">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+                <label for="search-verse"><?= __('Search: '); ?></label>
+            </div>
+
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="search-verse" />
+            </div>
+
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary"><?= __('Search me'); ?></button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+                <label for="search-in-results"><?= __('Search in Results'); ?></label>
+            </div>
+
+            <div class="checkbox col-md-9">
+                <input id="search-in-results" type="checkbox" />
+            </div>
+
+            <div class="col-md-2">
+                &nbsp;
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="search-results" class="col-md-12">
+                Teset.....
+            </div>
+        </div>
+    </div>
+</form>
+
+<script type="text/x-magento-init">
+    {
+        "#torahverse-search": {
+            "validation": {}
+        }
+    }
+</script>
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        const ajaxUrl = '/torahverse/siglum/preview',
+            resultId = '#preview';
+        let dataForm = $('#torahverse-search');
+        $(dataForm).on('submit', function(event) {
+            event.preventDefault();
+            let validation = dataForm.validation('isValid');
+            if (validation) {
+                alert('OK!');
+            }
+        });
+    });
+</script>

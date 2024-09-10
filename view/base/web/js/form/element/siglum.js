@@ -345,6 +345,7 @@ define([
             const ajaxUrl = this.structureUrl;
             let self = this;
             let formKey = window.FORM_KEY || $('input[name="form_key"]').val();
+            const resultId = '#buttons';
             utils.ajaxGetItJson(ajaxUrl, {
                 isAjax: true,
                 form_key: formKey,
@@ -364,9 +365,9 @@ define([
                     buttons: ajaxButtons
                 };
                 const result = _.template(multiButtons)(ajaxTemplateData);
-                $('#buttons').html(result);
+                $(resultId).html(result);
                 self.handleButtons();
-            });
+            }, true);
             // Parallel calling Verse Start - stop
             return _.template(multiButtons)(data);
         },
@@ -386,6 +387,7 @@ define([
             const ajaxUrl = this.structureUrl;
             let self = this;
             let formKey = window.FORM_KEY || $('input[name="form_key"]').val();
+            const resultId = '#buttons';
             utils.ajaxGetItJson(ajaxUrl, {
                 isAjax: true,
                 form_key: formKey,
@@ -406,9 +408,9 @@ define([
                     buttons: ajaxButtons
                 };
                 const result = _.template(multiButtons)(ajaxTemplateData);
-                $('#buttons').html(result);
+                $(resultId).html(result);
                 self.handleButtons();
-            });
+            }, true);
             // Parallel calling Verse Stop - stop
             return _.template(multiButtons)(data);
         },
