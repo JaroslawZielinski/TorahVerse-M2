@@ -70,7 +70,6 @@ class Siglum extends Field
      */
     public function getConfiguration(): array
     {
-        /** @var Torah $torah */
         $torah = $this->torahFactory->create();
         $structure = [];
         foreach (Resources::TORAH_TRANSLATIONS as $translationCode => $label) {
@@ -87,6 +86,15 @@ class Siglum extends Field
         }
         $configuration['language'] = $this->config->getInternalizationLanguage();
         $configuration['division'] = $this->getDivision();
+        $divisionTranslation = [];
+        array_map(
+            function ($value) use (&$divisionTranslation) {
+                $key = $value;
+                $divisionTranslation[$key] = (string)__($value);
+            },
+            array_keys($this->getDivision())
+        );
+        $configuration['divisionTranslation'] = $divisionTranslation;
         $configuration['divisionType'] = $this->config->getTorahInputDivision();
         $configuration['structure'] = $structure;
         $configuration['baseUrl'] = Client::getBaseUrl();

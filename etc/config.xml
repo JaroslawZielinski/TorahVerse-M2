@@ -4,11 +4,17 @@
         <jaroslawzielinski_torahverse>
             <general>
                 <enable>1</enable>
+
                 <menu_enabled>0</menu_enabled>
+
                 <sweep_time>12000</sweep_time>
+
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
+
                 <vertical_sweep_time>6000</vertical_sweep_time>
+
                 <is_group_colours_enable>0</is_group_colours_enable>
+
                 <verse_template><![CDATA[
 <a href="{url}" target="_blank" style="color: {textColour}">
     <div class="item" title="{groupName}">
@@ -17,6 +23,7 @@
     </div>
 </a>
 ]]></verse_template>
+
                 <group_colours_verse_template><![CDATA[
 <a href={url} target="_blank" style="color: {textColour}">
     <div class="item" style="border: 1px solid {colour};" title="{groupName}">
@@ -26,6 +33,7 @@
     </div>
 </a>
 ]]></group_colours_verse_template>
+
                 <quote_template><![CDATA[
 <a style="color: {textColour}">
     <div class="item" title="{groupName}">
@@ -35,6 +43,7 @@
     </div>
 </a>
 ]]></quote_template>
+
                 <group_colours_quote_template><![CDATA[
 <a style="color: {textColour}">
     <div class="item" style="border: 1px solid {colour};" title="{groupName}">
@@ -45,6 +54,7 @@
     </div>
 </a>
 ]]></group_colours_quote_template>
+
                 <annual_template><![CDATA[
 <a class="annual-quotes" style="color: {textColour}">
     <div class="item container" title="{groupName}" style="width: 100%">
@@ -69,6 +79,7 @@
     </div>
 </a>
 ]]></annual_template>
+
                 <group_colours_annual_template><![CDATA[
 <a class="annual-quotes" style="color: {textColour}">
     <div class="item container" title="{groupName}" style="border: 1px solid {colour}; width: 100%;" title="{groupName}">
@@ -94,11 +105,17 @@
     </div>
 </a>
 ]]></group_colours_annual_template>
+
                 <verses_ordered>1</verses_ordered>
+
                 <text_colour>#000000</text_colour>
+
                 <background_hover_colour>#dddddd</background_hover_colour>
+
                 <mode>randomautoplayinf</mode>
+
                 <content_shown_rows>2</content_shown_rows>
+
                 <custom_styles><![CDATA[.verse-slider .slider, .verse-slider .item { height: 98px; }
 .verse-slider .content { max-height: 47px; }
 .verse-slider .content .transformed { height: 47px; }
@@ -107,41 +124,69 @@
 
             <backend_slider>
                 <enable>1</enable>
+
                 <override>0</override>
+
                 <sweep_time>12000</sweep_time>
+
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
+
                 <vertical_sweep_time>6000</vertical_sweep_time>
+
                 <is_group_colours_enable>0</is_group_colours_enable>
+
                 <verses_ordered>1</verses_ordered>
+
                 <text_colour>#000000</text_colour>
+
                 <mode>randomautoplayinf</mode>
+
                 <slider><![CDATA[CH_SP_01,CGAV_033]]></slider>
             </backend_slider>
 
             <frontend_slider>
                 <enable>0</enable>
+
                 <override>0</override>
+
                 <sweep_time>12000</sweep_time>
+
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
+
                 <vertical_sweep_time>6000</vertical_sweep_time>
+
                 <is_group_colours_enable>0</is_group_colours_enable>
+
                 <verses_ordered>1</verses_ordered>
+
                 <text_colour>#000000</text_colour>
+
                 <mode>randomautoplayinf</mode>
+
                 <placement>top.container,footer-container</placement>
+
                 <slider><![CDATA[CH_SP_01,CGAV_033]]></slider>
             </frontend_slider>
 
             <custom_sliders>
                 <enable>0</enable>
+
                 <override>0</override>
+
                 <sweep_time>12000</sweep_time>
+
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>
+
                 <vertical_sweep_time>6000</vertical_sweep_time>
+
                 <is_group_colours_enable>0</is_group_colours_enable>
+
                 <verses_ordered>1</verses_ordered>
+
                 <text_colour>#000000</text_colour>
+
                 <mode>random</mode>
+
                 <sliders><![CDATA[{"_1678942274965_965":{"code":"ann_dicta_ignacy_loyola","slider":["ANN_MONTH_01","ANN_MONTH_02","ANN_MONTH_03","ANN_MONTH_04","ANN_MONTH_05","ANN_MONTH_06","ANN_MONTH_07","ANN_MONTH_08","ANN_MONTH_09","ANN_MONTH_10","ANN_MONTH_11","ANN_MONTH_12"]}}]]></sliders>
             </custom_sliders>
         </jaroslawzielinski_torahverse>
@@ -153,7 +198,14 @@
 
             <torah_input>
                 <division>three-division</division>
+
                 <bibletools_enabled>1</bibletools_enabled>
+
+                <case_sensitive>0</case_sensitive>
+
+                <division_parts>Tanakh,Nevi'im ketuvim,Brit Hadasha</division_parts>
+
+                <results_per_page>10</results_per_page>
             </torah_input>
 
             <settings>

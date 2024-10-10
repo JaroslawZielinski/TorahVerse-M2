@@ -679,6 +679,49 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
+                <field id="case_sensitive" translate="label comment" type="select" sortOrder="30" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+
+                    <label>Case Sensitive</label>
+
+                    <comment><![CDATA[Option in <strong><i>Search mode</i></strong>.]]></comment>
+
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
+                    <depends>
+                        <field id="bibletools_enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="division_parts" translate="label" type="multiselect" sortOrder="40" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Division parts filter</label>
+
+                    <validate>required-entry</validate>
+
+                    <comment><![CDATA[<strong>Division parts</strong> default filter.]]></comment>
+
+                    <source_model>JaroslawZielinski\TorahVerse\Model\Config\Source\Verses\DivisionParts</source_model>
+
+                    <depends>
+                        <field id="bibletools_enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="results_per_page" translate="label comment" type="text" sortOrder="50" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+
+                    <label>Results per page</label>
+
+                    <comment><![CDATA[Results per page in <strong><i>Search mode</i></strong>.]]></comment>
+
+                    <validate>validate-not-negative-number</validate>
+
+                    <depends>
+                        <field id="bibletools_enabled">1</field>
+                    </depends>
+                </field>
+
                 <depends>
                     <field id="jaroslawzielinski_torahverse/general/enable">1</field>
                 </depends>

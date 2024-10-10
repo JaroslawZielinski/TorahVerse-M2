@@ -1,70 +1,191 @@
 <?php
-/** @var \JaroslawZielinski\TorahVerse\Block\Search $block */
-$translations = $block->getTranslations();
+    /** @var \JaroslawZielinski\TorahVerse\Block\Search $block */
+    $htmlFormId = $block->getFormHtmlId();
+    $searchParts = $block->getSearchParts();
+    $defaultCaseSensitive = $block->isDefaultCaseSensitive();
+    /** @see https://magento.stackexchange.com/questions/190125/magento-2-add-custom-validation-rule#answer-373228 */
 ?>
-<form role="form" id="torahverse-search" action="#" method="post" autocomplete="off">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <input name="form_key" type="hidden" value="">
-            </div>
+<form role="form" id="<?= $htmlFormId; ?>" action="#" method="post" autocomplete="off">
+    <input name="form_key" type="hidden" value="">
+
+    <div class="search-grid-container">
+        <div class="search-grid-item">
+            <label for="search-verse"><?= __('Search'); ?>:</label>
         </div>
 
-        <div class="row">
-            <div class="col-md-1">
-                <label for="search-verse"><?= __('Search: '); ?></label>
-            </div>
-
-            <div class="col-md-9">
-                <input type="text" class="form-control" id="search-verse" />
-            </div>
-
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-primary"><?= __('Search me'); ?></button>
-            </div>
+        <div class="search-grid-item">
+            <input name="search-verse" type="text" class="form-control" id="search-verse" <?= $block->getRequired(); ?>>
         </div>
 
-        <div class="row">
-            <div class="col-md-1">
-                <label for="search-in-results"><?= __('Search in Results'); ?></label>
-            </div>
+        <div class="search-grid-item">
+            <button type="submit" class="btn btn-primary"><?= __('Search'); ?></button>
+        </div>
+    </div>
 
-            <div class="checkbox col-md-9">
-                <input id="search-in-results" type="checkbox" />
-            </div>
-
-            <div class="col-md-2">
-                &nbsp;
-            </div>
+    <div class="search-grid-container">
+        <div class="search-grid-item">
+            <label for="search-in-results"><?= __('Search in Results'); ?>:</label>
         </div>
 
-        <div class="row">
-            <div id="search-results" class="col-md-12">
-                Teset.....
+        <div class="search-grid-item checkbox">
+            <input id="search-in-results" name="search-in-results" type="checkbox" />
+        </div>
+    </div>
+
+    <div class="search-grid-container">
+        <div class="search-grid-item empty">
+            <label for="search-verse">&nbsp;</label>
+        </div>
+
+        <div class="search-grid-item">
+            <input name="search-in-results-search" type="text" class="form-control" id="search-in-results-search"
+                disabled="disabled" <?= $block->getRequired(); ?>>
+        </div>
+
+        <div class="search-grid-item empty">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="search-grid-container">
+        <div class="search-grid-item">
+            <label for="case-sensitive">
+                <?= __('Search Parts'); ?>:
+            </label>
+        </div>
+
+        <div class="search-grid-item">
+            <div class="search-parts-grid-container">
+                <?php foreach ($searchParts as $id => $searchPart): ?>
+                    <div class="search-parts-grid-item">
+                        <label for="search-parts-<?= $id; ?>">
+                            <?= (string)$searchPart['label']; ?>:
+                        </label>
+
+                        <input class="search-parts" id="search-parts-<?= $id; ?>"
+                            name="search-parts[<?= $searchPart['value']; ?>]" type="checkbox"
+                            <?= $searchPart['checked'] ? 'checked="checked"' : '' ?>
+                            data-validate='{"validate-at-least-one-checked":true}' />
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
+    </div>
+
+    <div class="search-grid-container">
+        <div class="search-grid-item">
+            <label for="case-sensitive">
+                <?= __('Case Sensitive'); ?>:
+            </label>
+        </div>
+
+        <div class="search-grid-item checkbox">
+            <input id="case-sensitive" name="case-sensitive" type="checkbox"
+                <?= $defaultCaseSensitive ? 'checked="checked"' : '' ?>/>
+        </div>
+    </div>
+
+    <div class="search-grid-container">
+        <div class="search-grid-item">
+            <label for="verse-context">
+                <?= __('Verse Context'); ?>:
+            </label>
+        </div>
+
+        <div class="search-grid-item">
+            <?= $block->getChildHtml('verse-context'); ?>
+        </div>
+    </div>
+
+    <div class="search-grid-container">
+        <div class="search-grid-item">
+            <label for="verse-translation">
+                <?= __('Translation'); ?>:
+            </label>
+        </div>
+
+        <div class="search-grid-item">
+            <?= $block->getChildHtml('verse-translations'); ?>
+        </div>
+    </div>
+
+    <div class="search-grid-container">
+        <div class="search-grid-item">
+            <label for="search-results" class="inactive"><?= __('Search Results'); ?>:</label>
+        </div>
+
+        <div id="search-results" class="search-grid-item">&nbsp;</div>
     </div>
 </form>
 
 <script type="text/x-magento-init">
     {
-        "#torahverse-search": {
+        "#<?= $htmlFormId; ?>": {
             "validation": {}
         }
     }
 </script>
+
 <script>
     require([
-        'jquery'
-    ], function ($) {
-        const ajaxUrl = '/torahverse/siglum/preview',
-            resultId = '#preview';
-        let dataForm = $('#torahverse-search');
-        $(dataForm).on('submit', function(event) {
+        'jquery',
+        'verseUtils',
+        'mage/validation',
+    ], function ($, utils) {
+        const ajaxUrl = '/torahverse/siglum/search';
+        let dataForm = $('#<?= $htmlFormId; ?>');
+
+        function onPageClick(event) {
+            const page = $(this).attr('data-page');
+            dataForm.find('input[name="p"]').each(function(index) { $(this).remove(); });
+            dataForm.append($('<input>').attr({
+                'type': 'hidden',
+                'name': 'p',
+                'value': page
+            }));
+            loadResults();
+        }
+
+        function onLimiterChange(event) {
+            const limiter = event.target.value;
+            dataForm.find('input[name="p"]').each(function(index) { $(this).remove(); });
+            dataForm.find('input[name="limiter"]').each(function(index) { $(this).remove(); });
+            dataForm.append($('<input>').attr({
+                'type': 'hidden',
+                'name': 'limiter',
+                'value': limiter
+            }));
+            loadResults();
+        }
+
+        function loadResults() {
+            utils.ajaxGetItJson(ajaxUrl, dataForm.serializeArray(), function (data) {
+                if ('ok' === data['status'] && undefined !== data['result']) {
+                    $('label[for="search-results"]').removeClass('inactive');
+                    $('#search-results').removeClass('error');
+                } else {
+                    $('#search-results').addClass('error');
+                }
+                $('#search-results').html(data['result']);
+                $('#search-results a').off().on('click', onPageClick);
+                $('#search-results select.limiter-options').off().on('change', onLimiterChange);
+            }, true);
+        }
+
+        dataForm.on('submit', function(event) {
             event.preventDefault();
             let validation = dataForm.validation('isValid');
             if (validation) {
-                alert('OK!');
+                loadResults();
+            }
+        });
+
+        $('#search-in-results').on('change', function (event) {
+            const $searchInResultsInput = $('#search-in-results-search');
+            if (this.checked) {
+                $searchInResultsInput.removeAttr('disabled');
+            } else {
+                $searchInResultsInput.attr('disabled', 'disabled');
             }
         });
     });

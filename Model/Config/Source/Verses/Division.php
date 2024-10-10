@@ -14,7 +14,7 @@ class Division extends AbstractSource implements OptionSourceInterface
     public const THREE_DIVISION_MODE = 'three-division';
 
     public const MODE = [
-        self::TWO_DIVISION_MODE => 'Old Testamen/New Testament',
+        self::TWO_DIVISION_MODE => 'Old Testament/New Testament',
         self::THREE_DIVISION_MODE => 'Tanakh/Nevi\'im ketuvim/Brithadasha'
     ];
 
