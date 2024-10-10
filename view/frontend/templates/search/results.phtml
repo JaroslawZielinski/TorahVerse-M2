@@ -13,6 +13,7 @@
     $baseUrl = $block->getServiceUrl();
     $search = $block->getSearch();
     $search2 = $block->getSearch2();
+    $isServiceLinkEnable = $block->getIsServiceLinkEnable();
 ?>
 <?php if ($filteredCollection->getSize()): ?>
     <!-- Render pagination -->
@@ -43,8 +44,12 @@
                 ); ?>
                 <tr>
                     <td class="label-torah">
-                        <a href="<?= sprintf('%s%s', $baseUrl, $siglum); ?>"
-                            target="_blank"><?= $siglum ?></a>
+                        <?php if ($isServiceLinkEnable): ?>
+                            <a href="<?= sprintf('%s%s', $baseUrl, $siglum); ?>"
+                                target="_blank"><?= $siglum ?></a>
+                        <?php else: ?>
+                            <a class="click-off"><?= $siglum ?></a>
+                        <?php endif; ?>
                     </td>
                     <td>
                         <?= $newContent; ?>

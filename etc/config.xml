@@ -7,6 +7,8 @@
 
                 <menu_enabled>0</menu_enabled>
 
+                <service_link_enable>1</service_link_enable>
+
                 <sweep_time>12000</sweep_time>
 
                 <is_vertical_sweep_possible>1</is_vertical_sweep_possible>

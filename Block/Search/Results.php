@@ -21,6 +21,8 @@ use JaroslawZielinski\Torah\Bible\Service\Online\Client;
  * @method setSearch(string $search): self
  * @method getSearch2(): string
  * @method setSearch2(string $search2): self
+ * @method setIsServiceLinkEnable(bool $isServiceLinkEnable): self
+ * @method getIsServiceLinkEnable(): bool
  */
 class Results extends Template
 {

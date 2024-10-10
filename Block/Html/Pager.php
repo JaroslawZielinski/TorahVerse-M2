@@ -70,4 +70,16 @@ class Pager extends \Magento\Theme\Block\Html\Pager
     {
         return $this->getCollection()->getCurPage(+1);
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function getLastNum(): int
+    {
+        $collection = $this->getCollection();
+        $firstNum = $this->getFirstNum();
+        $rest = $collection->count() - $firstNum;
+        $pageSize = $collection->getPageSize();
+        return $firstNum + ($rest < $pageSize ? $rest : $pageSize - 1);
+    }
 }

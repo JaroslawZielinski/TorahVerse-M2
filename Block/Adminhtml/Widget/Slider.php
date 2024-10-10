@@ -111,6 +111,7 @@ abstract class Slider extends Template
     {
         return [
             'enabled' => $this->config->isModuleEnable(),
+            'service_link_enable' => $this->config->isModuleServiceLinkEnabled(),
             'sweep_time' => $this->config->getModuleSweepTime(),
             'is_vertical_sweep_possible' => $this->config->isModuleVertical(),
             'vertical_sweep_time' => $this->config->getModuleVerticalSweepTime(),
@@ -142,7 +143,7 @@ abstract class Slider extends Template
             'content' => Data::escapeQuotes($data['content']),
             'unordered' => Data::escapeQuotes($data['unordered']),
             'description' => Data::escapeQuotes($data['description']),
-            'url' => $url
+            'url' => $this->config->isModuleServiceLinkEnabled() ? $url : ''
         ];
     }
 

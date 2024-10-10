@@ -17,6 +17,8 @@ class Config
 
     public const CONFIG_PATH_MODULE_MENU_ENABLED = 'jaroslawzielinski_torahverse/general/menu_enabled';
 
+    public const CONFIG_PATH_MODULE_SERVICE_LINK_ENABLE = 'jaroslawzielinski_torahverse/general/service_link_enable';
+
     public const CONFIG_PATH_MODULE_SWEEP_TIME = 'jaroslawzielinski_torahverse/general/sweep_time';
 
     public const CONFIG_PATH_MODULE_IS_VERTICAL = 'jaroslawzielinski_torahverse/general/is_vertical_sweep_possible';
@@ -166,6 +168,11 @@ class Config
         $isEnabled = $this->isModuleEnable();
         return $isEnabled && $this->scopeConfig
                 ->isSetFlag(self::CONFIG_PATH_MODULE_MENU_ENABLED, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function isModuleServiceLinkEnabled(): bool
+    {
+        return $this->scopeConfig->isSetFlag(self::CONFIG_PATH_MODULE_SERVICE_LINK_ENABLE, ScopeInterface::SCOPE_STORE);
     }
 
     public function getModuleSweepTime(): int

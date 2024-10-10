@@ -116,6 +116,7 @@ class Search extends Ajax
                 $paramSearchParts,
                 (int)$paramVerseContext
             );
+            $isServiceLinkEnable = $this->config->isModuleServiceLinkEnabled();
             /** @var Results $results */
             $results = $resultPage->getLayout()
                 ->getBlock('verse.search.results')
@@ -123,7 +124,8 @@ class Search extends Ajax
                 ->setSearch2($paramSearchInResults ? $paramSearchInResultsSearch : null)
                 ->setPageSize($pageLimit)
                 ->setCurPage($curPage)
-                ->setCollection($collection);
+                ->setCollection($collection)
+                ->setIsServiceLinkEnable($isServiceLinkEnable);
             $resultHtml = $results->toHtml();
             $data['status'] = 'ok';
         } catch (\Exception $e) {

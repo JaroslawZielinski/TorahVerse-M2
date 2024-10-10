@@ -11,6 +11,7 @@ define([
     $.widget('verses.verseSlider', {
         defaults: {
             'sweep_time': 100,
+            'service_link_enable': true,
             'is_vertical_sweep_possible': true,
             'vertical_sweep_time': 5,
             'is_group_colours': true,
@@ -213,6 +214,19 @@ define([
             const hydratedHtml = verseUtils.replaceMe(html, data);
             $(element).hide();
             $(element).html(hydratedHtml);
+            //check service URL link enable/disable
+            if (!self.options.service_link_enable) {
+                $(element).find('a').each(function(index) {
+                    $(this).addClass('click-off');
+                });
+            } else {
+                $(element).find('a').each(function(index) {
+                    $(this).removeClass('click-off');
+                });
+            }
+            $('.click-off').on('click', function (event) {
+                event.preventDefault();
+            });
             const htmlSliderContent = verseUtils.stringToSliderStructure(data.content, self.wMax);
             const htmlContentSelector = self.options.superHtmlId + '#' + self.htmlID + ' a .item .content';
             document.querySelector(htmlContentSelector).innerHTML = htmlSliderContent;
