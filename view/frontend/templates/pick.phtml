@@ -1,8 +1,8 @@
 <?php
     /** @var \JaroslawZielinski\TorahVerse\Block\Pick $block */
-    $dictaIgnacyLoyolaHtml = $block->getChildHtml('dicta-ignacy-loyola');
+    $htmlFormId = $block->getFormHtmlId();
 ?>
-<form class="form" id="torahverse-pick" action="#" method="post" autocomplete="off">
+<form class="form" id="<?= $htmlFormId; ?>" action="#" method="post" autocomplete="off">
     <fieldset class="fieldset">
         <legend class="legend">
             <span><?= __('Verse Pick:'); ?></span>
@@ -10,18 +10,6 @@
         <br>
 
         <input name="form_key" type="hidden" value="">
-
-        <?php if (!empty($dictaIgnacyLoyolaHtml)): ?>
-            <div class="field">
-                <label for="dicta" class="label">
-                    <span>&nbsp;</span>
-                </label>
-
-                <div class="control">
-                    <?= $dictaIgnacyLoyolaHtml; ?>
-                </div>
-            </div>
-        <?php endif; ?>
 
         <div class="field required">
             <label for="siglum" class="label">
@@ -36,24 +24,22 @@
 </form>
 <script type="text/x-magento-init">
     {
-        "#torahverse-pick": {
+        "#<?= $htmlFormId; ?>": {
             "validation": {}
         }
     }
 </script>
+
 <script>
     require([
-        'jquery'
+        'jquery',
+        'mage/validation'
     ], function ($) {
-        const ajaxUrl = '/torahverse/siglum/preview',
-            resultId = '#preview';
-        let dataForm = $('#torahverse-pick');
+        let dataForm = $('#<?= $htmlFormId; ?>');
         $(dataForm).on('submit', function(event) {
             event.preventDefault();
             let validation = dataForm.validation('isValid');
-            if (validation) {
-
-            }
+            if (validation) {}
         });
     });
 </script>

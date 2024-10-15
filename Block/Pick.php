@@ -27,9 +27,18 @@ class Pick extends Template
         return $uiComponents['jaroslawzielinski_torahverse_siglumpick_form'] ?? null;
     }
 
+    /**
+     */
     public function getVersePickComponentHtml(): string
     {
         $uiVersePickComponent = $this->getVersePickComponent();
         return !empty($uiVersePickComponent) ? $uiVersePickComponent->toHtml() : 'empty';
+    }
+
+    /**
+     */
+    public function getFormHtmlId(): string
+    {
+        return 'torahverse-pick';
     }
 }
