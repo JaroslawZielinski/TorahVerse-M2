@@ -23,7 +23,8 @@ define([
                 verseStop: ''
             },
             progressPointer: 6,
-            initialState: 1
+            initialState: 1,
+            service_link_enable: true
         },
         initialize: function () {
             this._super();
@@ -244,6 +245,7 @@ define([
                 n: n,
                 label: $t('Choose group:'),
                 isFinished: 'false',
+                service_link_enable: this.isServiceLinkEnable(),
                 disabled: 'true',
                 buttons: buttons
             };
@@ -282,6 +284,7 @@ define([
                 n: n,
                 label: $t('Choose book:'),
                 isFinished: 'false',
+                service_link_enable: self.isServiceLinkEnable(),
                 disabled: 'false',
                 buttons: buttons
             };
@@ -314,6 +317,7 @@ define([
                 n: n,
                 label: $t('Choose chapter:'),
                 isFinished: 'false',
+                service_link_enable: this.isServiceLinkEnable(),
                 disabled: 'false',
                 buttons: buttons
             };
@@ -328,6 +332,7 @@ define([
                 n: n,
                 label: $t('Choose verse start:'),
                 isFinished: 'false',
+                service_link_enable: this.isServiceLinkEnable(),
                 disabled: 'false',
                 buttons: buttons
             };
@@ -351,6 +356,7 @@ define([
                     n: n,
                     label: $t('Choose verse start:'),
                     isFinished: 'false',
+                    service_link_enable: self.isServiceLinkEnable(),
                     disabled: 'false',
                     buttons: ajaxButtons
                 };
@@ -370,6 +376,7 @@ define([
                 n: n,
                 label: $t('Choose verse stop:'),
                 isFinished: 'false',
+                service_link_enable: this.isServiceLinkEnable(),
                 disabled: 'false',
                 buttons: buttons
             };
@@ -394,6 +401,7 @@ define([
                     n: n,
                     label: $t('Choose verse stop:'),
                     isFinished: 'false',
+                    service_link_enable: self.isServiceLinkEnable(),
                     disabled: 'false',
                     buttons: ajaxButtons
                 };
@@ -413,6 +421,7 @@ define([
                 n: n,
                 label: this.value(),
                 isFinished: 'true',
+                service_link_enable: this.isServiceLinkEnable(),
                 baseUrl: this.baseUrl,
                 disabled: 'false',
                 buttons: buttons
@@ -428,6 +437,9 @@ define([
                 this.parts.translation = translation;
                 this.updateUi();
             }
+        },
+        isServiceLinkEnable: function () {
+            return this.service_link_enable ? 'true' : 'false';
         }
     });
 });

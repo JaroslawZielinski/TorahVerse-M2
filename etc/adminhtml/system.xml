@@ -38,7 +38,14 @@
                     </depends>
                 </field>
 
-                <field id="sweep_time" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                <field id="service_link_enable" translate="label" type="select" sortOrder="30" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Service Link Enable</label>
+
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="sweep_time" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
                     showInStore="1">
                     <label>Sweep time</label>
 
@@ -49,7 +56,7 @@
                     </depends>
                 </field>
 
-                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="40" showInDefault="1"
+                <field id="is_vertical_sweep_possible" translate="label" type="select" sortOrder="50" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is vertical sweep possible</label>
 
@@ -62,7 +69,7 @@
                     </depends>
                 </field>
 
-                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="50" showInDefault="1"
+                <field id="vertical_sweep_time" translate="label" type="text" sortOrder="60" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Vertical Sweep time</label>
 
@@ -75,7 +82,7 @@
                     </depends>
                 </field>
 
-                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="60" showInDefault="1"
+                <field id="is_group_colours_enable" translate="label" type="select" sortOrder="70" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Is group colours enable</label>
 
@@ -88,7 +95,7 @@
                     </depends>
                 </field>
 
-                <field id="verse_template" translate="label" type="textarea" sortOrder="70" showInDefault="1"
+                <field id="verse_template" translate="label" type="textarea" sortOrder="80" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Html Template for Verse Slider Frame</label>
 
@@ -101,7 +108,7 @@
                     </depends>
                 </field>
 
-                <field id="group_colours_verse_template" translate="label" type="textarea" sortOrder="80"
+                <field id="group_colours_verse_template" translate="label" type="textarea" sortOrder="90"
                     showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Html Template for Verse Slider Frame</label>
 
@@ -114,7 +121,7 @@
                     </depends>
                 </field>
 
-                <field id="quote_template" translate="label" type="textarea" sortOrder="90" showInDefault="1"
+                <field id="quote_template" translate="label" type="textarea" sortOrder="100" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Html Template for Quote Slider Frame</label>
 
@@ -127,7 +134,7 @@
                     </depends>
                 </field>
 
-                <field id="group_colours_quote_template" translate="label" type="textarea" sortOrder="100"
+                <field id="group_colours_quote_template" translate="label" type="textarea" sortOrder="110"
                     showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Html Template for Quote Slider Frame</label>
 
@@ -140,7 +147,7 @@
                     </depends>
                 </field>
 
-                <field id="annual_template" translate="label" type="textarea" sortOrder="110" showInDefault="1"
+                <field id="annual_template" translate="label" type="textarea" sortOrder="120" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Html Template for Annual Slider Frame</label>
 
@@ -153,7 +160,7 @@
                     </depends>
                 </field>
 
-                <field id="group_colours_annual_template" translate="label" type="textarea" sortOrder="120"
+                <field id="group_colours_annual_template" translate="label" type="textarea" sortOrder="130"
                     showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Html Template for Annual Slider Frame</label>
 
@@ -166,7 +173,7 @@
                     </depends>
                 </field>
 
-                <field id="verses_ordered" translate="label" type="select" sortOrder="130" showInDefault="1"
+                <field id="verses_ordered" translate="label" type="select" sortOrder="140" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Verses ordered</label>
 
@@ -180,7 +187,7 @@
                 </field>
 
                 <!-- @see https://webkul.com/blog/add-color-picker-magento2-system-config/ -->
-                <field id="text_colour" translate="label" type="text" sortOrder="140" showInDefault="1"
+                <field id="text_colour" translate="label" type="text" sortOrder="150" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Text Colour</label>
 
@@ -191,7 +198,7 @@
                     </depends>
                 </field>
 
-                <field id="background_hover_colour" translate="label" type="text" sortOrder="150" showInDefault="1"
+                <field id="background_hover_colour" translate="label" type="text" sortOrder="160" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Background Hover Colour</label>
 
@@ -202,7 +209,7 @@
                     </depends>
                 </field>
 
-                <field id="mode" translate="label" type="select" sortOrder="160" showInDefault="1"
+                <field id="mode" translate="label" type="select" sortOrder="170" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Mode of slider</label>
 
@@ -213,7 +220,7 @@
                     </depends>
                 </field>
 
-                <field id="content_shown_rows" translate="label" type="text" sortOrder="170" showInDefault="1"
+                <field id="content_shown_rows" translate="label" type="text" sortOrder="180" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Number of shown rows</label>
 
@@ -222,7 +229,7 @@
                     </depends>
                 </field>
 
-                <field id="custom_styles" translate="label" type="textarea" sortOrder="180" showInDefault="1"
+                <field id="custom_styles" translate="label" type="textarea" sortOrder="190" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Custom Styles</label>
 

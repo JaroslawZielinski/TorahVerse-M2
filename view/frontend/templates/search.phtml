@@ -58,14 +58,14 @@
             <div class="search-parts-grid-container">
                 <?php foreach ($searchParts as $id => $searchPart): ?>
                     <div class="search-parts-grid-item">
-                        <label for="search-parts-<?= $id; ?>">
-                            <?= (string)$searchPart['label']; ?>:
-                        </label>
-
                         <input class="search-parts" id="search-parts-<?= $id; ?>"
                             name="search-parts[<?= $searchPart['value']; ?>]" type="checkbox"
                             <?= $searchPart['checked'] ? 'checked="checked"' : '' ?>
                             data-validate='{"validate-at-least-one-checked":true}' />
+
+                        <label for="search-parts-<?= $id; ?>">
+                            <?= (string)$searchPart['label']; ?>:
+                        </label>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -169,11 +169,15 @@
                 $('#search-results').html(data['result']);
                 $('#search-results a').off().on('click', onPageClick);
                 $('#search-results select.limiter-options').off().on('change', onLimiterChange);
+                $('#search-results .click-off').off().on('click', function (event) {
+                    event.preventDefault();
+                });
             }, true);
         }
 
         dataForm.on('submit', function(event) {
             event.preventDefault();
+            dataForm.find('div.mage-error').each(function(index) { $(this).remove(); });
             let validation = dataForm.validation('isValid');
             if (validation) {
                 loadResults();

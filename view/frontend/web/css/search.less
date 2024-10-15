@@ -1,156 +1,52 @@
-#torahverse-search {
-    padding-top: 10px;
+// RWD - Mobile First
+@media screen and (min-width: 0) {
+    #torahverse-search {
+        padding-top: 10px;
 
-    width: 100%;
-
-    /** @see https://www.turing.com/kb/responsive-layouts-using-css-grid **/
-    .search-grid-container {
         width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 4fr 1fr;
-        gap: 1rem;
-        .search-grid-item {
-            /** border: 1px solid #ddd; **/
-            padding: 0;
-            font-size: 1.5rem;
-            text-align: right;
-            line-height: 40px;
-            button[type="submit"] {
-                width: 100%;
-                height: 32px;
-                vertical-align: top;
-            }
-            .search-parts-grid-container {
-                width: 100%;
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-                gap: 1rem;
-                .search-parts-grid-item {
 
+        /** @see https://www.turing.com/kb/responsive-layouts-using-css-grid **/
+        .search-grid-container {
+            margin-top: 10px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            .search-grid-item {
+                /** border: 1px solid #ddd; **/
+                padding: 0;
+                font-size: 1.5rem;
+                text-align: center;
+                line-height: 32px;
+                button[type="submit"] {
+                    width: 100%;
+                    height: 32px;
+                    vertical-align: top;
                 }
-            }
-        }
-        &::before {
-            content: unset;
-        }
-    }
-
-    .checkbox {
-        input[type="checkbox"] {
-            margin-left: 0;
-        }
-        text-align: left !important;
-        grid-column: span 2;
-    }
-
-    #search-results {
-        color: black;
-        font-weight: normal;
-        grid-column: span 2;
-        text-align: center;
-        .pagination {
-            min-width: 30%;
-            margin: auto;
-            .pager {
-                .pages {
-                    ul > li {
-                        a {
-                            cursor: pointer;
+                .search-parts-grid-container {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 1rem;
+                    .search-parts-grid-item {
+                        div.mage-error {
+                            display: none !important;
+                            line-height: 0;
+                            margin: 0
+                        }
+                        &:first-child {
+                            div.mage-error {
+                                display: block !important;
+                            }
                         }
                     }
                 }
-            }
-        }
-        table {
-            @tableBorder: 1px solid black;
-            border: @tableBorder;
-            td {
-                border: @tableBorder;
-                text-align: left;
-                line-height: 18px;
-                font-size: 14px;
-                &.label-torah {
-                    min-width: 191px;
-                }
-            }
-            th {
-                border: @tableBorder;
-            }
-        }
-        .left {
-            text-align: left;
-        }
-        .label-torah, .label-torah a, .label-torah a:hover, .label-torah a:focus, .label-torah a:visited {
-            font-size: 20px;
-            font-weight: bold;
-            color: red;
-            line-height: 1em;
-        }
-        .label-torah a:hover, .label-torah a:focus, .label-torah a:visited {
-            text-decoration: none;
-        }
-        .description {
-            padding-top: 12px;
-            display:block;
-            font-weight: bold;
-        }
-        .core-result {
-            border: 1px solid lightgrey;
-            @coreResultGap: 2px;
-            padding: @coreResultGap 0 @coreResultGap;
-            mark {
-                padding: @coreResultGap 0 @coreResultGap;
-                &.first {
-                    background-color: #ffff00;
-                }
-
-                &.second {
-                    background-color: #00ff16;
-                }
-            }
-        }
-        &.error {
-            color: red;
-            font-weight: bold;
-            text-align: left;
-        }
-    }
-
-    .after-verse-translations {
-        font-size: 13px;
-        @consoleColor: lightgray;
-        .console {
-            font-size: 12px;
-            background-color: @consoleColor;
-            border: 1px solid @consoleColor;
-            border-radius: 6px;
-            min-height: 25px;
-            line-height: 1.9em;
-            display: block;
-            text-align: right;
-            float: right;
-            margin-top: -5px;
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-    }
-
-    .inactive {
-        color: gray;
-    }
-
-    @media screen and (max-width: 405px) {
-        /* Adjust grid properties for smaller screens 3 */
-        .search-grid-container {
-            grid-template-columns: 1fr;
-            .search-grid-item {
-                text-align: center;
                 &.empty {
                     display: none;
                 }
-                .search-parts-grid-container {
-                    grid-template-columns: 1fr;
-                }
+            }
+            &::before {
+                content: unset;
             }
         }
 
@@ -160,6 +56,205 @@
                 margin: 0;
             }
             text-align: center !important;
+            grid-column: span 2;
+        }
+
+        #search-results {
+            color: black;
+            font-weight: normal;
+            grid-column: span 2;
+            text-align: center;
+            .pagination {
+                min-width: 30%;
+                margin: auto;
+                .pager {
+                    .pages {
+                        ul > li {
+                            a {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+            .pagination {
+                display: inline-block;
+                padding-left: 0;
+                border-radius: 4px;
+                > li {
+                    display: inline;
+                    > a, > span {
+                        position: relative;
+                        float: left;
+                        padding: 6px 12px;
+                        margin-left: -1px;
+                        line-height: 1.42857143;
+                        color: #337ab7;
+                        text-decoration: none;
+                        background-color: #fff;
+                        border: 1px solid #ddd;
+                        &:hover, &:focus {
+                            z-index: 2;
+                            color: #23527c;
+                            background-color: #eee;
+                            border-color: #ddd;
+                        }
+                    }
+                    &:first-child > a, &:first-child > span {
+                        margin-left: 0;
+                        border-top-left-radius: 4px;
+                        border-bottom-left-radius: 4px;
+                    }
+                    &:last-child > a, &:last-child > span {
+                        border-top-right-radius: 4px;
+                        border-bottom-right-radius: 4px;
+                    }
+                }
+                &.active > a, &.active > span, &.active > a:hover, &.active > span:hover, &.active > a:focus, &.active > span:focus {
+                    z-index: 3;
+                    color: #fff;
+                    cursor: default;
+                    background-color: #337ab7;
+                    border-color: #337ab7;
+                }
+                &.disabled > span, &.disabled > span:hover, &.disabled > span:focus, &.disabled > a, &.disabled > a:hover, &.disabled > a:focus {
+                    color: #777;
+                    cursor: not-allowed;
+                    background-color: #fff;
+                    border-color: #ddd;
+                }
+                .pager {
+                    padding-left: 0;
+                    margin: 10px 0;
+                    text-align: center;
+                    list-style: none;
+                    li {
+                        display: inline;
+                        > a, > span {
+                            display: inline-block;
+                            padding: 0 4px;
+                            background-color: #fff;
+                            border: 1px solid #ddd;
+                            border-radius: 15px;
+                            &:hover, &:focus {
+                                text-decoration: none;
+                                background-color: #eee;
+                            }
+                        }
+                    }
+                    .next > a, .next > span { float: right; }
+                    .previous > a, .previous > span { float: left; }
+                    .disabled > a, .disabled > a:hover, .disabled > a:focus, .disabled > span {
+                        color: #777;
+                        cursor: not-allowed;
+                        background-color: #fff;
+                    }
+                    .limiter {
+                        margin-top: 10px;
+                    }
+                }
+            }
+            table {
+                margin-top: 10px;
+                @tableBorder: 1px solid black;
+                border: @tableBorder;
+                td {
+                    border: @tableBorder;
+                    text-align: left;
+                    line-height: 18px;
+                    font-size: 14px;
+                    &.label-torah {
+                        min-width: 191px;
+                    }
+                }
+                th {
+                    border: @tableBorder;
+                }
+            }
+            .left {
+                text-align: left;
+            }
+            .label-torah, .label-torah a, .label-torah a:hover, .label-torah a:focus, .label-torah a:visited {
+                font-size: 20px;
+                font-weight: bold;
+                color: red;
+                line-height: 1em;
+            }
+            .label-torah a:hover, .label-torah a:focus, .label-torah a:visited {
+                text-decoration: none;
+            }
+            .description {
+                padding-top: 12px;
+                display:block;
+                font-weight: bold;
+            }
+            .core-result {
+                border: 1px solid lightgrey;
+                @coreResultGap: 2px;
+                padding: @coreResultGap 0 @coreResultGap;
+                mark {
+                    padding: @coreResultGap 0 @coreResultGap;
+                    &.first {
+                        background-color: #ffff00;
+                    }
+
+                    &.second {
+                        background-color: #00ff16;
+                    }
+                }
+            }
+            &.error {
+                color: red;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
+
+        .after-verse-translations {
+            font-size: 13px;
+            @consoleColor: lightgray;
+            .console {
+                font-size: 12px;
+                background-color: @consoleColor;
+                border: 1px solid @consoleColor;
+                border-radius: 6px;
+                min-height: 25px;
+                line-height: 1.9em;
+                display: block;
+                text-align: right;
+                float: right;
+                margin-top: -5px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+
+        .inactive {
+            color: gray;
+        }
+    }
+}
+
+@media screen and (min-width: 406px) {
+    #torahverse-search {
+        .search-grid-container {
+            grid-template-columns: 1fr 4fr 1fr;
+            .search-grid-item {
+                text-align: right;
+                .search-parts-grid-container {
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
+                &.empty {
+                    display: block;
+                }
+            }
+        }
+        .checkbox {
+            input[type="checkbox"] {
+                margin-left: 0;
+                position: unset;
+            }
+            text-align: left !important;
         }
     }
 }

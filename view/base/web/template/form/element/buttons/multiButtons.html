@@ -8,7 +8,11 @@
     <div class="buttons-grid-item label-torah-div">
         <% if (isFinished === 'true') { %>
             <span class="label-torah">
-                <a href="<%= baseUrl %><%= label %>" target="_blank"><%= label %></a>
+                <% if (service_link_enable === 'true') { %>
+                    <a href="<%= baseUrl %><%= label %>" target="_blank"><%= label %></a>
+                <% } else { %>
+                    <a class="click-off"><%= label %></a>
+                <% } %>
             </span>
         <% } else { %>
             <span class="label-torah"><%= label %></span>

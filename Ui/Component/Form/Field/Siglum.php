@@ -98,6 +98,7 @@ class Siglum extends Field
         $configuration['divisionType'] = $this->config->getTorahInputDivision();
         $configuration['structure'] = $structure;
         $configuration['baseUrl'] = Client::getBaseUrl();
+        $configuration['service_link_enable'] = $this->config->isModuleServiceLinkEnabled();
         return $configuration;
     }
 }

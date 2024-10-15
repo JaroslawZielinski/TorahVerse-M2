@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace JaroslawZielinski\TorahVerse\Setup\Patch\Data;
 
-use JaroslawZielinski\TorahVerse\Model\Quote\DictaIgnacyLoyola as DictaIgnacyLoyolaInstall;
+use JaroslawZielinski\TorahVerse\Model\Group\Annual as AnnualGroupInstall;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 
-class DictaIgnacyLoyola implements DataPatchInterface
+class AnnualGroups implements DataPatchInterface
 {
     /**
-     * DictaIgnacyLoyolaInstall
+     * AnnualGroupInstall
      */
-    private $dictaIgnacyLoyolaInstall;
+    private $annualGroupInstall;
 
     /**
      */
     public function __construct(
-        DictaIgnacyLoyolaInstall $dictaIgnacyLoyolaInstall
+        AnnualGroupInstall $annualGroupInstall
     ) {
-        $this->dictaIgnacyLoyolaInstall = $dictaIgnacyLoyolaInstall;
+        $this->annualGroupInstall = $annualGroupInstall;
     }
 
     /**
@@ -29,7 +29,7 @@ class DictaIgnacyLoyola implements DataPatchInterface
     public static function getDependencies(): array
     {
         return [
-            AnnualGroups::class
+            ReAddVerses::class
         ];
     }
 
@@ -47,6 +47,6 @@ class DictaIgnacyLoyola implements DataPatchInterface
      */
     public function apply()
     {
-        $this->dictaIgnacyLoyolaInstall->execute();
+        $this->annualGroupInstall->execute();
     }
 }
