@@ -45,10 +45,10 @@
                 <tr>
                     <td class="label-torah">
                         <?php if ($isServiceLinkEnable): ?>
-                            <a href="<?= sprintf('%s%s', $baseUrl, $siglum); ?>"
+                            <a class="resuls-verse" href="<?= sprintf('%s%s', $baseUrl, $siglum); ?>"
                                 target="_blank"><?= $siglum ?></a>
                         <?php else: ?>
-                            <a class="click-off"><?= $siglum ?></a>
+                            <a class="resuls-verse click-off"><?= $siglum ?></a>
                         <?php endif; ?>
                     </td>
                     <td>

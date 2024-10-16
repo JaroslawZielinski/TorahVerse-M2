@@ -167,7 +167,8 @@
                     $('#search-results').addClass('error');
                 }
                 $('#search-results').html(data['result']);
-                $('#search-results a').off().on('click', onPageClick);
+                $('#search-results a.page').off().on('click', onPageClick);
+                $('#search-results a.action').off().on('click', onPageClick);
                 $('#search-results select.limiter-options').off().on('change', onLimiterChange);
                 $('#search-results .click-off').off().on('click', function (event) {
                     event.preventDefault();
