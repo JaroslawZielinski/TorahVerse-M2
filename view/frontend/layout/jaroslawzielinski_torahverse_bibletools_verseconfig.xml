@@ -25,13 +25,6 @@
                 </arguments>
 
                 <block name="torahverse_pick" as="torahverse_pick" class="JaroslawZielinski\TorahVerse\Block\Pick">
-                    <block class="Magento\Cms\Block\Block" name="dicta-ignacy-loyola" as="dicta-ignacy-loyola"
-                        ifconfig="jaroslawzielinski_torahverse/custom_sliders/enable">
-                        <arguments>
-                            <argument name="block_id" xsi:type="string">dicta-ignacy-loyola</argument>
-                        </arguments>
-                    </block>
-
                     <uiComponent name="jaroslawzielinski_torahverse_siglumpick_form"/>
                 </block>
 
