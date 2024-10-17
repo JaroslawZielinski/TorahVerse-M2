@@ -189,7 +189,7 @@
 
                 <mode>random</mode>
 
-                <sliders><![CDATA[{"_1678942274965_965":{"code":"ann_quotes","slider":["ANN_MONTH_01","ANN_MONTH_02","ANN_MONTH_03","ANN_MONTH_04","ANN_MONTH_05","ANN_MONTH_06","ANN_MONTH_07","ANN_MONTH_08","ANN_MONTH_09","ANN_MONTH_10","ANN_MONTH_11","ANN_MONTH_12"]}}]]></sliders>
+                <sliders><![CDATA[{"_1678942274965_965":{"code":"annual_quotes","slider":["ANN_MONTH_01","ANN_MONTH_02","ANN_MONTH_03","ANN_MONTH_04","ANN_MONTH_05","ANN_MONTH_06","ANN_MONTH_07","ANN_MONTH_08","ANN_MONTH_09","ANN_MONTH_10","ANN_MONTH_11","ANN_MONTH_12"]}}]]></sliders>
             </custom_sliders>
         </jaroslawzielinski_torahverse>
 

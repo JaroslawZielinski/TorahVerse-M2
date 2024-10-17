@@ -43,6 +43,10 @@
                     <label>Service Link Enable</label>
 
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
                 </field>
 
                 <field id="sweep_time" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"

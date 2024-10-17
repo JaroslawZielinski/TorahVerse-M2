@@ -8,7 +8,7 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 abstract class AbstractUninstall extends AbstractDb
 {
-    protected const UNINSTALL_DATA = [
+    private const UNINSTALL_DATA = [
         'core_config_data' => 'DELETE FROM %s WHERE path LIKE "&jaroslawzielinski_torah&";',
         'layout_update' => 'DELETE FROM %s WHERE xml LIKE "&TorahVerse&";',
         'patch_list' => 'DELETE FROM %s WHERE patch_name LIKE "&TorahVerse&";',
@@ -16,14 +16,20 @@ abstract class AbstractUninstall extends AbstractDb
         'torahverse_verses' => 'DROP table %s;',
         'torahverse_groups' => 'DROP table %s;',
         'ui_bookmark' => 'DELETE FROM %s WHERE namespace LIKE "&jaroslawzielinski_torahverse&";',
-        'widget_instance' => 'DELETE FROM %s WHERE instance_type LIKE "&TorahVerse&";',
-        'cms_block' => 'DELETE FROM %s WHERE identifier LIKE "&dicta-ignacy-loyola&";'
+        'widget_instance' => 'DELETE FROM %s WHERE instance_type LIKE "&TorahVerse&";'
     ];
+
+    /**
+     */
+    protected function getUninstallData(): array
+    {
+        return self::UNINSTALL_DATA;
+    }
 
     public function unInstall(): void
     {
         $connection = $this->getConnection();
-        foreach (self::UNINSTALL_DATA as $tableNameItem => $queryItem) {
+        foreach ($this->getUninstallData() as $tableNameItem => $queryItem) {
             $tableName = $connection->getTableName($tableNameItem);
             $query = sprintf(
                 $queryItem,
