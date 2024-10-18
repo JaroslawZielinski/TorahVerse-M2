@@ -11,6 +11,56 @@ It is worth mentioning that this module uses library [Torah](https://github.com/
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jaroslawzielinski)
 
+# New Features:
+
+## Torah Input (frontend/backend)
+UI Component for selecting any bible address from any translation with preview both for frontend and for backend use.
+When selected you can click in the red label and surf to the address with bible service.
+
+### Frontend
+You can choose any adress from the bible you like:
+
+![](docs/torah_input_frontend.gif)
+
+### Backend
+You can edit bible adress value in the form by clicking _back_ button:
+
+![](docs/torah_input_backend.gif)
+
+## Torah Search
+
+Remark: _You need to index translations that you like to use. Run
+console command for f.e **bt**_:
+```
+bin/magento torah:cache:flush bt && bin/magento torah:cache:warm bt
+```
+
+### Searching options
+#### search:
+text for searching
+#### search in results:
+choose this option and add additionial condition
+#### search parts:
+filter the part of Torah you like (Tanakh, Nevi'im ketuvim, Brit Hadasha or Old Testamet, New Testament)
+#### case sensitive:
+changes case sensitivity
+#### verse context:
+choose 0, 1, 2 or 3 verses of context (up and down) within the chapter
+#### translation:
+choose one of 21 translations
+
+![](docs/search.gif)
+
+## Torah Annuals Group
+Annual Groups allow adding quote displayed in the specific day of the year. You may imagine set of 366 quotes for every day in the year.
+Using proper configuration you may display one quote per day around Your site or in the Admin Panel.
+
+In order to create annual quote you need to:
+* create a quote and fill the fields
+* assign to an annual group
+* name the code using last 4 characters of a quote code as date in this format: '{code}mmdd'
+f.e the quote for the 24 of October will be _'test_annual_quote1024'_
+
 # How to install
 in [packagist](https://packagist.org/packages/jaroslawzielinski/torahverse-m2)
 ```shell
@@ -88,6 +138,8 @@ Possible operations: **Add New Quote**, **Delete**, **Group Assign**, **Edit**
 Enable module / Disable module and disable menu.
 ### Menu enabled
 Enables/disables menu in the left bar (and access to the grids)
+### Service Link Enable
+This option allows to link to bible service on click (default is **on**)
 ### Sweep time
 Time value in milliseconds between slides (horizontal swipe)
 ### Is vertical sweep possible
