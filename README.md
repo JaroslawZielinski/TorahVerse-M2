@@ -39,7 +39,7 @@ bin/magento torah:cache:flush bt && bin/magento torah:cache:warm bt
 #### search:
 text for searching
 #### search in results:
-choose this option and add additionial condition
+choose this option and add additional condition
 #### search parts:
 filter the part of Torah you like (Tanakh, Nevi'im ketuvim, Brit Hadasha or Old Testamet, New Testament)
 #### case sensitive:
