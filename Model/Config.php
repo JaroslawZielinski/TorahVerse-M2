@@ -515,7 +515,8 @@ class Config
 
     public function isTorahInputBibleToolsEnabled(): bool
     {
-        return $this->scopeConfig
+        $cacheEnable = $this->isTorahCacheEnabled();
+        return $cacheEnable && $this->scopeConfig
             ->isSetFlag(self::CONFIG_PATH_TORAHINPUT_BIBLETOOLSENABLED, ScopeInterface::SCOPE_STORE);
     }
 
