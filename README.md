@@ -1,123 +1,132 @@
 # TorahVerse-M2
-Magento2 module providing Torah verses/quotes text sliders both for backend (by default) and for frontend.
 
-The length of available space is measured during slider display. Next the number of words for row division is 
-calculated. The first shown rows are presented. If the number of rows exceeds threshold set in configuration, 
-the verse is being scrolled vertically.
+A Magento2 module that provides dynamic Torah verse/quote sliders for both the backend (by default) and the frontend. 
+Whether you're a store admin or a customer, you can enjoy these engaging, responsive sliders.
 
-Thanks to above the widget is **R**esponsive **W**eb **D**esigned and can be shown on various types of devices.
+The module calculates the available space and adjusts the number of words per line to optimize the display. If the text 
+exceeds the configured row limit, the verse scrolls vertically, creating a seamless user experience. This ensures that 
+the widget is **R**esponsive **W**eb **D**esigned and works beautifully on all devices.
 
-It is worth mentioning that this module uses library [Torah](https://github.com/JaroslawZielinski/Torah), which is an API client with a caching (SQLite) option. This simple PHP library calls the [Bible Info](https://biblia.info.pl/) service and can store the response in cache (21 translations available). If you would like to learn more, please see the [link](https://github.com/JaroslawZielinski/Torah)...
+One of the most exciting aspects of this module is that it leverages the 
+[Torah](https://github.com/JaroslawZielinski/Torah) library, a powerful API client with built-in caching (via SQLite). 
+This PHP library pulls text from the [Bible Info](https://biblia.info.pl/) service, offering up to 21 different 
+translations. For more details, feel free to check out the [repository](https://github.com/JaroslawZielinski/Torah).
+
+If you're excited about this project and want to support its ongoing development, consider buying me a coffee! Your 
+support means a lot and helps keep this project alive.
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jaroslawzielinski)
 
 # New Features:
 
 ## Torah Input (frontend/backend)
-UI Component for selecting any bible address from any translation with preview both for frontend and for backend use.
-When selected you can click in the red label and surf to the address with bible service.
+This UI component allows you to select any Bible verse from any translation, with a preview available in both the 
+frontend and backend. Simply click the verse to navigate to the full passage on the Bible service.
 
 ### Frontend
-You can choose any adress from the bible you like:
+Choose any Bible verse you like:
 
 ![](docs/torah_input_frontend.gif)
 
 ### Backend
-You can edit bible adress value in the form by clicking _back_ button:
+Easily edit the Bible verse reference directly in the form (just click _back_ button):
 
 ![](docs/torah_input_backend.gif)
 
 ## Torah Search
 
-Remark: _You need to index translations that you like to use. Run
-console command for f.e **bt**_:
+Note: Before using the search feature, you need to index your preferred Bible translations by running the following command:
+console command for f.e **bt**:
 ```
 bin/magento torah:cache:flush bt && bin/magento torah:cache:warm bt
 ```
 
 ### Searching options
-#### search:
-text for searching
-#### search in results:
-choose this option and add additional condition
-#### search parts:
-filter the part of Torah you like (Tanakh, Nevi'im ketuvim, Brit Hadasha or Old Testamet, New Testament)
-#### case sensitive:
-changes case sensitivity
-#### verse context:
-choose 0, 1, 2 or 3 verses of context (up and down) within the chapter
-#### translation:
-choose one of 21 translations
+* **Search**: Enter the text you're looking for.
+* **Search in results**: Narrow down results with additional conditions.
+* **Search parts**: Filter by specific sections of the Torah (e.g., Tanakh, Nevi'im ketuvim, Brit Hadasha or Old Testamet, New Testament)
+* **Case-sensitive search**: Enable or disable case sensitivity.
+* **Verse context**: Choose to display surrounding verses for context.
+* **Translation**: Select one of 21 available translations.
 
 ![](docs/search.gif)
 
 ## Torah Annuals Group
-Annual Groups allow adding quote displayed in the specific day of the year. You may imagine set of 366 quotes for every day in the year.
-Using proper configuration you may display one quote per day around Your site or in the Admin Panel.
+This feature allows you to display a specific quote on a given day of the year—perfect for creating a daily inspiration
+widget! You can set up 366 quotes, one for each day of the year.
 
-In order to create annual quote you need to:
-* create a quote and fill the fields
-* assign to an annual group
-* name the code using last 4 characters of a quote code as date in this format: '{code}mmdd'
-f.e the quote for the 24 of October will be _'test_annual_quote1024'_
+To create an annual quote:
+* Create a quote and fill in the required fields.
+* Assign it to an annual group.
+* Name (field _'Code'_) the quote using a special code that includes the date (last 4 characters represent the month and day, e.g.,
+  _'quote1024'_ for October 24th).
 
-# How to install
-in [packagist](https://packagist.org/packages/jaroslawzielinski/torahverse-m2)
+# Installation Guide
+You can find the module on [Packagist](https://packagist.org/packages/jaroslawzielinski/torahverse-m2). To install:
 ```shell
 cd YourProject
 composer require jaroslawzielinski/torahverse-m2
 ```
-# How to Uninstall
-excecute in shell the following command (one step before removing the module):
+# Uninstallation
+To uninstall the module and revert all database changes, run the following command:
 
 ```ssh
 bin/magento torahverse:module:uninstall
 ```
-in order to restore all database changes
+
 # Text Slider Features
-## Types
-Backend part (**_Admin Panel Slider_**) is only for magento2 users/supporters but not for customers.
+## Backend Sliders
+The backend slider is visible only to Magento 2 users and supporters—customers won’t see this.
 
-Frontend part is available for magento2 customers in two types. First Type (**_Homepage Slider_**) is available
-only on Homepage in 5 placements (**Magento2** container name in layout):
-* **_'top.container'_** - After page header top
-* **_'content.top'_** - Main content top
-* **_'content.bottom'_** - Main content bottom
-* **_'page.bottom'_** - Before page footer
-* **_'footer'_** - Page footer',
-* **_'footer-container'_** - Page Footer Container
+## Frontend Sliders
 
-There is another frontend type available (**_Custom Sliders_**):
-You may place wherever you want, and as many as you wish.
-To configure your slider just add it here to the list (name it by **_'code'_** that use only letters (a-z or A-Z),
-numbers (0-9) or underscore (_) and the first character should be a letter.)
+For the frontend, you can choose between two slider types:
+1. **Homepage Slider**: Display the slider on the homepage in 5 different placements:
 
-You can insert the slider whatever place you want in Your Shop in Admin Panel 
-**[Main Menu -> CONTENT -> Elements -> Pages/Blocks/Widgets]** as 
-**_Torah Verse Custom Slider_** widget (just add code there - f.e. _tv_slider_01_, and configure the slider in 
-TorahVerse Configuration part -> **Custom Sliders**).
-## Modes
-### Randomized Auto play infinity loop (by default)
-In this mode items positions are random in item array and they are presented one by one in infinite loop. You can pause
-an element just by moving mouse cursor over it (the cursor will change to ![](docs/custom.png)).
-### Ordered Auto play infinity loop
-In this mode items positions in item array are the same as in the admin panel grid. Verses go first, the quotes go after
-from given group. The rest is similar to mode above.
-### Random view - static
-Only one random verse/quote is displayed per page view. When verse/quote has vertical scroll feature enabled it is
-scrolled only once. If you would like it to be scrolled again you must hover mouse on it in pause mode and wait. It will
-be scrolled as many times as it will be in pause mode.
-# Backend
+   * After the header: `top.container`
+   * At the top of the content: `content.top`
+   * At the bottom of the content: `content.bottom`
+   * Before the footer: `page.bottom`
+   * Inside the footer: `footer`, `footer-container`
+
+
+2. **Custom Sliders**: These can be placed anywhere on your site. Just create a slider and add it to any page, block, or 
+widget using the Admin Panel.
+
+After defining custom slider with code f.e. 'annual_quotes' (see [Slider Configurations](#slider-configurations)) you 
+can use it within CMS Block/CMS Page:
+
+![](docs/cms_content.gif)
+
+or create a CMS Widget:
+
+![](docs/cms_widget.gif)
+
+## Slider Modes
+### Randomized Auto-Play Infinite Loop
+Displays verses in a random order, continuously looping.
+### Ordered Auto-Play Infinite Loop
+Displays verses in the order they appear in the admin panel.
+### Random Static View
+Displays one random verse per page load.
+
+## More Features
+### Pause Mode
+Hover over the slider to pause the animation.
+### Group Colors
+Display group names and colors for easy organization.
+
+# Backend Features
 ## First steps
-### Log in to Admin panel
+### 1. Log in to the Admin Panel.
 ![](docs/tv_slider_01.png)
-You can see the slider at the top of the screen.
-### Enable Menu
+
+### 2. Enable the module from the configuration menu.
 ![](docs/tv_slider_02.png)
-Save and clear cache
+
 ![](docs/tv_slider_03.png)
-See the Torah Verse menu on the left bar.
-## See the available grids
+
+## 3. Add quotes and verses to different groups.
 ### Groups
 ![Groups grid](docs/tv_slider_07.png)
 Possible operations: **Add New Group**, **Delete**, **Edit**
@@ -132,7 +141,13 @@ Possible operations: **Add New Verse**, **Delete**, **Group Assign**, **Edit**
 ![Quotes grid](docs/tv_slider_11.png)
 Possible operations: **Add New Quote**, **Delete**, **Group Assign**, **Edit**
 ![Quotes grid](docs/tv_slider_12.png)
+### 4. Configure your sliders for the frontend and backend.
+
 # Configuration - Torah Verse
+
+The module offers extensive customization options, from verse text colors to slide timing. Easily tweak your sliders to 
+match your site’s style and layout.
+
 ## General Settings
 ### Enable
 Enable module / Disable module and disable menu.
@@ -166,6 +181,19 @@ Provides html template for user tweaks. Available keys are listed in comment.
 * **_{content}_** - quote content
 * **_{author}_** - quote author
 * **_{description}_** - quote description
+### Html Template for Annual Slider Frame
+Provides html template for user tweaks. Available keys are listed in comment.
+* **_{textColour}_** - colour for quote text
+* **_{colour}_** - colour for group border/group label background
+* **_{groupName}_** - name of a group
+* **_{antiColour}_** - contrast colour to group border/group label background
+* **_{name}_** - quote name
+* **_{content}_** - quote content
+* **_{author}_** - quote author
+* **_{description}_** - quote description
+* **_{description2}_** - quote description2
+* **_{description3}_** - quote description3
+
 ### Verses ordered
 Enables numbering for verses or plain text mode.
 ### Text Colour
@@ -243,17 +271,36 @@ unless you prefer the language written in button's label.
 ![Groups grid](docs/tv_slider_14.png)
 ## Torah Input
 ### Division
-You may choose division of books in Torah Input (e.g **Old Testament\New Testament**). Default value is 
+You may choose division of books in Torah Input (e.g. **Old Testament\New Testament**). Default value is 
 **Tanakh/Nevi'im ketuvim/Brithadasha**. This feature will be used in the future.
-### Torah Verse Search enabled
-Default value is **No**. If set to **Yes** it appears in menu in **Search** group as **Verse Search** where Torah input
- is presented. In the future the input will be customized (you will choose all of the options by just clicking it,
+### Bible Tools enabled
+Default value is **No**. If set to **Yes** it appears in menu in **Bible Tools** group as **Verse Config** where 
+**Verse Pick** and **Verse Search** are presented. In the future the input will be customized (you will choose all the options by just clicking it,
   without typing anything). The Torah input is also used in Admin Panel in Verse Grid (_Add New Verse/Edit_ action)
 ![Groups grid](docs/tv_slider_15.png)
 
-after clicking it will be opened in new tab (notice little square put next to the link) as a front page:
+after clicking, it will be opened in new tab (notice little square put next to the link) as a front page:
 
-![Groups grid](docs/tv_slider_17.png)
+![Groups grid](docs/tv_slider_17.gif)
+
+### Case Sensitive
+Default Option for **V**erse **S**earch form.
+### Division parts filter
+Default Option for **V**erse **S**earch form.
+### Results per page
+Default Option for **V**erse **S**earch form.
+## Library Settings
+### Cache Enable
+This option enables/disable API caching for Bible Service. Down bellow there are serveral indicators for Bible 
+Translations Cache state. 
+
+**100%** means the cache is warmed and all of the bible verses are stored in local DB (sqllite). **V**erse **S**earch 
+will be possible for cached Translation.
+
+**0%** means the cache is not ready. You can not use the **V**erse **S**earch for the translation then.
+
+![](docs/tv_slider_18.png)
+
 # Frontend
 ## Example uses
 ![Groups grid](docs/tv_slider_04.png)
@@ -268,3 +315,10 @@ _Notice_: You can configure it in  **Background Hover Colour**, **Custom Styles*
 * [Torah github](https://github.com/JaroslawZielinski/Torah)
 # Inspiration for vertical scroll
 * [Truthunedited](https://www.youtube.com/@Truthunedited) - presenting Torah verses
+
+
+Explore these features, play with the settings, and see how this module can elevate your **Magento2** site! And if you find 
+value in this, I'd greatly appreciate your support on **Buy Me a Coffee**—it helps keep projects like this alive.
+
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jaroslawzielinski)

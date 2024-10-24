@@ -37,10 +37,16 @@ class Collection extends AbstractCollection
             ->joinLeft(
                 ['groups' => $this->getTable('torahverse_groups')],
                 'main_table.group_id = groups.group_id',
-                ['groupName' => 'groups.name', 'colour_value', 'groupCode' => 'groups.code']
+                [
+                    'groupName' => 'groups.name',
+                    'colour_value',
+                    'groupCode' => 'groups.code',
+                    'code' => 'main_table.code'
+                ]
         );
         $this->addFilterToMap('groupName', 'groups.name');
         $this->addFilterToMap('groupCode', 'groups.code');
         $this->addFilterToMap('name', 'main_table.name');
+        $this->addFilterToMap('code', 'main_table.code');
     }
 }
