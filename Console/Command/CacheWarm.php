@@ -20,6 +20,8 @@ class CacheWarm extends Command
 {
     public const TRANSLATION = 'translation';
 
+    public const LIST = 'list';
+
     /**
      * @var array
      */
@@ -67,7 +69,8 @@ class CacheWarm extends Command
     {
         $this->setName('torah:cache:warm');
         $this->setDescription('JaroslawZielinski Torah cache warm');
-        $this->addArgument(self::TRANSLATION, InputArgument::REQUIRED, (string)__('Translation'));
+        $this->addOption(self::LIST,'l', $mode = null, (string)__('see translation codes avaiable.'));
+        $this->addArgument(self::TRANSLATION, InputArgument::OPTIONAL, (string)__('translation code'));
     }
 
     private function displayMessages(OutputInterface $output): int
@@ -83,25 +86,29 @@ class CacheWarm extends Command
         $this->messages[] = sprintf($message, ...$args);
     }
 
+    private function listTranslations(OutputInterface $output): void
+    {
+        foreach (Resources::TORAH_TRANSLATIONS as $code => $label) {
+            $output->writeln(
+                (string)__('%1 <fg=yellow;options=bold>%2</>', $code, str_replace(['&apos;'], ['\''], $label))
+            );
+        }
+    }
+
     /**
      * {@inheritDoc}
      * @throws \Exception
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->output = $output;
-        try {
-            $translation = $input->getArgument(self::TRANSLATION);
+        $translation = $input->getArgument(self::TRANSLATION) ?? null;
+        $list = $input->getOption(self::LIST);
+        if ($list) {
+            $this->listTranslations($output);
+        } else if ($translation && !$list) {
             $availableTranslations = array_keys(Resources::TORAH_TRANSLATIONS);
             if (!in_array($translation, $availableTranslations)) {
-                $availableTranslationsStr = print_r($availableTranslations, true);
-                $message = str_replace(['Array
-(
-', '
-)
-'], ['', ''], $availableTranslationsStr);
-            throw new \Exception(sprintf((string)__('Use one of the following available translations:
-%s'), $message));
+                throw new \Exception((string)__('Unkown translation: %1', $translation));
             }
             $this->warmCache->execute(
                 $translation,
@@ -109,16 +116,8 @@ class CacheWarm extends Command
                 [$this, 'iteration'],
                 [$this, 'end']
             );
-        } catch (\Exception $e) {
-            $message = sprintf(
-                '<fg=red;options=bold>Something went wrong</>: <fg=white>\'%s\'</>: <fg=yellow>
-%s</>.',
-                $e->getMessage(),
-                $e->getTraceAsString()
-            );
-            $this->logger->error($e->getMessage(), $e->getTrace());
-            $output->writeln($message);
-            return 1;
+        } else {
+            throw new \Exception(sprintf((string)__('Translation parameter empty.')));
         }
         return $this->displayMessages($output);
     }

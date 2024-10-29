@@ -207,24 +207,11 @@
             </argument>
         </column>
 
-        <column name="translation" class="JaroslawZielinski\TorahVerse\Ui\Component\Listing\Column\Verses\Translation">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
-                    <item name="label" xsi:type="string" translate="true">Translation</item>
-                    <item name="sortable" xsi:type="boolean">true</item>
-                    <item name="visible" xsi:type="boolean">true</item>
-                    <item name="sortOrder" xsi:type="number">60</item>
-                </item>
-            </argument>
-        </column>
-
         <actionsColumn name="actions" class="JaroslawZielinski\TorahVerse\Ui\Component\Listing\Column\Verses\Actions">
             <settings>
                 <indexField>verse_id</indexField>
                 <resizeEnabled>false</resizeEnabled>
-                <resizeDefaultWidth>70</resizeDefaultWidth>
+                <resizeDefaultWidth>60</resizeDefaultWidth>
             </settings>
         </actionsColumn>
 	</columns>

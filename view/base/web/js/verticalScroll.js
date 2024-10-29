@@ -1,6 +1,7 @@
 define([
-    'jquery'
-], function($) {
+    'jquery',
+    'timeFrameManager'
+], function($, timeFrameManager) {
     'use strict';
 
     const rowsOfGoodScroll = 20;
@@ -12,7 +13,6 @@ define([
             'content_shown_rows': 3,
             'onFinish': function (verticalScroll, vParentHtmlId, vHtmlId) {}
         },
-        nIntervalIDs: [],
         htmlID: null,
         parentHtmlID: null,
         previousHtml: null,
@@ -49,8 +49,8 @@ define([
          */
         _initScroll: function (element) {
             const self = this;
-            const htmlId = $(element).attr('id');
-            const listHtmlID = '#' + htmlId + ' .list';
+            const htmlId = '#' + $(element).attr('id');
+            const listHtmlID = htmlId + ' .list';
             self.lastLine = parseInt($('div:last', $(listHtmlID)).attr('class'));
             let emptyWagonsCount = 0;
             if (self.lastLine < rowsOfGoodScroll) {
@@ -64,10 +64,10 @@ define([
                     .appendTo($(listHtmlID));
             }
             //clear intervals
-            self.unScroll(htmlId);
+            timeFrameManager.unRegister(htmlId);
             //start vertical slider
-            self.nIntervalIDs[htmlId] = setInterval(function () {
-                $('#' + htmlId + ' .list')
+            timeFrameManager.register(htmlId, function () {
+                $(htmlId + ' .list')
                     .animate({scrollTop: 40}, 400, 'swing', function () {
                         $(this)
                             .find('div:last')
@@ -79,13 +79,6 @@ define([
                         }
                     });
             }, self.options.sweep_time);
-        },
-        unScroll: function (htmlId) {
-            const nInternalID = this.nIntervalIDs[htmlId];
-            if (nInternalID) {
-                clearInterval(nInternalID);
-            }
-            return nInternalID;
         }
     });
 

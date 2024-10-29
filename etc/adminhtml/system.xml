@@ -155,7 +155,7 @@
                     showInWebsite="1" showInStore="1">
                     <label>Html Template for Annual Slider Frame</label>
 
-                    <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
+                    <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>name</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong>, <strong>description2</strong>, <strong>description3</strong> written in {}]]></comment>
 
                     <depends>
                         <field id="enable">1</field>
@@ -168,7 +168,7 @@
                     showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Html Template for Annual Slider Frame</label>
 
-                    <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong> written in {}]]></comment>
+                    <comment><![CDATA[Key words: <strong>textColour</strong>, <strong>colour</strong>, <strong>groupName</strong>, <strong>antiColour</strong>, <strong>name</strong>, <strong>content</strong>, <strong>author</strong>, <strong>description</strong>, <strong>description2</strong>, <strong>description3</strong> written in {}]]></comment>
 
                     <depends>
                         <field id="enable">1</field>
@@ -688,6 +688,10 @@
                     <comment><![CDATA[<strong>Verse Pick</strong> and <strong>Verse Search</strong> enabled.]]></comment>
 
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
+                    <depends>
+                        <field id="jaroslawzielinski_torah/settings/cache_enable">1</field>
+                    </depends>
                 </field>
 
                 <field id="case_sensitive" translate="label comment" type="select" sortOrder="30" showInDefault="1"
@@ -701,6 +705,8 @@
 
                     <depends>
                         <field id="bibletools_enabled">1</field>
+
+                        <field id="jaroslawzielinski_torah/settings/cache_enable">1</field>
                     </depends>
                 </field>
 
@@ -716,6 +722,8 @@
 
                     <depends>
                         <field id="bibletools_enabled">1</field>
+
+                        <field id="jaroslawzielinski_torah/settings/cache_enable">1</field>
                     </depends>
                 </field>
 
@@ -730,6 +738,8 @@
 
                     <depends>
                         <field id="bibletools_enabled">1</field>
+
+                        <field id="jaroslawzielinski_torah/settings/cache_enable">1</field>
                     </depends>
                 </field>
 

@@ -8,7 +8,8 @@ var config = {
         }
     },
     paths: {
-        verseUtils: 'JaroslawZielinski_TorahVerse/js/verses/utils'
+        verseUtils: 'JaroslawZielinski_TorahVerse/js/verses/utils',
+        timeFrameManager: 'JaroslawZielinski_TorahVerse/js/verses/timeFrameManager'
     },
     shim: {
         verticalScroll: {

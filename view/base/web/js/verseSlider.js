@@ -1,8 +1,9 @@
 define([
     'jquery',
     'verticalScroll',
-    'verseUtils'
-], function($, verticalScroll, verseUtils) {
+    'verseUtils',
+    'timeFrameManager'
+], function($, verticalScroll, verseUtils, timeFrameManager) {
     'use strict';
 
     // Value related to Arial 14pt
@@ -26,8 +27,6 @@ define([
         max: null,
         wMax: 255,
         current: 0,
-        nIntervalIDs: [],
-        suppress: [],
         /**
          * Merge global options with options passed to widget invoke
          * @protected
@@ -56,6 +55,8 @@ define([
             htmlId += '_' + Math.floor(Math.random() * 1000);
             $(element).attr('id', htmlId);
             this.htmlID = htmlId;
+            const htmlSliderID = this.options.superHtmlId + '#' + this.htmlId;
+            timeFrameManager.unRegister(htmlSliderID);
         },
         /**
          * Init Verses Slider
@@ -103,11 +104,7 @@ define([
         _addResizeWindowEvent: function (element) {
             let self = this;
             $(window).resize(function() {
-                const htmlId = $(element).attr('id');
-                if (self.nIntervalIDs[htmlId]) {
-                    clearInterval(self.nIntervalIDs[htmlId]);
-                }
-                self.suppress[htmlId] = false;
+                timeFrameManager.reset();
                 //switch slider mode
                 self._initSlider(element);
             });
@@ -151,21 +148,20 @@ define([
         _moveInfiniteAutoPlayMode: function (element) {
             const self = this;
             const htmlId = $(element).attr('id');
+            const htmlSliderID = self.options.superHtmlId + '#' + htmlId;
             //initial Swipe;
             self._moveSingleRandomMode(element);
-            self.nIntervalIDs[htmlId] = setInterval(function () {
-                if (!self.suppress[htmlId]) {
-                    const isPaused = $(element).hasClass('paused-slider');
-                    if (!isPaused) {
-                        if (self.current + 1 < self.max) {
-                            self.current++;
-                        } else {
-                            self.current = 0;
-                        }
+            timeFrameManager.register(htmlSliderID, function () {
+                const isPaused = $(element).hasClass('paused-slider');
+                if (!isPaused) {
+                    if (self.current + 1 < self.max) {
+                        self.current++;
+                    } else {
+                        self.current = 0;
                     }
-                    self._moveSlide(element);
                 }
-            },self.options.sweep_time);
+                self._moveSlide(element);
+            }, self.options.sweep_time);
         },
         /**
          * @protected
@@ -182,14 +178,13 @@ define([
         _moveRandomMode: function (element) {
             const self = this;
             const htmlId = $(element).attr('id');
+            const htmlSliderID = self.options.superHtmlId + '#' + htmlId;
             //initial Swipe;
             self._moveSingleRandomMode(element);
-            self.nIntervalIDs[htmlId] = setInterval(function () {
-                if (!self.suppress[htmlId]) {
-                    const isPaused = $(element).hasClass('paused-slider');
-                    if (isPaused) {
-                        self._moveSlide(element);
-                    }
+            timeFrameManager.register(htmlSliderID, function () {
+                const isPaused = $(element).hasClass('paused-slider');
+                if (isPaused) {
+                    self._moveSlide(element);
                 }
             },self.options.sweep_time);
         },
@@ -228,18 +223,19 @@ define([
                 event.preventDefault();
             });
             const htmlSliderContent = verseUtils.stringToSliderStructure(data.content, self.wMax);
-            const htmlContentSelector = self.options.superHtmlId + '#' + self.htmlID + ' a .item .content';
+            const htmlSliderID = self.options.superHtmlId + '#' + self.htmlID;
+            const htmlContentSelector = htmlSliderID + ' a .item .content';
             document.querySelector(htmlContentSelector).innerHTML = htmlSliderContent;
             if (self.options.is_vertical_sweep_possible && self.options.content_shown_rows * self.wMax <= data.content.length) {
                 //event that content is too big (requires vertical scroll - more than 2 rows)
-                self.suppress[self.htmlID] = true;
+                timeFrameManager.suppress(htmlSliderID);
                 $(htmlContentSelector).verticalScroll({
-                    'parent_html_id': self.options.superHtmlId + self.htmlID,
+                    'parent_html_id': htmlSliderID,
                     'sweep_time': self.options.vertical_sweep_time,
                     'content_shown_rows': self.options.content_shown_rows,
                     'onFinish': function (verticalScroll, vParentHtmlId, vHtmlId) {
-                        self.suppress[vParentHtmlId] = false;
-                        verticalScroll.unScroll(vHtmlId);
+                        timeFrameManager.unSuppress(vParentHtmlId);
+                        timeFrameManager.unRegister(vHtmlId);
                     }
                 });
             }
