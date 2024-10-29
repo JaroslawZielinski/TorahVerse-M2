@@ -35,6 +35,8 @@ Easily edit the Bible verse reference directly in the form (just click _back_ bu
 
 ## Torah Search
 
+Search feature helps you find what you are looking for in the Bible. There are several options for searching available. The results are presented with pagination. You may choose the page (next, previous) and set amount data visible on a single page.
+
 Note: Before using the search feature, you need to index your preferred Bible translations by running the following command:
 console command for f.e **bt**:
 ```
@@ -318,7 +320,7 @@ _Notice_: You can configure it in  **Background Hover Colour**, **Custom Styles*
 
 
 Explore these features, play with the settings, and see how this module can elevate your **Magento2** site! And if you find 
-value in this, I'd greatly appreciate your support on **Buy Me a Coffee**—it helps keep projects like this alive.
+value in this, I'd greatly appreciate your support on [**Buy Me a Coffee**](https://www.buymeacoffee.com/jaroslawzielinski) — it helps keep projects like this alive.
 
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jaroslawzielinski)
