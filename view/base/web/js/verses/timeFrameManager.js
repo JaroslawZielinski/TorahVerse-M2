@@ -30,11 +30,11 @@ define([
             } catch (e) {}
         },
         register: function (ID, callBack, delay) {
-            let self = this;
             const suppressID = internalSlidersIndexes[ID];
             if (undefined !== suppressID) {
-                unRegister(ID);
+                this.unRegister(ID);
             }
+            let self = this;
             internalSlidersIndexes[ID] = setInterval(function() {
                 if (!suppressIndexes[ID]) {
                     callBack();
