@@ -28,6 +28,11 @@ class CacheWarm extends Command
     private $messages;
 
     /**
+     * @var WarmCache
+     */
+    private $warmCache;
+
+    /**
      * @var LoggerInterface
      */
     private $logger;
