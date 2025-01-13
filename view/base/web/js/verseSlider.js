@@ -125,7 +125,7 @@ define([
                         this._moveInfiniteAutoPlayMode(element);
                         break;
                     case 'random':
-                        this._moveRandomMode(element);
+                        this._moveSingleRandomMode(element);
                         break;
                 }
             } catch (e) {
@@ -170,23 +170,6 @@ define([
         _moveSingleRandomMode: function (element) {
             this.current = Math.floor(Math.random() * this.max);
             this._moveSlide(element);
-        },
-        /**
-         * @protected
-         * @param {Object} element
-         */
-        _moveRandomMode: function (element) {
-            const self = this;
-            const htmlId = $(element).attr('id');
-            const htmlSliderID = self.options.superHtmlId + '#' + htmlId;
-            //initial Swipe;
-            self._moveSingleRandomMode(element);
-            timeFrameManager.register(htmlSliderID, function () {
-                const isPaused = $(element).hasClass('paused-slider');
-                if (isPaused) {
-                    self._moveSlide(element);
-                }
-            },self.options.sweep_time);
         },
         /**
          * Move Single Verse Slide
