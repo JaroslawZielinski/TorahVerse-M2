@@ -1,0 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+namespace JaroslawZielinski\TorahVerse\Block\Widget\Static;
+
+use JaroslawZielinski\TorahVerse\Block\Widget\Slider\Custom;
+
+class Random extends Custom
+{
+    /**
+     * @inheritDoc
+     */
+    public function getConfig(): array
+    {
+        $config = parent::getConfig();
+        $config['mode'] = 'random';
+        return $config;
+    }
+}
