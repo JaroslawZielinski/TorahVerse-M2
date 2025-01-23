@@ -69,4 +69,62 @@
             </parameter>
         </parameters>
     </widget>
+
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Email\Static\Random" id="flat_static_random">
+        <label>Torah Verse Flat Static Random</label>
+
+        <description>Flat Static Torah Verse Random</description>
+
+        <parameters>
+            <parameter name="area" xsi:type="select"
+                source_model="JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Frontend" required="true"
+                sort_order="10">
+                <label translate="true">Area</label>
+            </parameter>
+
+            <parameter name="code" xsi:type="select"
+                source_model="JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Codes" sort_order="20">
+                <label translate="true">Code</label>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Email\Static\Selected" id="flat_static_selected">
+        <label>Torah Verse Flat Static Selected</label>
+
+        <description>Flat Static Torah Verse Selected</description>
+
+        <parameters>
+            <parameter name="area" xsi:type="select"
+                source_model="JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Frontend" required="true"
+                sort_order="10">
+                <label translate="true">Area</label>
+            </parameter>
+
+            <parameter name="siglum" xsi:type="text" sort_order="20">
+                <label translate="true">Siglum</label>
+                <value>bw/ro/10/9</value>
+            </parameter>
+
+            <parameter name="en" xsi:type="text" sort_order="30">
+                <label translate="true">English Translation</label>
+                <value>kjv</value>
+            </parameter>
+
+            <parameter name="pl" xsi:type="text" sort_order="40">
+                <label translate="true">Polish Translation</label>
+                <value>bw</value>
+            </parameter>
+
+            <parameter name="group_name" xsi:type="text" sort_order="50">
+                <label translate="true">Group Name</label>
+                <value>Test</value>
+            </parameter>
+
+            <parameter name="color_value" xsi:type="text" sort_order="60">
+                <label translate="true">Color Value</label>
+                <value>#5020df</value>
+            </parameter>
+        </parameters>
+    </widget>
 </widgets>

@@ -53,4 +53,24 @@ class Custom extends Slider
         $groupsArray = $this->config->getCustomSlider($this->getCode());
         return parent::getItems($groupsArray);
     }
+
+    /**
+     */
+    public function getItemFlatHtml(array $config): string
+    {
+        $item = reset($config['items']);
+        if (!!$config['is_group_colours']) {
+            $html = $item['group_colours_template'];
+        } else {
+            $html = $item['template'];
+        }
+        $data = array_merge($item['data'], [
+            'textColour' => $config['text_colour'],
+            'content' => sprintf(
+                '"%s"',
+                !!$config['verses_ordered'] ? $item['data']['content'] : $item['data']['unordered']
+            )
+        ]);
+        return Data::replaceMe($html, $data);
+    }
 }

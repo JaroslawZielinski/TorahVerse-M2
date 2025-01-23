@@ -22,10 +22,11 @@ use Magento\Framework\View\Page\Config as PageConfig;
 use Psr\Log\LoggerInterface;
 
 /**
- * @method string getSiglum()
- * @method string getGroupName()
- * @method string getColorValue()
- * @method string getLanguage()
+ * @method getSiglum(): string
+ * @method setSiglum(string $siglum): self
+ * @method getGroupName(): string
+ * @method getColorValue(): string
+ * @method getLanguage(): string
  */
 class Selected extends Custom
 {
