@@ -21,8 +21,51 @@
         <description>Custom Torah Verse Slider</description>
 
         <parameters>
-            <parameter name="code" xsi:type="text" sort_order="10">
+            <parameter name="code" xsi:type="select"
+                source_model="JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Codes" sort_order="10">
                 <label translate="true">Code</label>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Static\Random" id="static_random">
+        <label>Torah Verse Static Random</label>
+
+        <description>Static Torah Verse Random</description>
+
+        <parameters>
+            <parameter name="code" xsi:type="select"
+                source_model="JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Codes" sort_order="10">
+                <label translate="true">Code</label>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Static\Selected" id="static_selected">
+        <label>Torah Verse Static Selected</label>
+
+        <description>Static Torah Verse Selected</description>
+
+        <parameters>
+            <parameter name="siglum" xsi:type="text" sort_order="10">
+                <label translate="true">Siglum</label>
+                <value>bw/ro/10/9</value>
+            </parameter>
+
+            <parameter name="group_name" xsi:type="text" sort_order="20">
+                <label translate="true">Group Name</label>
+                <value>Test</value>
+            </parameter>
+
+            <parameter name="color_value" xsi:type="text" sort_order="30">
+                <label translate="true">Color Value</label>
+                <value>#5020df</value>
+            </parameter>
+
+            <parameter name="language" xsi:type="select"
+                source_model="JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Language" visible="true"
+                sort_order="40">
+                <label translate="true">Language</label>
             </parameter>
         </parameters>
     </widget>
