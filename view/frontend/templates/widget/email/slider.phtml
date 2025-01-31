@@ -1,0 +1,22 @@
+<?php
+    /** @var \JaroslawZielinski\TorahVerse\Block\Widget\Email\Static\Random|\JaroslawZielinski\TorahVerse\Block\Widget\Email\Static\Selected $block */
+    $config = $block->getConfig();
+    $customStyles = trim($block->getModuleCustomStyles() ?? '');
+    $backgroundHoverColour = $block->getBackgroundHoverColour() ?? 'none';
+?>
+<?php if ($block->isVisible()): ?>
+    <?php if (!empty($customStyles)): ?>
+        <style type="text/css">
+            /* <![CDATA[ */
+            .verse-slider.paused-slider {
+                background-color: <?= $backgroundHoverColour; ?>;
+            }
+            <?= $customStyles; ?>
+            .verse-slider .slider, .verse-slider .item { height: auto; }
+            /* ]]> */
+        </style>
+    <?php endif; ?>
+    <div class="verse-slider">
+        <?= $block->getItemFlatHtml($config); ?>
+    </div>
+<?php endif; ?>

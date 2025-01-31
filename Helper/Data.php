@@ -100,4 +100,13 @@ class Data extends AbstractHelper
         }
         return str_replace(['\''], ['`'], $input);
     }
+
+    public static function replaceMe (string $html, array $data): string
+    {
+        $result = $html;
+        foreach ($data as $key => $value) {
+            $result = str_replace('{' . $key . '}', (string)$value, $result);
+        }
+        return $result;
+    }
 }
