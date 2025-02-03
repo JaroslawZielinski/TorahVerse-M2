@@ -478,7 +478,7 @@ class Config
     public function getCustomSliders(): array
     {
         $serializedCustomSliders =
-            $this->scopeConfig->getValue(self::CONFIG_PATH_CUSTOM_SLIDERS) ?? '{}';
+            $this->scopeConfig->getValue(self::CONFIG_PATH_CUSTOM_SLIDERS, ScopeInterface::SCOPE_STORE) ?? '{}';
         return $this->jsonSerializer->unserialize($serializedCustomSliders);
     }
 

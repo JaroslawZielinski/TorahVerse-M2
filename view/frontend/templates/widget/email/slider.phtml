@@ -12,7 +12,8 @@
                 background-color: <?= $backgroundHoverColour; ?>;
             }
             <?= $customStyles; ?>
-            .verse-slider .slider, .verse-slider .item { height: auto; }
+            .verse-slider .slider, .verse-slider .item { height: unset !important; }
+            .verse-slider .content { max-height: unset !important; }
             /* ]]> */
         </style>
     <?php endif; ?>
