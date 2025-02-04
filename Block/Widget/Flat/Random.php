@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JaroslawZielinski\TorahVerse\Block\Widget\Static;
+namespace JaroslawZielinski\TorahVerse\Block\Widget\Flat;
 
 use JaroslawZielinski\TorahVerse\Block\Widget\Slider\Custom;
 

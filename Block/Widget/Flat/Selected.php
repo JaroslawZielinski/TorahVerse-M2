@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JaroslawZielinski\TorahVerse\Block\Widget\Static;
+namespace JaroslawZielinski\TorahVerse\Block\Widget\Flat;
 
 use GuzzleHttp\Client as GuzzleClient;
 use JaroslawZielinski\Torah\Bible\Torah\SiglumFactory;
