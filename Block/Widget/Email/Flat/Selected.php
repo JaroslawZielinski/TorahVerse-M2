@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace JaroslawZielinski\TorahVerse\Block\Widget\Email\Static;
+namespace JaroslawZielinski\TorahVerse\Block\Widget\Email\Flat;
 
 /**
  * @method setLanguage(string $language): self
  * @method getEn(): string
  * @method getPl(): string
  */
-class Selected extends \JaroslawZielinski\TorahVerse\Block\Widget\Static\Selected
+class Selected extends \JaroslawZielinski\TorahVerse\Block\Widget\Flat\Selected
 {
     /**
      * @inheritDoc

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace JaroslawZielinski\TorahVerse\Block\Widget\Email\Static;
+namespace JaroslawZielinski\TorahVerse\Block\Widget\Email\Flat;
 
-class Random extends \JaroslawZielinski\TorahVerse\Block\Widget\Static\Random
+class Random extends \JaroslawZielinski\TorahVerse\Block\Widget\Flat\Random
 {
     /**
      * @inheritDoc

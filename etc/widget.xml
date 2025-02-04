@@ -28,10 +28,10 @@
         </parameters>
     </widget>
 
-    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Static\Random" id="static_random">
-        <label>Torah Verse Static Random</label>
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Flat\Random" id="flat_random">
+        <label>Torah Verse Flat Random</label>
 
-        <description>Static Torah Verse Random</description>
+        <description>Flat Torah Verse Random</description>
 
         <parameters>
             <parameter name="code" xsi:type="select"
@@ -41,10 +41,10 @@
         </parameters>
     </widget>
 
-    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Static\Selected" id="static_selected">
-        <label>Torah Verse Static Selected</label>
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Flat\Selected" id="flat_selected">
+        <label>Torah Verse Flat Selected</label>
 
-        <description>Static Torah Verse Selected</description>
+        <description>Flat Torah Verse Selected</description>
 
         <parameters>
             <parameter name="siglum" xsi:type="text" sort_order="10">
@@ -70,10 +70,10 @@
         </parameters>
     </widget>
 
-    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Email\Static\Random" id="flat_static_random">
-        <label>Torah Verse Flat Static Random</label>
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Email\Flat\Random" id="email_flat_random">
+        <label>Torah Verse Email Flat Random</label>
 
-        <description>Flat Static Torah Verse Random</description>
+        <description>Email Flat Torah Verse Random</description>
 
         <parameters>
             <parameter name="area" xsi:type="select"
@@ -89,10 +89,10 @@
         </parameters>
     </widget>
 
-    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Email\Static\Selected" id="flat_static_selected">
-        <label>Torah Verse Flat Static Selected</label>
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Email\Flat\Selected" id="email_flat_selected">
+        <label>Torah Verse Email Flat Selected</label>
 
-        <description>Flat Static Torah Verse Selected</description>
+        <description>Email Flat Torah Verse Selected</description>
 
         <parameters>
             <parameter name="area" xsi:type="select"
