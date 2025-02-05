@@ -10,6 +10,9 @@
             padding: 0 0 10px;
             font-size: 1.5rem;
             text-align: left;
+            .admin__additional-info {
+                padding-top: 0;
+            }
         }
 
         &::before {
@@ -20,6 +23,10 @@
             .label-torah-div {
                 padding-top: 13px;
                 padding-bottom: 5px;
+                .label-torah {
+                    padding-top: 8px;
+                    display: block;
+                }
             }
             .label-torah, .label-torah a, .label-torah a:hover, .label-torah a:focus, .label-torah a:visited {
                 font-size: 32px;
@@ -29,14 +36,13 @@
             .label-torah a:hover, .label-torah a:focus, .label-torah a:visited {
                 text-decoration: none;
             }
-
             .buttons-grid-container {
                 width: 100%;
                 display: grid;
                 grid-template-columns: 1fr;
                 gap: 0rem;
                 .buttons-grid-item {
-                    padding: 0 0 10px;
+                    padding-top: 8px;
                     font-size: 1.5rem;
                     text-align: left;
                 }
@@ -44,7 +50,6 @@
                     content: unset;
                 }
             }
-
             /** @see https://www.turing.com/kb/responsive-layouts-using-css-grid **/
             .multibuttons-grid-container {
                 width: 100%;
@@ -64,6 +69,19 @@
                     content: unset;
                 }
             }
+
+            & + .siglum-grid-item {
+                padding: 0;
+                #indicator {
+                    padding-top: 8px;padding-top: 8px;
+                    display: block;
+                }
+            }
+            padding-bottom: 0;
+        }
+
+        #preview-result {
+            min-height: 120px;
         }
     }
 }

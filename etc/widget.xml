@@ -47,24 +47,39 @@
         <description>Flat Torah Verse Selected</description>
 
         <parameters>
-            <parameter name="siglum" xsi:type="text" sort_order="10">
+            <parameter name="siglum" xsi:type="block" required="true" visible="true" sort_order="10">
                 <label translate="true">Siglum</label>
-                <value>bw/ro/10/9</value>
+
+                <block class="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\InputTorah\SiglumObject">
+                    <data>
+                        <item name="initialValue" xsi:type="string">bw/ro/10/9</item>
+                    </data>
+                </block>
             </parameter>
 
-            <parameter name="group_name" xsi:type="text" sort_order="20">
+            <parameter name="en" xsi:type="text" sort_order="20">
+                <label translate="true">English Translation</label>
+                <value>kjv</value>
+            </parameter>
+
+            <parameter name="pl" xsi:type="text" sort_order="30">
+                <label translate="true">Polish Translation</label>
+                <value>bw</value>
+            </parameter>
+
+            <parameter name="group_name" xsi:type="text" sort_order="40">
                 <label translate="true">Group Name</label>
                 <value>Test</value>
             </parameter>
 
-            <parameter name="color_value" xsi:type="text" sort_order="30">
+            <parameter name="color_value" xsi:type="text" sort_order="50">
                 <label translate="true">Color Value</label>
                 <value>#5020df</value>
             </parameter>
 
             <parameter name="language" xsi:type="select"
                 source_model="JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Language" visible="true"
-                sort_order="40">
+                sort_order="60">
                 <label translate="true">Language</label>
             </parameter>
         </parameters>
@@ -101,9 +116,14 @@
                 <label translate="true">Area</label>
             </parameter>
 
-            <parameter name="siglum" xsi:type="text" sort_order="20">
+            <parameter name="siglum" xsi:type="block" required="true" visible="true" sort_order="20">
                 <label translate="true">Siglum</label>
-                <value>bw/ro/10/9</value>
+
+                <block class="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\InputTorah\SiglumObject">
+                    <data>
+                        <item name="initialValue" xsi:type="string">bw/ro/10/9</item>
+                    </data>
+                </block>
             </parameter>
 
             <parameter name="en" xsi:type="text" sort_order="30">

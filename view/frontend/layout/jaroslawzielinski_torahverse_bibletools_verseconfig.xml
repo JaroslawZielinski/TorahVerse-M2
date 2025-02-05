@@ -25,7 +25,26 @@
                 </arguments>
 
                 <block name="torahverse_pick" as="torahverse_pick" class="JaroslawZielinski\TorahVerse\Block\Pick">
-                    <uiComponent name="jaroslawzielinski_torahverse_siglumpick_form"/>
+                    <block class="JaroslawZielinski\TorahVerse\Block\Widget\InputTorah" name="input_Torah"
+                        as="input_Torah">
+                        <arguments>
+                            <argument name="html_id" xsi:type="string">input_Torah</argument>
+
+                            <argument name="config" xsi:type="array">
+                                <item name="initialValue" xsi:type="string">bw/ro/10/9</item>
+
+                                <item name="default_pl" xsi:type="string">bw/ro/10/9</item>
+
+                                <item name="default_en" xsi:type="string">kjv/ro/10/9</item>
+
+                                <item name="initialState" xsi:type="number">1</item>
+
+                                <item name="name" xsi:type="string">siglum</item>
+                            </argument>
+
+                            <argument name="view_model" xsi:type="object">JaroslawZielinski\TorahVerse\ViewModel\InputTorah</argument>
+                        </arguments>
+                    </block>
                 </block>
 
                 <block name="torahverse_search" as="torahverse_search" class="JaroslawZielinski\TorahVerse\Block\Search">
