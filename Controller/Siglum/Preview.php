@@ -73,7 +73,7 @@ EOT, $this->torah->getErrors());
             }
             $data['status'] = 'ok';
         } catch (\Exception $e) {
-            $previewText = $e->getMessage();
+            $previewText = __($e->getMessage());
             $data['status'] = 'error';
         }
         $data['result'] = $previewText;

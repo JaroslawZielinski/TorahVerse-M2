@@ -233,3 +233,4 @@
 "per page","per page"
 "<span class=""after-verse-translations"">To index translation (f.e 'bt') run console command: <br /> <span class=""console"">bin/magento torah:cache:flush bt && bin/magento torah:cache:warm bt</span></span>","<span class=""after-verse-translations"">To index translation (f.e 'bt') run console command: <br /> <span class=""console"">bin/magento torah:cache:flush bt && bin/magento torah:cache:warm bt</span></span>"
 "Select at least one checkbox.","Select at least one checkbox."
+"String format is not valid.","String format is not valid."

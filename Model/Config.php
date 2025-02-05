@@ -140,8 +140,6 @@ class Config
 
     public const CONFIG_PATH_TORAHINPUT_RESULTS_PER_PAGE = 'jaroslawzielinski_torah/torah_input/results_per_page';
 
-    public const PATH_STORE_LOCALE = 'general/locale/code';
-
     /**
      * @var ScopeConfigInterface
      */
@@ -539,11 +537,5 @@ class Config
     {
         return (string)$this->scopeConfig
             ->getValue(self::CONFIG_PATH_TORAHINPUT_RESULTS_PER_PAGE, ScopeInterface::SCOPE_STORE);
-    }
-
-    public function getStoreLocale(): ?string
-    {
-        $storeLocale = $this->scopeConfig->getValue(self::PATH_STORE_LOCALE, ScopeInterface::SCOPE_STORE);
-        return empty($storeLocale) ? null : (string)$storeLocale;
     }
 }
