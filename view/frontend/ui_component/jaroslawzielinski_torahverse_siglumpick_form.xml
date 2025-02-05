@@ -68,7 +68,8 @@
                     <item name="elementTmpl" xsi:type="string">JaroslawZielinski_TorahVerse/form/element/siglum</item>
                     <item name="dataScope" xsi:type="string">siglum</item>
                     <item name="filterOptions" xsi:type="boolean">true</item>
-                    <item name="default" xsi:type="string">bw/isa/1/1</item>
+                    <item name="default_pl" xsi:type="string">bw/isa/1/1</item>
+                    <item name="default_en" xsi:type="string">kjv/isa/1/1</item>
                     <item name="initialState" xsi:type="number">1</item>
                 </item>
             </argument>

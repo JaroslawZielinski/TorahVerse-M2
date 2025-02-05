@@ -16,6 +16,7 @@ use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Form\Field;
+use JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Language;
 
 class Siglum extends Field
 {
@@ -99,6 +100,24 @@ class Siglum extends Field
         $configuration['structure'] = $structure;
         $configuration['baseUrl'] = Client::getBaseUrl();
         $configuration['service_link_enable'] = $this->config->isModuleServiceLinkEnabled();
+        $defaultPl = $configuration['default_pl'];
+        $defaultEn = $configuration['default_en'];
+        $configuration['default'] = $this->setDefault($defaultPl, $defaultEn);
+        // TODO: set when siglum will be set externally
+        //$configuration['initialState'] = 6;
         return $configuration;
+    }
+
+    /**
+     */
+    private function setDefault(string $defaultPl, string $defaultEn): string
+    {
+        switch ($this->config->getInternalizationLanguage()) {
+            default:
+            case Language::LANGUAGE_EN:
+                return $defaultEn;
+            case Language::LANGUAGE_PL:
+                return $defaultPl;
+        }
     }
 }
