@@ -47,9 +47,14 @@
         <description>Flat Torah Verse Selected</description>
 
         <parameters>
-            <parameter name="siglum" xsi:type="text" sort_order="10">
+            <parameter name="siglum" xsi:type="block" required="true" visible="true" sort_order="10">
                 <label translate="true">Siglum</label>
-                <value>bw/ro/10/9</value>
+
+                <block class="JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\Siglum">
+                    <data>
+                        <item name="value" xsi:type="string">bw/ro/10/9</item>
+                    </data>
+                </block>
             </parameter>
 
             <parameter name="group_name" xsi:type="text" sort_order="20">
