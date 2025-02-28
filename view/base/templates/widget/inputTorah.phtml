@@ -1,0 +1,42 @@
+<?php
+    /** @var \JaroslawZielinski\TorahVerse\Block\Adminhtml\Widget\InputTorah|JaroslawZielinski\TorahVerse\Block\Widget\InputTorah $block */
+    $htmlId = $block->getHtmlId();
+    /** @var \JaroslawZielinski\TorahVerse\ViewModel\InputTorah $viewModel */
+    $viewModel = $block->getViewModel();
+    $configuration = $viewModel->getConfiguration($block->getConfig());
+    $defaultOptions = explode('/', $configuration['initialValue'] ?? 'bw/ro/10/8-10');
+    $defaultOption = $defaultOptions[0];
+    $options = $viewModel->getOptions();
+?>
+<div id="<?= $htmlId; ?>" class="siglum-grid-container" data-mage-init='{"inputTorah":
+    <?=  /* @noEscape */ $viewModel->arrayToJson($configuration); ?>}'>
+    <div class="siglum-grid-item">
+        <select id="translations" class="admin__control-select">
+            <?php foreach ($options as $option): ?>
+                <?php
+                    $label = $option['label'];
+                    $value = $option['value'];
+                ?>
+                <option data-title="<?= $label; ?>"
+                    value="<?= $value; ?>" <?php if ($defaultOption === $value): ?>selected<?php endif;?>>
+                    <?= $label; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <div id="buttons" class="siglum-grid-item"></div>
+
+    <div class="siglum-grid-item">
+        <span id="indicator" class="siglum-indicator"></span>
+
+        <input class="admin__control-text" name="<?= $configuration['name']; ?>" type="hidden"
+            value="<?= $configuration['initialValue']; ?>"/>
+    </div>
+
+    <div class="siglum-grid-item">
+        <div class="admin__additional-info">
+            <textarea id="preview-result" disabled="disabled"></textarea>
+        </div>
+    </div>
+</div>

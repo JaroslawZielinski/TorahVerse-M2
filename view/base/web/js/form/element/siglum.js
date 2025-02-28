@@ -67,6 +67,12 @@ define([
             this.bubble('update', this.hasChanged());
             this.validate();
         },
+        updateIndicator: function () {
+            $('.siglum-indicator').show();
+            if (6 === this.progressPointer) {
+                $('.siglum-indicator').hide();
+            }
+        },
         /**
          * Refresh buttons and add onclick handling
          */
@@ -122,6 +128,7 @@ define([
                     result = this.renderSetFinished();
                     break;
             }
+            this.updateIndicator();
             return result;
         },
         handleButtons: function () {

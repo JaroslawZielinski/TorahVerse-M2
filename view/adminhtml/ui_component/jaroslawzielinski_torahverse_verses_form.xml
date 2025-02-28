@@ -11,14 +11,18 @@
 
         <item name="config" xsi:type="array">
             <item name="dataScope" xsi:type="string">data</item>
+
             <item name="namespace" xsi:type="string">jaroslawzielinski_torahverse_verses_form</item>
         </item>
 
         <item name="buttons" xsi:type="array">
             <item name="back" xsi:type="array">
                 <item name="name" xsi:type="string">Back</item>
+
                 <item name="label" xsi:type="string" translate="true">Back</item>
+
                 <item name="class" xsi:type="string">back</item>
+
                 <item name="url" xsi:type="string">*/*/index</item>
             </item>
         </item>
@@ -62,6 +66,7 @@
             name="jaroslawzielinski_torahverse_verses_form_data_source">
             <settings>
                 <requestFieldName>verse_id</requestFieldName>
+
                 <primaryFieldName>verse_id</primaryFieldName>
             </settings>
         </dataProvider>
@@ -81,7 +86,9 @@
 
             <settings>
                 <dataType>text</dataType>
+
                 <visible>false</visible>
+
                 <dataScope>verse_id</dataScope>
             </settings>
         </field>
@@ -97,8 +104,11 @@
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
                 </validation>
+
                 <dataType>text</dataType>
+
                 <label translate="true">Code</label>
+
                 <dataScope>code</dataScope>
             </settings>
         </field>
@@ -114,8 +124,11 @@
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
                 </validation>
+
                 <dataType>text</dataType>
+
                 <label translate="true">Verse Name</label>
+
                 <dataScope>name</dataScope>
             </settings>
         </field>
@@ -124,19 +137,30 @@
             class="JaroslawZielinski\TorahVerse\Ui\Component\Form\Field\Siglum">
             <argument name="data" xsi:type="array">
                 <item name="options" xsi:type="object">JaroslawZielinski\TorahVerse\Model\Config\Source\Verses\Translation</item>
+
                 <item name="config" xsi:type="array">
                     <item name="template" xsi:type="string">JaroslawZielinski_TorahVerse/field</item>
+
                     <item name="source" xsi:type="string">verses</item>
+
                     <item name="additionalInfo" xsi:type="string" translate="true"><![CDATA[
                         <textarea id="preview-result" disabled></textarea>
                     ]]></item>
+
                     <item name="previewUrl" xsi:type="string">jaroslawzielinski_torahverse/siglum/preview</item>
+
                     <item name="structureUrl" xsi:type="string">jaroslawzielinski_torahverse/siglum/structure</item>
+
                     <item name="componentType" xsi:type="string">field</item>
+
                     <item name="component" xsi:type="string">JaroslawZielinski_TorahVerse/js/form/element/siglum</item>
+
                     <item name="elementTmpl" xsi:type="string">JaroslawZielinski_TorahVerse/form/element/siglum</item>
+
                     <item name="dataScope" xsi:type="string">siglum</item>
+
                     <item name="filterOptions" xsi:type="boolean">true</item>
+
                     <item name="initialState" xsi:type="number">6</item>
                 </item>
             </argument>
@@ -145,8 +169,11 @@
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
                 </validation>
+
                 <dataType>text</dataType>
+
                 <visible>true</visible>
+
                 <label translate="true">Siglum</label>
             </settings>
         </field>
@@ -155,6 +182,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">verses</item>
+
                     <item name="default" xsi:type="number">0</item>
                 </item>
             </argument>
@@ -163,9 +191,13 @@
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
                 </validation>
+
                 <dataType>string</dataType>
+
                 <label translate="true">Group</label>
+
                 <dataScope>group_id</dataScope>
+
                 <visible>true</visible>
             </settings>
 

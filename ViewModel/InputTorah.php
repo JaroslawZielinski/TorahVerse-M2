@@ -2,24 +2,33 @@
 
 declare(strict_types=1);
 
-namespace JaroslawZielinski\TorahVerse\Ui\Component\Form\Field;
+namespace JaroslawZielinski\TorahVerse\ViewModel;
 
 use JaroslawZielinski\Torah\Bible\Service\Online\Client;
-use JaroslawZielinski\Torah\Bible\Torah;
 use JaroslawZielinski\Torah\Translations\Resources;
 use JaroslawZielinski\TorahVerse\Model\Config;
 use JaroslawZielinski\TorahVerse\Model\Config\Source\Verses\Division;
 use JaroslawZielinski\TorahVerse\Model\TorahFactory;
 use JaroslawZielinski\TorahVerse\Model\Verse;
 use Magento\Framework\App\Request\DataPersistorInterface;
-use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\View\Element\UiComponent\ContextInterface;
-use Magento\Framework\View\Element\UiComponentFactory;
-use Magento\Ui\Component\Form\Field;
+use Magento\Framework\View\Element\Block\ArgumentInterface;
+use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
+use JaroslawZielinski\TorahVerse\Helper\Data;
+use JaroslawZielinski\TorahVerse\Model\Config\Source\Verses\Translation as TranslationOptions;
 use JaroslawZielinski\TorahVerse\Model\Config\Source\Sliders\Language;
 
-class Siglum extends Field
+class InputTorah implements ArgumentInterface
 {
+    /**
+     * @var TranslationOptions
+     */
+    private $translationOptions;
+
+    /**
+     * @var JsonSerializer
+     */
+    private $jsonSerializer;
+
     /**
      * @var DataPersistorInterface
      */
@@ -36,23 +45,23 @@ class Siglum extends Field
     private $torahFactory;
 
     /**
-     * @inheritDoc
      */
     public function __construct(
+        TranslationOptions $translationOptions,
+        JsonSerializer $jsonSerializer,
         DataPersistorInterface $dataPersistor,
         Config $config,
         TorahFactory $torahFactory,
-        ContextInterface $context,
-        UiComponentFactory $uiComponentFactory,
-        array $components = [],
-        array $data = []
     ) {
+        $this->translationOptions = $translationOptions;
+        $this->jsonSerializer = $jsonSerializer;
         $this->dataPersistor = $dataPersistor;
         $this->config = $config;
         $this->torahFactory = $torahFactory;
-        parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
+    /**
+     */
     protected function getDivision(): array
     {
         switch ($this->config->getTorahInputDivision()) {
@@ -64,12 +73,15 @@ class Siglum extends Field
         }
     }
 
+    public function setConfig(array $config): self
+    {
+        $this->config = $config;
+        return $this;
+    }
+
     /**
-     * {@inheritDoc}
-     *
-     * @throws LocalizedException
      */
-    public function getConfiguration(): array
+    public function getConfiguration(array $configuration = []): array
     {
         $torah = $this->torahFactory->create();
         $structure = [];
@@ -79,13 +91,13 @@ class Siglum extends Field
             $subStructure = $translation->getBooks();
             $structure[$translationCode] = $subStructure;
         }
-        $configuration = parent::getConfiguration();
         /** @var Verse $verse */
         $verse = $this->dataPersistor->get('jaroslawzielinski_verses');
         if (!empty($verse) && $verse->isObjectNew()) {
             $configuration['initialState'] = 1;
         }
-        $configuration['language'] = $this->config->getInternalizationLanguage();
+        $internalizationLanguage = $this->config->getInternalizationLanguage();
+        $configuration['language'] = $internalizationLanguage;
         $configuration['division'] = $this->getDivision();
         $divisionTranslation = [];
         array_map(
@@ -103,23 +115,30 @@ class Siglum extends Field
         $defaultPl = $configuration['default_pl'] ?? null;
         $defaultEn = $configuration['default_en'] ?? null;
         if (!empty($defaultPl) && !empty($defaultEn)) {
-            $configuration['default'] = $this->setDefault($defaultPl, $defaultEn);
+            switch ($internalizationLanguage) {
+                case Language::LANGUAGE_PL:
+                    $configuration['initialValue'] = $defaultPl;
+                    break;
+                default:
+                case Language::LANGUAGE_EN;
+                $configuration['initialValue'] = $defaultEn;
+                    break;
+            }
         }
-        // TODO: set when siglum will be set externally
-        //$configuration['initialState'] = 6;
         return $configuration;
     }
 
     /**
      */
-    private function setDefault(string $defaultPl, string $defaultEn): string
+    public function arrayToJson(array $inputArray): string
     {
-        switch ($this->config->getInternalizationLanguage()) {
-            default:
-            case Language::LANGUAGE_EN:
-                return $defaultEn;
-            case Language::LANGUAGE_PL:
-                return $defaultPl;
-        }
+        return Data::escapeQuotes($this->jsonSerializer->serialize($inputArray));
+    }
+
+    /**
+     */
+    public function getOptions(): array
+    {
+        return $this->translationOptions->toOptionArray();
     }
 }

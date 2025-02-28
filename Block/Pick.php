@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace JaroslawZielinski\TorahVerse\Block;
 
 use Magento\Framework\View\Element\Template;
-use Magento\Ui\Component\Wrapper\UiComponent;
 
 class Pick extends Template
 {
@@ -19,20 +18,19 @@ class Pick extends Template
     }
 
     /**
-     *  Returns component ui form field (value part)
      */
-    private function getVersePickComponent(): ?UiComponent
+    private function getInputTorahBlock()
     {
-        $uiComponents = $this->_layout->getAllBlocks();
-        return $uiComponents['jaroslawzielinski_torahverse_siglumpick_form'] ?? null;
+        return $this->getChildBlock('input_Torah');
     }
 
     /**
      */
-    public function getVersePickComponentHtml(): string
+    public function getInputTorahBlockHtml(): string
     {
-        $uiVersePickComponent = $this->getVersePickComponent();
-        return !empty($uiVersePickComponent) ? $uiVersePickComponent->toHtml() : 'empty';
+        /** @var  $inputTorahBlock */
+        $inputTorahBlock = $this->getInputTorahBlock();
+        return !empty($inputTorahBlock) ? $inputTorahBlock->toHtml() : 'empty';
     }
 
     /**

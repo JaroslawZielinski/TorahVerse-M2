@@ -4,7 +4,8 @@ var config = {
             verseSlider: 'JaroslawZielinski_TorahVerse/js/verseSlider',
             verticalScroll: 'JaroslawZielinski_TorahVerse/js/verticalScroll',
             siglumInput: 'JaroslawZielinski_TorahVerse/js/form/element/siglum',
-            verseUtils: 'JaroslawZielinski_TorahVerse/js/verses/utils'
+            verseUtils: 'JaroslawZielinski_TorahVerse/js/verses/utils',
+            inputTorah: 'JaroslawZielinski_TorahVerse/js/inputTorah'
         }
     },
     paths: {
@@ -20,6 +21,9 @@ var config = {
         },
         siglumInput: {
             deps: ['verseUtils']
+        },
+        inputTorah: {
+            deps: ['jquery']
         }
     }
 };

@@ -2,6 +2,6 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <css src="JaroslawZielinski_TorahVerse::css/form/element/siglum.css"/>
+        <css src="JaroslawZielinski_TorahVerse::css/widget/inputTorah.css"/>
     </head>
 </page>
