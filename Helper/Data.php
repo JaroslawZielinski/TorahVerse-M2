@@ -98,7 +98,7 @@ class Data extends AbstractHelper
         if (empty($input)) {
             return null;
         }
-        return str_replace(['\''], ['`'], $input);
+        return str_replace(['\''], ['&#39;'], $input);
     }
 
     public static function replaceMe (string $html, array $data): string

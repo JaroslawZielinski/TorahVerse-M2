@@ -9,20 +9,20 @@
         <% if (isFinished === 'true') { %>
             <span class="label-torah">
                 <% if (service_link_enable === 'true') { %>
-                    <a href="<%= baseUrl %><%= label %>" target="_blank"><%= label %></a>
+                    <a href="<%= baseUrl %><%= label %>" target="_blank"><%= _.i18n(label) %></a>
                 <% } else { %>
-                    <a class="click-off"><%= label %></a>
+                    <a class="click-off"><%= _.i18n(label) %></a>
                 <% } %>
             </span>
         <% } else { %>
-            <span class="label-torah"><%= label %></span>
+            <span class="label-torah"><%= _.i18n(label) %></span>
         <% } %>
     </div>
 
     <div class="buttons-grid-item multibuttons-grid-container">
         <% _.each(buttons, function(value, key) { %>
             <div class="multibuttons-grid-item">
-                <button type="button" class="btn-torah btn btn-warning" data-id="<%= key %>"><%= value %></button>
+                <button type="button" class="btn-torah btn btn-warning" data-id="<%= key %>"><%= _.i18n(value) %></button>
             </div>
         <% }); %>
     </div>
