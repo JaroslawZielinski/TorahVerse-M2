@@ -10,7 +10,6 @@ use JaroslawZielinski\TorahVerse\Model\Config;
 use JaroslawZielinski\TorahVerse\Model\Config\Source\Verses\Division;
 use JaroslawZielinski\TorahVerse\Model\TorahFactory;
 use JaroslawZielinski\TorahVerse\Model\Verse;
-use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 use JaroslawZielinski\TorahVerse\Helper\Data;
@@ -30,11 +29,6 @@ class InputTorah implements ArgumentInterface
     private $jsonSerializer;
 
     /**
-     * @var DataPersistorInterface
-     */
-    private $dataPersistor;
-
-    /**
      * @var Config
      */
     private $config;
@@ -49,13 +43,11 @@ class InputTorah implements ArgumentInterface
     public function __construct(
         TranslationOptions $translationOptions,
         JsonSerializer $jsonSerializer,
-        DataPersistorInterface $dataPersistor,
         Config $config,
         TorahFactory $torahFactory,
     ) {
         $this->translationOptions = $translationOptions;
         $this->jsonSerializer = $jsonSerializer;
-        $this->dataPersistor = $dataPersistor;
         $this->config = $config;
         $this->torahFactory = $torahFactory;
     }
@@ -73,6 +65,8 @@ class InputTorah implements ArgumentInterface
         }
     }
 
+    /**
+     */
     public function setConfig(array $config): self
     {
         $this->config = $config;
@@ -90,11 +84,6 @@ class InputTorah implements ArgumentInterface
             $translation = $torah->getResourceByTranslationCode($translationCode);
             $subStructure = $translation->getBooks();
             $structure[$translationCode] = $subStructure;
-        }
-        /** @var Verse $verse */
-        $verse = $this->dataPersistor->get('jaroslawzielinski_verses');
-        if (!empty($verse) && $verse->isObjectNew()) {
-            $configuration['initialState'] = 1;
         }
         $internalizationLanguage = $this->config->getInternalizationLanguage();
         $configuration['language'] = $internalizationLanguage;
