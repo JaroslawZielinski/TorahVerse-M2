@@ -99,7 +99,7 @@
 
     <div class="search-grid-container">
         <div class="search-grid-item">
-            <label for="verse-translation">
+            <label for="verse-translations">
                 <?= __('Translation'); ?>:
             </label>
         </div>
@@ -111,10 +111,10 @@
 
     <div class="search-grid-container">
         <div class="search-grid-item">
-            <label for="search-results" class="inactive"><?= __('Search Results'); ?>:</label>
+            <span id=search-results-label" class="inactive"><?= __('Search Results'); ?>:</span>
         </div>
 
-        <div id="search-results" class="search-grid-item">&nbsp;</div>
+        <div aria-labelledby="search-results-label" id="search-results" class="search-grid-item">&nbsp;</div>
     </div>
 </form>
 
