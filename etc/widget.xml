@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Slider\Homepage" id="slider_homepage">
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Slider\Homepage" id="slider_homepage"
+        placeholder_image="JaroslawZielinski_TorahVerse::images/torahverse.png">
         <label>Torah Verse Homepage Slider</label>
 
         <description>Torah Verse Slider on Homepage</description>
@@ -15,7 +16,8 @@
         </parameters>
     </widget>
 
-    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Slider\Custom" id="slider_custom">
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Slider\Custom" id="slider_custom"
+        placeholder_image="JaroslawZielinski_TorahVerse::images/torahverse.png">
         <label>Torah Verse Custom Slider</label>
 
         <description>Custom Torah Verse Slider</description>
@@ -28,7 +30,8 @@
         </parameters>
     </widget>
 
-    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Flat\Random" id="flat_random">
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Flat\Random" id="flat_random"
+        placeholder_image="JaroslawZielinski_TorahVerse::images/torahverse.png">
         <label>Torah Verse Flat Random</label>
 
         <description>Flat Torah Verse Random</description>
@@ -41,7 +44,8 @@
         </parameters>
     </widget>
 
-    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Flat\Selected" id="flat_selected">
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Flat\Selected" id="flat_selected"
+        placeholder_image="JaroslawZielinski_TorahVerse::images/torahverse.png">
         <label>Torah Verse Flat Selected</label>
 
         <description>Flat Torah Verse Selected</description>
@@ -85,7 +89,8 @@
         </parameters>
     </widget>
 
-    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Email\Flat\Random" id="email_flat_random">
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Email\Flat\Random" id="email_flat_random"
+        placeholder_image="JaroslawZielinski_TorahVerse::images/torahverse.png">
         <label>Torah Verse Email Flat Random</label>
 
         <description>Email Flat Torah Verse Random</description>
@@ -104,7 +109,8 @@
         </parameters>
     </widget>
 
-    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Email\Flat\Selected" id="email_flat_selected">
+    <widget class="JaroslawZielinski\TorahVerse\Block\Widget\Email\Flat\Selected" id="email_flat_selected"
+        placeholder_image="JaroslawZielinski_TorahVerse::images/torahverse.png">
         <label>Torah Verse Email Flat Selected</label>
 
         <description>Email Flat Torah Verse Selected</description>
