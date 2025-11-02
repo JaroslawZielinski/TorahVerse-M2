@@ -106,6 +106,7 @@ class CacheWarm extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $this->output = $output;
         $translation = $input->getArgument(self::TRANSLATION) ?? null;
         $list = $input->getOption(self::LIST);
         if ($list) {
