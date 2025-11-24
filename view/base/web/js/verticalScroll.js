@@ -61,23 +61,40 @@ define([
             for (let i = 0; i < emptyWagonsCount; i++) {
                 $('<div>', {class: i + self.lastLine + 1})
                     .html('&nbsp;')
+                    .addClass('empty-wagon')
                     .appendTo($(listHtmlID));
             }
             //clear intervals
             timeFrameManager.unRegister(htmlId);
             //start vertical slider
             timeFrameManager.register(htmlId, function () {
-                $(htmlId + ' .list')
-                    .animate({scrollTop: 40}, 400, 'swing', function () {
-                        $(this)
-                            .find('div:last')
-                            .after($('div:first', this));
-                        const currentSlide = parseInt($('div:first', this).attr('class'));
-                        if (self.lastLine === currentSlide) {
-                            $(element).html(self.previousHtml);
-                            self.options.onFinish(self, self.parentHtmlID, htmlId);
+                const $list = $(htmlId + ' .list');
+                const slideHeight = $list.find('div:first').outerHeight(true);
+                const pixelsPerSecond = 10;
+                const duration = (slideHeight / pixelsPerSecond) * 1000;
+                function scrollNext() {
+                    // Immediately continue scrolling
+                    $list.animate({scrollTop: slideHeight}, {
+                        duration: duration,
+                        easing: 'linear',
+                        complete: function () {
+                            // Move element
+                            $list.find('div:last').after($list.find('div:first'));
+                            $list.scrollTop(0);
+                            const $lastDiv = $list.find('div.empty-wagon:first');
+                            const $lastDivNumber = parseInt($lastDiv.attr('class'));
+                            const $firstDiv = $list.find('div:first');
+                            const currentSlide = parseInt($firstDiv.attr('class'));
+                            if ($lastDivNumber <= currentSlide) {
+                                $(element).html(self.previousHtml);
+                                self.options.onFinish(self, self.parentHtmlID, htmlId);
+                            } else {
+                                scrollNext();
+                            }
                         }
                     });
+                }
+                scrollNext();
             }, self.options.sweep_time);
         }
     });
