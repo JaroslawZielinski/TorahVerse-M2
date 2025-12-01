@@ -51,7 +51,7 @@ define([
             const self = this;
             const htmlId = '#' + $(element).attr('id');
             const listHtmlID = htmlId + ' .list';
-            self.lastLine = parseInt($('div:last', $(listHtmlID)).attr('class'));
+            self.lastLine = parseInt($('div:last', $(listHtmlID)).attr('data-id'));
             let emptyWagonsCount = 0;
             if (self.lastLine < rowsOfGoodScroll) {
                 emptyWagonsCount = rowsOfGoodScroll - self.lastLine;
@@ -59,7 +59,7 @@ define([
                 emptyWagonsCount = self.options.content_shown_rows;
             }
             for (let i = 0; i < emptyWagonsCount; i++) {
-                $('<div>', {class: i + self.lastLine + 1})
+                $('<div>', {"data-id": i + self.lastLine + 1})
                     .html('&nbsp;')
                     .addClass('empty-wagon')
                     .appendTo($(listHtmlID));
@@ -82,9 +82,9 @@ define([
                             $list.find('div:last').after($list.find('div:first'));
                             $list.scrollTop(0);
                             const $lastDiv = $list.find('div.empty-wagon:first');
-                            const $lastDivNumber = parseInt($lastDiv.attr('class'));
+                            const $lastDivNumber = parseInt($lastDiv.attr('data-id'));
                             const $firstDiv = $list.find('div:first');
-                            const currentSlide = parseInt($firstDiv.attr('class'));
+                            const currentSlide = parseInt($firstDiv.attr('data-id'));
                             if ($lastDivNumber <= currentSlide) {
                                 $(element).html(self.previousHtml);
                                 self.options.onFinish(self, self.parentHtmlID, htmlId);

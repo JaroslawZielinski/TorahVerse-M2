@@ -55,7 +55,7 @@ define([
             preparedHtml.classList.add('list');
             for (let i = 0; i < lines.length; i++) {
                 let div = document.createElement('div');
-                div.classList.add(i);
+                div.setAttribute('data-id', i);
                 div.innerHTML = lines[i];
                 preparedHtml.appendChild(div);
             }
@@ -96,8 +96,8 @@ define([
          * @returns {*}
          */
         findIt: function (haystack, needle) {
-            return haystack.filter(function(obj) {
-                return Object.keys(obj).some(function(key) {
+            return haystack.filter(function (obj) {
+                return Object.keys(obj).some(function (key) {
                     switch (typeof obj[key]) {
                         default:
                         case 'string':
@@ -132,7 +132,7 @@ define([
          * @returns {boolean}
          */
         isEmpty: function (str) {
-            return (!str || str.length === 0 );
+            return (!str || str.length === 0);
         },
         ajaxGetItJson: function (ajaxUrl, data, callBack, isLoader) {
             let self = this;
